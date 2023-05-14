@@ -1,0 +1,90 @@
+https://syntystore.com/pages/end-user-licence-agreement
+
+As at 11 October 2022
+
+*Humble Bundle Licence
+
+The licence for the HUMBLE BUNDLE is limited to one seat only.
+
+THE BEST OF POLYGON BUNDLE #1, #2 and #3 (2023, 2022, 2021). Assets are downloadable from Synty Store and are non transferable to any other store.
+
+HUMBLE BEST OF POLYGON GAME DEV BUNDLE (2020) Assets are downloadable on the Humble bundle website and are non transferable to any other store.
+
+Assets from the Humble Bundle can be used in commercial games 
+
+End User Licence Agreement
+This End User Licence Agreement (or EULA) is a legal agreement between you and Synty Studios Limited, governing your rights and obligations in relation to our Assets. By purchasing or downloading our Assets from a Store, you accept the terms of this EULA. In this EULA, certain words and phrases have the meanings given below.
+
+Asset means a digital asset that we offer for purchase through a Store, or free to download on our website.
+
+Product means any videogame (which will always be covered by your licence), or any other product or production that we agree with you in writing as being covered by your licence.
+
+Store means the Synty Store, Unreal Marketplace, or any other store where we offer Assets for purchase or download (excluding the Unity Asset Store).
+
+Your Team means all employees, contractors and other collaborators working in a technical or creative role on any one or more Products that incorporate the licensed Assets, excluding anyone working solely as a producer or project manager, or solely on music or audio.
+
+We/Us/Our means Synty Studios Limited.
+
+You means the individual or organisation who purchases or downloads Assets through a Store or our website.
+
+Your licence entitlements
+When you purchase an Asset from a Store, you are purchasing a licence to the Asset. We retain all intellectual property in the Asset, but the licence gives you the entitlements outlined below, with certain restrictions that depend on the type of licence purchased. Unless stated otherwise in the documentation that comes with your purchase, your licence is a Standard Licence, with the restrictions outlined below.
+
+Subject to the restrictions below, once you have paid the purchase price specified in the Store or agreed with Us in writing, your licence entitles you:
+
+to incorporate the Asset into Products produced under your direct control, and into promotional materials (graphics, videos or print media) for those Products
+to publish, distribute, transmit, broadcast, communicate, show and play the Asset as incorporated into those Products and promotional materials
+to adapt the Asset for the purpose of doing any of the above, and to do any of the above with the Asset as so adapted, and
+to authorise third parties to do any of the above, but only in relation to Products produced under your direct control, and promotional materials for those Products.
+Modifying an Asset does not mean you own that Asset, or that you can do anything with that Asset beyond what is specifically allowed in this EULA.
+
+END USER will be prohibited from using the asset license for the following products:
+Creation of Non-Fungible-Tokens (NFT) and/or use in Blockchain based projects or products.
+Creation of content for Metaverse-related and/or game creation software and products.
+Standard/Educational Licence
+Features and restrictions -  
+
+If you purchase a Standard Licence:
+
+Your licence is perpetual, and cannot be terminated except as stated in this EULA.
+Unless stated otherwise in the documentation that comes with your purchase, each single licence purchase you make includes five seats for your Team. You must purchase enough licences to give you at least as many seats as there are people in your Team, taking the highest count at the time of purchase or any time afterwards. If your Team grows to exceed the number of seats already paid for, you must immediately purchase additional licences to make up the difference. We will make each extra licence available at the same list price as applied when you paid for the original licence (ignoring any special, discount or other promotional price), or a lower price if we agree this in writing with you. If you need licences for more than five seats, get in touch here to see if we can offer a discounted rate.
+Other features
+The licence is non-exclusive.
+Provided you pay the required purchase price, the licence is royalty-free.
+The licence is worldwide, and is not limited by game engine, OS, platform or device. You can transfer the licence to another entity that acquires all or substantially all of the rights in the Product(s) that incorporate the relevant Assets. To give effect to the transfer, you’ll need to notify Us in writing, and the transferee will need to give Us a signed, written undertaking accepting the terms of this EULA. So long as you meet these requirements, you don’t need our permission to sell the rights in your game.
+The licence cannot be terminated except as stated in this EULA.
+Support We do currently provide after-sales support for our Assets, but we do not guarantee that this will continue, and may withdraw it at any time. The level, timing and amount of support provided is entirely up to Us. If you are an educational institution, you must ensure all support requests are channelled through instructors rather than students.
+
+Source files You must not share the source files of any Assets outside your team. To be clear, you can allow your contractors to access the source files while they are working for you, but you must ensure they delete all their copies when they finish their engagement.
+
+Audits You must provide Us with access to your records relating to the number of individuals in your Team and your use of any Assets, as reasonably requested by Us from time to time for the purpose of auditing your compliance with this EULA. We will give at least 5 days’ notice of any request, and will not make more than one request in any six month period. We will keep confidential any information we acquire through these audits, and will use it only as necessary to enforce our rights in connection with this EULA.
+
+Chargebacks If your payment for a licence is subject to a credit card chargeback, meaning we’re forced to refund all or part of what we’ve received for the purchase, your licence will automatically be cancelled unless you pay Us the difference within 10 days.
+
+Termination If you commit a non-trivial breach of this EULA, and have not remedied the breach within 30 days of Us requesting a remedy in writing, we may give notice to you terminating any one or more licences that we have granted you in relation to any Asset.
+
+Other restrictions You must not represent to anyone that you own or have created the Assets. You must not claim to be affiliated or in collaboration with Us. You must not use or share our Assets except as expressly permitted by this EULA. In particular, you must not distribute our Assets as stock images or stock art (2D or 3D) or otherwise share them for re-use by third parties. Except as expressly permitted by this EULA, you must not use our name, logo or other media in connection with any product, service or production.
+
+You must indemnify Us To the maximum extent permitted by law, you agree to indemnify Us, our employees and agents against any third party claims or proceedings based on or arising out of your use of or other dealings with the Assets or your violation of this EULA. This includes indemnifying against all losses, costs and expenses (including legal fees) arising from those claims or proceedings.
+
+Governing law and courts This EULA is governed by the laws of New Zealand. We may enforce our intellectual property rights and the terms of this EULA in any court that has jurisdiction over you. You agree that any claim or proceedings against Us can only be brought in the courts of New Zealand.
+
+Our warranties and liabilities are limited
+
+To the maximum extent permitted by law, the Assets are provided “as is” without warranty of any kind. We disclaim all representations, promises, or warranties, whether express, implied, statutory, or otherwise, with respect to the Assets, including their condition, availability, or the existence of any latent defects, and we specifically disclaim all implied warranties of merchantability, title, non-infringement, suitability, and fitness for any purpose. We do not warrant that the Assets will be error-free or that they will be able to be used without interruption.
+
+In no event will our liability to you arising out of or in connection with any Assets exceed the price paid by you for your licence(s) to those Assets.
+
+To the maximum extent permitted by law, you agree that we are not liable to you for any indirect, special or consequential loss or damage caused or contributed to by Us or the Assets, regardless of whether your claim is based on contract, tort (including negligence), equity or any other legal theory.
+
+New Zealand consumer laws
+
+If you are purchasing the Assets in trade, then you and we agree to contract out of the provisions of the Consumer Guarantees Act 1993 and sections 9, 12A, 13 and 14(1) of the Fair Trading Act 1986. Otherwise, the provisions under the “Warranties and liabilities” heading do not exclude, restrict or modify the application of any guarantee, right or remedy under those Acts that cannot be so excluded, restricted or modified.
+
+Australian consumer laws
+
+If the Australian Consumer Law (or ACL) applies to our supply of the Assets to you, then the provisions under the “Warranties and liabilities” heading do not exclude, restrict or modify the application of any guarantee, right or remedy under the ACL that cannot be so excluded, restricted or modified.
+
+Changes to this EULA
+
+We can change this EULA at any time, by making a new version available through the relevant Store. However, our changes will not affect your rights under any licences that you have already purchased.
