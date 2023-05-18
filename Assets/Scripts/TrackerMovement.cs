@@ -7,7 +7,7 @@ public class TrackerMovement : MonoBehaviour
     [SerializeField] Transform targetToFollow;
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         transform.position = targetToFollow.position;
     }

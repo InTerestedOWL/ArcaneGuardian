@@ -7,7 +7,7 @@
             "actions": [
                 {
                     "name": "MoveToPointer",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "7b25ae47-5818-44fb-9a10-e0060cbe3c06",
                     "expectedControlType": "Button",
                     "processors": "",
