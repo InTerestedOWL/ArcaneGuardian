@@ -359,6 +359,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Bld_House_Blacksmith_01
       objectReference: {fileID: 0}
+    - target: {fileID: 150462, guid: 681372998f9890e49986679f715e6f5d, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 498780, guid: 681372998f9890e49986679f715e6f5d, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -466,6 +470,10 @@ PrefabInstance:
       value: SF_Bld_House_03
       objectReference: {fileID: 0}
     - target: {fileID: 184230, guid: 0ce65f5e01b121e4cbbe2d94e19b217a, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 184230, guid: 0ce65f5e01b121e4cbbe2d94e19b217a, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -537,6 +545,10 @@ PrefabInstance:
     - target: {fileID: 184230, guid: 0ce65f5e01b121e4cbbe2d94e19b217a, type: 3}
       propertyPath: m_Name
       value: SF_Bld_House_03 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 184230, guid: 0ce65f5e01b121e4cbbe2d94e19b217a, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 463996, guid: 0ce65f5e01b121e4cbbe2d94e19b217a, type: 3}
       propertyPath: m_RootOrder

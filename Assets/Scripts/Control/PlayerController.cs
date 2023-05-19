@@ -6,7 +6,6 @@ using UnityEngine.InputSystem;
 
 using AG.MovementCore;
 using AG.Combat;
-using UnityEngine.AI;
 
 namespace AG.Control {
     public class PlayerController : MonoBehaviour {
@@ -87,7 +86,7 @@ namespace AG.Control {
         private static void CalcPointerHit(out RaycastHit hit, out bool hasHit) {
             Ray curRay = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
 
-            hasHit = Physics.Raycast(curRay, out hit);
+            hasHit = Physics.Raycast(curRay, out hit, 1000, ~LayerMask.GetMask("Ignore Raycast"));
             Debug.DrawRay(curRay.origin, curRay.direction * 1000, Color.red, 1f);
         }
     }
