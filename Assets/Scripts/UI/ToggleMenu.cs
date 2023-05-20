@@ -6,8 +6,10 @@ public class ToggleMenu : MonoBehaviour {
 
     [SerializeField] 
     InputActionReference toggleMenuActionPlayer = null;
+
     [SerializeField]
     InputActionReference toggleMenuActionUI = null;
+    
     [SerializeField] 
     GameObject menu = null;
 
