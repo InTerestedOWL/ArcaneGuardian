@@ -1,5 +1,5 @@
 ﻿// Based on code from:
-// GameDev.tv Assets / Scripts / Ui / Inventorioes / InventoryItemIcon.cs
+// GameDev.tv Assets / Scripts / Ui / Inventories / InventoryItemIcon.cs
 
 using System.Collections;
 using System.Collections.Generic;
@@ -13,7 +13,7 @@ namespace AG.UI.Draggable {
     /// update the icon and number.
     /// </summary>
     [RequireComponent(typeof(Image))]
-    public class InventoryItemIcon : MonoBehaviour {
+    public class SkillIcon : MonoBehaviour {
         public void SetItem(Sprite item) {
             var iconImage = GetComponent<Image>();
             if (item == null) {

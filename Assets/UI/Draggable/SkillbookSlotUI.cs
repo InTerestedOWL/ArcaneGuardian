@@ -1,5 +1,5 @@
 ﻿// Based on code from:
-// GameDev.tv Assets / Scripts / Ui / Inventorioes / InventorySlotUI.cs
+// GameDev.tv Assets / Scripts / Ui / Inventories / InventorySlotUI.cs
 
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,8 +7,8 @@ using UnityEngine.EventSystems;
 using GameDevTV.Core.UI.Dragging;
 
 namespace AG.UI.Draggable {
-    public class InventorySlotUI : MonoBehaviour, IDragContainer<Sprite> {
-        [SerializeField] InventoryItemIcon icon = null;
+    public class SkillbookSlotUI : MonoBehaviour, IDragContainer<Sprite> {
+        [SerializeField] SkillIcon icon = null;
         public int MaxAcceptable(Sprite item) {
             if (GetItem() == null) {
                 return int.MaxValue;
