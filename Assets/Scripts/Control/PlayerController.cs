@@ -3,16 +3,25 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 
 using AG.MovementCore;
 using AG.Combat;
+using System.Collections.Generic;
 
 namespace AG.Control {
     public class PlayerController : MonoBehaviour {
+        LayerMask ignoreRaycastLayer;
+        int uiWindowLayerID;
         bool mouseHold = false;
         bool keysPressed = false;
         IEnumerator mouseMovementCoroutine = null;
         Vector3 curMovement = Vector3.zero;
+
+        void Start() {
+            ignoreRaycastLayer = LayerMask.GetMask("Ignore Raycast");
+            uiWindowLayerID = LayerMask.NameToLayer("UI Window");
+        }
 
         // Update is called once per frame
         void Update() {
@@ -83,11 +92,37 @@ namespace AG.Control {
             }
         }
 
-        private static void CalcPointerHit(out RaycastHit hit, out bool hasHit) {
-            Ray curRay = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+        private void CalcPointerHit(out RaycastHit hit, out bool hasHit) {
+            Vector2 mousePos = Mouse.current.position.ReadValue();
+            // Only move when not over UI
+            // TODO: Check if user is not dragging something
+            if (!checkIfOverUI(mousePos)) {
+                Ray curRay = Camera.main.ScreenPointToRay(mousePos);
 
-            hasHit = Physics.Raycast(curRay, out hit, 1000, ~LayerMask.GetMask("Ignore Raycast"));
-            Debug.DrawRay(curRay.origin, curRay.direction * 1000, Color.red, 1f);
+                hasHit = Physics.Raycast(curRay, out hit, 1000, ~ignoreRaycastLayer);
+                Debug.DrawRay(curRay.origin, curRay.direction * 1000, Color.red, 1f);
+            } else {
+                hasHit = false;
+                hit = new RaycastHit();
+            }
+        }
+
+        // Check if mouse is over UI
+        private bool checkIfOverUI(Vector2 mousePos) {
+            bool overUI = false;
+
+            PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
+            pointerEventData.position = mousePos;
+
+            List<RaycastResult> raycastResultsList = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(pointerEventData, raycastResultsList);
+            for (int i = 0; i < raycastResultsList.Count; i++) {
+                if (raycastResultsList[i].gameObject.layer == uiWindowLayerID) {
+                    overUI = true;
+                    break;
+                }
+            }
+            return overUI;
         }
     }
 }
