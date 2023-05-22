@@ -36,10 +36,8 @@ namespace AG.UI.Draggable
         // CACHED REFERENCES
         Canvas parentCanvas;
 
-        protected bool keepSource = false; // CUSTOMIZED
-
         // LIFECYCLE METHODS
-        private void Awake()
+        protected virtual void Awake()  // CUSTOMIZED (protected virtual)
         {
             parentCanvas = GetComponentInParent<Canvas>();
             source = GetComponentInParent<IDragSource<T>>();
@@ -65,6 +63,7 @@ namespace AG.UI.Draggable
             transform.position = startPosition;
             GetComponent<CanvasGroup>().blocksRaycasts = true;
             transform.SetParent(originalParent, true);
+            transform.SetAsFirstSibling(); // CUSTOMIZED (to ensure hotkey labels are visible)
 
             IDragDestination<T> container;
             if (!EventSystem.current.IsPointerOverGameObject())

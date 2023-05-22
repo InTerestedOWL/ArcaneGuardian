@@ -29,7 +29,7 @@ namespace AG.UI.Draggable {
         }
 
         public void RemoveItems(int number) {
-            icon.SetItem(null);
+            // CUSTOMIZED: Don't remove the item from the slot.
         }
     }
 }

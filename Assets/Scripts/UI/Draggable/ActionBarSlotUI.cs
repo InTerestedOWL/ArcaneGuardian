@@ -5,10 +5,33 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using GameDevTV.Core.UI.Dragging;
+using UnityEngine.InputSystem;
+using TMPro;
 
 namespace AG.UI.Draggable {
     public class ActionBarSlotUI : MonoBehaviour, IDragContainer<Sprite> {
-        [SerializeField] SkillIcon icon = null;
+        [SerializeField] 
+        SkillIcon icon = null;
+        [SerializeField] 
+        InputActionReference hotkeyReference = null;
+        string hotkey = "";
+
+        private void Awake() {
+            SetHotkeyUIDisplay();
+        }
+
+        private void SetHotkeyUIDisplay() {
+            if (hotkeyReference != null) {
+                // Takes only the first assigned key.
+                // TODO: Allow multiple keys to be assigned / Check for other keys.
+                hotkey = hotkeyReference.action.GetBindingDisplayString();
+                TMP_Text text = GetComponentInChildren<TMP_Text>();
+                if (text != null) {
+                    text.text = hotkey;
+                }
+            }
+        }
+
         public int MaxAcceptable(Sprite item) {
             if (GetItem() == null) {
                 return int.MaxValue;
