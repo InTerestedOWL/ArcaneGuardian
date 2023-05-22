@@ -81,6 +81,7 @@ namespace AG.Control {
         * Move to mouse position while mouse button hold down.
         */
         IEnumerator ContinuousMouseMovement() {
+            // TODO Stop if menu is opened - currently bugged when menu is opened while moving
             while (mouseHold) {
                 RaycastHit hit;
                 bool hasHit;

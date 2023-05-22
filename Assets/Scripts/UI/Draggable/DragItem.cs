@@ -79,6 +79,10 @@ namespace AG.UI.Draggable
             {
                 DropItemIntoContainer(container);
             }
+            else
+            {
+                DropItem();
+            }
 
             
         }
@@ -92,6 +96,16 @@ namespace AG.UI.Draggable
                 return container;
             }
             return null;
+        }
+
+        // CUSTOMIZED (to ensure items can be removed from source / container)
+        private void DropItem() {
+            var draggingNumber = source.GetNumber();
+
+            if (draggingNumber > 0) {
+                source.RemoveItems(draggingNumber);
+            }
+
         }
 
         private void DropItemIntoContainer(IDragDestination<T> destination)
