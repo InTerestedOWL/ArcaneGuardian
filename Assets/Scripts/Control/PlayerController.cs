@@ -26,7 +26,6 @@ namespace AG.Control {
         // Update is called once per frame
         void Update() {
             HandleMovement();
-            // TODO: BoxCollider on Sword Animation
         }
 
         // Movement for keyboard input
@@ -93,14 +92,18 @@ namespace AG.Control {
             }
         }
 
-        private void CalcPointerHit(out RaycastHit hit, out bool hasHit) {
+        public void CalcPointerHit(out RaycastHit hit, out bool hasHit, LayerMask layerMask = default) {
+            if (layerMask == default) {
+                layerMask = ~ignoreRaycastLayer;
+            }
+
             Vector2 mousePos = Mouse.current.position.ReadValue();
             // Only move when not over UI
             // TODO: Check if user is not dragging something
             if (!checkIfOverUI(mousePos)) {
                 Ray curRay = Camera.main.ScreenPointToRay(mousePos);
 
-                hasHit = Physics.Raycast(curRay, out hit, 1000, ~ignoreRaycastLayer);
+                hasHit = Physics.Raycast(curRay, out hit, 1000, layerMask);
                 Debug.DrawRay(curRay.origin, curRay.direction * 1000, Color.red, 1f);
             } else {
                 hasHit = false;

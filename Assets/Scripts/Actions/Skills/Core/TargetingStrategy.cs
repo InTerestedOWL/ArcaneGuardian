@@ -1,4 +1,6 @@
 // Based on https://www.udemy.com/course/rpg-shops-abilities/
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 /*
@@ -6,6 +8,6 @@ using UnityEngine;
  */
 namespace AG.Skills.Targeting {
     public abstract class TargetingStrategy : ScriptableObject {
-        public abstract void DeclareTargets();
+        public abstract void DeclareTargets(GameObject user, Action<IEnumerable<GameObject>> callback);
     }
 }

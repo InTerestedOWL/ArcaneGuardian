@@ -5,23 +5,24 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using GameDevTV.Core.UI.Dragging;
+using AG.Actions;
 
 namespace AG.UI.Draggable {
-    public class SkillbookSlotUI : MonoBehaviour, IDragContainer<Sprite> {
-        [SerializeField] SkillIcon icon = null;
-        public int MaxAcceptable(Sprite item) {
+    public class SkillbookSlotUI : MonoBehaviour, IDragContainer<ActionItem> {
+        [SerializeField] SkillRef skillRef = null;
+        public int MaxAcceptable(ActionItem item) {
             if (GetItem() == null) {
                 return int.MaxValue;
             }
             return 0;
         }
 
-        public void AddItems(Sprite item, int number) {
-            icon.SetItem(item);
+        public void AddItems(ActionItem item, int number) {
+            skillRef.SetItem(item);
         }
 
-        public Sprite GetItem() {
-            return icon.GetItem();
+        public ActionItem GetItem() {
+            return skillRef.GetItem();
         }
 
         public int GetNumber() {
