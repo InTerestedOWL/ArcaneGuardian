@@ -1,4 +1,7 @@
 // Based on https://www.udemy.com/course/rpg-shops-abilities/
+using System;
+using System.Collections.Generic;
+using AG.Skills.Core;
 using UnityEngine;
 
 /*
@@ -6,6 +9,6 @@ using UnityEngine;
  */
 namespace AG.Skills.Effects {
     public abstract class EffectStrategy : ScriptableObject {
-
+        public abstract void ApplyEffect(SkillData skillData);
     }
 }

@@ -24,6 +24,9 @@ namespace AG.UI.Draggable {
 
         public void SetItem(ActionItem item) {
             var iconImage = GetComponent<Image>();
+            if (curItem != null) {
+                curItem.RemoveCooldownUI(transform.parent.GetComponentInChildren<SlotCooldownUI>());
+            }
             if (item == null) {
                 iconImage.enabled = false;
                 curItem = null;
@@ -31,6 +34,7 @@ namespace AG.UI.Draggable {
                 iconImage.sprite = item.GetIcon();
                 iconImage.enabled = true;
                 curItem = item;
+                curItem.AddNewCooldownUI(transform.parent.GetComponentInChildren<SlotCooldownUI>());
             }
         }
 

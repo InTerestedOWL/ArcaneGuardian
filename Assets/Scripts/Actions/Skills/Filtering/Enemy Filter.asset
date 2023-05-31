@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bc6827883331b64ba0d014b51dfad77, type: 3}
   m_Name: Enemy Filter
   m_EditorClassIdentifier: 
-  tags: []
+  tags:
+  - Enemy

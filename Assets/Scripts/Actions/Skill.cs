@@ -1,8 +1,10 @@
 using UnityEngine;
-using System.Collections.Generic;
 using AG.Actions;
 using AG.Skills.Targeting;
 using AG.Skills.Filtering;
+using AG.Skills.Effects;
+using AG.Skills.Core;
+using System.Collections;
 
 namespace AG.Skills {
     /*
@@ -16,16 +18,36 @@ namespace AG.Skills {
         TargetingStrategy targetingStrategy = null;
         [SerializeField]
         FilterStrategy filterStrategy = null;
+        [SerializeField]
+        EffectStrategy[] effectStrategies = null;
+
         public override void Use(GameObject user) {
-            targetingStrategy.DeclareTargets(user, ProcessTargets);
+            if (isOnCooldown) {
+                return;
+            }
+            SkillData data = new SkillData(user);
+            targetingStrategy.DeclareTargets(data, () => ProcessTargets(data));
         }
 
-        private void ProcessTargets(IEnumerable<GameObject> targets) {
-            targets = filterStrategy.FilterTargets(targets);
-
-            foreach (GameObject target in targets) {
-                Debug.Log("Target: " + target.name);
+        private void ProcessTargets(SkillData skillData) {
+            skillData.GetPlayerController().StartCoroutine(StartCooldown());
+            filterStrategy.FilterTargets(skillData);
+            foreach(EffectStrategy effectStrategy in effectStrategies) {
+                effectStrategy.ApplyEffect(skillData);
             }
+        }
+        
+        public override IEnumerator StartCooldown() {
+            currentCooldown = cooldown;
+            isOnCooldown = true;
+            while(currentCooldown > 0) {
+                currentCooldown -= Time.fixedDeltaTime;
+                foreach(SlotCooldownUI slotCooldownUI in cooldownUIs) {
+                    slotCooldownUI.SetCooldown(currentCooldown, cooldown);
+                }
+                yield return new WaitForFixedUpdate();
+            }
+            isOnCooldown = false;
         }
     }
 }

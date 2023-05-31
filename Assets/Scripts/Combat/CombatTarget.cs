@@ -56,5 +56,9 @@ namespace AG.Combat {
             GetComponent<Animator>().SetTrigger("killed");
             rb.isKinematic = true;
         }
+
+        public void DamageTarget(int damage) {
+            TakeDamage(damage);
+        }
     }
 }

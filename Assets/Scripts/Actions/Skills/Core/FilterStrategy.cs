@@ -1,5 +1,5 @@
 // Based on https://www.udemy.com/course/rpg-shops-abilities/
-using System.Collections.Generic;
+using AG.Skills.Core;
 using UnityEngine;
 
 /*
@@ -7,6 +7,6 @@ using UnityEngine;
  */
 namespace AG.Skills.Filtering {
     public abstract class FilterStrategy : ScriptableObject {
-        public abstract IEnumerable<GameObject> FilterTargets(IEnumerable<GameObject> targets);
+        public abstract void FilterTargets(SkillData skillData);
     }
 }

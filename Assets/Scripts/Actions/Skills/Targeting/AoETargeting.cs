@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using AG.Control;
+using AG.Skills.Core;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,18 +13,20 @@ namespace AG.Skills.Targeting {
         [SerializeField]
         LayerMask layerMask;
         [SerializeField] 
-        float aoeRadius = 5f;
+        float aoeRadius = 1f;
         [SerializeField]
         Transform telegraphPrefab = null;
         Transform telegraphInstance = null;
         private bool targeting = false;
 
-        public override void DeclareTargets(GameObject user, Action<IEnumerable<GameObject>> callback) {
-            PlayerController playerController = user.GetComponent<PlayerController>();
-            playerController.StartCoroutine(SelectAoETarget(playerController, callback));
+        public override void DeclareTargets(SkillData data, Action callback) {
+            GameObject user = data.GetUser();
+            if (user) {
+                data.GetPlayerController().StartCoroutine(SelectAoETarget(data, callback));
+            }
         }
 
-        private IEnumerator SelectAoETarget(PlayerController playerController, Action<IEnumerable<GameObject>> callback) {
+        private IEnumerator SelectAoETarget(SkillData data, Action callback) {
             ActionMapHandler actionMapHandler = GameObject.FindWithTag("Player").GetComponent<ActionMapHandler>();
             InputAction cancelSpellAction = actionMapHandler.GetActionOfCurrentActionMap("CancelSpell");
             InputAction selectTarget = actionMapHandler.GetActionOfCurrentActionMap("SelectTarget");
@@ -37,12 +40,13 @@ namespace AG.Skills.Targeting {
             }
 
             telegraphInstance.localScale = new Vector3(aoeRadius * 2, 1, aoeRadius * 2);
+            data.SetRadius(aoeRadius);
 
             targeting = true;
             actionMapHandler.ChangeToActionMap("Casting");
 
             while (targeting) {
-                playerController.CalcPointerHit(out groundHit, out hasHit, layerMask);
+                data.GetPlayerController().CalcPointerHit(out groundHit, out hasHit, layerMask);
                 if (hasHit) {
                     telegraphInstance.position = groundHit.point;
                 }
@@ -53,7 +57,9 @@ namespace AG.Skills.Targeting {
                     yield break;
                 } else if (cancelSpellAction.triggered || selectTarget.triggered) {
                     if (selectTarget.triggered) {
-                        callback(GetTargets(groundHit.point, hasHit));
+                        data.SetTargets(GetTargets(groundHit.point, hasHit));
+                        data.SetTargetPosition(groundHit.point);
+                        callback();
                     }
                     buttonTriggered = true;
                 }

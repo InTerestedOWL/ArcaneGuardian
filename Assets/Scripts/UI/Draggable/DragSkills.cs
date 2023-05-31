@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace AG.UI.Draggable {
     public class DragSkills : DragItem<ActionItem> {
-        [SerializeField] ActionItem actionItem = null;
+        ActionItem actionItem = null;
 
         public void SetCurrentAction(ActionItem action) {
             actionItem = action;
