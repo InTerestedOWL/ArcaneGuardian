@@ -56,5 +56,9 @@ namespace AG.MovementCore {
         public void ResumeRotation() {
             navMeshAgent.angularSpeed = startAngularSpeed;
         }
+
+        public NavMeshAgent getNavMeshAgent(){
+            return navMeshAgent;
+        }
     }
 }
