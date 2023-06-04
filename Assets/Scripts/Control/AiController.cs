@@ -13,7 +13,6 @@ namespace AG.Control {
         public float movementUpdateTime = 1.0f;
 
         GameObject player = null;
-        bool attacking = false;
         Movement movement = null;
         //TODO: Vllt schlecht das so zu machen, weil movement grundsätzlich sich um alles kümmert...
         NavMeshAgent navMeshAgent;
@@ -45,10 +44,10 @@ namespace AG.Control {
         }
 
         // Movement for keyboard input
+        //TODO: Fix knockback
         private void HandleMovement() {
             //TODO: navMeshAgent.stoppingDistance könnte vllt Probleme machen
             if(Vector3.Distance(player.transform.position, navMeshAgent.destination) > navMeshAgent.stoppingDistance){
-                Debug.Log("updating movement");
                 movement.DoMovement(player.transform.position);
             }
         }

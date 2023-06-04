@@ -17,7 +17,8 @@ public class MovementDebug : MonoBehaviour
     }
 
     void OnDrawGizmos()
-    {
+    {   
+        //TODO: Wirft einen Fehler, wenn das Spiel nicht gestartet ist -> Warum?
         if(velocity) {
             Gizmos.color = Color.green;
             Gizmos.DrawLine(this.transform.position, this.transform.position + agent.velocity);
