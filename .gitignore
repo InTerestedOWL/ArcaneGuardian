@@ -74,9 +74,6 @@ crashlytics-build.properties
 # Allow Asset unitypackages
 !/[Aa]ssets/[Aa]sset_[Ee]xports/*.unitypackage
 
-#Exclude all AssetPacks
-/[Aa]ssets/[Aa]sset [Pp]acks/*
-
 
 !/Packages/com.unity.render-pipelines.universal/Shaders/Lit.shader
 !/Packages/com.unity.render-pipelines.universal/Editor/AssetVersion.cs
@@ -91,3 +88,6 @@ crashlytics-build.properties
 !/Assets/Asset Packs/AxeyWorks/PolyWorks/Prefabs/Standard/Terrain/Terrain_Bluff_Grass_03.prefab
 !/Assets/Asset Packs/AxeyWorks/PolyWorks/Meshes/Terrain/Materials/Green22.mat
 !/Assets/Asset Packs/AxeyWorks/PolyWorks/Meshes/Terrain/Terrain_Mountain_Grass_01.fbx
+
+#Exclude all AssetPacks
+/[Aa]ssets/[Aa]sset [Pp]acks/*
