@@ -90,4 +90,4 @@ crashlytics-build.properties
 !/Assets/Asset Packs/AxeyWorks/PolyWorks/Meshes/Terrain/Terrain_Mountain_Grass_01.fbx
 
 #Exclude all AssetPacks
-/[Aa]ssets/[Aa]sset [Pp]acks/*
+/[Aa]ssets/[Aa]sset [Pp]acks/**/*
