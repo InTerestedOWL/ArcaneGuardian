@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 1380db7ffe6d5b444baa40cbc558c563
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - gridLayout: {instanceID: 0}
+  - MainTilemap: {instanceID: 0}
+  - WhiteTile: {instanceID: 0}
+  - prefab1: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
