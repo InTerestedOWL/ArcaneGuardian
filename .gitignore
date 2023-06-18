@@ -73,3 +73,6 @@ crashlytics-build.properties
 
 # Allow Asset unitypackages
 !/[Aa]ssets/[Aa]sset_[Ee]xports/*.unitypackage
+
+#Exclude all AssetPacks
+/[Aa]ssets/[Aa]sset [Pp]acks/*
