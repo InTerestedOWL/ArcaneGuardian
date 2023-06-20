@@ -6,6 +6,7 @@
     "EnableSafetyChecks": false,
     "EnableDebugInAllBuilds": false,
     "UsePlatformSDKLinker": false,
+    "EnableArmv9SecurityFeatures": false,
     "CpuMinTargetX32": 0,
     "CpuMaxTargetX32": 0,
     "CpuMinTargetX64": 0,
