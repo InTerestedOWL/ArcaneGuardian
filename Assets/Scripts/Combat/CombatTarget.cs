@@ -5,20 +5,35 @@ using AG.Weapons;
 namespace AG.Combat {
     public class CombatTarget : MonoBehaviour {
         [SerializeField]
-        public int currentHealth = 100;
+        public float maxHealth = 100;
+        public float currentHealth;
+        public float blinkDuration = 0.05f;
+        public float blinkIntensity = 5.0f;
+        public Color blinkColor = Color.white;
+
         private bool isKnockbacked = false;
         private Vector3 knockbackDirection = Vector3.zero;
         private float knockbackForce = 0f;
         private Rigidbody rb;
+        private SkinnedMeshRenderer skinnedMeshRenderer;
+        private float blinkTimer;
+        private Color defaultColor;
+        private HealthBarUI healthBar;
 
         private void Start() {
+            currentHealth = maxHealth;
             rb = GetComponent<Rigidbody>();
+            skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
+            defaultColor = skinnedMeshRenderer.material.color;
+            healthBar = GetComponentInChildren<HealthBarUI>();
         }
 
         private void FixedUpdate() {
             if (isKnockbacked) {
                 HandleKnockBack(knockbackForce, knockbackDirection);
             }
+
+            BlinkOnDamage();
         }
 
         private void OnTriggerEnter(Collider other) {
@@ -40,9 +55,12 @@ namespace AG.Combat {
 
         private void TakeDamage(int damage) {
             currentHealth -= damage;
+            healthBar?.SetHealthBarPercentage(currentHealth / maxHealth);
             if (currentHealth <= 0) {
                 Die();
             }
+
+            blinkTimer = blinkDuration;
         }
 
         private void HandleKnockBack(float force, Vector3 knockbackDirection) {
@@ -55,6 +73,21 @@ namespace AG.Combat {
         private void Die() {
             GetComponent<Animator>().SetTrigger("killed");
             rb.isKinematic = true;
+            healthBar?.gameObject.SetActive(false);
+        }
+
+        //Blink Animation on Damage taken
+        private void BlinkOnDamage(){
+            blinkTimer -= Time.deltaTime;
+            float lerp = Mathf.Clamp01(blinkTimer / blinkDuration);
+            float intensity = (lerp * blinkIntensity) + 1.0f;
+            
+            if(intensity > 1.0f){
+                skinnedMeshRenderer.material.color = blinkColor * intensity;
+            }
+            else {
+                skinnedMeshRenderer.material.color = defaultColor;
+            }
         }
 
         public void DamageTarget(int damage) {

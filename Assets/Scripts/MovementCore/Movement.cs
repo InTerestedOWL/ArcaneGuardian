@@ -7,7 +7,8 @@ using AG.Control;
 
 namespace AG.MovementCore {
     public class Movement : MonoBehaviour {
-        NavMeshAgent navMeshAgent;
+        [HideInInspector]
+        public NavMeshAgent navMeshAgent;
         float startAngularSpeed;
 
         private void Start() {
@@ -55,6 +56,10 @@ namespace AG.MovementCore {
          */
         public void ResumeRotation() {
             navMeshAgent.angularSpeed = startAngularSpeed;
+        }
+
+        public NavMeshAgent getNavMeshAgent(){
+            return navMeshAgent;
         }
     }
 }
