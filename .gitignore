@@ -73,3 +73,6 @@ crashlytics-build.properties
 
 # Samples from Package Manager
 /[Aa]ssets/[Ss]amples
+
+# Allow Asset unitypackages
+!/[Aa]ssets/[Aa]sset_[Ee]xports/*.unitypackage

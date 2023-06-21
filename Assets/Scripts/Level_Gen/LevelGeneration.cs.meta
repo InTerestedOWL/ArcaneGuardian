@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 1b538d8b00cd78c4fa45621a23a00e91
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - tilePrefab: {fileID: 3557210110617223524, guid: 41ed4e36212494c46bff47a41b0d638d,
+      type: 3}
+  - burgPrefab: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
