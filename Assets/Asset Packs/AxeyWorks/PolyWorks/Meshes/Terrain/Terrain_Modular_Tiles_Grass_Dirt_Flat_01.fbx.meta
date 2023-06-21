@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f2c7ed93626a8b54d8b990591df8c20c
+guid: 3066f1873b1575147a517dc4f404adff
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
@@ -7,18 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Brown06
-    second: {fileID: 2100000, guid: eb4744cf24a29164093a61252eaf1ff8, type: 2}
+      name: Brown34
+    second: {fileID: 2100000, guid: 1cf03a9e6f1781a4cb1f0d2c8d34654d, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: FrontColor
-    second: {fileID: 2100000, guid: 5e403a111c8e06644b2ed13c65e37998, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Green05
-    second: {fileID: 2100000, guid: 17361a48b5d15ba409c1025c5873b3b5, type: 2}
+      name: Green22
+    second: {fileID: 2100000, guid: daa83c5733d60304eae74045feed0cd4, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -29,7 +24,6 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
-    removeConstantScaleCurves: 1
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -59,27 +53,21 @@ ModelImporter:
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
-    nodeNameCollisionStrategy: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
-    bakeAxisConversion: 0
     preserveHierarchy: 0
     skinWeightsMode: 0
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
-    optimizeBones: 1
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
-    secondaryUVMarginMethod: 1
-    secondaryUVMinLightmapResolution: 40
-    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
@@ -113,8 +101,6 @@ ModelImporter:
   animationType: 2
   humanoidOversampling: 1
   avatarSetup: 0
-  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
-  remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0
   userData: 
   assetBundleName: 
