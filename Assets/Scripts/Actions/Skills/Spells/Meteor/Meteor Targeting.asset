@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layerMask:
     serializedVersion: 2
-    m_Bits: 19
+    m_Bits: 128
   aoeRadius: 2
-  telegraphPrefab: {fileID: 5286536135801029988, guid: 6a439a45bdd157e429baabd406af4e07,
-    type: 3}
+  telegraphPrefab: {fileID: 5286536135801029988, guid: 6a439a45bdd157e429baabd406af4e07, type: 3}

@@ -12,6 +12,7 @@ namespace AG.Skills {
      * Based on https://www.udemy.com/course/rpg-shops-abilities/
      */
 
+    // TODO: Combine SkillTree Skill and SkillBook Skill?
     [CreateAssetMenu(menuName = ("Arcane Guardian/Skill"))]
     public class Skill : ActionItem {
         [SerializeField]
