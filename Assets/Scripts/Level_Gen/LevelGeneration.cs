@@ -62,6 +62,12 @@ public class LevelGeneration : MonoBehaviour
                 Vector3 tilePosition = new Vector3(this.gameObject.transform.position.x + xTileIndex * tileWidth,
                     this.gameObject.transform.position.y,
                     this.gameObject.transform.position.z + zTileIndex * tileDepth);
+                GameObject tile = Instantiate(tilePrefab, tilePosition, Quaternion.identity) as GameObject;
+                TileType tileType = new TileType();
+                tileType.type = "plane";
+                tileType.orientation = "normal";
+                tileType.tile = tile;
+                tiles[xTileIndex, zTileIndex] = tileType;
 
                 //BuildRiver(xTileIndex, zTileIndex, tilePosition);
                 //Build the wall
