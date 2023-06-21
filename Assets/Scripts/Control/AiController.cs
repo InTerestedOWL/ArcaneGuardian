@@ -9,16 +9,21 @@ using AG.Combat;
 
 namespace AG.Control {
     public class AiController : MonoBehaviour {
-        public float attackRange = 1.5f;
-        public float movementUpdateTime = 1.0f;
+        public AiStateMachine stateMachine;
+        public AiStateId initialState;
+        public AiControllerConfig config;
 
-        GameObject player = null;
-        Movement movement = null;
-        //TODO: Vllt schlecht das so zu machen, weil movement grundsätzlich sich um alles kümmert...
-        NavMeshAgent navMeshAgent;
-        float timer = 0.0f;
-        BasicCombat combat = null;
-        CombatTarget combatTarget = null;
+        [HideInInspector]
+        public GameObject player = null;
+
+        [HideInInspector]
+        public Movement movement = null;
+
+        [HideInInspector]
+        public BasicCombat combat = null;
+
+        [HideInInspector]
+        public CombatTarget combatTarget = null;
 
 
         void Start() {
@@ -26,34 +31,23 @@ namespace AG.Control {
             movement =  GetComponent<Movement>();
             combat = GetComponent<BasicCombat>();
             combatTarget = GetComponent<CombatTarget>();
-            navMeshAgent = GetComponentInChildren<NavMeshAgent>();
+            
+            //Ai State Machine
+            stateMachine = new AiStateMachine(this);
+            stateMachine.RegisterState(new AiChasePlayerState());
+            stateMachine.RegisterState(new AiDeathState()); //TODO: brauchen wir einen DeathState? -> wird in combatTarget umgesetzt
+            stateMachine.RegisterState(new AiIdleState());
+            stateMachine.RegisterState(new AttackPlayerState());
+            stateMachine.ChangeState(initialState);
         }
 
         // Update is called once per frame
         void Update() {
-            if(combatTarget.currentHealth > 0) {
-                timer -= Time.deltaTime;
-
-                if(timer <= 0.0f) {
-                    HandleCombat();
-                    HandleMovement();
-
-                    timer = movementUpdateTime;
-                }
-            }
-        }
-
-        // Movement for keyboard input
-        //TODO: Fix knockback
-        private void HandleMovement() {
-            //TODO: navMeshAgent.stoppingDistance könnte vllt Probleme machen
-            if(Vector3.Distance(player.transform.position, navMeshAgent.destination) > navMeshAgent.stoppingDistance){
-                movement.DoMovement(player.transform.position);
-            }
+            stateMachine.Update();
         }
         
         private void HandleCombat() {
-            if(Vector3.Distance(this.transform.position, player.transform.position) < attackRange) {
+            if(Vector3.Distance(this.transform.position, player.transform.position) < config.attackRange) {
                 combat.Attack();
             }
         }

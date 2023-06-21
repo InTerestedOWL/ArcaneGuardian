@@ -34,10 +34,6 @@ namespace AG.Combat {
             }
 
             BlinkOnDamage();
-
-            //TODO: REMOVE
-            if(healthBar != null)
-                healthBar.SetHealthBarPercentage(currentHealth / maxHealth);
         }
 
         private void OnTriggerEnter(Collider other) {
@@ -59,7 +55,7 @@ namespace AG.Combat {
 
         private void TakeDamage(int damage) {
             currentHealth -= damage;
-            healthBar.SetHealthBarPercentage(currentHealth / maxHealth);
+            healthBar?.SetHealthBarPercentage(currentHealth / maxHealth);
             if (currentHealth <= 0) {
                 Die();
             }
@@ -77,7 +73,7 @@ namespace AG.Combat {
         private void Die() {
             GetComponent<Animator>().SetTrigger("killed");
             rb.isKinematic = true;
-            healthBar.gameObject.SetActive(false);
+            healthBar?.gameObject.SetActive(false);
         }
 
         //Blink Animation on Damage taken

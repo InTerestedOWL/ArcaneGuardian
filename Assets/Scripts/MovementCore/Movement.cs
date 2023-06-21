@@ -7,7 +7,8 @@ using AG.Control;
 
 namespace AG.MovementCore {
     public class Movement : MonoBehaviour {
-        NavMeshAgent navMeshAgent;
+        [HideInInspector]
+        public NavMeshAgent navMeshAgent;
         float startAngularSpeed;
 
         private void Start() {

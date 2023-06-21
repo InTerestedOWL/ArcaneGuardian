@@ -1280,8 +1280,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b53b68b6b14e6e34ba7a768b40a240bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 1.5
-  movementUpdateTime: 1
+  initialState: 2
+  config: {fileID: 11400000, guid: 3b095a3390de139478df2314113fcb82, type: 2}
+  player: {fileID: 0}
+  movement: {fileID: 0}
+  navMeshAgent: {fileID: 0}
+  combat: {fileID: 0}
+  combatTarget: {fileID: 0}
 --- !u!114 &1827852918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1699,7 +1704,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 492506, guid: adf3c1b19a9451d478a2695dcfef41a1, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.6459304
+      value: -0.83030427
       objectReference: {fileID: 0}
     - target: {fileID: 492506, guid: adf3c1b19a9451d478a2695dcfef41a1, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1707,11 +1712,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 492506, guid: adf3c1b19a9451d478a2695dcfef41a1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.7633964
+      value: -0.5573104
       objectReference: {fileID: 0}
     - target: {fileID: 492506, guid: adf3c1b19a9451d478a2695dcfef41a1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 492506, guid: adf3c1b19a9451d478a2695dcfef41a1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1719,7 +1724,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 492506, guid: adf3c1b19a9451d478a2695dcfef41a1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -99.529
+      value: -292.26
       objectReference: {fileID: 0}
     - target: {fileID: 492506, guid: adf3c1b19a9451d478a2695dcfef41a1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
