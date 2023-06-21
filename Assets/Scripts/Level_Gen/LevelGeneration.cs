@@ -63,6 +63,8 @@ public class LevelGeneration : MonoBehaviour
                     this.gameObject.transform.position.y,
                     this.gameObject.transform.position.z + zTileIndex * tileDepth);
 
+                GameObject tile = Instantiate(tilePrefab, tilePosition, Quaternion.identity) as GameObject;
+                tile.transform.Rotate(0f, 90.0f, 0.0f, Space.Self);
                 //BuildRiver(xTileIndex, zTileIndex, tilePosition);
                 //Build the wall
                 /*if (zTileIndex == 0 || zTileIndex == mapDepthInTiles - 1 || xTileIndex == 0 ||
