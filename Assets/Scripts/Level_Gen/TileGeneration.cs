@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
 public class TileGeneration : MonoBehaviour
@@ -77,11 +78,14 @@ public class TileGeneration : MonoBehaviour
                     if (!Physics.CheckBox(blockPosition, halfExtents))
                     {
                         GameObject building = Instantiate(buildingType.asset, blockPosition, Quaternion.identity);
+                        /*NavMeshObstacle obstRef = building.AddComponent<NavMeshObstacle>();
+                        obstRef.carving = true;*/
                         building.transform.localScale = new Vector3(buildingType.scale, buildingType.scale, buildingType.scale);
                     }
                 }
             }
         }
+        LevelGeneration.BuildNavMesh();
     }
 
     private Texture2D BuildTexture(float[,] heightMap)

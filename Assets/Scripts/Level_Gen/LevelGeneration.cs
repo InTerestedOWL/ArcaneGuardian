@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
 public class LevelGeneration : MonoBehaviour
@@ -26,12 +27,14 @@ public class LevelGeneration : MonoBehaviour
     
     private GameObject[] waterPrefabs = new GameObject[8];
 
+    public static List<NavMeshSurface> surfaces;
 
     [SerializeField] private GameObject burgPrefab;
     private TileType[,] tiles;
 
     void Start()
     {
+        surfaces = new List<NavMeshSurface>();
         waterPrefabs[0] = waterPrefabStraight;
         waterPrefabs[1] = waterPrefabStraight2;
         waterPrefabs[2] = waterPrefabStraight3;
@@ -47,7 +50,7 @@ public class LevelGeneration : MonoBehaviour
     {
         tiles = new TileType[mapWidthInTiles, mapDepthInTiles];
         // get the tile dimensions from the tile Prefab
-        Vector3 tileSize = tilePrefab.GetComponent<MeshRenderer>().bounds.size;
+        Vector3 tileSize = tilePrefab.transform.GetChild(0).GetComponent<MeshRenderer>().bounds.size;
         int tileWidth = (int)tileSize.x;
         int tileDepth = (int)tileSize.z;
         // for each Tile, instantiate a Tile in the correct position
@@ -63,6 +66,10 @@ public class LevelGeneration : MonoBehaviour
                     this.gameObject.transform.position.y,
                     this.gameObject.transform.position.z + zTileIndex * tileDepth);
                 GameObject tile = Instantiate(tilePrefab, tilePosition, Quaternion.identity) as GameObject;
+                NavMeshSurface surface = tile.GetComponent<NavMeshSurface>();
+                if (surface != null) {
+                    surfaces.Add(surface);
+                }
                 /*TileType tileType = new TileType();
                 tileType.type = "plane";
                 tileType.orientation = "normal";
@@ -76,6 +83,15 @@ public class LevelGeneration : MonoBehaviour
                     BuildSurroundingWall(xTileIndex, zTileIndex, tileWidth, tileDepth);
                 }*/
             }
+        }
+        //BuildNavMesh();
+    }
+
+    public static void BuildNavMesh() {
+        if (LevelGeneration.surfaces != null && LevelGeneration.surfaces.Count > 0)
+        {
+            // Build NavMesh (once) for connected surfaces
+            surfaces[0].BuildNavMesh();
         }
     }
 

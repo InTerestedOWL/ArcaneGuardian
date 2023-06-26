@@ -14,11 +14,8 @@ GameObject:
   - component: {fileID: 3715195664349470434}
   - component: {fileID: 3715195664349470433}
   - component: {fileID: 3715195664349470432}
-  - component: {fileID: 7786385715351294712}
-  - component: {fileID: 5903221949358594407}
-  - component: {fileID: 8190079550635427568}
   m_Layer: 0
-  m_Name: Terrain_Level_Generation
+  m_Name: Terrain_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,8 +28,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3715195664349470367}
-  m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -55.16246, y: 0.0000036391584, z: -266.42706}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -99,7 +96,7 @@ MeshCollider:
   m_GameObject: {fileID: 3715195664349470367}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
@@ -135,7 +132,7 @@ MonoBehaviour:
   - name: Moutain
     minHeight: 0.75
     maxHeight: 1
-    asset: {fileID: 919132149155446097, guid: 38eaf388e177af546b50e25f1b639a9e, type: 3}
+    asset: {fileID: 3412645582885145487, guid: 2b7bf787d9b23904fafb8ab7e4ba7d0f, type: 3}
     probability: 1
     scale: 1
   - name: "Moutain_h\xFCpf"
@@ -231,64 +228,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c2390a4707ab074a86ae2f0185e5b67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!218 &7786385715351294712
-Terrain:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3715195664349470367}
-  m_Enabled: 0
-  serializedVersion: 6
-  m_TerrainData: {fileID: 15600000, guid: 8d2e941a6aa60eb42a82a68a4c6cf5ca, type: 2}
-  m_TreeDistance: 5000
-  m_TreeBillboardDistance: 50
-  m_TreeCrossFadeLength: 5
-  m_TreeMaximumFullLODCount: 50
-  m_DetailObjectDistance: 80
-  m_DetailObjectDensity: 1
-  m_HeightmapPixelError: 5
-  m_SplatMapDistance: 1000
-  m_HeightmapMaximumLOD: 0
-  m_ShadowCastingMode: 2
-  m_DrawHeightmap: 1
-  m_DrawInstanced: 0
-  m_DrawTreesAndFoliage: 1
-  m_StaticShadowCaster: 0
-  m_ReflectionProbeUsage: 1
-  m_MaterialTemplate: {fileID: 2100000, guid: 594ea882c5a793440b60ff72d896021e, type: 2}
-  m_BakeLightProbesForTrees: 1
-  m_PreserveTreePrototypeLayers: 0
-  m_DeringLightProbesForTrees: 1
-  m_ScaleInLightmap: 0.0256
-  m_LightmapParameters: {fileID: 15203, guid: 0000000000000000f000000000000000, type: 0}
-  m_GroupingID: 0
-  m_RenderingLayerMask: 1
-  m_AllowAutoConnect: 1
---- !u!154 &5903221949358594407
-TerrainCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3715195664349470367}
-  m_Material: {fileID: 0}
-  m_Enabled: 1
-  m_TerrainData: {fileID: 15600000, guid: 8d2e941a6aa60eb42a82a68a4c6cf5ca, type: 2}
-  m_EnableTreeColliders: 1
---- !u!208 &8190079550635427568
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3715195664349470367}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 1.5000001, y: 0.15, z: 1.5000001}
-  m_MoveThreshold: 0.1
-  m_Carve: 0
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0.15, z: 0}
-  m_TimeToStationary: 0.5
