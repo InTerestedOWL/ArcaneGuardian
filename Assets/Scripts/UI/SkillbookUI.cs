@@ -10,9 +10,16 @@ public class SkillbookUI : MonoBehaviour {
 
     public void AddToSkillbook(Skill skill) {
         GameObject skillEntryUI = Instantiate(skillEntryUIPrefab, transform);
+        skillEntryUI.name = skill.GetDisplayName();
         AddSkillIconAndRef(skill, skillEntryUI);
         AddSkillTitle(skill, skillEntryUI); 
         AddSkillDescription(skill, skillEntryUI);  
+    }
+
+    public void RemoveFromSkillbook(Skill skill){
+        Transform skillEntryUITransform = this.transform.Find(skill.GetDisplayName());
+        GameObject skillEntryUI = skillEntryUITransform.gameObject;
+        GameObject.Destroy(skillEntryUI);
     }
 
     private void AddSkillIconAndRef(Skill skill, GameObject skillEntryUI) {

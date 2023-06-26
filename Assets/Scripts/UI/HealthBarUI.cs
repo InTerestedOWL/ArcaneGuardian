@@ -10,6 +10,10 @@ public class HealthBarUI : MonoBehaviour
     public Image foregorundImage;
     public Image backgroundImage;
 
+    void Start(){
+        
+    }
+
     // Update is called once per frame
     void LateUpdate()
     {   
@@ -25,5 +29,9 @@ public class HealthBarUI : MonoBehaviour
         float parentWidth = GetComponent<RectTransform>().rect.width;
         float width = parentWidth * percentage;
         foregorundImage.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, width);
+    }
+
+    public void SetTarget (Transform target){
+        this.target = target;
     }
 }

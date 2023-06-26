@@ -25,7 +25,6 @@ namespace AG.Combat {
             rb = GetComponent<Rigidbody>();
             skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
             defaultColor = skinnedMeshRenderer.material.color;
-            healthBar = GetComponentInChildren<HealthBarUI>();
         }
 
         private void FixedUpdate() {
@@ -92,6 +91,10 @@ namespace AG.Combat {
 
         public void DamageTarget(int damage) {
             TakeDamage(damage);
+        }
+
+        public void SetHealthBar(HealthBarUI healthBar){
+            this.healthBar = healthBar;
         }
     }
 }
