@@ -8,10 +8,16 @@ public class Skillbook : MonoBehaviour {
     [SerializeField]
     Skill[] learnedSkills;
 
+    private SkillbookUI sbUI;
+
     void Start() {
-        SkillbookUI sbUI = skillbookCollectionUIReference.GetComponent<SkillbookUI>();
+        sbUI = skillbookCollectionUIReference.GetComponent<SkillbookUI>();
         foreach (Skill skill in learnedSkills) {
             sbUI.AddToSkillbook(skill);
         }
+    }
+
+    public void AddSkill(Skill skill) {
+        sbUI.AddToSkillbook(skill);
     }
 }
