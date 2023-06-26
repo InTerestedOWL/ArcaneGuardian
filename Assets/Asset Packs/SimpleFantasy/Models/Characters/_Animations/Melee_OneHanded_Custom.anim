@@ -30420,16 +30420,28 @@ AnimationClip:
   - time: 0
     functionName: SuspendRotation
     data: 
-    objectReferenceParameter: {fileID: 11500000, guid: 2db4b5f3408015b4988bfa67759bd623,
-      type: 3}
+    objectReferenceParameter: {fileID: 11500000, guid: 2db4b5f3408015b4988bfa67759bd623, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0
+    functionName: StopSlashEffect
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.53333336
+    functionName: PlaySlashEffect
+    data: 
+    objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 1.1666666
     functionName: ResumeRotation
     data: 
-    objectReferenceParameter: {fileID: 11500000, guid: 2db4b5f3408015b4988bfa67759bd623,
-      type: 3}
+    objectReferenceParameter: {fileID: 11500000, guid: 2db4b5f3408015b4988bfa67759bd623, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0

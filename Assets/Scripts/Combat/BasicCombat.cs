@@ -1,9 +1,12 @@
 // Based on https://www.udemy.com/course/unityrpg/
 
 using UnityEngine;
+using UnityEngine.VFX;
 
 namespace AG.Combat {
     public class BasicCombat : MonoBehaviour {
+        [SerializeField]
+        VisualEffect slashEffect;
         // Counter to check if attack is buffered
         private int attackStateCounter = 0;
         public void Attack() {
@@ -24,6 +27,22 @@ namespace AG.Combat {
 
         private void UpdateAnimator() {
             GetComponent<Animator>().SetTrigger("basicAttack");
+        }
+
+        public void PlaySlashEffect()
+        {
+
+            if (attackStateCounter == 1)
+            {
+                slashEffect.gameObject.SetActive(true);
+                slashEffect.SendEvent("SlashStart");
+            }
+        }
+
+        public void StopSlashEffect()
+        {
+            slashEffect.gameObject.SetActive(false);
+            slashEffect.SendEvent("SlashStop");
         }
     }
 }
