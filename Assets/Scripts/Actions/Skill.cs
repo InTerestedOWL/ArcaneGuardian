@@ -50,5 +50,13 @@ namespace AG.Skills {
             }
             isOnCooldown = false;
         }
+
+        public EffectStrategy[] GetEffectStrategies() {
+            return effectStrategies;
+        }
+
+        public FilterStrategy GetFilterStrategy() {
+            return filterStrategy;
+        }
     }
 }

@@ -1,6 +1,7 @@
 using UnityEngine;
 
 using AG.Weapons;
+using System.Collections;
 
 namespace AG.Combat {
     public class CombatTarget : MonoBehaviour {
@@ -19,6 +20,8 @@ namespace AG.Combat {
         private float blinkTimer;
         private Color defaultColor;
         private HealthBarUI healthBar;
+        private bool inAoERange = false;
+        private Coroutine coroutineAoEDoT = null;
 
         private void Start() {
             currentHealth = maxHealth;
@@ -91,6 +94,27 @@ namespace AG.Combat {
 
         public void DamageTarget(int damage) {
             TakeDamage(damage);
+        }
+
+        public void DamageTargetDoTInAoE(int damagePerTick, float numberOfTicksInDuration, float duration) {
+            if (coroutineAoEDoT == null) {
+                coroutineAoEDoT = StartCoroutine(DealDamageOverTimeInAoE(damagePerTick, numberOfTicksInDuration, duration));
+            }
+        }
+
+        private IEnumerator DealDamageOverTimeInAoE(int damagePerTick, float numberOfTicksInDuration, float duration) {
+            inAoERange = true;
+            for (int i = 0; i < numberOfTicksInDuration; i++) {
+                if (inAoERange) {
+                    TakeDamage(damagePerTick);
+                }
+                yield return new WaitForSeconds(duration / numberOfTicksInDuration);
+            }
+            coroutineAoEDoT = null;
+        }
+
+        public void SetInAoERange(bool inAoERange) {
+            this.inAoERange = inAoERange;
         }
 
         public void SetHealthBar(HealthBarUI healthBar){
