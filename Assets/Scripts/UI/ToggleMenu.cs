@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using AG.Control;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -6,41 +7,44 @@ namespace AG.UI {
     public class ToggleMenu : MonoBehaviour {
         public static int menuOpenCounter = 0;
 
-        [SerializeField] 
-        InputActionReference toggleMenuActionPlayer = null;
-
         [SerializeField]
-        InputActionReference toggleMenuActionUI = null;
-        
-        [SerializeField] 
-        GameObject menu = null;
+        List<MenuEntry> menuEntries;
 
         void Start() {
-            if (menu) {
-                menu.SetActive(false);
+            foreach (MenuEntry menuEntry in menuEntries) {
+                if (menuEntry.menu) {
+                    menuEntry.menu.SetActive(false);
+                }
+                menuEntry.toggleMenuActionPlayer.action.performed += ctx => ToggleMenuAction_performed(ctx, menuEntry);
+                menuEntry.toggleMenuActionUI.action.performed += ctx => ToggleMenuAction_performed(ctx, menuEntry);
             }
-            toggleMenuActionPlayer.action.performed += ToggleMenuAction_performed;
-            toggleMenuActionUI.action.performed += ToggleMenuAction_performed;
         }
 
-        private void ToggleMenuAction_performed(InputAction.CallbackContext context) {
-            menu.SetActive(!menu.activeSelf);
+        private void ToggleMenuAction_performed(InputAction.CallbackContext context, MenuEntry curMenuEntry) {
+            curMenuEntry.menu.SetActive(!curMenuEntry.menu.activeSelf);
             GameObject playerObj = GameObject.FindWithTag("Player");
-            if (menu.activeSelf) {
+            if (curMenuEntry.menu.activeSelf) {
                 ActionMapHandler actionMapHandler = playerObj.GetComponent<ActionMapHandler>();
                 ToggleMenu.menuOpenCounter++;
                 actionMapHandler.ChangeToActionMap("UI");
             } else {
-                CloseMenu(playerObj, true);
+                CloseMenu(curMenuEntry, playerObj, true);
             }
         }
 
-        public void CloseMenu(GameObject playerObj = null, bool menuChanged = false) {
+        public void CloseMenu(GameObject curMenuObj, GameObject playerObj = null, bool menuChanged = false) {
+            MenuEntry menuEntry = menuEntries.Find(menuEntry => menuEntry.menu == curMenuObj);
+            if (menuEntry != null) {
+                CloseMenu(menuEntry, playerObj, menuChanged);
+            }
+        }
+
+        public void CloseMenu(MenuEntry curMenu, GameObject playerObj = null, bool menuChanged = false) {
             if (playerObj == null) {
                 playerObj = GameObject.FindWithTag("Player");
             }
             if (!menuChanged) {
-                menu.SetActive(!menu.activeSelf);
+                curMenu.menu.SetActive(!curMenu.menu.activeSelf);
             }
             ToggleMenu.menuOpenCounter--;
             if (ToggleMenu.menuOpenCounter <= 0) {
@@ -49,4 +53,16 @@ namespace AG.UI {
             }
         }
     }
+}
+
+[System.Serializable]
+public class MenuEntry {
+    [SerializeField]
+    public InputActionReference toggleMenuActionPlayer = null;
+
+    [SerializeField]
+    public InputActionReference toggleMenuActionUI = null;
+
+    [SerializeField]
+    public GameObject menu = null;
 }
