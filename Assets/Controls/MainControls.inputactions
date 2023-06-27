@@ -42,6 +42,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "ToggleSkillTree",
+                    "type": "Button",
+                    "id": "67fe2c9f-bc58-4eb1-ac75-63606e990e85",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Hotkey1",
                     "type": "Button",
                     "id": "1de37ba6-5c38-4e32-b3f3-60d22c41b8fa",
@@ -328,6 +337,17 @@
                     "processors": "",
                     "groups": "Keyboard & Mouse",
                     "action": "Hotkey0",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "69d5b1bf-a238-42bf-a139-471402dd91f5",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "ToggleSkillTree",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -690,6 +710,15 @@
                     "name": "ToggleSkillMenu",
                     "type": "Button",
                     "id": "bbaf8316-079d-4769-9d8b-d7aa55639b17",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ToggleSkillTree",
+                    "type": "Button",
+                    "id": "f8db8c3a-434e-4b81-93c9-0295e7d121e8",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -1123,6 +1152,17 @@
                     "processors": "",
                     "groups": "Keyboard & Mouse",
                     "action": "ToggleSkillMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9c55831c-b66c-4b51-bf85-6d0dd90e8b02",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "ToggleSkillTree",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
