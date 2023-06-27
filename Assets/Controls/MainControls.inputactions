@@ -53,7 +53,7 @@
                 {
                     "name": "Hotkey1",
                     "type": "Button",
-                    "id": "1de37ba6-5c38-4e32-b3f3-60d22c41b8fa",
+                    "id": "3df6cf8a-95e4-4b57-b261-f616f6409adb",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -62,7 +62,7 @@
                 {
                     "name": "Hotkey2",
                     "type": "Button",
-                    "id": "802ccd9b-97ae-48d9-872b-9d6dd9e6a77a",
+                    "id": "0a892c69-b36d-4deb-bb9e-56ba5126552a",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -71,7 +71,7 @@
                 {
                     "name": "Hotkey3",
                     "type": "Button",
-                    "id": "fa934d30-a4e6-47aa-9f67-3f0b864c1af3",
+                    "id": "4df5f78f-93c5-47bb-873d-00461fcec31c",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -80,7 +80,7 @@
                 {
                     "name": "Hotkey4",
                     "type": "Button",
-                    "id": "e1deddd5-daca-4ce8-8b9c-90c03ad01d36",
+                    "id": "9b29976d-8f5d-4299-b544-e86d49847346",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -89,7 +89,7 @@
                 {
                     "name": "Hotkey5",
                     "type": "Button",
-                    "id": "c291671f-0a14-4dd5-b443-c4413776e5f5",
+                    "id": "76194d32-2e58-42b7-965b-29b541aa36e2",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -98,7 +98,7 @@
                 {
                     "name": "Hotkey6",
                     "type": "Button",
-                    "id": "51f4984a-4a9e-4073-9029-d29e5a1e91d7",
+                    "id": "b5188896-9ab1-4936-87ea-b94a480f8c58",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -107,7 +107,7 @@
                 {
                     "name": "Hotkey7",
                     "type": "Button",
-                    "id": "f9527b83-5f2d-4eab-8d2b-d1c61f698d34",
+                    "id": "f3923795-315f-42f0-8775-5ed7ac27ff0a",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -116,7 +116,7 @@
                 {
                     "name": "Hotkey8",
                     "type": "Button",
-                    "id": "256e29d2-0edd-49f0-aec4-ba62d66cc3f5",
+                    "id": "50225074-6cfe-4c7a-9879-e0aa19d9315c",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -125,7 +125,7 @@
                 {
                     "name": "Hotkey9",
                     "type": "Button",
-                    "id": "f401d7b9-6544-4eca-91ec-0a2973f1c98b",
+                    "id": "80b9f51b-7dec-48c2-815f-23bf2a287bef",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -134,7 +134,7 @@
                 {
                     "name": "Hotkey0",
                     "type": "Button",
-                    "id": "3402b13d-9559-434b-a06f-55d48d2811b5",
+                    "id": "62a36a72-4862-465e-a7b4-decb753ae326",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -241,116 +241,6 @@
                 },
                 {
                     "name": "",
-                    "id": "13412241-1cf4-4343-ab89-2de1ffed424d",
-                    "path": "<Keyboard>/1",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard & Mouse",
-                    "action": "Hotkey1",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "796323e8-59fd-41e5-90fe-3061a89cfe23",
-                    "path": "<Keyboard>/2",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard & Mouse",
-                    "action": "Hotkey2",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "c56362f9-6843-49c0-9d5e-030f8d0f99e1",
-                    "path": "<Keyboard>/3",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard & Mouse",
-                    "action": "Hotkey3",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ebe30c12-273d-4e7c-b8e0-87dd43af5baf",
-                    "path": "<Keyboard>/4",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard & Mouse",
-                    "action": "Hotkey4",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a9b48c9d-da29-4a94-b35b-9a0c373adf98",
-                    "path": "<Keyboard>/5",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard & Mouse",
-                    "action": "Hotkey5",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "77d7ebd0-99f2-420c-adab-406449ad8f2c",
-                    "path": "<Keyboard>/6",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard & Mouse",
-                    "action": "Hotkey6",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "e73fa173-c612-450c-9cc7-9ea6206ae550",
-                    "path": "<Keyboard>/7",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard & Mouse",
-                    "action": "Hotkey7",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a35803e4-a3d3-4b0e-9080-bcc61b6f860c",
-                    "path": "<Keyboard>/8",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard & Mouse",
-                    "action": "Hotkey8",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "7e792864-facd-4001-bb1f-ce440d8ea5d8",
-                    "path": "<Keyboard>/9",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard & Mouse",
-                    "action": "Hotkey9",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "9425d731-849b-4aa4-98f0-3d4f87bd04b1",
-                    "path": "<Keyboard>/0",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard & Mouse",
-                    "action": "Hotkey0",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "69d5b1bf-a238-42bf-a139-471402dd91f5",
                     "path": "<Keyboard>/l",
                     "interactions": "",
@@ -368,6 +258,116 @@
                     "processors": "",
                     "groups": "Keyboard & Mouse",
                     "action": "ChangeMode",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a31925b3-39ea-46c5-8514-457a9a6b8ac5",
+                    "path": "<Keyboard>/0",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "Hotkey0",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e5d78f25-81f5-4233-8b8c-12c43dbea712",
+                    "path": "<Keyboard>/9",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "Hotkey9",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c395d24e-6bf0-46ca-851e-b7942e3a2541",
+                    "path": "<Keyboard>/8",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "Hotkey8",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "17f8e945-24b4-4d97-a369-3b99de9f3c6a",
+                    "path": "<Keyboard>/7",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "Hotkey7",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "edd3122d-48b8-4f2f-99e7-259fa97422b5",
+                    "path": "<Keyboard>/6",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "Hotkey6",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bfc48a11-6c09-45da-9691-84cc5341d5ef",
+                    "path": "<Keyboard>/5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "Hotkey5",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "149b2c23-aebb-4274-a28a-db4ff1b04238",
+                    "path": "<Keyboard>/4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "Hotkey4",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "de95ff7e-098e-40b0-90ea-a7b391f88c1f",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "Hotkey3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d8e99f18-67b4-43d4-9490-d44382458a00",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "Hotkey2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9f1849ba-d014-493a-ae3f-f375e25a83a0",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "Hotkey1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

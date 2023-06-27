@@ -15,7 +15,9 @@ namespace AG.UI {
                 if (menuEntry.menu) {
                     menuEntry.menu.SetActive(false);
                 }
-                menuEntry.toggleMenuActionPlayer.action.performed += ctx => ToggleMenuAction_performed(ctx, menuEntry);
+                foreach (InputActionReference toggleMenuActionPlayer in menuEntry.toggleMenuActionsPlayer) {
+                    toggleMenuActionPlayer.action.performed += ctx => ToggleMenuAction_performed(ctx, menuEntry);
+                }
                 menuEntry.toggleMenuActionUI.action.performed += ctx => ToggleMenuAction_performed(ctx, menuEntry);
             }
         }
@@ -58,7 +60,7 @@ namespace AG.UI {
 [System.Serializable]
 public class MenuEntry {
     [SerializeField]
-    public InputActionReference toggleMenuActionPlayer = null;
+    public List<InputActionReference> toggleMenuActionsPlayer = null;
 
     [SerializeField]
     public InputActionReference toggleMenuActionUI = null;
