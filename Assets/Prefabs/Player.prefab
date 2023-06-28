@@ -528,7 +528,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentWeaponType: 0
   attackDamage: 10
-  knockbackForce: 50
+  knockbackForce: 90
 --- !u!1001 &7440731871467038981
 PrefabInstance:
   m_ObjectHideFlags: 0

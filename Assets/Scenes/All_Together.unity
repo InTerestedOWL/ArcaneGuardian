@@ -410,6 +410,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3206476306292547515, guid: 12508a110f03cf44d9b5ea0c76ad7284, type: 3}
+      propertyPath: skill
+      value: 
+      objectReference: {fileID: 11400000, guid: 0a2e71a3b092da4478e45bd2a03a3997, type: 2}
     - target: {fileID: 3847221975319492449, guid: 12508a110f03cf44d9b5ea0c76ad7284, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -17605,74 +17609,6 @@ PrefabInstance:
       propertyPath: skillbookCollectionUIReference
       value: 
       objectReference: {fileID: 554809573}
-    - target: {fileID: 6825835310185104199, guid: 415c6d88014567241bd24edb4f7a459f, type: 3}
-      propertyPath: inputActionAsset
-      value: 
-      objectReference: {fileID: -944628639613478452, guid: 02f590a705a0d004abee1378dd449c0e, type: 3}
-    - target: {fileID: 6825835310185104199, guid: 415c6d88014567241bd24edb4f7a459f, type: 3}
-      propertyPath: activeMaps.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6825835310185104199, guid: 415c6d88014567241bd24edb4f7a459f, type: 3}
-      propertyPath: activeMapsAtStart.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6825835310185104199, guid: 415c6d88014567241bd24edb4f7a459f, type: 3}
-      propertyPath: activeMaps.Array.data[0].m_Id
-      value: 8f2cc650-507c-4156-a843-f7ff04c72586
-      objectReference: {fileID: 0}
-    - target: {fileID: 6825835310185104199, guid: 415c6d88014567241bd24edb4f7a459f, type: 3}
-      propertyPath: activeMaps.Array.data[0].m_Name
-      value: Element 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6825835310185104199, guid: 415c6d88014567241bd24edb4f7a459f, type: 3}
-      propertyPath: activeMapsAtStart.Array.data[0].m_Id
-      value: fb883c95-eb2f-495b-ac40-3576d967085a
-      objectReference: {fileID: 0}
-    - target: {fileID: 6825835310185104199, guid: 415c6d88014567241bd24edb4f7a459f, type: 3}
-      propertyPath: activeMapsAtStart.Array.data[0].asset
-      value: 
-      objectReference: {fileID: -944628639613478452, guid: 02f590a705a0d004abee1378dd449c0e, type: 3}
-    - target: {fileID: 6825835310185104199, guid: 415c6d88014567241bd24edb4f7a459f, type: 3}
-      propertyPath: activeMapsAtStart.Array.data[0].m_Name
-      value: Element 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6825835310185104199, guid: 415c6d88014567241bd24edb4f7a459f, type: 3}
-      propertyPath: actionMapSelection.inputActionReference
-      value: 
-      objectReference: {fileID: 6554194042555572551, guid: 02f590a705a0d004abee1378dd449c0e, type: 3}
-    - target: {fileID: 6825835310185104199, guid: 415c6d88014567241bd24edb4f7a459f, type: 3}
-      propertyPath: activeMapsAtStart.Array.data[0].m_Actions.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6825835310185104199, guid: 415c6d88014567241bd24edb4f7a459f, type: 3}
-      propertyPath: activeMapsAtStart.Array.data[0].m_Bindings.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6825835310185104199, guid: 415c6d88014567241bd24edb4f7a459f, type: 3}
-      propertyPath: activeMapsAtStart.Array.data[0].m_Actions.Array.data[0].m_Id
-      value: 9cfba5f5-31f6-4a9f-af33-53368478c502
-      objectReference: {fileID: 0}
-    - target: {fileID: 6825835310185104199, guid: 415c6d88014567241bd24edb4f7a459f, type: 3}
-      propertyPath: activeMapsAtStart.Array.data[0].m_Bindings.Array.data[0].m_Id
-      value: 905bd58e-fd6a-4f5d-911a-eb3d70c34a1e
-      objectReference: {fileID: 0}
-    - target: {fileID: 6825835310185104199, guid: 415c6d88014567241bd24edb4f7a459f, type: 3}
-      propertyPath: activeMapsAtStart.Array.data[0].m_Actions.Array.data[0].m_Name
-      value: New action
-      objectReference: {fileID: 0}
-    - target: {fileID: 6825835310185104199, guid: 415c6d88014567241bd24edb4f7a459f, type: 3}
-      propertyPath: activeMapsAtStart.Array.data[0].m_Actions.Array.data[0].m_Type
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6825835310185104199, guid: 415c6d88014567241bd24edb4f7a459f, type: 3}
-      propertyPath: activeMapsAtStart.Array.data[0].m_Bindings.Array.data[0].m_Action
-      value: New action
-      objectReference: {fileID: 0}
-    - target: {fileID: 6825835310185104199, guid: 415c6d88014567241bd24edb4f7a459f, type: 3}
-      propertyPath: activeMapsAtStart.Array.data[0].m_Actions.Array.data[0].m_ExpectedControlType
-      value: Button
-      objectReference: {fileID: 0}
     - target: {fileID: 7645916049215193126, guid: 415c6d88014567241bd24edb4f7a459f, type: 3}
       propertyPath: m_RootOrder
       value: 0

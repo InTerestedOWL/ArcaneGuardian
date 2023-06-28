@@ -8,7 +8,13 @@ namespace AG.Skills.Effects {
         [SerializeField]
         GameObject particlePrefab = null;
         [SerializeField]
-        int duration = 1;
+        float duration = 1;
+        [SerializeField]
+        bool useRadius = true;
+        [SerializeField]
+        bool attachToPlayer = false;
+        [SerializeField]
+        bool rotateToTarget = false;
 
         public override void ApplyEffect(SkillData skillData) {
             if (particlePrefab) {
@@ -17,8 +23,20 @@ namespace AG.Skills.Effects {
         }
 
         private IEnumerator DisplayParticle(SkillData skillData) {
-            GameObject particle = Instantiate(particlePrefab, skillData.GetTargetPosition(), Quaternion.identity);
-            particle.transform.localScale *=  (skillData.GetRadius() * 2);
+            Vector3 targetPos = Vector3.zero;
+            if (attachToPlayer) {
+                targetPos = skillData.GetUser().transform.position;
+            } else {
+                targetPos = skillData.GetTargetPosition();
+            }
+            GameObject particle = Instantiate(particlePrefab, targetPos, Quaternion.identity);
+            if (rotateToTarget) {
+                Vector3 mousePos = skillData.GetTargetPosition();
+                mousePos.y = particle.transform.position.y;
+                particle.transform.LookAt(mousePos);
+            }
+            if (useRadius)
+                particle.transform.localScale *=  (skillData.GetRadius() * 2);
             if (duration > 0)  {
                 yield return new WaitForSeconds(duration);
                 Destroy(particle);

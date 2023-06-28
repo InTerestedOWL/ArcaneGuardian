@@ -11,6 +11,8 @@ namespace AG.Skills.Targeting {
     [CreateAssetMenu(fileName = "AoE Targeting", menuName = ("Arcane Guardian/Targeting Strategy/AoE Targeting"))]
     public class AoETargeting : TargetingStrategy {
         [SerializeField]
+        ShapeSelection shapeSelection = ShapeSelection.Circle;
+        [SerializeField]
         LayerMask layerMask;
         [SerializeField] 
         float aoeRadius = 1f;
@@ -48,7 +50,15 @@ namespace AG.Skills.Targeting {
             while (targeting) {
                 data.GetPlayerController().CalcPointerHit(out groundHit, out hasHit, layerMask);
                 if (hasHit) {
-                    telegraphInstance.position = groundHit.point;
+                    if (shapeSelection == ShapeSelection.Circle) {
+                        telegraphInstance.position = groundHit.point;
+                    } else if (shapeSelection == ShapeSelection.Cone) {
+                        Vector3 curPos = data.GetUser().transform.position;
+                        curPos.y = groundHit.point.y;
+                        telegraphInstance.rotation = Quaternion.LookRotation(groundHit.point - curPos);
+                        curPos.y += 0.1f;
+                        telegraphInstance.position = curPos;
+                    }
                 }
                 if (buttonTriggered && cancelSpellAction.phase == InputActionPhase.Waiting && selectTarget.phase == InputActionPhase.Waiting) {
                     targeting = false;
@@ -57,7 +67,7 @@ namespace AG.Skills.Targeting {
                     yield break;
                 } else if (cancelSpellAction.triggered || selectTarget.triggered) {
                     if (selectTarget.triggered) {
-                        data.SetTargets(GetTargets(groundHit.point, hasHit));
+                        data.SetTargets(GetTargets(groundHit.point, hasHit, data.GetUser().transform.position));
                         data.SetTargetPosition(groundHit.point);
                         callback();
                     }
@@ -68,13 +78,31 @@ namespace AG.Skills.Targeting {
             yield return null;
         }
 
-        private IEnumerable<GameObject> GetTargets(Vector3 groundHit, bool hasHit) {
+        private IEnumerable<GameObject> GetTargets(Vector3 groundHit, bool hasHit, Vector3 playerPos) {
             if (hasHit) {
-                RaycastHit[] hits = Physics.SphereCastAll(groundHit, aoeRadius, Vector3.up, 0f);
-                foreach (RaycastHit hit in hits) {
-                    yield return hit.collider.gameObject;
+                if (shapeSelection == ShapeSelection.Circle) {
+                    RaycastHit[] hits = Physics.SphereCastAll(groundHit, aoeRadius, Vector3.up, 0f);
+                    foreach (RaycastHit hit in hits) {
+                        yield return hit.collider.gameObject;
+                    }
+                } else if (shapeSelection == ShapeSelection.Cone) {
+                    playerPos.y = 0;
+                    RaycastHit[] hits = Physics.SphereCastAll(playerPos, aoeRadius * 2, Vector3.up, 0f);
+                    float maxAngle = 45f;
+                    foreach (RaycastHit hit in hits) {
+                        Vector3 dir = hit.collider.transform.position - playerPos;
+                        float angle = Vector3.Angle(dir, telegraphInstance.forward);
+                        if (angle < maxAngle || angle > 360 - maxAngle) {
+                            yield return hit.collider.gameObject;
+                        }
+                    }
                 }
             }
         }
+    }
+
+    public enum ShapeSelection {
+        Circle,
+        Cone
     }
 }
