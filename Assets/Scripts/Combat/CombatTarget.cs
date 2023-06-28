@@ -23,6 +23,8 @@ namespace AG.Combat {
         private bool inAoERange = false;
         private Coroutine coroutineAoEDoT = null;
 
+        private bool isDead = false;
+
         private void Start() {
             currentHealth = maxHealth;
             rb = GetComponent<Rigidbody>();
@@ -56,6 +58,8 @@ namespace AG.Combat {
         }
 
         private void TakeDamage(int damage) {
+            if (isDead)
+                return;
             currentHealth -= damage;
             healthBar?.SetHealthBarPercentage(currentHealth / maxHealth);
             if (currentHealth <= 0) {
@@ -76,6 +80,7 @@ namespace AG.Combat {
             GetComponent<Animator>().SetTrigger("killed");
             rb.isKinematic = true;
             healthBar?.gameObject.SetActive(false);
+            isDead = true;
         }
 
         //Blink Animation on Damage taken
