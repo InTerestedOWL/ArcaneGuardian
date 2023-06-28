@@ -85,12 +85,11 @@ public class BuildingSystem : MonoBehaviour
         MainTilemap.BoxFill(start, whiteTile, start.x, start.y, start.x+size.x, start.y+size.y);
     }
     public void startBuilding(GameObject buildingObject){
-        print("buildingcontext="+buildingContext);
-        if(!buildingContext){     
-            print("buildingcontext changed to "+buildingContext);     
-            setBuildingContext(true);
-            InitializeWithObject(buildingObject);
+        if(buildingContext){
+            stopBuilding();
         }
+        setBuildingContext(true);
+        InitializeWithObject(buildingObject);     
     }
 
     public void stopBuilding(){
