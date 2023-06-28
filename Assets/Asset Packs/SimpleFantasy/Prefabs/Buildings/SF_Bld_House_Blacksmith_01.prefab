@@ -12,7 +12,9 @@ GameObject:
   - component: {fileID: 3319290}
   - component: {fileID: 2369772}
   - component: {fileID: 537516638081517992}
-  m_Layer: 0
+  - component: {fileID: -7632163264141481668}
+  - component: {fileID: 6103340430571397197}
+  m_Layer: 10
   m_Name: SF_Bld_House_Blacksmith_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,8 +30,8 @@ Transform:
   m_GameObject: {fileID: 150462}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.53125995, y: 0.53125995, z: 0.53125995}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -92,8 +94,36 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 150462}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 17.174892, y: 11.443589, z: 14.1727295}
   m_Center: {x: 0.0000019073486, y: 5.7217946, z: 0}
+--- !u!114 &-7632163264141481668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4285d5088e29b584eabe2bcd47d1d025, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!208 &6103340430571397197
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150462}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 8.587001, y: 5.722, z: 7.0860004}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 5.722, z: 0}
+  m_TimeToStationary: 0.5

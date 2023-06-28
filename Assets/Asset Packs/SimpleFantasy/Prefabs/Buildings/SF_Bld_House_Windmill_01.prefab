@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 480362}
   - component: {fileID: 3388640}
   - component: {fileID: 2312436}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SF_Bld_HouseAdd_WindmillBlade_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,8 @@ GameObject:
   - component: {fileID: 2392206}
   - component: {fileID: -9217526825384996330}
   - component: {fileID: -4034298592756223316}
-  m_Layer: 0
+  - component: {fileID: -4502255962956125177}
+  m_Layer: 10
   m_Name: SF_Bld_House_Windmill_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,8 +113,8 @@ Transform:
   m_GameObject: {fileID: 178950}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 480362}
   m_Father: {fileID: 0}
@@ -189,8 +190,24 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 178950}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 10.060951, y: 18.554749, z: 8.823074}
   m_Center: {x: -0.0000038146973, y: 9.277374, z: 0.0000076293945}
+--- !u!208 &-4502255962956125177
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178950}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 5.03, y: 9.277, z: 4.412}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 9.277, z: 0}
+  m_TimeToStationary: 0.5

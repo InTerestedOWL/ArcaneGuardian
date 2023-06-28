@@ -529,6 +529,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "StopBuilding",
+                    "type": "Button",
+                    "id": "a9bfdbed-8869-4510-9443-f61b0af8028c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -760,6 +769,28 @@
                     "processors": "",
                     "groups": "Keyboard & Mouse",
                     "action": "ChangeMode",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f1bb432e-d622-42ef-80e1-6f73ee1c86a1",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "StopBuilding",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0fd26da7-3fff-4344-a384-60cb4452a252",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "StopBuilding",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
