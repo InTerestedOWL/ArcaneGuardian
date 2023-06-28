@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Tilemaps;
 
 public class BuildingSystem : MonoBehaviour
@@ -13,15 +14,11 @@ public class BuildingSystem : MonoBehaviour
     [SerializeField] private Tilemap MainTilemap;
     [SerializeField] private TileBase whiteTile;
 
+    [SerializeField] private LayerMask gridLayerMask;
     [SerializeField] private Material isPlacableMat;
     [SerializeField] private Material isNotPlacableMat;
     private Material[] objectMaterials;
-    public GameObject prefab1;
-    public GameObject prefab2;
-    public GameObject prefab3;
-    public GameObject prefab4;
-    public GameObject prefab5;
-    public GameObject prefab6;
+  
     
     private PlaceableObject objectToPlace;
     // Start is called before the first frame update
@@ -30,9 +27,13 @@ public class BuildingSystem : MonoBehaviour
         grid = gridLayout.gameObject.GetComponent<Grid>();
     }
 
-    public static Vector3 GetMouseWorldPosition(){
+    public Vector3 GetMouseWorldPosition(){
+
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if(Physics.Raycast(ray, out RaycastHit raycastHit)){
+        
+        if(Physics.Raycast(ray, out RaycastHit raycastHit,1000,gridLayerMask)){
+            Debug.Log(raycastHit.collider.gameObject);
+            Debug.DrawRay(ray.origin, ray.direction * 1000, Color.blue, 1f);
             return raycastHit.point;
         }
         else{
@@ -83,10 +84,23 @@ public class BuildingSystem : MonoBehaviour
     public void TakeArea(Vector3Int start, Vector3Int size){
         MainTilemap.BoxFill(start, whiteTile, start.x, start.y, start.x+size.x, start.y+size.y);
     }
+    public void startBuilding(GameObject buildingObject){
+        if(buildingContext){
+            stopBuilding();
+        }
+        setBuildingContext(true);
+        InitializeWithObject(buildingObject);     
+    }
+
+    public void stopBuilding(){
+        if(this.getBuildingContext()){
+            Destroy(objectToPlace.gameObject);
+            setBuildingContext(false);
+        }      
+    }
 
     public void setBuildingContext(bool activated){
         buildingContext = activated;
-        Cursor.visible = !activated;
     }
     public bool getBuildingContext(){
         return buildingContext;
@@ -138,6 +152,7 @@ public class BuildingSystem : MonoBehaviour
                     Vector3Int start = gridLayout.WorldToCell(objectToPlace.GetStartPosition());
                     TakeArea(start,objectToPlace.Size);
                     objectToPlace.GetComponent<MeshRenderer>().materials = objectMaterials;
+                    objectToPlace.GetComponent<NavMeshObstacle>().enabled = true;
                     Component[] childrenMeshRenderer = objectToPlace.GetComponentsInChildren<MeshRenderer>();
                     foreach(MeshRenderer cmr in childrenMeshRenderer){
                         cmr.material = objectMaterials[0];
@@ -145,47 +160,7 @@ public class BuildingSystem : MonoBehaviour
                     setBuildingContext(false);
                 }
             }
-            else if(Input.GetKeyDown(KeyCode.Escape)||Input.GetKeyDown(KeyCode.Mouse1)){
-                Destroy(objectToPlace.gameObject);
-                setBuildingContext(false);
-            }
-        }  
-        if(Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            if(!buildingContext){
-                setBuildingContext(true);
-                InitializeWithObject(prefab1);
-            }    
-        }
-        if(Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            if(!buildingContext){
-                setBuildingContext(true);
-                InitializeWithObject(prefab2);
-            }    
-        }
-        if(Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            if(!buildingContext){
-                setBuildingContext(true);
-                InitializeWithObject(prefab3);
-            }    
-        }
-        if(Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            if(!buildingContext){
-                setBuildingContext(true);
-                InitializeWithObject(prefab4);
-            }    
-        }
-        if(Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            if(!buildingContext){
-                setBuildingContext(true);
-                InitializeWithObject(prefab5);
-            }    
-        }
-        
+        }         
         if(!objectToPlace){
             return;
         }  
