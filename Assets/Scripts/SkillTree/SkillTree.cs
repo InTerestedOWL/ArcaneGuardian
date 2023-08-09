@@ -27,9 +27,9 @@ public class SkillTree : MonoBehaviour
     }
 
     public void UpdateAllSkillUI(){
+        SkillPointsText.text = SkillPoints.ToString();
         foreach(var skill in SkillList){
             skill.UpdateUI();
-            SkillPointsText.text = SkillPoints.ToString();
         }
     }
 }
