@@ -46,9 +46,11 @@ namespace AG.Control {
             stateMachine.Update();
         }
         
-        private void HandleCombat() {
+        public void HandleCombat() {
             if(Vector3.Distance(this.transform.position, player.transform.position) < config.attackRange) {
-                combat.Attack();
+                if(!combat.IsAttacking()){
+                    combat.Attack();
+                }
             }
         }
     }

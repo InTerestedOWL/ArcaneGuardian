@@ -20,10 +20,11 @@ namespace AG.Control
         }
 
         public void Update(AiController controller)
-        {
+        {   
             if(!controller.enabled){
                 return;
             }
+            //TODO: Get closest "player" target and chase (Player, POI, Towers, ...)
 
             //TODO: Fix knockback
             if (controller.combatTarget.currentHealth > 0)
@@ -36,12 +37,13 @@ namespace AG.Control
                     {
                         controller.movement.DoMovement(controller.player.transform.position);
                     }
+                    else {
+                        controller.HandleCombat();
+                    }
 
                     timer = controller.config.movementUpdateTime;
                 }
             }
-
-            //TODO: Add combat
         }
 
         public void Exit(AiController controller)
