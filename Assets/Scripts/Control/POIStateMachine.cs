@@ -4,25 +4,25 @@ using UnityEngine;
 using AG.Control;
 
 namespace AG.Control {
-    public class AiStateMachine
+    public class POIStateMachine
     {
-        public AiState[] states;
-        public StateMachineController controller;
-        public AiStateId currentState;
+        public POIState[] states;
+        public POIController controller;
+        public POIStateId currentState;
 
-        public AiStateMachine(StateMachineController controller)
+        public POIStateMachine(POIController controller)
         {
             this.controller = controller;
-            int numStates = System.Enum.GetNames(typeof(AiStateId)).Length;
-            states = new AiState[numStates];
+            int numStates = System.Enum.GetNames(typeof(POIStateId)).Length;
+            states = new POIState[numStates];
         }
 
-        public void RegisterState(AiState state){
+        public void RegisterState(POIState state){
             int index = (int)state.GetId();
             states[index] = state;
         }
 
-        public AiState GetState(AiStateId stateId){
+        public POIState GetState(POIStateId stateId){
             return states[(int)stateId];
         }
 
@@ -30,7 +30,7 @@ namespace AG.Control {
             GetState(currentState)?.Update(controller);
         }
 
-        public void ChangeState(AiStateId newState){
+        public void ChangeState(POIStateId newState){
             GetState(currentState)?.Exit(controller);
             currentState = newState;
             GetState(currentState)?.Enter(controller);

@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace AG.Control {
-
-    public class AttackPlayerState : AiState
+namespace AG.Control
+{
+    public class POIIdleState : AiState
     {
         public AiStateId GetId()
         {
-            return AiStateId.AiAttackPlayer;
+            return AiStateId.POIIdle;
         }
 
         public void Enter(StateMachineController controller)
@@ -21,6 +21,6 @@ namespace AG.Control {
 
         public void Exit(StateMachineController controller)
         {
-        } 
+        }
     }
 }

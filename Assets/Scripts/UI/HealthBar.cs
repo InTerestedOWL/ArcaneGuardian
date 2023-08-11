@@ -7,6 +7,7 @@ public class HealthBar : MonoBehaviour
 {
     public Transform target = null;
     public bool isFriendly = false;
+    public Vector3 offset = new Vector3(0, 1.2f, 0);
 
     private GameObject HealthbarUIPrefab = null;
     private GameObject UIHealthBars = null;
@@ -28,6 +29,7 @@ public class HealthBar : MonoBehaviour
         healthBar = Instantiate(HealthbarUIPrefab, UIHealthBars.transform);
         healthBar.name = "Healthbar" + this.name;
         healthBarUIScript = healthBar.GetComponentInChildren<HealthBarUI>();
+        healthBarUIScript.offset = offset;
         healthBarUIScript.SetTarget(target);
 
         combatTarget = this.transform.GetComponent<CombatTarget>();

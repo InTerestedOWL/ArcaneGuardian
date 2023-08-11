@@ -5,18 +5,20 @@ using UnityEngine;
 
 namespace AG.Control {
     public enum AiStateId {
-        ChasePlayer,
-        Death,
-        Idle,
-        AttackPlayer
+        AiChasePlayer,
+        AiDeath,
+        AiIdle,
+        AiAttackPlayer,
+        POIIdle,
+        POIFollowPlayer
     }
 
     public interface AiState
     {
         AiStateId GetId();
-        void Enter(AiController controller);
-        void Update(AiController controller);
-        void Exit(AiController controller);
+        void Enter(StateMachineController controller);
+        void Update(StateMachineController controller);
+        void Exit(StateMachineController controller);
     }    
 }
 

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class HealthBarUI : MonoBehaviour
 {   
     public Transform target = null;
-    public Vector3 offset = new Vector3(0.0f, 1.5f, 0.0f);
+    public Vector3 offset = new(0.0f, 1.5f, 0.0f);
     public Image foregorundImage;
     public Image backgroundImage;
 

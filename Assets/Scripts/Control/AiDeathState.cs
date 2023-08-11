@@ -8,19 +8,19 @@ namespace AG.Control
     {
         public AiStateId GetId()
         {
-            return AiStateId.Death;
+            return AiStateId.AiDeath;
         }
 
         //TODO: Problem mit CombatTarget -> CombatTarget handlet wenn eine einheit stirbt
-        public void Enter(AiController controller)
+        public void Enter(StateMachineController controller)
         {
         }
 
-        public void Update(AiController controller)
+        public void Update(StateMachineController controller)
         {
         }
 
-        public void Exit(AiController controller)
+        public void Exit(StateMachineController controller)
         {
         }
     }

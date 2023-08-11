@@ -8,14 +8,14 @@ namespace AG.Control
     {
         public AiStateId GetId()
         {
-            return AiStateId.Idle;
+            return AiStateId.AiIdle;
         }
 
-        public void Enter(AiController controller)
+        public void Enter(StateMachineController controller)
         {
         }
 
-        public void Update(AiController controller)
+        public void Update(StateMachineController controller)
         {
             //TODO: Random movement
 
@@ -31,12 +31,12 @@ namespace AG.Control
 
                 float dotProduct = Vector3.Dot(playerDirection, controllerDirection);
                 if(dotProduct > 0.0f) {
-                    controller.stateMachine.ChangeState(AiStateId.ChasePlayer);
+                    controller.stateMachine.ChangeState(AiStateId.AiChasePlayer);
                 }
             }
         }
 
-        public void Exit(AiController controller)
+        public void Exit(StateMachineController controller)
         {
         }
     }

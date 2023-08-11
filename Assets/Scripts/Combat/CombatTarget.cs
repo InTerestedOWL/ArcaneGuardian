@@ -17,6 +17,8 @@ namespace AG.Combat {
         private float knockbackForce = 0f;
         private Rigidbody rb;
         private SkinnedMeshRenderer skinnedMeshRenderer;
+        private MeshRenderer meshRenderer;
+        private Material material;
         private float blinkTimer;
         private Color defaultColor;
         private HealthBarUI healthBar;
@@ -29,7 +31,16 @@ namespace AG.Combat {
             currentHealth = maxHealth;
             rb = GetComponent<Rigidbody>();
             skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
-            defaultColor = skinnedMeshRenderer.material.color;
+            meshRenderer = GetComponent<MeshRenderer>();
+
+            if(skinnedMeshRenderer == null){
+                material = meshRenderer.material;
+            }
+            else {
+                material = skinnedMeshRenderer.material;
+            }
+
+            defaultColor = material.color;
         }
 
         private void FixedUpdate() {
@@ -90,10 +101,10 @@ namespace AG.Combat {
             float intensity = (lerp * blinkIntensity) + 1.0f;
             
             if(intensity > 1.0f){
-                skinnedMeshRenderer.material.color = blinkColor * intensity;
+                material.color = blinkColor * intensity;
             }
             else {
-                skinnedMeshRenderer.material.color = defaultColor;
+                material.color = defaultColor;
             }
         }
 
