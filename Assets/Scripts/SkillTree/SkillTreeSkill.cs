@@ -32,15 +32,20 @@ namespace AG.Talents {
         private bool buyable = true;
         private Skillbook skillbook;
 
+        private Image backgroundImage;
+        private Image skillImage; 
+
         public void Start() {
             skillbook = GameObject.Find("Player").GetComponent<Skillbook>();
+            backgroundImage = GetComponent<Image>();
+            skillImage = this.transform.GetChild(0).GetComponent<Image>();
         }
 
         public void UpdateUI() {
             SkillNameText.text = skill.GetDisplayName();
             SkillDescriptionText.text = skill.GetDescription();
             //TODO: Repalce if SkillCap is implemented in Skill.cs
-            SkillLevelText.text = $"{SkillLevel}/{SkillCap}";
+            SkillLevelText.text = $"Rang {SkillLevel}/{SkillCap}";
             // SkillLevelText.text = $"{SkillLevel}/{skill.GetSkillCap()}";
             SkillIcon.sprite = skill.GetIcon();
 
@@ -53,21 +58,44 @@ namespace AG.Talents {
                 this.gameObject.GetComponent<RightClickButton>().enabled = true;
             }
 
-            //TODO: Fix Coloring Bug
-            GetComponent<Image>().color = SkillLevel >= SkillCap ? Color.yellow :
-                skillTree.SkillPoints > 0 && buyable ? Color.green : Color.white;
-
             foreach(var connectedSkill in ConnectedSkills){
                 if(SkillLevel > 0)
                     connectedSkill.SetBuyable(true);
                 else
                     connectedSkill.SetBuyable(false);
             }
+
+            // TODO: Fix Coloring Bug
+            // Debug.Log(this.transform.gameObject.name + " " + (skillTree.SkillPoints > 0) + " " + buyable);
+            // GetComponent<Image>().color = (SkillLevel >= SkillCap) ? Color.yellow :
+            //     (skillTree.SkillPoints > 0 && buyable) ? Color.green : Color.white;
+
+            
+            if(SkillLevel >= SkillCap) {
+                backgroundImage.color = Color.yellow;
+            }
+            else {
+                if(skillTree.SkillPoints > 0 && buyable) {
+                    backgroundImage.color = Color.green;
+                }
+                else {
+                    backgroundImage.color = Color.white;
+                }
+            } 
+
+            if(SkillLevel > 0){
+                skillImage.material.SetFloat("_GrayscaleAmount", 0f);
+            }
+            else {
+                skillImage.material.SetFloat("_GrayscaleAmount", 1f);
+            }
+
         }
 
         public void Learn() {
-            if(skillTree.SkillPoints < 1 || SkillLevel >= SkillCap)
+            if(skillTree.SkillPoints < 1 || SkillLevel >= SkillCap) {
                 return;
+            }  
 
             if(SkillLevel == 0) {
                 skillbook.AddSkill(skill);
@@ -75,6 +103,7 @@ namespace AG.Talents {
 
             skillTree.SkillPoints--;
             SkillLevel++;
+
             skillTree.UpdateAllSkillUI();
         }
 
