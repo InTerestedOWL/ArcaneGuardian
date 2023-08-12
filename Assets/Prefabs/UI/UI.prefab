@@ -993,6 +993,14 @@ PrefabInstance:
       propertyPath: hotkeyReference
       value: 
       objectReference: {fileID: -8998592051755840102, guid: 02f590a705a0d004abee1378dd449c0e, type: 3}
+    - target: {fileID: 8287768367493719194, guid: 2b2957b1a8d16d74094183e60e32f482, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: eb3b5dfd94c0f764dac48304ecdf062c, type: 3}
+    - target: {fileID: 8287768367493719194, guid: 2b2957b1a8d16d74094183e60e32f482, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8363926507034665705, guid: 2b2957b1a8d16d74094183e60e32f482, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1111,7 +1119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iar: {fileID: 1855017098612230003, guid: 02f590a705a0d004abee1378dd449c0e, type: 3}
-  buildingObject: {fileID: 5809856383486498059, guid: ddff7b61d84bd714d97fecbdfeab5dda, type: 3}
+  buildingObject: {fileID: 7167907589439106180, guid: a183305d2ea6c54469d098532c5810e5, type: 3}
 --- !u!224 &4930817021267860927 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3019970726823027078, guid: 2b2957b1a8d16d74094183e60e32f482, type: 3}
