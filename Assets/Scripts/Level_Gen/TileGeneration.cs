@@ -30,8 +30,11 @@ public class TileGeneration : MonoBehaviour
 
     [SerializeField]
     private Wave[] waves;
+
+    private GameObject level; 
     void Start()
     {
+        level = GameObject.Find("Level");
         GenerateTile();
     }
 
@@ -78,6 +81,7 @@ public class TileGeneration : MonoBehaviour
                     if (!Physics.CheckBox(blockPosition, halfExtents))
                     {
                         GameObject building = Instantiate(buildingType.asset, blockPosition, Quaternion.identity);
+                        building.transform.SetParent(level.transform, true);
                         /*NavMeshObstacle obstRef = building.AddComponent<NavMeshObstacle>();
                         obstRef.carving = true;*/
                         building.transform.localScale = new Vector3(buildingType.scale, buildingType.scale, buildingType.scale);

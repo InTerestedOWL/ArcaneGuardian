@@ -51,6 +51,7 @@ public class BuildingSystem : MonoBehaviour
     {
         Vector3 position = SnapCoordinateToGrid(GetMouseWorldPosition());
         GameObject obj = Instantiate(prefab,position,Quaternion.identity);
+        obj.transform.SetParent(this.transform, true);
         objectToPlace = obj.GetComponent<PlaceableObject>();
         objectMaterials = objectToPlace.GetComponent<MeshRenderer>().materials;
         obj.AddComponent<ObjectDrag>();
@@ -105,10 +106,6 @@ public class BuildingSystem : MonoBehaviour
     public bool getBuildingContext(){
         return buildingContext;
     }
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -128,15 +125,11 @@ public class BuildingSystem : MonoBehaviour
                 
             }
             else{
-             
-                
                 Material[] mats = new Material[objectToPlace.GetComponent<MeshRenderer>().materials.Length];
                 for(int i=0;i < mats.Length;i++){
                     mats[i] = isNotPlacableMat;
                 }
                 objectToPlace.GetComponent<MeshRenderer>().materials= mats;
-
-                
                 
                 Component[] childrenMeshRenderer = objectToPlace.GetComponentsInChildren<MeshRenderer>();
                 foreach(MeshRenderer cmr in childrenMeshRenderer){

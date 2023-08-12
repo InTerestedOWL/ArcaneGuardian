@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3131979612601715257}
   - component: {fileID: 6570352864603592698}
   - component: {fileID: 7816128256388701512}
-  - component: {fileID: 9176335126288984379}
   m_Layer: 0
   m_Name: POI_Mesh
   m_TagString: Player
@@ -99,26 +98,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!95 &9176335126288984379
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1745530674045883687}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 935e25a35237e7849b695a08a69c9725, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &5585800000778561513
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,7 +113,9 @@ GameObject:
   - component: {fileID: 1627023944504239310}
   - component: {fileID: 6363681780291710957}
   - component: {fileID: 5940006721820493711}
+  - component: {fileID: 1823062353420702791}
   - component: {fileID: 6540740981932493067}
+  - component: {fileID: 8551442000222522039}
   m_Layer: 0
   m_Name: POI
   m_TagString: Untagged
@@ -247,9 +228,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3518c082aa3ffd44386c0c66f2542cdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: 1
-  desiredVelocity: 1
-  path: 1
+  velocity: 0
+  desiredVelocity: 0
+  path: 0
+--- !u!114 &1823062353420702791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5585800000778561513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4285d5088e29b584eabe2bcd47d1d025, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!195 &6540740981932493067
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -272,6 +265,26 @@ NavMeshAgent:
   m_BaseOffset: 0.8038784
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!95 &8551442000222522039
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5585800000778561513}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 935e25a35237e7849b695a08a69c9725, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &6493992907840422249
 GameObject:
   m_ObjectHideFlags: 0

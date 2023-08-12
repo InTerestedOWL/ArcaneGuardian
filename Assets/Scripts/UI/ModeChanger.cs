@@ -23,7 +23,7 @@ public class ModeChanger : MonoBehaviour {
     void ToggleMode() {
         if (actionBarSkills != null && actionBarBuilding != null) {
             if (actionMapHandler == null) {
-                GameObject playerObj = GameObject.FindWithTag("Player");
+                GameObject playerObj = GameObject.Find("Player");
                 actionMapHandler = playerObj.GetComponent<ActionMapHandler>();
             }
             if (!actionBarSkills.activeSelf) {

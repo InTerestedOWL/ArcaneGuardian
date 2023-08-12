@@ -66,6 +66,7 @@ public class LevelGeneration : MonoBehaviour
                     this.gameObject.transform.position.y,
                     this.gameObject.transform.position.z + zTileIndex * tileDepth);
                 GameObject tile = Instantiate(tilePrefab, tilePosition, Quaternion.identity) as GameObject;
+                tile.transform.SetParent(this.transform, true);
                 NavMeshSurface surface = tile.GetComponent<NavMeshSurface>();
                 if (surface != null) {
                     surfaces.Add(surface);
@@ -101,6 +102,7 @@ public class LevelGeneration : MonoBehaviour
             this.gameObject.transform.position.y,
             this.gameObject.transform.position.z + zTileIndex * tileDepth);
         GameObject burg = Instantiate(burgPrefab, blockPosition, Quaternion.identity) as GameObject;
+        burg.transform.SetParent(this.transform, true);
     }
 
     private void BuildRiver(int xTileIndex, int zTileIndex, Vector3 tilePosition)
@@ -113,6 +115,7 @@ public class LevelGeneration : MonoBehaviour
                         GameObject tile =
                             Instantiate(waterPrefabs[value], tilePosition, Quaternion.identity) as GameObject;
                         tile.transform.Rotate(0f, 90.0f, 0.0f, Space.Self);
+                        tile.transform.SetParent(this.transform, true);
                         TileType tileType = new TileType();
                         tileType.type = "water";
                         tileType.orientation = "normal";
@@ -123,6 +126,7 @@ public class LevelGeneration : MonoBehaviour
                     {
                         GameObject tile = Instantiate(tilePrefab, tilePosition, Quaternion.identity) as GameObject;
                         tile.transform.Rotate(0f, 90.0f, 0.0f, Space.Self);
+                        tile.transform.SetParent(this.transform, true);
                         TileType tileType = new TileType();
                         tileType.type = "plane";
                         tileType.orientation = "normal";
@@ -139,6 +143,7 @@ public class LevelGeneration : MonoBehaviour
                         GameObject tile =
                             Instantiate(waterPrefabs[(value / 4) - 1], tilePosition, Quaternion.identity) as GameObject;
                         tile.transform.Rotate(0f, 90.0f, 0.0f, Space.Self);
+                        tile.transform.SetParent(this.transform, true);
                         TileType tileType = new TileType();
                         tileType.type = "water";
                         tileType.orientation = "normal";
@@ -150,6 +155,7 @@ public class LevelGeneration : MonoBehaviour
                         GameObject tile =
                             Instantiate(waterPrefabs[value], tilePosition, Quaternion.identity) as GameObject;
                         tile.transform.Rotate(0f, 90.0f, 0.0f, Space.Self);
+                        tile.transform.SetParent(this.transform, true);
                         TileType tileType = new TileType();
                         tileType.type = "water";
                         tileType.orientation = "normal";
@@ -164,6 +170,7 @@ public class LevelGeneration : MonoBehaviour
                     {
                         GameObject tile =
                             Instantiate(waterPrefabs[value], tilePosition, Quaternion.identity) as GameObject;
+                        tile.transform.SetParent(this.transform, true);
                         TileType tileType = new TileType();
                         tileType.type = "water";
                         tileType.orientation = "normal";
@@ -173,6 +180,7 @@ public class LevelGeneration : MonoBehaviour
                     else
                     {
                         GameObject tile = Instantiate(tilePrefab, tilePosition, Quaternion.identity) as GameObject;
+                        tile.transform.SetParent(this.transform, true);
                         TileType tileType = new TileType();
                         tileType.type = "plane";
                         tileType.orientation = "normal";
@@ -184,6 +192,7 @@ public class LevelGeneration : MonoBehaviour
                 {
                     // instantiate a new Tile
                     GameObject tile = Instantiate(tilePrefab, tilePosition, Quaternion.identity) as GameObject;
+                    tile.transform.SetParent(this.transform, true);
                     TileType tileType = new TileType();
                     tileType.type = "plane";
                     tileType.orientation = "normal";

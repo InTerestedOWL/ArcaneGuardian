@@ -31,7 +31,7 @@ namespace AG.Combat {
             currentHealth = maxHealth;
             rb = GetComponent<Rigidbody>();
             skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
-            meshRenderer = GetComponent<MeshRenderer>();
+            meshRenderer = GetComponentInChildren<MeshRenderer>();
 
             if(skinnedMeshRenderer == null){
                 material = meshRenderer.material;

@@ -10,7 +10,8 @@ namespace AG.Control {
         AiIdle,
         AiAttackPlayer,
         POIIdle,
-        POIFollowPlayer
+        POIFollowPlayer,
+        POIBuilding
     }
 
     public interface AiState

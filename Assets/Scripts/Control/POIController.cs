@@ -20,6 +20,7 @@ namespace AG.Control {
             stateMachine = new AiStateMachine(this);
             stateMachine.RegisterState(new POIFollowPlayerState());
             stateMachine.RegisterState(new POIIdleState());
+            stateMachine.RegisterState(new POIBuildingState());
             stateMachine.ChangeState(initialState);
         }
     }

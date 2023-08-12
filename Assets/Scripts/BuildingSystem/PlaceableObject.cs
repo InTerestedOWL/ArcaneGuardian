@@ -19,10 +19,10 @@ public class PlaceableObject : MonoBehaviour
         Vertices[1] = b.center + new Vector3(b.size.x,-b.size.y,-b.size.z) *0.5f;
         Vertices[2] = b.center + new Vector3(b.size.x,-b.size.y,b.size.z) *0.5f;
         Vertices[3] = b.center + new Vector3(-b.size.x,-b.size.y,b.size.z) *0.5f;
-        print("V0 "+Vertices[0]);
-        print("V1 "+Vertices[1]);
-        print("V2 "+Vertices[2]);
-        print("V3 "+Vertices[3]);
+        // print("V0 "+Vertices[0]);
+        // print("V1 "+Vertices[1]);
+        // print("V2 "+Vertices[2]);
+        // print("V3 "+Vertices[3]);
     }
 
     private void CalculateSizeInCells()
@@ -38,7 +38,6 @@ public class PlaceableObject : MonoBehaviour
     public Vector3 GetStartPosition(){
         return transform.TransformPoint(Vertices[0]);
     }
-    // Start is called before the first frame update
 
     public virtual void Place(){
         ObjectDrag drag = gameObject.GetComponent<ObjectDrag>();
@@ -62,11 +61,5 @@ public class PlaceableObject : MonoBehaviour
     {
         GetColliderVertexPositionsLocal();
         CalculateSizeInCells();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

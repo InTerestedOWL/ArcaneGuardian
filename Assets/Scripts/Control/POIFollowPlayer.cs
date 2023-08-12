@@ -17,6 +17,7 @@ namespace AG.Control
 
         public void Enter(StateMachineController controller)
         {
+            //TODO: Add POI to Bulding ActionBar
         }
 
         public void Update(StateMachineController controller)
@@ -31,7 +32,6 @@ namespace AG.Control
 
                 if (timer <= 0.0f)
                 {
-                    Debug.Log("jo why im not walking? xdd");
                     if (Vector3.Distance(controller.player.transform.position, controller.movement.navMeshAgent.destination) > controller.movement.navMeshAgent.stoppingDistance)
                     {
                         controller.movement.DoMovement(controller.player.transform.position);
