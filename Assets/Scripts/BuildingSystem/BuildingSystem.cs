@@ -35,7 +35,7 @@ public class BuildingSystem : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         
         if(Physics.Raycast(ray, out RaycastHit raycastHit,1000,gridLayerMask)){
-            Debug.Log(raycastHit.collider.gameObject);
+            
             Debug.DrawRay(ray.origin, ray.direction * 1000, Color.blue, 1f);
             return raycastHit.point;
         }
@@ -149,6 +149,8 @@ public class BuildingSystem : MonoBehaviour
                 if(CanBePlaced(objectToPlace)){
                     if(objectToPlace.gameObject.tag == "POI_Building"){
                         placePOI();
+                        Vector3Int start = gridLayout.WorldToCell(objectToPlace.GetStartPosition());
+                        TakeArea(start,objectToPlace.Size);
                         stopBuilding();
                     }
                     else{
