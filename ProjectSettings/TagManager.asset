@@ -9,6 +9,7 @@ TagManager:
   - EnemyWeapon
   - POI
   - Turret
+  - POI_Building
   layers:
   - Default
   - TransparentFX

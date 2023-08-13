@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using AG.Control;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Tilemaps;
@@ -9,6 +10,7 @@ public class BuildingSystem : MonoBehaviour
     public static BuildingSystem current;
     public GridLayout gridLayout;
     private Grid grid;
+    private POIController poiController;
 
     private bool buildingContext = false;
     [SerializeField] private Tilemap MainTilemap;
@@ -21,10 +23,11 @@ public class BuildingSystem : MonoBehaviour
   
     
     private PlaceableObject objectToPlace;
-    // Start is called before the first frame update
+    
     private void Awake(){
         current = this;
         grid = gridLayout.gameObject.GetComponent<Grid>();
+        poiController = GameObject.Find("POI").GetComponent<POIController>();
     }
 
     public Vector3 GetMouseWorldPosition(){
@@ -32,7 +35,7 @@ public class BuildingSystem : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         
         if(Physics.Raycast(ray, out RaycastHit raycastHit,1000,gridLayerMask)){
-            Debug.Log(raycastHit.collider.gameObject);
+            
             Debug.DrawRay(ray.origin, ray.direction * 1000, Color.blue, 1f);
             return raycastHit.point;
         }
@@ -107,6 +110,9 @@ public class BuildingSystem : MonoBehaviour
         return buildingContext;
     }
 
+    public void placePOI(){
+        poiController.stateMachine.ChangeState(AiStateId.POIBuilding);
+    }
     // Update is called once per frame
     void Update()
     {
@@ -141,16 +147,24 @@ public class BuildingSystem : MonoBehaviour
             }
             else if(Input.GetKeyDown(KeyCode.Mouse0)){
                 if(CanBePlaced(objectToPlace)){
-                    objectToPlace.Place();
-                    Vector3Int start = gridLayout.WorldToCell(objectToPlace.GetStartPosition());
-                    TakeArea(start,objectToPlace.Size);
-                    objectToPlace.GetComponent<MeshRenderer>().materials = objectMaterials;
-                    objectToPlace.GetComponent<NavMeshObstacle>().enabled = true;
-                    Component[] childrenMeshRenderer = objectToPlace.GetComponentsInChildren<MeshRenderer>();
-                    foreach(MeshRenderer cmr in childrenMeshRenderer){
-                        cmr.material = objectMaterials[0];
+                    if(objectToPlace.gameObject.tag == "POI_Building"){
+                        placePOI();
+                        Vector3Int start = gridLayout.WorldToCell(objectToPlace.GetStartPosition());
+                        TakeArea(start,objectToPlace.Size);
+                        stopBuilding();
                     }
-                    setBuildingContext(false);
+                    else{
+                        objectToPlace.Place();
+                        Vector3Int start = gridLayout.WorldToCell(objectToPlace.GetStartPosition());
+                        TakeArea(start,objectToPlace.Size);
+                        objectToPlace.GetComponent<MeshRenderer>().materials = objectMaterials;
+                        objectToPlace.GetComponent<NavMeshObstacle>().enabled = true;
+                        Component[] childrenMeshRenderer = objectToPlace.GetComponentsInChildren<MeshRenderer>();
+                        foreach(MeshRenderer cmr in childrenMeshRenderer){
+                            cmr.material = objectMaterials[0];
+                        }
+                        setBuildingContext(false);
+                    }    
                 }
             }
         }         
