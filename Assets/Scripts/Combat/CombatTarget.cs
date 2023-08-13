@@ -5,7 +5,8 @@ using System.Collections;
 
 namespace AG.Combat {
     public class CombatTarget : MonoBehaviour {
-        [SerializeField]
+
+        public bool isBuilding = false;
         public float maxHealth = 100;
         public float currentHealth;
         public float blinkDuration = 0.05f;
@@ -44,7 +45,7 @@ namespace AG.Combat {
         }
 
         private void FixedUpdate() {
-            if (isKnockbacked) {
+            if (isKnockbacked && !isBuilding) {
                 HandleKnockBack(knockbackForce, knockbackDirection);
             }
 
@@ -52,7 +53,7 @@ namespace AG.Combat {
         }
 
         private void OnTriggerEnter(Collider other) {
-            if ((other.tag == "PlayerWeapon" && tag == "Enemy" || other.tag == "EnemyWeapon" && tag == "Player") 
+            if ((other.tag == "PlayerWeapon" && tag == "Enemy" || other.tag == "EnemyWeapon" && tag == "Player" || other.tag == "EnemyWeapon" && tag == "POI") 
                 && other.GetComponentInParent<BasicCombat>().IsAttacking()) {
                 HandleHit(other);
             }

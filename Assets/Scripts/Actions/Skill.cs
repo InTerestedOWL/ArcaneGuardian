@@ -5,6 +5,7 @@ using AG.Skills.Filtering;
 using AG.Skills.Effects;
 using AG.Skills.Core;
 using System.Collections;
+using AG.Control;
 
 namespace AG.Skills {
     /*
@@ -31,7 +32,11 @@ namespace AG.Skills {
         }
 
         private void ProcessTargets(SkillData skillData) {
-            skillData.GetPlayerController().StartCoroutine(StartCooldown());
+            PlayerController playerController = skillData.GetPlayerController();
+            if(playerController != null){
+                playerController.StartCoroutine(StartCooldown());
+            }
+
             filterStrategy.FilterTargets(skillData);
             foreach(EffectStrategy effectStrategy in effectStrategies) {
                 effectStrategy.ApplyEffect(skillData);

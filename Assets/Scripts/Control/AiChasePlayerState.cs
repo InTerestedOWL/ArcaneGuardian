@@ -48,6 +48,7 @@ namespace AG.Control
                         controller.movement.DoMovement(closestTarget.transform.position);
                     }
                     else {
+                        //TODO: Lookat player before attacking
                         controller.HandleCombat(closestTarget);
                     }
 

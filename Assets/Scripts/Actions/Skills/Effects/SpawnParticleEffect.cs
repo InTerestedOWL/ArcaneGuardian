@@ -1,6 +1,7 @@
 using UnityEngine;
 using AG.Skills.Core;
 using System.Collections;
+using AG.Control;
 
 namespace AG.Skills.Effects {
     [CreateAssetMenu(fileName = "Particle Effect", menuName = ("Arcane Guardian/Effect Strategy/Particle Effect"))]
@@ -18,7 +19,15 @@ namespace AG.Skills.Effects {
 
         public override void ApplyEffect(SkillData skillData) {
             if (particlePrefab) {
-                skillData.GetPlayerController().StartCoroutine(DisplayParticle(skillData));
+                PlayerController playerController = skillData.GetPlayerController();
+                TurretController turretController = skillData.GetTurretController();
+                if(playerController != null) {
+                    playerController.StartCoroutine(DisplayParticle(skillData));
+                }
+
+                if(turretController != null) {
+                    turretController.StartCoroutine(DisplayParticle(skillData));
+                }
             }
         }
 

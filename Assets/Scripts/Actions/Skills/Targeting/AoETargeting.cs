@@ -100,7 +100,7 @@ namespace AG.Skills.Targeting {
             }
         }
     }
-
+    
     public enum ShapeSelection {
         Circle,
         Cone

@@ -8,6 +8,7 @@ namespace AG.Skills.Core {
         private GameObject user;
         private IEnumerable<GameObject> targets;
         private PlayerController playerController;
+        private TurretController turretController;
         private Vector3 targetPosition;
         private float radius = 0;
 
@@ -40,6 +41,13 @@ namespace AG.Skills.Core {
                 playerController = user.GetComponent<PlayerController>();
             }
             return playerController;
+        }
+
+        public TurretController GetTurretController() {
+            if (turretController == null) {
+                turretController = user.GetComponent<TurretController>();
+            }
+            return turretController;
         }
 
         public void SetRadius(float aoeRadius) {
