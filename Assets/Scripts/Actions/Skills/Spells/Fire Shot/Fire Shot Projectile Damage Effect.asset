@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa29f1098c652cd4d9bc90a6f3a02094, type: 3}
+  m_Name: Fire Shot Projectile Damage Effect
+  m_EditorClassIdentifier: 
+  damage: 20
+  aoeRadius: 2
+  displayTargeting: 1
+  velocity: 20
+  projectilePrefab: {fileID: 5007475362331047359, guid: 2a080f80b7ad327428202694772aff16, type: 3}
+  explosionPrefab: {fileID: 3388445529463691237, guid: 070ab0de577d2b8409697e28afa82a5d, type: 3}
+  targetingPrefab: {fileID: 4214765597701735646, guid: 6a439a45bdd157e429baabd406af4e07, type: 3}
