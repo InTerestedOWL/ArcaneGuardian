@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 20
   aoeRadius: 2
-  displayTargeting: 1
+  displayTargeting: 0
   velocity: 20
   projectilePrefab: {fileID: 5007475362331047359, guid: 2a080f80b7ad327428202694772aff16, type: 3}
   explosionPrefab: {fileID: 3388445529463691237, guid: 070ab0de577d2b8409697e28afa82a5d, type: 3}

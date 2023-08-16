@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: -1717174887686929328}
   - component: {fileID: 56178655}
   - component: {fileID: 56178663}
-  - component: {fileID: 56178670}
   - component: {fileID: 56178671}
   m_Layer: 10
   m_Name: Fire Shot Turret
@@ -36,7 +35,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 2912852147329803821}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -162,20 +162,6 @@ MonoBehaviour:
   blinkDuration: 0.05
   blinkIntensity: 5
   blinkColor: {r: 1, g: 1, b: 1, a: 1}
---- !u!114 &56178670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 198840}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccc888c6109b66c4ea0af434210b4182, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skill: {fileID: 11400000, guid: a0163ad8ec17cf34591962f061cc60e5, type: 2}
-  chargingTime: 3
 --- !u!95 &56178671
 Animator:
   serializedVersion: 5
@@ -196,3 +182,65 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!1001 &1017474046811112120
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 449646}
+    m_Modifications:
+    - target: {fileID: 2770361217498784917, guid: 3a738b04a070483498d9f72ab6f34c95, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770361217498784917, guid: 3a738b04a070483498d9f72ab6f34c95, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770361217498784917, guid: 3a738b04a070483498d9f72ab6f34c95, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770361217498784917, guid: 3a738b04a070483498d9f72ab6f34c95, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770361217498784917, guid: 3a738b04a070483498d9f72ab6f34c95, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770361217498784917, guid: 3a738b04a070483498d9f72ab6f34c95, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770361217498784917, guid: 3a738b04a070483498d9f72ab6f34c95, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770361217498784917, guid: 3a738b04a070483498d9f72ab6f34c95, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770361217498784917, guid: 3a738b04a070483498d9f72ab6f34c95, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770361217498784917, guid: 3a738b04a070483498d9f72ab6f34c95, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770361217498784917, guid: 3a738b04a070483498d9f72ab6f34c95, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4878267837072778986, guid: 3a738b04a070483498d9f72ab6f34c95, type: 3}
+      propertyPath: m_Name
+      value: Fire Shot TurretCrystal
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3a738b04a070483498d9f72ab6f34c95, type: 3}
+--- !u!4 &2912852147329803821 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2770361217498784917, guid: 3a738b04a070483498d9f72ab6f34c95, type: 3}
+  m_PrefabInstance: {fileID: 1017474046811112120}
+  m_PrefabAsset: {fileID: 0}

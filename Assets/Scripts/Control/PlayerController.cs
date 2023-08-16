@@ -128,5 +128,10 @@ namespace AG.Control {
             }
             return overUI;
         }
+
+        public static Ray GetMouseRay()
+        {
+            return Camera.main.ScreenPointToRay(Input.mousePosition);
+        }
     }
 }
