@@ -10,6 +10,7 @@ TagManager:
   - POI
   - Turret
   - POI_Building
+  - Projectile
   layers:
   - Default
   - TransparentFX

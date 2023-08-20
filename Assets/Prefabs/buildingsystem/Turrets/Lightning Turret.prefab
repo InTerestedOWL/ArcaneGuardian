@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 56178663}
   - component: {fileID: 56178671}
   m_Layer: 10
-  m_Name: Fire Shot Turret
+  m_Name: Lightning Turret
   m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -237,10 +237,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: TurretCrystal
       objectReference: {fileID: 0}
+    - target: {fileID: 5339750745487673679, guid: 3a738b04a070483498d9f72ab6f34c95, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d1c6401d1302bd64b8f46705d98cb5f8, type: 2}
     - target: {fileID: 5982849979067755789, guid: 3a738b04a070483498d9f72ab6f34c95, type: 3}
       propertyPath: skill
       value: 
-      objectReference: {fileID: 11400000, guid: 339e3a6810356e84ab553374c3c036e1, type: 2}
+      objectReference: {fileID: 11400000, guid: e39d184d83070094a937c2d0ce2075f5, type: 2}
+    - target: {fileID: 5982849979067755789, guid: 3a738b04a070483498d9f72ab6f34c95, type: 3}
+      propertyPath: chargingTime
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a738b04a070483498d9f72ab6f34c95, type: 3}
 --- !u!4 &2912852147329803821 stripped

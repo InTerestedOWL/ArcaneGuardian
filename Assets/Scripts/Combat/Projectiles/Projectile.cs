@@ -6,25 +6,25 @@ namespace AG.Combat
 {
     public class Projectile : MonoBehaviour
     {
-        [SerializeField] float speed = 1;
-        [SerializeField] bool isHoming = true;
-        [SerializeField] GameObject hitEffect = null;
-        [SerializeField] float maxLifeTime = 10;
-        [SerializeField] GameObject[] destroyOnHit = null;
-        [SerializeField] float lifeAfterImpact = 2;
-        [SerializeField] UnityEvent onHit;
+        [SerializeField] protected float speed = 1;
+        [SerializeField] protected bool isHoming = true;
+        [SerializeField] protected GameObject hitEffect = null;
+        [SerializeField] protected float maxLifeTime = 10;
+        [SerializeField] protected GameObject[] destroyOnHit = null;
+        [SerializeField] protected float lifeAfterImpact = 2;
+        [SerializeField] protected UnityEvent onHit;
 
-        CombatTarget target = null;
-        Vector3 targetPoint;
-        GameObject instigator = null;
-        int damage = 0;
+        protected CombatTarget target = null;
+        protected Vector3 targetPoint;
+        protected GameObject instigator = null;
+        protected int damage = 0;
 
-        private void Start()
+        protected void Start()
         {
             transform.LookAt(GetAimLocation());
         }
 
-        void Update()
+        protected void Update()
         {
             if (target != null && isHoming && !target.IsDead())
             {
@@ -53,7 +53,7 @@ namespace AG.Combat
             Destroy(gameObject, maxLifeTime);
         }
 
-        private Vector3 GetAimLocation()
+        protected Vector3 GetAimLocation()
         {
             if (target == null)
             {
@@ -67,7 +67,7 @@ namespace AG.Combat
             return target.transform.position + Vector3.up * targetCapsule.height / 2;
         }
 
-        private void OnTriggerEnter(Collider other)
+        protected void OnTriggerEnter(Collider other)
         {
             CombatTarget hitTarget = other.GetComponent<CombatTarget>();
             if (target != null && hitTarget != target) return;

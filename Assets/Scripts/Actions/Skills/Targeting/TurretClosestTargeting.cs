@@ -37,8 +37,10 @@ namespace AG.Skills.Targeting {
             }
 
             if(closestTarget != null) {
-                IEnumerable<GameObject> target = new List<GameObject>();
-                target.Append(closestTarget);
+                List<GameObject> target = new List<GameObject>
+                {
+                    closestTarget
+                };
                 data.SetTargets(target);
                 data.SetTargetPosition(closestTarget.transform.position);
                 callback();

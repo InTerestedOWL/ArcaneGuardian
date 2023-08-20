@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2770361217498784917}
   - component: {fileID: 5982849979067755789}
   m_Layer: 0
-  m_Name: Fire Shot TurretCrystal
+  m_Name: TurretCrystal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

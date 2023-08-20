@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using AG.Combat;
 using AG.Skills.Core;
 using UnityEngine;
@@ -15,9 +16,9 @@ namespace AG.Skills.Effects
 
         public override void ApplyEffect(SkillData data)
         {
-            CombatTarget combatTarget = data.GetUser().GetComponent<CombatTarget>();
+            GameObject user = data.GetUser();
             // Vector3 spawnPosition = combatTarget.GetHandTransform(isRightHand).position;
-            Vector3 spawnPosition = combatTarget.transform.position;
+            Vector3 spawnPosition = user.transform.position;
             if (useTargetPoint)
             {
                 SpawnProjectileForTargetPoint(data, spawnPosition);
