@@ -28,9 +28,6 @@ namespace AG.Skills.Effects
         [SerializeField]
         GameObject targetingPrefab = null;
 
-        private GameObject projectileInstance = null;
-        private GameObject targetingInstance = null;
-        private GameObject explosionInstance = null;
 
         public override void ApplyEffect(SkillData skillData)
         {
@@ -42,8 +39,7 @@ namespace AG.Skills.Effects
                 {
                     playerController.StartCoroutine(LaunchProjectile(skillData));
                 }
-
-                if (turretController != null)
+                else if (turretController != null)
                 {
                     turretController.StartCoroutine(LaunchProjectile(skillData));
                 }
@@ -54,14 +50,15 @@ namespace AG.Skills.Effects
         {
             Vector3 targetPos = skillData.GetTargetPosition();
             Vector3 userPos = skillData.GetUser().transform.position;
-            projectileInstance = Instantiate(projectilePrefab, userPos, Quaternion.identity);
+            GameObject projectileInstance = Instantiate(projectilePrefab, userPos, Quaternion.identity);
             Rigidbody rb = projectileInstance.GetComponent<Rigidbody>();
             Vector3 direction = (targetPos - userPos).normalized;
             rb.velocity = direction * velocity;
 
+            GameObject targetingInstance = null;
             if (displayTargeting == true)
             {
-                DisplayTargeting(targetPos);
+                targetingInstance = CreateTargeting(targetPos);
             }
 
             float prevDistance = Vector3.Distance(projectileInstance.transform.position, targetPos);
@@ -92,9 +89,10 @@ namespace AG.Skills.Effects
                 }
             }
 
+            GameObject explosionInstance = null;
             if (explosionPrefab != null)
             {
-                DisplayExlposion(targetPos);
+                explosionInstance = CreateExlposion(targetPos);
             }
 
             yield return new WaitForSeconds(1);
@@ -126,19 +124,11 @@ namespace AG.Skills.Effects
             return targets;
         }
 
-        private void DisplayTargeting(Vector3 targetPos)
+        private GameObject CreateTargeting(Vector3 targetPos)
         {
-            if (targetingInstance == null)
-            {
-                targetingInstance = Instantiate(targetingPrefab, targetPos, Quaternion.identity);
-            }
-            else
-            {
-                targetingInstance.transform.position = targetPos;
-                targetingInstance.gameObject.SetActive(true);
-            }
-
+            GameObject targetingInstance = Instantiate(targetingPrefab, targetPos, Quaternion.identity);
             targetingInstance.transform.localScale = new Vector3(aoeRadius, 1, aoeRadius);
+            return targetingInstance;
         }
 
         //Spawns Explosion as a Child of the Projectile
@@ -153,14 +143,16 @@ namespace AG.Skills.Effects
         // }
 
         //Spawns Explosion at the Target Position
-        private void DisplayExlposion(Vector3 targetPos)
+        private GameObject CreateExlposion(Vector3 targetPos)
         {
-            explosionInstance = Instantiate(explosionPrefab, targetPos, Quaternion.identity);
+            GameObject explosionInstance = Instantiate(explosionPrefab, targetPos, Quaternion.identity);
             // Funktioniert bei particle systems nicht :(
             // explosionInstance.transform.localScale = new Vector3(aoeRadius, aoeRadius, aoeRadius);
             foreach(Transform child in explosionInstance.transform) {
                 child.localScale = new Vector3(aoeRadius, aoeRadius, aoeRadius);
             }
+
+            return explosionInstance;
         }
     }
 }
