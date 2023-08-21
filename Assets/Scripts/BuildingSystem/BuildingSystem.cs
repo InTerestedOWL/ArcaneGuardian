@@ -324,11 +324,11 @@ public class BuildingSystem : MonoBehaviour
     }
 
     public void stopBuilding(){
-        if(this.getBuildingContext()){
-            
+        if(this.getBuildingContext()){         
             Destroy(objectToPlace.gameObject);
             setBuildingContext(false);
             setBuildingPOI(false);
+            clearPending(poi_building.getCenter3D());
         }      
     }
 
@@ -429,6 +429,7 @@ public class BuildingSystem : MonoBehaviour
                     TakeArea(start,objectToPlace.Size);
                     objectToPlace.GetComponent<MeshRenderer>().materials = objectMaterials;
                     objectToPlace.GetComponent<NavMeshObstacle>().enabled = true;
+                    objectToPlace.GetComponent<CombatTarget>().enabled = true;
                     if(objectToPlace.GetComponentInChildren<TurretController>() != null){
                         objectToPlace.GetComponentInChildren<TurretController>().enabled = true;
                     }                  

@@ -18199,7 +18199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78c6fc620c6f16844b3867040f60d7fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gold: 600
+  gold: 1300
 --- !u!1 &2133234650
 GameObject:
   m_ObjectHideFlags: 0
