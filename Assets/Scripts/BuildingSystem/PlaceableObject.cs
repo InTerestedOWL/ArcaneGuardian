@@ -5,11 +5,9 @@ using System;
 
 public class PlaceableObject : MonoBehaviour
 {
-    public bool Placed {get;private set;}
-    public Vector3Int Size {get;private set;}
-    private Vector3[] Vertices = new Vector3[4];
-
-
+    public bool Placed {get; set;}
+    public Vector3Int Size {get; set;}
+    public Vector3[] Vertices = new Vector3[4];
     private void GetColliderVertexPositionsLocal()
     {
         BoxCollider b = gameObject.GetComponent<BoxCollider>();
@@ -34,7 +32,11 @@ public class PlaceableObject : MonoBehaviour
         }
         Size = new Vector3Int(Math.Abs((vertices[0]-vertices[1]).x),Math.Abs((vertices[0]-vertices[3]).y),1); 
     }
-
+    public Vector3 GetCenter3D(){
+        BoxCollider b = gameObject.GetComponent<BoxCollider>(); 
+         
+        return transform.TransformPoint(b.center);
+    }
     public Vector3 GetStartPosition(){
         return transform.TransformPoint(Vertices[0]);
     }
