@@ -3534,6 +3534,8 @@ GameObject:
   - component: {fileID: 4648298520117601606}
   - component: {fileID: 4648298520117601603}
   - component: {fileID: 2349528157117472855}
+  - component: {fileID: 6020681237040504762}
+  - component: {fileID: 419963497}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -3658,6 +3660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a353050e4ce8b5042b59f71f26e2bb03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isBuilding: 0
   maxHealth: 100
   currentHealth: 50
   blinkDuration: 0.05
@@ -3758,6 +3761,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 5905644568222715004}
   isFriendly: 0
+  offset: {x: 0, y: 1.2, z: 0}
+--- !u!114 &6020681237040504762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5905644568223020398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a4e44fa88bdbd948bb0f05de5517b73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goldStart: 200
+  dropVariance: 0.5
+--- !u!114 &419963497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5905644568223020398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a4e44fa88bdbd948bb0f05de5517b73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goldStart: 200
+  dropVariance: 0.5
 --- !u!1 &5905644568223025380
 GameObject:
   m_ObjectHideFlags: 0
