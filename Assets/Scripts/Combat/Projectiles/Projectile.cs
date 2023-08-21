@@ -59,12 +59,13 @@ namespace AG.Combat
             {
                 return targetPoint;
             }
-            CapsuleCollider targetCapsule = target.GetComponent<CapsuleCollider>();
-            if (targetCapsule == null)
+            Collider targetCollider = target.GetComponent<Collider>();
+            if (targetCollider == null)
             {
                 return target.transform.position;
             }
-            return target.transform.position + Vector3.up * targetCapsule.height / 2;
+            // return target.transform.position + Vector3.up * targetCollider.bounds.center / 2;
+            return targetCollider.bounds.center;
         }
 
         protected void OnTriggerEnter(Collider other)

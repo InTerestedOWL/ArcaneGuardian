@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac8005965f2180147b795cb239efd251, type: 3}
   m_Name: Spawn Lightning Projectile Effect
   m_EditorClassIdentifier: 
-  projectileToSpawn: {fileID: 5039634266187048506, guid: 18c8a0c5fc7ed4b42887c859165b1382, type: 3}
+  projectileToSpawn: {fileID: -692556275432731244, guid: 7f2b77aa06000d74eb48fd82c4229149, type: 3}
   damage: 10
   useTargetPoint: 0

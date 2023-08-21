@@ -31,6 +31,8 @@ namespace AG.Combat {
 
         public void PlaySlashEffect()
         {
+            if(slashEffect == null)
+                return;
 
             if (attackStateCounter == 1)
             {
@@ -41,6 +43,9 @@ namespace AG.Combat {
 
         public void StopSlashEffect()
         {
+            if(slashEffect == null)
+                return;
+
             slashEffect.gameObject.SetActive(false);
             slashEffect.SendEvent("SlashStop");
         }
