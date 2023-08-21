@@ -137,5 +137,9 @@ namespace AG.Combat {
         public void SetHealthBar(HealthBarUI healthBar){
             this.healthBar = healthBar;
         }
+
+        public bool IsDead() {
+            return isDead;
+        }
     }
 }

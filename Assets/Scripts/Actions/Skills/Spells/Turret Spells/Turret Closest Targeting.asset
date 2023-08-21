@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1bb1deebb2afd5949b978839078d90ee, type: 3}
-  m_Name: Fire Shot Turret Targeting
+  m_Name: Turret Closest Targeting
   m_EditorClassIdentifier: 
   aoeRadius: 2
   telegraphPrefab: {fileID: 5286536135801029988, guid: 6a439a45bdd157e429baabd406af4e07, type: 3}
