@@ -8,10 +8,13 @@ namespace AG.Control
 {
     public class POIBuildingState : AiState
     {
-        Boolean arrived = false;
+        bool arrived = false;
         public AiStateId GetId()
         {
             return AiStateId.POIBuilding;
+        }
+        public bool getArrived(){
+            return arrived;
         }
 
         public void Enter(StateMachineController controller)
@@ -35,15 +38,17 @@ namespace AG.Control
         public void Update(StateMachineController controller)
         {
             if(!arrived && controller.movement.navMeshAgent.remainingDistance < 0.01){
-                Debug.Log("I have arrived in yo mama");
                 arrived = true;
-            }
-            
+            }         
         }
 
         public void Exit(StateMachineController controller)
         {
             arrived = false;
+            controller.movement.navMeshAgent.stoppingDistance = 1.5f;
+            BuildingSystem bs = GameObject.Find("Grid").GetComponent<BuildingSystem>();
+            bs.tileToPlacable(bs.poi_building.getStartPosition(),bs.poi_building.getSize());
+            bs.freePOI(bs.poi_building.getCenter3D());
         }
     }
 }

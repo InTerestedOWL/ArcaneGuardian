@@ -1,35 +1,121 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using AG.Control;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Tilemaps;
+using System.Linq;
+using AG.Combat;
 
+public class POIBuilding
+{
+    private bool placed;
+    private Vector3Int size;
+    private Vector3[] vertices;
+    private Vector3Int center3D;
+    private Vector3Int startPosition;
+    private int makeAreaPlacableSize;
+    private List<PlaceableObject> placed_buildings;
+
+    public POIBuilding(){
+        vertices = new Vector3[4];
+        makeAreaPlacableSize = 15;
+        placed_buildings = new List<PlaceableObject>();      
+    }
+    public int getMakeAreaPlacableSize(){
+        return makeAreaPlacableSize;
+    }
+    public bool getPlaced(){
+        return placed;
+    }
+    public void setPlaced(bool p){
+        placed = p;
+    }
+    public Vector3Int getSize(){
+        return size;
+    }
+    public Vector3[] getvertices(){
+        return vertices;
+    }
+    public Vector3Int getCenter3D(){
+        return center3D;
+    }
+    public Vector3Int getStartPosition(){
+        return startPosition;
+    }
+    public void copySize(Vector3Int s){  
+            size = s + Vector3Int.zero;
+    }   
+    public void copyCenter3D(Vector3Int c){
+        center3D = c + Vector3Int.zero;
+    } 
+    public void copyStartPosition(Vector3Int s){
+        startPosition = s + Vector3Int.zero;
+    } 
+    public void copyVertices(Vector3[] v){
+        for(int i = 0;i < vertices.Length;i++){
+            vertices[i]=v[i]+Vector3.zero;         
+        }
+    }    
+    public List<PlaceableObject> getPlacedBuildings(){
+        return placed_buildings;
+    }
+    public void addPlacedBuilding(PlaceableObject po)
+    {
+        placed_buildings.Add(po);
+    }
+    public void clearPlacedBuildings()
+    {
+        placed_buildings.Clear();
+    }
+}
 public class BuildingSystem : MonoBehaviour
 {
     public static BuildingSystem current;
     public GridLayout gridLayout;
     private Grid grid;
-    private POIController poiController;
 
+    private PlayerResources pr;
+
+    private POIController poiController;
+    public POIBuilding poi_building;
     private bool buildingContext = false;
+    private bool buildingPOI = false;
+    private Vector3Int poiLastCenter;
+    POIBuildingState pbs;
+
     [SerializeField] private Tilemap MainTilemap;
-    [SerializeField] private TileBase whiteTile;
+    
+    [SerializeField] private TileBase tilePlacable;
+    [SerializeField] private TileBase tileNotPlacable;
+    [SerializeField] private TileBase tilePending;
 
     [SerializeField] private LayerMask gridLayerMask;
     [SerializeField] private Material isPlacableMat;
     [SerializeField] private Material isNotPlacableMat;
+
+    [SerializeField] private float refundBuilding;
+    
     private Material[] objectMaterials;
-  
     
     private PlaceableObject objectToPlace;
     
     private void Awake(){
         current = this;
+        poi_building = new POIBuilding();
+        
         grid = gridLayout.gameObject.GetComponent<Grid>();
         poiController = GameObject.Find("POI").GetComponent<POIController>();
+        
     }
-
+    void Start()
+    {
+        pr = GameObject.Find("Player").GetComponent<PlayerResources>();
+    }
+    
+    
     public Vector3 GetMouseWorldPosition(){
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -58,6 +144,9 @@ public class BuildingSystem : MonoBehaviour
         objectToPlace = obj.GetComponent<PlaceableObject>();
         objectMaterials = objectToPlace.GetComponent<MeshRenderer>().materials;
         obj.AddComponent<ObjectDrag>();
+        if(getBuildingPOI()){
+            poiLastCenter = gridLayout.WorldToCell(objectToPlace.GetCenter3D());
+        }
     }
 
     private static TileBase[] GetTilesBlock(BoundsInt area, Tilemap tilemap){
@@ -71,14 +160,28 @@ public class BuildingSystem : MonoBehaviour
         }
         return array;
     }
-    private bool CanBePlaced(PlaceableObject placeableObject){
+    private bool BuildingCanBePlaced(PlaceableObject placeableObject){
         BoundsInt area = new BoundsInt();
         area.position = gridLayout.WorldToCell(objectToPlace.GetStartPosition());
         area.size = placeableObject.Size;
         area.size = new Vector3Int(area.size.x + 1, area.size.y + 1, area.size.z);
         TileBase[] baseArray = GetTilesBlock(area, MainTilemap);
         foreach(var b in baseArray){
-            if(b == whiteTile){
+            if(b != tilePlacable && b != tilePending){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private bool POICanBePlaced(PlaceableObject placeableObject){
+        BoundsInt area = new BoundsInt();
+        area.position = gridLayout.WorldToCell(objectToPlace.GetStartPosition());
+        area.size = placeableObject.Size;
+        area.size = new Vector3Int(area.size.x + 1, area.size.y + 1, area.size.z);
+        TileBase[] baseArray = GetTilesBlock(area, MainTilemap);
+        foreach(var b in baseArray){
+            if(b == tileNotPlacable){
                 return false;
             }
         }
@@ -86,85 +189,257 @@ public class BuildingSystem : MonoBehaviour
     }
 
     public void TakeArea(Vector3Int start, Vector3Int size){
-        MainTilemap.BoxFill(start, whiteTile, start.x, start.y, start.x+size.x, start.y+size.y);
+        MainTilemap.BoxFill(start, tileNotPlacable, start.x, start.y, start.x+size.x, start.y+size.y);
+    }
+    public void MakeAreaPending(Vector3Int start, Vector3Int size){       
+        for(int x = start.x;x <= start.x+size.x; x++){
+            for(int y= start.y;y <= start.y+size.y; y++){
+                Vector3Int pos = new Vector3Int(x,y,0);
+                
+                if(MainTilemap.GetTile(pos) == tilePlacable){
+                    MainTilemap.SetTile(pos,tilePending);
+                }
+            }
+        }
+    }
+    public void MakeAreaPlacable(Vector3Int center){
+        Debug.Log("MakeArea: "+center);
+        int minX =  center.x - poi_building.getMakeAreaPlacableSize();
+        int maxX =  center.x + poi_building.getMakeAreaPlacableSize() + 1;
+        int minY =  center.y - poi_building.getMakeAreaPlacableSize();
+        int maxY =  center.y + poi_building.getMakeAreaPlacableSize() + 1;
+        int z = center.z;
+        
+        for(int i = minX;i < maxX; i++){
+            for(int j = minY;j<maxY; j++){
+                Vector3Int pos = new Vector3Int(i,j,z);
+                
+                if(MainTilemap.GetTile(pos) != tileNotPlacable){
+                    MainTilemap.SetTile(pos,tilePlacable);
+                }
+            }
+        }
+    }
+    public void MakePOIAreaPending(Vector3Int center){
+        Debug.Log("MakeArea: "+center);
+        int minX =  center.x - poi_building.getMakeAreaPlacableSize();
+        int maxX =  center.x + poi_building.getMakeAreaPlacableSize() + 1;
+        int minY =  center.y - poi_building.getMakeAreaPlacableSize();
+        int maxY =  center.y + poi_building.getMakeAreaPlacableSize() + 1;
+        int z = center.z;
+        
+        for(int i = minX;i < maxX; i++){
+            for(int j = minY;j<maxY; j++){
+                Vector3Int pos = new Vector3Int(i,j,z);
+                
+                if(MainTilemap.GetTile(pos) != tileNotPlacable){
+                    MainTilemap.SetTile(pos,tilePending);
+                }
+            }
+        }
+    }
+    public void clearPOIPending(Vector3Int center){
+        int minX =  center.x - poi_building.getMakeAreaPlacableSize();
+        int maxX =  center.x + poi_building.getMakeAreaPlacableSize() + 1;
+        int minY =  center.y - poi_building.getMakeAreaPlacableSize();
+        int maxY =  center.y + poi_building.getMakeAreaPlacableSize() + 1;
+        int z = center.z;
+        
+        for(int i = minX;i < maxX; i++){
+            for(int j = minY;j<maxY; j++){
+                Vector3Int pos = new Vector3Int(i,j,z);
+                
+                if(MainTilemap.GetTile(pos) == tilePending){
+                    MainTilemap.SetTile(pos,null);
+                }
+            }
+        }
+    }
+    public void clearPending(Vector3Int center){
+        int minX =  center.x - poi_building.getMakeAreaPlacableSize();
+        int maxX =  center.x + poi_building.getMakeAreaPlacableSize() + 1;
+        int minY =  center.y - poi_building.getMakeAreaPlacableSize();
+        int maxY =  center.y + poi_building.getMakeAreaPlacableSize() + 1;
+        int z = center.z;
+        
+        for(int i = minX;i < maxX; i++){
+            for(int j = minY;j<maxY; j++){
+                Vector3Int pos = new Vector3Int(i,j,z);
+                
+                if(MainTilemap.GetTile(pos) == tilePending){
+                    MainTilemap.SetTile(pos,tilePlacable);
+                }
+            }
+        }
+    }
+    public void placePOI(){
+        poiController.stateMachine.ChangeState(AiStateId.POIBuilding);
+    }
+    public void followPOI(){
+        poiController.stateMachine.ChangeState(AiStateId.POIFollowPlayer);
+    }
+    public void freePOI(Vector3Int center){
+
+        foreach(PlaceableObject po in poi_building.getPlacedBuildings()){
+            Vector3Int start = gridLayout.WorldToCell(po.GetStartPosition());
+            tileToPlacable(start,po.Size);
+        }
+        foreach(PlaceableObject po in poi_building.getPlacedBuildings()){           
+            pr.addGold((int)(po.getPrice() * refundBuilding));  
+            Destroy(po.gameObject);
+        }
+        poi_building.clearPlacedBuildings();
+        int minX =  center.x - poi_building.getMakeAreaPlacableSize();
+        int maxX =  center.x + poi_building.getMakeAreaPlacableSize() + 1;
+        int minY =  center.y - poi_building.getMakeAreaPlacableSize();
+        int maxY =  center.y + poi_building.getMakeAreaPlacableSize() + 1;
+        int z = center.z;
+        
+        for(int i = minX;i < maxX; i++){
+            for(int j = minY;j<maxY; j++){
+                Vector3Int pos = new Vector3Int(i,j,z);
+                if(MainTilemap.GetTile(pos) == tilePlacable){
+                    MainTilemap.SetTile(pos,null);
+                }
+            }
+        }
+        poi_building.setPlaced(false);
+    }
+    public void tileToPlacable(Vector3Int start, Vector3Int size){
+        MainTilemap.BoxFill(start, tilePlacable, start.x, start.y, start.x+size.x, start.y+size.y);
     }
     public void startBuilding(GameObject buildingObject){
         if(buildingContext){
             stopBuilding();
         }
-        setBuildingContext(true);
-        InitializeWithObject(buildingObject);     
+        
+        setBuildingContext(true);  
+        InitializeWithObject(buildingObject);
+        setBuildingPOI(buildingObject.tag == "POI_Building");
+        if(pr.getGold() < this.objectToPlace.getPrice()){
+            Debug.Log("not enough minerals");
+            stopBuilding();
+        }
+        pbs = (POIBuildingState)poiController.stateMachine.states.Where(state => state is POIBuildingState).FirstOrDefault();       
     }
 
     public void stopBuilding(){
-        if(this.getBuildingContext()){
+        if(this.getBuildingContext()){         
             Destroy(objectToPlace.gameObject);
             setBuildingContext(false);
+            setBuildingPOI(false);
+            clearPending(poi_building.getCenter3D());
         }      
     }
 
-    public void setBuildingContext(bool activated){
-        buildingContext = activated;
+    public void setBuildingContext(bool b){
+        buildingContext = b;
     }
     public bool getBuildingContext(){
         return buildingContext;
     }
+    public void setBuildingPOI(bool b){
+        buildingPOI = b;
+    }
+    public bool getBuildingPOI(){
 
-    public void placePOI(){
-        poiController.stateMachine.ChangeState(AiStateId.POIBuilding);
+        return buildingPOI;
+    }
+ 
+    public void materialCanBePlaced(){
+        Material[] mats = new Material[objectToPlace.GetComponent<MeshRenderer>().materials.Length];
+        for(int i=0;i < mats.Length;i++){
+            mats[i] = isPlacableMat;
+        }
+        objectToPlace.GetComponent<MeshRenderer>().materials= mats;
+        
+        Component[] childrenMeshRenderer = objectToPlace.GetComponentsInChildren<MeshRenderer>();
+        foreach(MeshRenderer cmr in childrenMeshRenderer){
+            cmr.material = isPlacableMat;
+        }
+    }
+    public void materialCannotBePlaced(){
+        Material[] mats = new Material[objectToPlace.GetComponent<MeshRenderer>().materials.Length];
+        for(int i=0;i < mats.Length;i++){
+            mats[i] = isNotPlacableMat;
+        }
+        objectToPlace.GetComponent<MeshRenderer>().materials= mats;
+        
+        Component[] childrenMeshRenderer = objectToPlace.GetComponentsInChildren<MeshRenderer>();
+        foreach(MeshRenderer cmr in childrenMeshRenderer){
+            cmr.material = isNotPlacableMat;
+        }
     }
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.F)){
+                followPOI();
+        }
         if(buildingContext){
-            if(CanBePlaced(objectToPlace)){
-                Material[] mats = new Material[objectToPlace.GetComponent<MeshRenderer>().materials.Length];
-                for(int i=0;i < mats.Length;i++){
-                    mats[i] = isPlacableMat;
+            
+            if(Input.GetKeyDown(KeyCode.R)){
+                objectToPlace.Rotate(); 
+            }
+            if(getBuildingPOI()){
+                clearPOIPending(poiLastCenter);
+                poiLastCenter = gridLayout.WorldToCell(objectToPlace.GetCenter3D());
+                MakePOIAreaPending(poiLastCenter);
+                if(POICanBePlaced(objectToPlace)){
+                    materialCanBePlaced();
                 }
-                objectToPlace.GetComponent<MeshRenderer>().materials= mats;
-                
-                Component[] childrenMeshRenderer = objectToPlace.GetComponentsInChildren<MeshRenderer>();
-                foreach(MeshRenderer cmr in childrenMeshRenderer){
-                    cmr.material = isPlacableMat;
+                else{
+                    materialCannotBePlaced();
                 }
-                
             }
             else{
-                Material[] mats = new Material[objectToPlace.GetComponent<MeshRenderer>().materials.Length];
-                for(int i=0;i < mats.Length;i++){
-                    mats[i] = isNotPlacableMat;
+                clearPending(poi_building.getCenter3D());
+                Vector3Int start = gridLayout.WorldToCell(objectToPlace.GetStartPosition());
+                MakeAreaPending(start,objectToPlace.Size);
+                if(BuildingCanBePlaced(objectToPlace) && pbs.getArrived()){
+                    materialCanBePlaced();   
                 }
-                objectToPlace.GetComponent<MeshRenderer>().materials= mats;
-                
-                Component[] childrenMeshRenderer = objectToPlace.GetComponentsInChildren<MeshRenderer>();
-                foreach(MeshRenderer cmr in childrenMeshRenderer){
-                    cmr.material = isNotPlacableMat;
+                else{
+                    materialCannotBePlaced();
                 }
             }
-            if(Input.GetKeyDown(KeyCode.R)){
-                objectToPlace.Rotate();
-            }
-            else if(Input.GetKeyDown(KeyCode.Mouse0)){
-                if(CanBePlaced(objectToPlace)){
-                    if(objectToPlace.gameObject.tag == "POI_Building"){
-                        placePOI();
-                        Vector3Int start = gridLayout.WorldToCell(objectToPlace.GetStartPosition());
-                        TakeArea(start,objectToPlace.Size);
-                        stopBuilding();
-                    }
-                    else{
-                        objectToPlace.Place();
-                        Vector3Int start = gridLayout.WorldToCell(objectToPlace.GetStartPosition());
-                        TakeArea(start,objectToPlace.Size);
-                        objectToPlace.GetComponent<MeshRenderer>().materials = objectMaterials;
-                        objectToPlace.GetComponent<NavMeshObstacle>().enabled = true;
-                        Component[] childrenMeshRenderer = objectToPlace.GetComponentsInChildren<MeshRenderer>();
-                        foreach(MeshRenderer cmr in childrenMeshRenderer){
-                            cmr.material = objectMaterials[0];
+
+            if(Input.GetKeyDown(KeyCode.Mouse0)){
+                if(getBuildingPOI()){
+                    if(POICanBePlaced(objectToPlace)){
+                        if(poi_building.getPlaced()==false){
+                            poi_building.setPlaced(true);
+                            poi_building.copySize(objectToPlace.Size);
+                            poi_building.copyVertices(objectToPlace.Vertices);
+                            poi_building.copyStartPosition(gridLayout.WorldToCell(objectToPlace.GetStartPosition()));
+                            poi_building.copyCenter3D(gridLayout.WorldToCell(objectToPlace.GetCenter3D()));
+                            placePOI();                            
+                            TakeArea(poi_building.getStartPosition(),poi_building.getSize());
+                            MakeAreaPlacable(poi_building.getCenter3D());
+                            stopBuilding();
+                        }  
+                        else{
+                            stopBuilding();
                         }
-                        setBuildingContext(false);
-                    }    
+                    }
+                }
+                else if(BuildingCanBePlaced(objectToPlace)&& pbs.getArrived()){
+                    objectToPlace.Place();
+                    Vector3Int start = gridLayout.WorldToCell(objectToPlace.GetStartPosition());
+                    TakeArea(start,objectToPlace.Size);
+                    objectToPlace.GetComponent<MeshRenderer>().materials = objectMaterials;
+                    objectToPlace.GetComponent<NavMeshObstacle>().enabled = true;
+                    objectToPlace.GetComponent<CombatTarget>().enabled = true;
+                    if(objectToPlace.GetComponentInChildren<TurretController>() != null){
+                        objectToPlace.GetComponentInChildren<TurretController>().enabled = true;
+                    }                  
+                    Component[] childrenMeshRenderer = objectToPlace.GetComponentsInChildren<MeshRenderer>();
+                    foreach(MeshRenderer cmr in childrenMeshRenderer){
+                        cmr.material = objectMaterials[0];
+                    }
+                    poi_building.addPlacedBuilding(objectToPlace);
+                    pr.subtractGold(objectToPlace.getPrice());
+                    setBuildingContext(false);                   
                 }
             }
         }         
