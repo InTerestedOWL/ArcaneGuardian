@@ -295,6 +295,25 @@ PrefabInstance:
       objectReference: {fileID: 2060026006}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 596c8034aceb8454598e3542ceb68781, type: 3}
+--- !u!1 &419963485 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5905644568223020398, guid: 14dc4327c95c60a499408882c7acec01, type: 3}
+  m_PrefabInstance: {fileID: 2142659414}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &419963497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419963485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a4e44fa88bdbd948bb0f05de5517b73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goldStart: 200
+  dropVariance: 0.5
 --- !u!1 &554809573 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1915449447, guid: 12508a110f03cf44d9b5ea0c76ad7284, type: 3}
@@ -322,6 +341,10 @@ PrefabInstance:
     - target: {fileID: 325215057, guid: 12508a110f03cf44d9b5ea0c76ad7284, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 643309550, guid: 12508a110f03cf44d9b5ea0c76ad7284, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.095214844
       objectReference: {fileID: 0}
     - target: {fileID: 704456171, guid: 12508a110f03cf44d9b5ea0c76ad7284, type: 3}
       propertyPath: m_SizeDelta.x
@@ -518,6 +541,10 @@ PrefabInstance:
     - target: {fileID: 7007034744141539812, guid: 12508a110f03cf44d9b5ea0c76ad7284, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7062920545645713836, guid: 12508a110f03cf44d9b5ea0c76ad7284, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.09472656
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12508a110f03cf44d9b5ea0c76ad7284, type: 3}
@@ -939,6 +966,10 @@ PrefabInstance:
       propertyPath: isPlacableMat
       value: 
       objectReference: {fileID: 2100000, guid: 1cd8a5a822ddce0459acdc789f27a38c, type: 2}
+    - target: {fileID: 8704147587522238766, guid: 1436cd3deb6262f46b393ab56db21701, type: 3}
+      propertyPath: refundBuilding
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8704147587522238766, guid: 1436cd3deb6262f46b393ab56db21701, type: 3}
       propertyPath: tileNotPlacable
       value: 
@@ -18156,6 +18187,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7645916049215193126, guid: 415c6d88014567241bd24edb4f7a459f, type: 3}
   m_PrefabInstance: {fileID: 1286412577}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2060026021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060026006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78c6fc620c6f16844b3867040f60d7fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gold: 600
 --- !u!1 &2133234650
 GameObject:
   m_ObjectHideFlags: 0

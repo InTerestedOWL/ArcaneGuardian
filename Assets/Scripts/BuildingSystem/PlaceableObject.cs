@@ -8,6 +8,12 @@ public class PlaceableObject : MonoBehaviour
     public bool Placed {get; set;}
     public Vector3Int Size {get; set;}
     public Vector3[] Vertices = new Vector3[4];
+    [SerializeField]
+    int price;
+
+    public int getPrice(){
+        return price;
+    }
     private void GetColliderVertexPositionsLocal()
     {
         BoxCollider b = gameObject.GetComponent<BoxCollider>();

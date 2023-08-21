@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Tilemaps;
 using System.Linq;
+using AG.Combat;
 
 public class POIBuilding
 {
@@ -75,6 +76,9 @@ public class BuildingSystem : MonoBehaviour
     public static BuildingSystem current;
     public GridLayout gridLayout;
     private Grid grid;
+
+    private PlayerResources pr;
+
     private POIController poiController;
     public POIBuilding poi_building;
     private bool buildingContext = false;
@@ -91,6 +95,8 @@ public class BuildingSystem : MonoBehaviour
     [SerializeField] private LayerMask gridLayerMask;
     [SerializeField] private Material isPlacableMat;
     [SerializeField] private Material isNotPlacableMat;
+
+    [SerializeField] private float refundBuilding;
     
     private Material[] objectMaterials;
     
@@ -106,8 +112,9 @@ public class BuildingSystem : MonoBehaviour
     }
     void Start()
     {
-        
+        pr = GameObject.Find("Player").GetComponent<PlayerResources>();
     }
+    
     
     public Vector3 GetMouseWorldPosition(){
 
@@ -277,7 +284,8 @@ public class BuildingSystem : MonoBehaviour
             Vector3Int start = gridLayout.WorldToCell(po.GetStartPosition());
             tileToPlacable(start,po.Size);
         }
-        foreach(PlaceableObject po in poi_building.getPlacedBuildings()){
+        foreach(PlaceableObject po in poi_building.getPlacedBuildings()){           
+            pr.addGold((int)(po.getPrice() * refundBuilding));  
             Destroy(po.gameObject);
         }
         poi_building.clearPlacedBuildings();
@@ -304,11 +312,14 @@ public class BuildingSystem : MonoBehaviour
         if(buildingContext){
             stopBuilding();
         }
-        setBuildingContext(true);
         
+        setBuildingContext(true);  
         InitializeWithObject(buildingObject);
         setBuildingPOI(buildingObject.tag == "POI_Building");
-
+        if(pr.getGold() < this.objectToPlace.getPrice()){
+            Debug.Log("not enough minerals");
+            stopBuilding();
+        }
         pbs = (POIBuildingState)poiController.stateMachine.states.Where(state => state is POIBuildingState).FirstOrDefault();       
     }
 
@@ -418,12 +429,16 @@ public class BuildingSystem : MonoBehaviour
                     TakeArea(start,objectToPlace.Size);
                     objectToPlace.GetComponent<MeshRenderer>().materials = objectMaterials;
                     objectToPlace.GetComponent<NavMeshObstacle>().enabled = true;
+                    if(objectToPlace.GetComponentInChildren<TurretController>() != null){
+                        objectToPlace.GetComponentInChildren<TurretController>().enabled = true;
+                    }                  
                     Component[] childrenMeshRenderer = objectToPlace.GetComponentsInChildren<MeshRenderer>();
                     foreach(MeshRenderer cmr in childrenMeshRenderer){
                         cmr.material = objectMaterials[0];
                     }
                     poi_building.addPlacedBuilding(objectToPlace);
-                    setBuildingContext(false);
+                    pr.subtractGold(objectToPlace.getPrice());
+                    setBuildingContext(false);                   
                 }
             }
         }         

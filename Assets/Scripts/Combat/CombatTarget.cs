@@ -93,6 +93,10 @@ namespace AG.Combat {
             rb.isKinematic = true;
             healthBar?.gameObject.SetActive(false);
             isDead = true;
+
+            if(tag == "Enemy"){
+                GetComponent<EnemyResources>().dropsGold();
+            }
         }
 
         //Blink Animation on Damage taken
