@@ -10,7 +10,8 @@ namespace AG.Combat {
         // Counter to check if attack is buffered
         private int attackStateCounter = 0;
         public void Attack() {
-            UpdateAnimator();
+            if (!IsAttacking())
+                UpdateAnimator();
         }
 
         public void IncreaseAttackStateCounter() {

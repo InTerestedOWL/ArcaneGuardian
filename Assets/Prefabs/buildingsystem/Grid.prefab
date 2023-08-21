@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8704147587522238765}
   - component: {fileID: 8704147587522238764}
   - component: {fileID: 8704147587522238766}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,10 +42,10 @@ Grid:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8704147587522238755}
   m_Enabled: 1
-  m_CellSize: {x: 7, y: 7, z: 0}
+  m_CellSize: {x: 1, y: 1, z: 0}
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
-  m_CellSwizzle: 3
+  m_CellSwizzle: 1
 --- !u!114 &8704147587522238766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,9 +65,10 @@ MonoBehaviour:
   tilePending: {fileID: 11400000, guid: 8bae04616d2dbf444a3c715d814d53ea, type: 2}
   gridLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   isPlacableMat: {fileID: 2100000, guid: 1cd8a5a822ddce0459acdc789f27a38c, type: 2}
   isNotPlacableMat: {fileID: 2100000, guid: a548aa82742b36a4f80a2bf27e659d75, type: 2}
+  refundBuilding: 0
 --- !u!1 &8704147588208193838
 GameObject:
   m_ObjectHideFlags: 0
@@ -79,7 +80,7 @@ GameObject:
   - component: {fileID: 8704147588208193839}
   - component: {fileID: 8704147588208193833}
   - component: {fileID: 8704147588208193832}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,32 +123,32 @@ Tilemap:
   m_TileMatrixArray:
   - m_RefCount: 0
     m_Data:
-      e00: 1.4903323e-37
+      e00: -3.093575e+17
       e01: 0
-      e02: 2.6739535e+29
-      e03: 2.6739535e+29
-      e10: 8.28e-43
+      e02: 3.3750038
+      e03: 3.3750038
+      e10: 5.68e-43
       e11: 0
-      e12: 8.25e-43
-      e13: 8.25e-43
-      e20: -2.7253616e-19
+      e12: 5.65e-43
+      e13: 5.65e-43
+      e20: -2.3897466e+13
       e21: 1e-45
-      e22: -9.768479e-10
-      e23: -3.6978494e+19
+      e22: -5.1009996e-27
+      e23: 2.0078087
       e30: 4.5904e-41
       e31: 0
-      e32: 8.25e-43
-      e33: 8.28e-43
+      e32: 5.65e-43
+      e33: 5.68e-43
   m_TileColorArray:
   - m_RefCount: 0
-    m_Data: {r: 3.5604e-41, g: 3.5604e-41, b: 3.5604e-41, a: 3.5604e-41}
-  - m_RefCount: 0
     m_Data: {r: NaN, g: NaN, b: NaN, a: NaN}
+  - m_RefCount: 0
+    m_Data: {r: 6.724e-41, g: 6.724e-41, b: 6.724e-41, a: 6.724e-41}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Origin: {x: -5, y: -5, z: 0}
-  m_Size: {x: 9, y: 9, z: 1}
+  m_Origin: {x: -40, y: -42, z: 0}
+  m_Size: {x: 79, y: 83, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 1
   m_TileOrientationMatrix:

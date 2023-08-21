@@ -26,6 +26,8 @@ namespace AG.Control {
         // Update is called once per frame
         void Update() {
             HandleMovement();
+            // TODO Animation
+            LookAtMousePos();
         }
 
         // Movement for keyboard input
@@ -53,7 +55,8 @@ namespace AG.Control {
             GetComponent<Movement>().DoMovement(transform.position + curMovement);
         }
 
-        private void OnMoveToPointer() {
+        // Handle movement for mouse input - Deactivated
+        /*private void OnMoveToPointer() {
             mouseHold = !mouseHold;
             if (mouseHold) {
                 mouseMovementCoroutine = ContinuousMouseMovement();
@@ -64,15 +67,25 @@ namespace AG.Control {
                     StopCoroutine(mouseMovementCoroutine);
                 }
             }
-        }
+        }*/
 
         private void OnBasicAttack() {
             RaycastHit hit;
             bool hasHit;
             CalcPointerHit(out hit, out hasHit);
             if (hasHit) {
-                transform.LookAt(hit.point, Vector3.up);
                 GetComponent<BasicCombat>().Attack();
+            }
+        }
+
+        private void LookAtMousePos() {
+            RaycastHit hit;
+            bool hasHit;
+            CalcPointerHit(out hit, out hasHit);
+            if (hasHit) {
+                Vector3 lookAtPos = hit.point;
+                lookAtPos.y = transform.position.y;
+                transform.LookAt(lookAtPos, Vector3.up);
             }
         }
 

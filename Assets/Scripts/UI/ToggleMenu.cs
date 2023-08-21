@@ -24,7 +24,7 @@ namespace AG.UI {
 
         private void ToggleMenuAction_performed(InputAction.CallbackContext context, MenuEntry curMenuEntry) {
             curMenuEntry.menu.SetActive(!curMenuEntry.menu.activeSelf);
-            GameObject playerObj = GameObject.FindWithTag("Player");
+            GameObject playerObj = GameObject.Find("Player");
             if (curMenuEntry.menu.activeSelf) {
                 ActionMapHandler actionMapHandler = playerObj.GetComponent<ActionMapHandler>();
                 ToggleMenu.menuOpenCounter++;
@@ -43,7 +43,7 @@ namespace AG.UI {
 
         public void CloseMenu(MenuEntry curMenu, GameObject playerObj = null, bool menuChanged = false) {
             if (playerObj == null) {
-                playerObj = GameObject.FindWithTag("Player");
+                playerObj = GameObject.Find("Player");
             }
             if (!menuChanged) {
                 curMenu.menu.SetActive(!curMenu.menu.activeSelf);

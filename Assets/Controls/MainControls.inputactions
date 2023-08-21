@@ -810,6 +810,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "MoveToDirection",
+                    "type": "Value",
+                    "id": "a9b5913d-db79-4832-825f-812fb52a461c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
                     "name": "Hotkey1",
                     "type": "Button",
                     "id": "6d1b1425-483e-406e-88d2-7c4a84807ae3",
@@ -1052,6 +1061,61 @@
                     "action": "SelectTarget",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "2D Vector",
+                    "id": "7ad15d91-a988-4d61-8fff-eecbe9d8b1b9",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveToDirection",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "277bd908-241e-4a34-b8fb-ca48ad4be47b",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "MoveToDirection",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "1a0c9e4a-ef28-4313-91dc-e17292d43d18",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "MoveToDirection",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "822174df-505f-4634-b2d6-5a0b67444a0f",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "MoveToDirection",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "6552640c-d881-4a7d-94c5-75859d0f79c6",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "MoveToDirection",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         },
