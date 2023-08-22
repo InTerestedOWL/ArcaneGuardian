@@ -440,10 +440,12 @@ public class BuildingSystem : MonoBehaviour
                     TakeArea(start,objectToPlace.Size);
 
                     objectToPlace.GetComponent<MeshRenderer>().materials = objectMaterials;
-
                     objectToPlace.GetComponent<NavMeshObstacle>().enabled = true;
-                    objectToPlace.GetComponent<CombatTarget>().enabled = true;
+                    if(objectToPlace.GetComponent<CombatTarget>() != null){
+                        objectToPlace.GetComponent<CombatTarget>().enabled = true;
+                    }
                     if(objectToPlace.GetComponentInChildren<TurretController>() != null){
+            
                         objectToPlace.GetComponentInChildren<TurretController>().enabled = true;
                     }                  
                     Component[] childrenMeshRenderer = objectToPlace.GetComponentsInChildren<MeshRenderer>();
@@ -454,7 +456,10 @@ public class BuildingSystem : MonoBehaviour
                     }
                     poi_building.addPlacedBuilding(objectToPlace);
                     pr.subtractGold(objectToPlace.getPrice());
-                    setBuildingContext(false);                   
+                    setBuildingContext(false);
+                    objectToPlace = null;
+                    objectMaterials = null;
+                    objectChildMaterials.Clear();                   
                 }
             }
         }         
