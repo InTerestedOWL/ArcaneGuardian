@@ -99,6 +99,7 @@ public class BuildingSystem : MonoBehaviour
     [SerializeField] private float refundBuilding;
     
     private Material[] objectMaterials;
+    private List<Material[]> objectChildMaterials;
     
     private PlaceableObject objectToPlace;
     
@@ -113,6 +114,7 @@ public class BuildingSystem : MonoBehaviour
     void Start()
     {
         pr = GameObject.Find("Player").GetComponent<PlayerResources>();
+        objectChildMaterials = new List<Material[]>();
     }
     
     
@@ -143,6 +145,14 @@ public class BuildingSystem : MonoBehaviour
         obj.transform.SetParent(this.transform, true);
         objectToPlace = obj.GetComponent<PlaceableObject>();
         objectMaterials = objectToPlace.GetComponent<MeshRenderer>().materials;
+
+        Component[] childrenMeshRenderer = objectToPlace.GetComponentsInChildren<MeshRenderer>();
+       
+        foreach(MeshRenderer cmr in childrenMeshRenderer){
+            objectChildMaterials.Add(cmr.materials);
+        }
+        
+        
         obj.AddComponent<ObjectDrag>();
         if(getBuildingPOI()){
             poiLastCenter = gridLayout.WorldToCell(objectToPlace.GetCenter3D());
@@ -329,6 +339,7 @@ public class BuildingSystem : MonoBehaviour
             setBuildingContext(false);
             setBuildingPOI(false);
             clearPending(poi_building.getCenter3D());
+            objectChildMaterials.Clear();
         }      
     }
 
@@ -427,15 +438,19 @@ public class BuildingSystem : MonoBehaviour
                     objectToPlace.Place();
                     Vector3Int start = gridLayout.WorldToCell(objectToPlace.GetStartPosition());
                     TakeArea(start,objectToPlace.Size);
+
                     objectToPlace.GetComponent<MeshRenderer>().materials = objectMaterials;
+
                     objectToPlace.GetComponent<NavMeshObstacle>().enabled = true;
                     objectToPlace.GetComponent<CombatTarget>().enabled = true;
                     if(objectToPlace.GetComponentInChildren<TurretController>() != null){
                         objectToPlace.GetComponentInChildren<TurretController>().enabled = true;
                     }                  
                     Component[] childrenMeshRenderer = objectToPlace.GetComponentsInChildren<MeshRenderer>();
+                    int index = 0;
                     foreach(MeshRenderer cmr in childrenMeshRenderer){
-                        cmr.material = objectMaterials[0];
+                        cmr.materials = objectChildMaterials[index];
+                        index++;
                     }
                     poi_building.addPlacedBuilding(objectToPlace);
                     pr.subtractGold(objectToPlace.getPrice());
