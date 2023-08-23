@@ -28,10 +28,7 @@ namespace AG.Combat
             onHit.Invoke();
             setNextTarget();
 
-            if (hitEffect != null)
-            {
-                Instantiate(hitEffect, hitTarget.gameObject.transform.position, transform.rotation);
-            }
+            InstantiateOnHitEffect(hitTarget);
         }
 
         void setNextTarget() {

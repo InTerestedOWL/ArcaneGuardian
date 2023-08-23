@@ -9,6 +9,7 @@ namespace AG.Combat
         [SerializeField] protected float speed = 1;
         [SerializeField] protected bool isHoming = true;
         [SerializeField] protected GameObject hitEffect = null;
+        [SerializeField] protected bool attachHitEffectToTarget = false;
         [SerializeField] protected float maxLifeTime = 10;
         [SerializeField] protected GameObject[] destroyOnHit = null;
         [SerializeField] protected float lifeAfterImpact = 2;
@@ -80,10 +81,7 @@ namespace AG.Combat
 
             onHit.Invoke();
 
-            if (hitEffect != null)
-            {
-                Instantiate(hitEffect, GetAimLocation(), transform.rotation);
-            }
+           InstantiateOnHitEffect(hitTarget);
 
             foreach (GameObject toDestroy in destroyOnHit)
             {
@@ -92,6 +90,23 @@ namespace AG.Combat
 
             Destroy(gameObject, lifeAfterImpact);
 
+        }
+
+        protected void InstantiateOnHitEffect(CombatTarget hitTarget){
+            if (hitEffect != null)
+            {
+                GameObject hitEffectInstance = null;
+
+                if(attachHitEffectToTarget){
+                    hitEffectInstance = Instantiate(hitEffect, hitTarget.gameObject.transform, false);
+                }
+                else {
+                    // hitEffectInstance = Instantiate(hitEffect, GetAimLocation(), transform.rotation);
+                    hitEffectInstance = Instantiate(hitEffect, GetAimLocation(), Quaternion.identity);
+                }
+
+                Destroy(hitEffectInstance, lifeAfterImpact);
+            }
         }
 
     }

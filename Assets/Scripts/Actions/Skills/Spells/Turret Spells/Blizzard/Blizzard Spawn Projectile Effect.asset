@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac8005965f2180147b795cb239efd251, type: 3}
+  m_Name: Blizzard Spawn Projectile Effect
+  m_EditorClassIdentifier: 
+  projectileToSpawn: {fileID: 3609390577274374288, guid: 8bd5867cb36e9a345a197bf47f22b682, type: 3}
+  damage: 5
+  useTargetPoint: 1
