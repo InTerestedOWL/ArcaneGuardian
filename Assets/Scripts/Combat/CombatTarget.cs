@@ -27,6 +27,7 @@ namespace AG.Combat {
         private HealthBarUI healthBar;
         private bool inAoERange = false;
         private Coroutine coroutineAoEDoT = null;
+        private CharacterAudioController audioController;
 
         private bool isDead = false;
 
@@ -35,8 +36,9 @@ namespace AG.Combat {
             rb = GetComponent<Rigidbody>();
             skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
             meshRenderer = GetComponentInChildren<MeshRenderer>();
+            audioController = GetComponent<CharacterAudioController>();
 
-            if(skinnedMeshRenderer == null){
+            if (skinnedMeshRenderer == null){
                 material = meshRenderer.material;
             }
             else {
@@ -72,13 +74,15 @@ namespace AG.Combat {
         }
 
         private void TakeDamage(int damage, GameObject sourceObject = null) {
-            PlayHitSound(sourceObject);
             if (isDead)
                 return;
+            PlayHitSound(sourceObject);
             currentHealth -= damage;
             healthBar?.SetHealthBarPercentage(currentHealth / maxHealth);
             if (currentHealth <= 0) {
                 Die();
+            } else if (audioController != null) {
+                audioController.PlayRandomPainSound();
             }
 
             blinkTimer = blinkDuration;
@@ -87,13 +91,15 @@ namespace AG.Combat {
         private void PlayHitSound(GameObject sourceObject = null) {
             List<AudioClip> hitSounds = new List<AudioClip>();
             if (sourceObject != null) {
+                // Search for CharacterAudioController in parent of sourceObject
+                // Can be used to play different impact sounds for different weapons or characteristics of the other CombatTarget
                 CharacterAudioController controller = sourceObject.GetComponentInParent<CharacterAudioController>();
                 if (controller != null) {
                     hitSounds = controller.GetHitSoundsForTarget();
                 }
             }
-            if (GetComponent<CharacterAudioController>() != null) {
-                GetComponent<CharacterAudioController>().PlayRandomHitSound(hitSounds);
+            if (audioController != null) {
+                audioController.PlayRandomHitSound(hitSounds);
             }
         }
 
@@ -110,7 +116,11 @@ namespace AG.Combat {
             healthBar?.gameObject.SetActive(false);
             isDead = true;
 
-            if(tag == "Enemy"){
+            if (audioController != null) {
+                audioController.PlayRandomDeathSound();
+            }
+
+            if(tag == "Enemy") {
                 GetComponent<EnemyResources>().dropsGold();
             }
         }

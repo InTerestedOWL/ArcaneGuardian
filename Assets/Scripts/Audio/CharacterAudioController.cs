@@ -10,6 +10,8 @@ namespace AG.Audio.Sounds {
         private FootstepSounds footstepSounds;
         [SerializeField]
         private WhooshSounds whooshSounds;
+        [SerializeField]
+        private VoiceSounds voiceSounds;
         // Ex. Sounds for impact with own weapon (punches, sword, axe, etc.)
         [SerializeField]
         private HitSounds hitSoundsForTarget;
@@ -53,7 +55,18 @@ namespace AG.Audio.Sounds {
         }
 
         public void PlayRandomWhooshSound() {
-            PlaySound(whooshSounds.GetRandomWhooshSound());
+            if (whooshSounds != null)
+                PlaySound(whooshSounds.GetRandomWhooshSound());
+        }
+
+        public void PlayRandomPainSound() {
+            if (voiceSounds != null)
+                PlaySound(voiceSounds.GetRandomPainSound());
+        }
+
+        public void PlayRandomDeathSound() {
+            if (voiceSounds != null)
+                PlaySound(voiceSounds.GetRandomDeathSound());
         }
 
         // hitSoundsFromCombatTarget includes weapon impact sounds from the target that hits
