@@ -15,7 +15,7 @@ namespace AG.Control {
         int uiWindowLayerID;
         bool mouseHold = false;
         bool keysPressed = false;
-        IEnumerator mouseMovementCoroutine = null;
+        //IEnumerator mouseMovementCoroutine = null;
         Vector3 curMovement = Vector3.zero;
 
         void Start() {

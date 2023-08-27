@@ -1,7 +1,9 @@
 using UnityEngine;
 
 using AG.Weapons;
+using AG.Audio.Sounds;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace AG.Combat {
     public class CombatTarget : MonoBehaviour {
@@ -65,11 +67,12 @@ namespace AG.Combat {
                 knockbackDirection = transform.position - other.transform.root.position;
                 knockbackForce = weapon.GetKnockbackForce();
                 isKnockbacked = true;
-                TakeDamage(weapon.GetAttackDmg());
+                TakeDamage(weapon.GetAttackDmg(), other.gameObject);
             }
         }
 
-        private void TakeDamage(int damage) {
+        private void TakeDamage(int damage, GameObject sourceObject = null) {
+            PlayHitSound(sourceObject);
             if (isDead)
                 return;
             currentHealth -= damage;
@@ -79,6 +82,19 @@ namespace AG.Combat {
             }
 
             blinkTimer = blinkDuration;
+        }
+
+        private void PlayHitSound(GameObject sourceObject = null) {
+            List<AudioClip> hitSounds = new List<AudioClip>();
+            if (sourceObject != null) {
+                CharacterAudioController controller = sourceObject.GetComponentInParent<CharacterAudioController>();
+                if (controller != null) {
+                    hitSounds = controller.GetHitSoundsForTarget();
+                }
+            }
+            if (GetComponent<CharacterAudioController>() != null) {
+                GetComponent<CharacterAudioController>().PlayRandomHitSound(hitSounds);
+            }
         }
 
         private void HandleKnockBack(float force, Vector3 knockbackDirection) {
