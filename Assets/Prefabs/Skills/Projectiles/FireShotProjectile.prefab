@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5007475362331047353}
   - component: {fileID: 5007475362331047358}
-  - component: {fileID: 898393286083976982}
   - component: {fileID: -849005051249426496}
+  - component: {fileID: 6984691603745674745}
+  - component: {fileID: 5421796912017866692}
   m_Layer: 0
   m_Name: FireShotProjectile
   m_TagString: Projectile
@@ -136,22 +137,6 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!54 &898393286083976982
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5007475362331047359}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &-849005051249426496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,6 +152,7 @@ MonoBehaviour:
   speed: 20
   isHoming: 0
   hitEffect: {fileID: 3388445529463691237, guid: 070ab0de577d2b8409697e28afa82a5d, type: 3}
+  attachHitEffectToTarget: 0
   maxLifeTime: 10
   destroyOnHit: []
   lifeAfterImpact: 2
@@ -174,6 +160,35 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   aoeRadius: 2
+--- !u!65 &6984691603745674745
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5007475362331047359}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.5, z: 0.3}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &5421796912017866692
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5007475362331047359}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &5007475362444405318
 GameObject:
   m_ObjectHideFlags: 0
