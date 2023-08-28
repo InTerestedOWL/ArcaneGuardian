@@ -10,7 +10,7 @@ namespace AG.Skills.Filtering {
         string[] tags = null;
 
         public override void FilterTargets(SkillData skillData) {
-            skillData.SetTargets(skillData.GetTargets().Where(target => tags.Contains(target.tag)));
+            skillData.SetTargets(skillData.GetTargets()?.Where(target => tags.Contains(target.tag)));
         }
 
         public override IEnumerable<GameObject> FilterTargets(IEnumerable<GameObject> targets) {

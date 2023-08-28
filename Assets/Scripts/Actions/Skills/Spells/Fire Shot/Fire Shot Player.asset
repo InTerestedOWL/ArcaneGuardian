@@ -22,8 +22,8 @@ MonoBehaviour:
     eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
     sea takimata sanctus est Lorem ipsum dolor sit amet.
   icon: {fileID: 21300000, guid: ddc61fb71785aa140b460ffadcc5b893, type: 3}
-  cooldown: 7
-  targetingStrategy: {fileID: 11400000, guid: c90cafc1b908cb14ea7415f9e5c7184e, type: 2}
+  cooldown: 1
+  targetingStrategy: {fileID: 11400000, guid: 21edfd2074f8d7b4db4abded3b78beed, type: 2}
   filterStrategy: {fileID: 11400000, guid: 9d94cec049fac1046b5d39f60ab4ea82, type: 2}
   effectStrategies:
-  - {fileID: 11400000, guid: b29e169b5f7a3474c82e0ae094cb825e, type: 2}
+  - {fileID: 11400000, guid: a42466b13ab9d874c8186da4518ae093, type: 2}

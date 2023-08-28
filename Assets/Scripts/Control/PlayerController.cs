@@ -8,6 +8,7 @@ using UnityEngine.EventSystems;
 using AG.MovementCore;
 using AG.Combat;
 using System.Collections.Generic;
+using UnityEngine.Experimental.Rendering;
 
 namespace AG.Control {
     public class PlayerController : MonoBehaviour {
@@ -106,6 +107,11 @@ namespace AG.Control {
         }
 
         public void CalcPointerHit(out RaycastHit hit, out bool hasHit, LayerMask layerMask = default) {
+            Ray ray;
+            CalcPointerHit(out hit, out ray, out hasHit, layerMask);
+        }
+
+        public void CalcPointerHit(out RaycastHit hit, out Ray ray, out bool hasHit, LayerMask layerMask = default){
             if (layerMask == default) {
                 layerMask = ~ignoreRaycastLayer;
             }
@@ -114,13 +120,14 @@ namespace AG.Control {
             // Only move when not over UI
             // TODO: Check if user is not dragging something
             if (!checkIfOverUI(mousePos)) {
-                Ray curRay = Camera.main.ScreenPointToRay(mousePos);
+                ray = Camera.main.ScreenPointToRay(mousePos);
 
-                hasHit = Physics.Raycast(curRay, out hit, 1000, layerMask);
-                Debug.DrawRay(curRay.origin, curRay.direction * 1000, Color.red, 1f);
+                hasHit = Physics.Raycast(ray, out hit, 1000, layerMask);
+                Debug.DrawRay(ray.origin, ray.direction * 1000, Color.red, 1f);
             } else {
                 hasHit = false;
                 hit = new RaycastHit();
+                ray = new Ray();
             }
         }
 
