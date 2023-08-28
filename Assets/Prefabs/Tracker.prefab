@@ -58,6 +58,8 @@ GameObject:
   - component: {fileID: 5987901916004979916}
   - component: {fileID: 5987901916004979917}
   - component: {fileID: 5987901916004979918}
+  - component: {fileID: 5272818284127552408}
+  - component: {fileID: 4837290076451575576}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -72,14 +74,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5987901916004979906}
-  m_LocalRotation: {x: 0.259922, y: -0.6497476, z: 0.25249708, w: 0.6682169}
-  m_LocalPosition: {x: 9.53, y: 8.11, z: 0.21}
+  m_LocalRotation: {x: 0.25978023, y: -0.64980435, z: 0.25264284, w: 0.6681618}
+  m_LocalPosition: {x: 12.5, y: 10.7, z: 0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5987901915724363340}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 42.492, y: -88.404, z: -0.025}
+  m_LocalEulerAnglesHint: {x: 42.492, y: -88.404, z: 0}
 --- !u!20 &5987901916004979916
 Camera:
   m_ObjectHideFlags: 0
@@ -107,11 +109,11 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1279
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -164,3 +166,126 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!82 &5272818284127552408
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5987901916004979906}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.08
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &4837290076451575576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5987901916004979906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02d2ef772916c7d428d8f94b7bc59f4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  restPhaseMusic:
+  - {fileID: 8300000, guid: 17aad8a6d3b45a245bf7f2d33f23a373, type: 3}
+  normalWaveMusic:
+  - {fileID: 8300000, guid: 7c2a05a8529e5b241ac0a483ca7a8ae6, type: 3}
+  - {fileID: 8300000, guid: 45cb4d907c174864aa5a8bd44e1cd231, type: 3}
+  elfWaveMusic:
+  - {fileID: 8300000, guid: e466847757f8d7f4c8297289144ad2fb, type: 3}
+  humanWaveMusic:
+  - {fileID: 8300000, guid: 8bdd5ab7f857f4b4b87540d4e6d47570, type: 3}
+  goblinWaveMusic:
+  - {fileID: 8300000, guid: 44a18ce34a53af341af8182f78bdae3c, type: 3}
+  skeletonWaveMusic:
+  - {fileID: 8300000, guid: cc1fbf0f2db366549a4eebc6c646f117, type: 3}
+  bossWaveMusic:
+  - {fileID: 8300000, guid: a149c6013188f4d43b2205efa250ba85, type: 3}
