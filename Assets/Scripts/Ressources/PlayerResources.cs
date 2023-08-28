@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerResources : MonoBehaviour
 {
     [SerializeField] private int gold;
+
+    private int points = 0;
     // Start is called before the first frame update
     public void addGold(int g){
         gold += g;
@@ -15,8 +17,14 @@ public class PlayerResources : MonoBehaviour
     public void setGold(int g){
         gold = g;
     }
+    public void addPoints(int p){
+        points = p;
+    }
     public int getGold(){
         return gold;
+    }
+    public int getPoints(){
+        return points;
     }
     void Start()
     {
