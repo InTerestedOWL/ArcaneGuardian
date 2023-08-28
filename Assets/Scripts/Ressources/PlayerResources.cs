@@ -18,7 +18,7 @@ public class PlayerResources : MonoBehaviour
         gold = g;
     }
     public void addPoints(int p){
-        points = p;
+        points += p;
     }
     public int getGold(){
         return gold;

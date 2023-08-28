@@ -5,8 +5,10 @@ using UnityEngine;
 public class EnemyResources : MonoBehaviour
 {
     [SerializeField] private int goldStart;
+    [SerializeField] private int points;
     [SerializeField] private float dropVariance;
     // Start is called before the first frame update
+    private PlayerResources pr;
 
     public void dropsGold(){
         System.Random random = new System.Random();
@@ -15,11 +17,14 @@ public class EnemyResources : MonoBehaviour
         float randomDrop = (float)(random.NextDouble() * (maxValue - minValue) + minValue);
         int dropGold = (int) randomDrop;
         Debug.Log("I Dropped "+dropGold+" Gold");
-        GameObject.Find("Player").GetComponent<PlayerResources>().addGold(dropGold);
+        pr.addGold(dropGold);
+    }
+    public void addPoints(){
+        pr.addPoints(points);
     }
     void Start()
     {
-        
+        pr = GameObject.Find("Player").GetComponent<PlayerResources>();
     }
 
     // Update is called once per frame
