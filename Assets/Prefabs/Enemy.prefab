@@ -3535,7 +3535,6 @@ GameObject:
   - component: {fileID: 4648298520117601603}
   - component: {fileID: 2349528157117472855}
   - component: {fileID: 6020681237040504762}
-  - component: {fileID: 419963497}
   - component: {fileID: 1631400485}
   - component: {fileID: 1631400484}
   m_Layer: 0
@@ -3777,20 +3776,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goldStart: 200
-  dropVariance: 0.5
---- !u!114 &419963497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5905644568223020398}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a4e44fa88bdbd948bb0f05de5517b73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  goldStart: 200
+  points: 0
   dropVariance: 0.5
 --- !u!82 &1631400485
 AudioSource:
