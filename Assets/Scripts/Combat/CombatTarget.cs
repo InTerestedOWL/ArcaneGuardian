@@ -121,7 +121,7 @@ namespace AG.Combat {
             }
 
             if(tag == "Enemy") {
-                GetComponent<EnemyResources>().dropsGold();
+                GetComponent<EnemyResources>().onDie();
             }
         }
 

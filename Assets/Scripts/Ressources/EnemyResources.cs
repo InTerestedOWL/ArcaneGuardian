@@ -22,6 +22,10 @@ public class EnemyResources : MonoBehaviour
     public void addPoints(){
         pr.addPoints(points);
     }
+    public void onDie(){
+        dropsGold();
+        addPoints();
+    }
     void Start()
     {
         pr = GameObject.Find("Player").GetComponent<PlayerResources>();
