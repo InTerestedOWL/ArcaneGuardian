@@ -1111,7 +1111,7 @@ GameObject:
   - component: {fileID: 7404353764590065194}
   m_Layer: 0
   m_Name: Undead_Sorcerer
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1181,10 +1181,10 @@ Animator:
   m_GameObject: {fileID: 121166}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 34d530461bec694428ff689cbae8692d, type: 3}
-  m_Controller: {fileID: 9100000, guid: 1de385df2ff713a41adfcbbb63b8af91, type: 2}
-  m_CullingMode: 1
+  m_Controller: {fileID: 9100000, guid: cb91c94394873ef4aa51079f4bf3bb76, type: 2}
+  m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -1265,8 +1265,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b53b68b6b14e6e34ba7a768b40a240bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialState: 0
-  config: {fileID: 0}
+  initialState: 2
+  config: {fileID: 11400000, guid: 3b095a3390de139478df2314113fcb82, type: 2}
   player: {fileID: 0}
   movement: {fileID: 0}
   combat: {fileID: 0}
