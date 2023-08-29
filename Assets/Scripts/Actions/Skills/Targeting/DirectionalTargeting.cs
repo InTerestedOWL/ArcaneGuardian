@@ -13,7 +13,7 @@ namespace AG.Skills.Targeting
     public class DirectionalTargeting : TargetingStrategy
     {
         [SerializeField] LayerMask layerMask;
-        [SerializeField] float groundOffset = 1;
+        [SerializeField] float groundOffset = 0;
 
         public override void DeclareTargets(SkillData data, Action callback) {
             GameObject user = data.GetUser();
@@ -29,7 +29,9 @@ namespace AG.Skills.Targeting
             if (Physics.Raycast(ray, out raycastHit, 1000, layerMask))
             {
                 data.SetTargetPosition(raycastHit.point + ray.direction * groundOffset / ray.direction.y);
+                // data.SetTargetPosition(raycastHit.point + new Vector3(ray.direction.x, 0, ray.direction.y));
             }
+
             callback();
 
             yield return null;
