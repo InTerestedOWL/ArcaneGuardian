@@ -20,7 +20,7 @@ public class EnemyResources : MonoBehaviour
         pr.addGold(dropGold);
     }
     public void addPoints(){
-        pr.addPoints(points);
+        pr.addScore(points);
     }
     public void onDie(){
         dropsGold();
