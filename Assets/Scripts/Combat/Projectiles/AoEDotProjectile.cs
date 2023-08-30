@@ -16,7 +16,7 @@ namespace AG.Combat
 
         private GameObject hitEffectInstance = null;
 
-        private void OnTriggerEnter(Collider other){
+        private new void OnTriggerEnter(Collider other){
             CombatTarget hitTarget = other.GetComponent<CombatTarget>();
             if (target != null && hitTarget != target) return;
             if (hitTarget == null || hitTarget.IsDead()) return;
@@ -49,24 +49,11 @@ namespace AG.Combat
             }
         }
 
-        private IEnumerable<GameObject> GetAoETargets(Vector3 targetPos)
-        {
-            List<GameObject> targets = new List<GameObject>();
-            RaycastHit[] hits = Physics.SphereCastAll(targetPos, aoeDotDiameter/2, Vector3.up, 0f);
-            foreach (RaycastHit hit in hits)
-            {
-                if(hit.collider.gameObject.tag == "Enemy"){
-                    targets.Add(hit.collider.gameObject);
-                }
-            }
-            return targets;
-        }
-
         private IEnumerator DoTTargets() {
             float dotTimer = 0;
 
             while(dotTimer < dotDuration){
-                foreach (GameObject target in GetAoETargets(GetAimLocation()))
+                foreach (GameObject target in GetAoETargets(GetAimLocation(), aoeDotDiameter))
                 {
                     CombatTarget ct = target.GetComponent<CombatTarget>();
                     if (ct != null)

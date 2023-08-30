@@ -1254,7 +1254,7 @@ PrefabInstance:
     - target: {fileID: 7682494388346097953, guid: e8e4a1c08c389314db1c1c9779f56974, type: 3}
       propertyPath: skill
       value: 
-      objectReference: {fileID: 11400000, guid: 8f01ec970e38ff54ea12aba46844f4b9, type: 2}
+      objectReference: {fileID: 11400000, guid: ffb535bee1b584349b3656b355df3f1f, type: 2}
     - target: {fileID: 7682494388346097953, guid: e8e4a1c08c389314db1c1c9779f56974, type: 3}
       propertyPath: SkillCap
       value: 3

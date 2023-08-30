@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using AG.Combat;
 using AG.Control;
 using AG.Skills.Core;
 using UnityEngine;
@@ -9,7 +10,7 @@ using UnityEngine.InputSystem;
 
 namespace AG.Skills.Targeting
 {
-    [CreateAssetMenu(fileName = "Directional Targeting", menuName = "Arcane Guardian/Targeting Strategy/Skill Shot Targeting")]
+    [CreateAssetMenu(fileName = "Directional Targeting", menuName = "Arcane Guardian/Targeting Strategy/Directional Targeting")]
     public class DirectionalTargeting : TargetingStrategy
     {
         [SerializeField] LayerMask layerMask;

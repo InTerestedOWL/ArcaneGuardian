@@ -21,7 +21,7 @@ MonoBehaviour:
     invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero
     eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
     sea takimata sanctus est Lorem ipsum dolor sit amet.
-  icon: {fileID: 21300000, guid: ddc61fb71785aa140b460ffadcc5b893, type: 3}
+  icon: {fileID: 21300000, guid: 160ac877cfff59e48a4c47f8a037b29b, type: 3}
   cooldown: 1
   targetingStrategy: {fileID: 11400000, guid: 21edfd2074f8d7b4db4abded3b78beed, type: 2}
   filterStrategy: {fileID: 11400000, guid: 9d94cec049fac1046b5d39f60ab4ea82, type: 2}

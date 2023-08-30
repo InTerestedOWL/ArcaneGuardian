@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using AG.Skills;
 using UnityEngine.Events;
+using System.Collections.Generic;
+
 
 namespace AG.Combat
 {
@@ -107,6 +109,19 @@ namespace AG.Combat
 
                 Destroy(hitEffectInstance, lifeAfterImpact);
             }
+        }
+
+        protected IEnumerable<GameObject> GetAoETargets(Vector3 targetPos, float aoeDiameter)
+        {
+            List<GameObject> targets = new List<GameObject>();
+            RaycastHit[] hits = Physics.SphereCastAll(targetPos, aoeDiameter/2, Vector3.up, 0f);
+            foreach (RaycastHit hit in hits)
+            {
+                if(hit.collider.gameObject.tag == "Enemy"){
+                    targets.Add(hit.collider.gameObject);
+                }
+            }
+            return targets;
         }
 
     }
