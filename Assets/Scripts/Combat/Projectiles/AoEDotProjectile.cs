@@ -15,18 +15,27 @@ namespace AG.Combat
         [SerializeField] float dotsPerSecond = 1;
 
         private GameObject hitEffectInstance = null;
+        private bool hasHit = false;
 
         private new void OnTriggerEnter(Collider other){
-            CombatTarget hitTarget = other.GetComponent<CombatTarget>();
-            if (target != null && hitTarget != target) return;
-            if (hitTarget == null || hitTarget.IsDead()) return;
-            if (other.gameObject == instigator) return;
+            //Ignore Player and POI
+            if(other.gameObject.tag == "Player" || other.gameObject.tag == "PlayerWeapon" || other.gameObject.tag == "POI")
+                return;
+
+            if(hasHit)
+                return;
+            hasHit = true;
 
             speed = 0;
 
             onHit.Invoke();
 
-            InstantiateOnHitEffect(hitTarget);
+            if (hitEffect != null)
+            {
+                hitEffectInstance = Instantiate(hitEffect, this.transform.position, Quaternion.identity);
+                hitEffectInstance.transform.localScale = new Vector3(aoeDotDiameter * hitEffect.transform.localScale.x, 1, aoeDotDiameter * hitEffect.transform.localScale.z);
+            }
+
             StartCoroutine(DoTTargets());
 
             foreach (GameObject toDestroy in destroyOnHit)
@@ -35,25 +44,11 @@ namespace AG.Combat
             }
         }
 
-        new void InstantiateOnHitEffect(CombatTarget hitTarget) {
-            if (hitEffect != null)
-            {
-                if(attachHitEffectToTarget){
-                    hitEffectInstance = Instantiate(hitEffect, hitTarget.gameObject.transform, false);
-                }
-                else {
-                    // hitEffectInstance = Instantiate(hitEffect, GetAimLocation(), transform.rotation);
-                    hitEffectInstance = Instantiate(hitEffect, GetAimLocation(), Quaternion.identity);
-                }
-                hitEffectInstance.transform.localScale = new Vector3(aoeDotDiameter * hitEffect.transform.localScale.x, 1, aoeDotDiameter * hitEffect.transform.localScale.z);
-            }
-        }
-
         private IEnumerator DoTTargets() {
             float dotTimer = 0;
 
             while(dotTimer < dotDuration){
-                foreach (GameObject target in GetAoETargets(GetAimLocation(), aoeDotDiameter))
+                foreach (GameObject target in GetAoETargets(this.transform.position, aoeDotDiameter))
                 {
                     CombatTarget ct = target.GetComponent<CombatTarget>();
                     if (ct != null)
