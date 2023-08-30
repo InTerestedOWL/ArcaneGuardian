@@ -103,8 +103,8 @@ namespace AG.Combat
                     hitEffectInstance = Instantiate(hitEffect, hitTarget.gameObject.transform, false);
                 }
                 else {
-                    // hitEffectInstance = Instantiate(hitEffect, GetAimLocation(), transform.rotation);
-                    hitEffectInstance = Instantiate(hitEffect, GetAimLocation(), Quaternion.identity);
+                    // hitEffectInstance = Instantiate(hitEffect, GetAimLocation(), Quaternion.identity);
+                    hitEffectInstance = Instantiate(hitEffect, this.transform.position, transform.rotation);
                 }
 
                 Destroy(hitEffectInstance, lifeAfterImpact);
