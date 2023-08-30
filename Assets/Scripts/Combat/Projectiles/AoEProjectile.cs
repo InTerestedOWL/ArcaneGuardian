@@ -8,7 +8,7 @@ namespace AG.Combat
 {
     public class AoEProjectile : Projectile
     {
-        [SerializeField] float aoeRadius = 2;
+        [SerializeField] float aoeDiameter = 2;
 
         // float prevDistance = 0;
         // float distance = 0;
@@ -43,7 +43,6 @@ namespace AG.Combat
 
         new void OnTriggerEnter(Collider other)
         {   
-            Debug.Log("Collider: " + other.gameObject.name);
             //Ignore Player and POI
             if(other.gameObject.tag == "Player" || other.gameObject.tag == "PlayerWeapon" || other.gameObject.tag == "POI")
                 return;
@@ -53,7 +52,7 @@ namespace AG.Combat
             hasHit = true;
             speed = 0;
 
-            foreach (GameObject target in GetAoETargets(this.transform.position))
+            foreach (GameObject target in GetAoETargets(this.transform.position, aoeDiameter))
             {
                 CombatTarget ct = target.GetComponent<CombatTarget>();
                 if (ct != null)
@@ -102,20 +101,6 @@ namespace AG.Combat
 
         //     Destroy(gameObject, lifeAfterImpact);
         // }
-
-        private IEnumerable<GameObject> GetAoETargets(Vector3 targetPos)
-        {
-            List<GameObject> targets = new List<GameObject>();
-            RaycastHit[] hits = Physics.SphereCastAll(targetPos, aoeRadius, Vector3.up, 0f);
-            foreach (RaycastHit hit in hits)
-            {
-                if(hit.collider.gameObject.tag == "Enemy"){
-                    targets.Add(hit.collider.gameObject);
-                }
-            }
-            return targets;
-        }
-
     }
 
 }

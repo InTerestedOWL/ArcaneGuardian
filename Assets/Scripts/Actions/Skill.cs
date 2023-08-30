@@ -38,6 +38,7 @@ namespace AG.Skills {
             }
 
             filterStrategy.FilterTargets(skillData);
+            
             foreach(EffectStrategy effectStrategy in effectStrategies) {
                 effectStrategy.ApplyEffect(skillData);
             }

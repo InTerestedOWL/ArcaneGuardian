@@ -18728,22 +18728,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 747270977948162714, guid: 415c6d88014567241bd24edb4f7a459f, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6022456741321141225, guid: 415c6d88014567241bd24edb4f7a459f, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 6022456741321141225, guid: 415c6d88014567241bd24edb4f7a459f, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6482774584227156749, guid: 415c6d88014567241bd24edb4f7a459f, type: 3}
-      propertyPath: m_UIInputModule
-      value: 
-      objectReference: {fileID: 292002275}
     - target: {fileID: 6825835310185104198, guid: 415c6d88014567241bd24edb4f7a459f, type: 3}
       propertyPath: skillbookCollectionUIReference
       value: 
@@ -19082,7 +19070,7 @@ GameObject:
   - component: {fileID: 1532653304}
   - component: {fileID: 1532653303}
   - component: {fileID: 1532653302}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19653,7 +19641,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2094622409}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 1.7, z: -10.35}
+  m_LocalPosition: {x: 0, y: 5.31, z: -10.35}
   m_LocalScale: {x: 1, y: 1, z: 0.33}
   m_ConstrainProportionsScale: 0
   m_Children: []
