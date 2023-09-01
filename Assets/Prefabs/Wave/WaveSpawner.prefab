@@ -1,0 +1,180 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2793847053644718090
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2793847053644718091}
+  m_Layer: 0
+  m_Name: TestSpawn2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2793847053644718091
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2793847053644718090}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 13.92799, y: 25.102995, z: -37.778954}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2793847054540226692}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2793847053774194365
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2793847053774194354}
+  m_Layer: 0
+  m_Name: TestSpawn1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2793847053774194354
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2793847053774194365}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.0720104, y: 25.102995, z: -37.778954}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2793847054540226692}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2793847054540226694
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2793847054540226692}
+  - component: {fileID: 2793847054540226695}
+  m_Layer: 0
+  m_Name: WaveSpawner
+  m_TagString: WaveSpawner
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2793847054540226692
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2793847054540226694}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.0720104, y: -25.102995, z: 37.778954}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2793847053774194354}
+  - {fileID: 2793847053644718091}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2793847054540226695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2793847054540226694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 187e38efcd387fa499fdf3287242232a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goblins:
+  - enemyPrefab: {fileID: 126750, guid: 1f44a962f89d48b4cb8b7010273b83ad, type: 3}
+    cost: 1
+  - enemyPrefab: {fileID: 186294, guid: 4a3d8419fadef734ab551caab8149504, type: 3}
+    cost: 1
+  - enemyPrefab: {fileID: 149914, guid: 0c832330bd4fc58479816e4792dd060f, type: 3}
+    cost: 1
+  - enemyPrefab: {fileID: 193152, guid: 083b36fdca62b5a4ba86fd34de5e449a, type: 3}
+    cost: 1
+  - enemyPrefab: {fileID: 114320, guid: 6e76915379ca3494f910a97b5fd8dd3a, type: 3}
+    cost: 1
+  skeletons:
+  - enemyPrefab: {fileID: 148108, guid: 5ea7caaca6cfe994d9f27b2a0d7646e1, type: 3}
+    cost: 1
+  - enemyPrefab: {fileID: 175986, guid: 068e0c1fff8b99b4ea5035c55029e11a, type: 3}
+    cost: 1
+  - enemyPrefab: {fileID: 156564, guid: 88b974969d6aa3247afb26037d712d30, type: 3}
+    cost: 1
+  - enemyPrefab: {fileID: 121166, guid: 78df08f8c91446a408ca5f759bf29b62, type: 3}
+    cost: 1
+  elves:
+  - enemyPrefab: {fileID: 121438, guid: 2a63d3bcfb8e7284cb629d17671a6f81, type: 3}
+    cost: 1
+  - enemyPrefab: {fileID: 194086, guid: 6307f0b75bd04334faedc51cef0f2814, type: 3}
+    cost: 1
+  - enemyPrefab: {fileID: 190564, guid: 029faceb4c0380445abb53ed4189acc6, type: 3}
+    cost: 1
+  - enemyPrefab: {fileID: 102798, guid: 519e7f8509a51cb4882373d32eb9b7a4, type: 3}
+    cost: 1
+  humans:
+  - enemyPrefab: {fileID: 128200, guid: fcd4e52bc3b48c54bb4871dee79a3328, type: 3}
+    cost: 1
+  - enemyPrefab: {fileID: 132192, guid: bb2a83e83b7e4224fa282e4a73c12675, type: 3}
+    cost: 1
+  - enemyPrefab: {fileID: 138498, guid: 64363f4acdf9e3548abac22aad7836a2, type: 3}
+    cost: 1
+  - enemyPrefab: {fileID: 139550, guid: 96fa55332b2956b44982c08ddaf5ba85, type: 3}
+    cost: 1
+  - enemyPrefab: {fileID: 170484, guid: 2ed8b606b122c8e44ae625cac3b30c82, type: 3}
+    cost: 1
+  - enemyPrefab: {fileID: 108508, guid: 3cf4e54030afc65409c19ee0537276cc, type: 3}
+    cost: 1
+  bosses:
+  - enemyPrefab: {fileID: 194614, guid: 5a78fa530af909946a65f4a84abe5ce0, type: 3}
+    cost: 0
+  - enemyPrefab: {fileID: 197070, guid: 60402033642385c48914cdd908802fc4, type: 3}
+    cost: 0
+  - enemyPrefab: {fileID: 109268, guid: 5b07fc13928a0ba49b37e5e16e2a5591, type: 3}
+    cost: 0
+  - enemyPrefab: {fileID: 167506, guid: b12a5481ef675e84bb9a8a47e38358c7, type: 3}
+    cost: 0
+  specials:
+  - enemyPrefab: {fileID: 154484, guid: c619a222d61ee344894cef104b2cd982, type: 3}
+    cost: 0
+  - enemyPrefab: {fileID: 151382, guid: 858dca86de4c6f240a9bed275406052b, type: 3}
+    cost: 0
+  currentWave: 11
+  waveValueStart: 5
+  valuePerWave: 5
+  startGoblin: 1
+  startSkeletons: 3
+  startElves: 5
+  startHumans: 7
+  startAllTogether: 9
+  enemiesToSpawn: []
+  spawnLocation:
+  - {fileID: 2793847053774194354}
+  - {fileID: 2793847053644718091}
+  waveDuration: 30
+  spawnedEnemies: []

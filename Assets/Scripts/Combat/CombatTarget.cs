@@ -122,6 +122,10 @@ namespace AG.Combat {
 
             if(tag == "Enemy") {
                 GetComponent<EnemyResources>().onDie();
+                 if (GameObject.FindGameObjectWithTag("WaveSpawner") != null)
+                {
+                    GameObject.FindGameObjectWithTag("WaveSpawner").GetComponent<WaveSpawner>().spawnedEnemies.Remove(gameObject);
+                }
             }
         }
 

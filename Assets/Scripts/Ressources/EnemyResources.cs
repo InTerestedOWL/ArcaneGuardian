@@ -16,7 +16,6 @@ public class EnemyResources : MonoBehaviour
         float maxValue = goldStart+goldStart*dropVariance;
         float randomDrop = (float)(random.NextDouble() * (maxValue - minValue) + minValue);
         int dropGold = (int) randomDrop;
-        Debug.Log("I Dropped "+dropGold+" Gold");
         pr.addGold(dropGold);
     }
     public void addPoints(){
