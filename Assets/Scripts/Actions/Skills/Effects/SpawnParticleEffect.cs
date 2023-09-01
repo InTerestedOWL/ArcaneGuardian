@@ -32,13 +32,13 @@ namespace AG.Skills.Effects {
         }
 
         private IEnumerator DisplayParticle(SkillData skillData) {
-            Vector3 targetPos = Vector3.zero;
+            GameObject particle = null;
             if (attachToPlayer) {
-                targetPos = skillData.GetUser().transform.position;
+                particle = Instantiate(particlePrefab, skillData.GetUser().transform, false);
             } else {
-                targetPos = skillData.GetTargetPosition();
+                particle = Instantiate(particlePrefab, skillData.GetTargetPosition(), Quaternion.identity);
             }
-            GameObject particle = Instantiate(particlePrefab, targetPos, Quaternion.identity);
+            
             if (rotateToTarget) {
                 Vector3 mousePos = skillData.GetTargetPosition();
                 mousePos.y = particle.transform.position.y;
