@@ -285,8 +285,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.02
-      minScalar: 0.05
+      scalar: 0.002
+      minScalar: 0.005
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5217,7 +5217,7 @@ ParticleSystem:
     startSizeY:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -10034,8 +10034,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.3
-      minScalar: 0.1
+      scalar: 0.05
+      minScalar: 0.01
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -19657,7 +19657,7 @@ GameObject:
   - component: {fileID: 6211125795773073634}
   - component: {fileID: 959509697232157438}
   m_Layer: 0
-  m_Name: Healing circle
+  m_Name: Healing Fountain Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

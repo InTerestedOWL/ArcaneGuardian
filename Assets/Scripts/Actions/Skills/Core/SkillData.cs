@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using AG.Control;
+using AG.Skills.Filtering;
 using UnityEngine;
 
 namespace AG.Skills.Core {
@@ -12,6 +13,7 @@ namespace AG.Skills.Core {
         private TurretController turretController;
         private Vector3 targetPosition;
         private float radius = 0;
+        private FilterStrategy filterStrategy = null;
 
         public SkillData(GameObject user) {
             this.user = user;
@@ -57,6 +59,14 @@ namespace AG.Skills.Core {
 
         public float GetRadius() {
             return radius;
+        }
+
+        public void SetFilterStrategy(FilterStrategy filterStrategy) {
+            this.filterStrategy = filterStrategy;
+        }
+
+        public FilterStrategy GetFilterStrategy() {
+            return this.filterStrategy;
         }
     }
 }

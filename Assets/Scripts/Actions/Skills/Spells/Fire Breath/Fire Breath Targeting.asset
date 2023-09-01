@@ -17,4 +17,4 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   aoeRadius: 2
-  telegraphPrefab: {fileID: 4741007630022970429, guid: b0d84f3dba293fc48b07c4dd99b37fe5, type: 3}
+  telegraphPrefab: {fileID: 3669069424990408071, guid: b0d84f3dba293fc48b07c4dd99b37fe5, type: 3}

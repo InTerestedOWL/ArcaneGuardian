@@ -59,8 +59,8 @@ namespace AG.Combat
                 yield return new WaitForSeconds(1/dotsPerSecond);
                 dotTimer += 1/dotsPerSecond;
             }
-            Destroy(gameObject, 1);
-            Destroy(hitEffectInstance, 1);
+            Destroy(gameObject);
+            Destroy(hitEffectInstance);
             yield return null;
         }
 

@@ -62,7 +62,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   isHoming: 0
-  hitEffect: {fileID: 161766660727748596, guid: 3c2128267f01a1347aee7b009a230c85, type: 3}
+  hitEffect: {fileID: 4932088507883938021, guid: c82fa75e9ac61b046b6457e2d49e73d7, type: 3}
   attachHitEffectToTarget: 0
   maxLifeTime: 30
   destroyOnHit: []

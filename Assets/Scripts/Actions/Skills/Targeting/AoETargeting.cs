@@ -17,8 +17,8 @@ namespace AG.Skills.Targeting {
         [SerializeField] 
         float aoeRadius = 1f;
         [SerializeField]
-        Transform telegraphPrefab = null;
-        Transform telegraphInstance = null;
+        GameObject telegraphPrefab = null;
+        GameObject telegraphInstance = null;
         private bool targeting = false;
 
         public override void DeclareTargets(SkillData data, Action callback) {
@@ -41,7 +41,7 @@ namespace AG.Skills.Targeting {
                 telegraphInstance.gameObject.SetActive(true);
             }
 
-            telegraphInstance.localScale = new Vector3(aoeRadius * 2, 1, aoeRadius * 2);
+            telegraphInstance.transform.localScale = new Vector3(aoeRadius * 2, 1, aoeRadius * 2);
             data.SetRadius(aoeRadius);
 
             targeting = true;
@@ -51,13 +51,13 @@ namespace AG.Skills.Targeting {
                 data.GetPlayerController().CalcPointerHit(out groundHit, out hasHit, layerMask);
                 if (hasHit) {
                     if (shapeSelection == ShapeSelection.Circle) {
-                        telegraphInstance.position = groundHit.point;
+                        telegraphInstance.transform.position = groundHit.point;
                     } else if (shapeSelection == ShapeSelection.Cone) {
                         Vector3 curPos = data.GetUser().transform.position;
                         curPos.y = groundHit.point.y;
-                        telegraphInstance.rotation = Quaternion.LookRotation(groundHit.point - curPos);
+                        telegraphInstance.transform.rotation = Quaternion.LookRotation(groundHit.point - curPos);
                         curPos.y += 0.1f;
-                        telegraphInstance.position = curPos;
+                        telegraphInstance.transform.position = curPos;
                     }
                 }
                 if (buttonTriggered && cancelSpellAction.phase == InputActionPhase.Waiting && selectTarget.phase == InputActionPhase.Waiting) {
@@ -91,7 +91,7 @@ namespace AG.Skills.Targeting {
                     float maxAngle = 45f;
                     foreach (RaycastHit hit in hits) {
                         Vector3 dir = hit.collider.transform.position - playerPos;
-                        float angle = Vector3.Angle(dir, telegraphInstance.forward);
+                        float angle = Vector3.Angle(dir, telegraphInstance.transform.forward);
                         if (angle < maxAngle || angle > 360 - maxAngle) {
                             yield return hit.collider.gameObject;
                         }

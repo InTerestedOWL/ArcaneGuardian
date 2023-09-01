@@ -37,6 +37,7 @@ namespace AG.Skills {
                 playerController.StartCoroutine(StartCooldown());
             }
 
+            skillData.SetFilterStrategy(filterStrategy);
             filterStrategy.FilterTargets(skillData);
             
             foreach(EffectStrategy effectStrategy in effectStrategies) {

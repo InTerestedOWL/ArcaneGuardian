@@ -30,6 +30,7 @@ namespace AG.Skills.Effects
             PlayerController pc = data.GetPlayerController();
 
             Vector3 direction = data.GetTargetPosition() - user.transform.position;
+            direction.y = 0f;
 
             Ray ray = new Ray(user.transform.position, direction);
 

@@ -88,6 +88,19 @@ namespace AG.Combat {
             blinkTimer = blinkDuration;
         }
 
+        private void TakeHeal(int heal) {
+            if (isDead)
+                return;
+
+            if(currentHealth + heal <= maxHealth) {
+                currentHealth += heal;
+            } else {
+                currentHealth = maxHealth;
+            }
+
+            healthBar?.SetHealthBarPercentage(currentHealth / maxHealth);
+        }
+
         private void PlayHitSound(GameObject sourceObject = null) {
             List<AudioClip> hitSounds = new List<AudioClip>();
             if (sourceObject != null) {
@@ -147,10 +160,19 @@ namespace AG.Combat {
             TakeDamage(damage);
         }
 
+        public void HealTarget(int heal) {
+            //TODO: Add Heal Animation/Effect
+            TakeHeal(heal);
+        }
+
         public void DamageTargetDoTInAoE(int damagePerTick, float numberOfTicksInDuration, float duration) {
             if (coroutineAoEDoT == null) {
                 coroutineAoEDoT = StartCoroutine(DealDamageOverTimeInAoE(damagePerTick, numberOfTicksInDuration, duration));
             }
+        }
+
+        public void HealTargetHoTInAoE(int healingPerTick, float numberOfTicksInDuration, float duration) {
+            coroutineAoEDoT = StartCoroutine(DealHealingOverTimeInAoE(healingPerTick, numberOfTicksInDuration, duration));
         }
 
         private IEnumerator DealDamageOverTimeInAoE(int damagePerTick, float numberOfTicksInDuration, float duration) {
@@ -162,6 +184,16 @@ namespace AG.Combat {
                 yield return new WaitForSeconds(duration / numberOfTicksInDuration);
             }
             coroutineAoEDoT = null;
+        }
+
+        private IEnumerator DealHealingOverTimeInAoE(int healingPerTick, float numberOfTicksInDuration, float duration) {
+            inAoERange = true;
+            for (int i = 0; i < numberOfTicksInDuration; i++) {
+                if (inAoERange) {
+                    TakeHeal(healingPerTick);
+                }
+                yield return new WaitForSeconds(duration / numberOfTicksInDuration);
+            }
         }
 
         public void SetInAoERange(bool inAoERange) {
