@@ -11,6 +11,7 @@ TagManager:
   - Turret
   - POI_Building
   - Projectile
+  - WaveSpawner
   layers:
   - Default
   - TransparentFX

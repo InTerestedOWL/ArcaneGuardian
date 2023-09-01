@@ -486,7 +486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b53b68b6b14e6e34ba7a768b40a240bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialState: 2
+  initialState: 0
   config: {fileID: 11400000, guid: b481622a1297d52429234ad5e42423eb, type: 2}
   player: {fileID: 0}
   movement: {fileID: 0}
