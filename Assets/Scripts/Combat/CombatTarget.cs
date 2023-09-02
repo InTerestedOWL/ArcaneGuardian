@@ -137,7 +137,9 @@ namespace AG.Combat {
                 GetComponent<EnemyResources>().onDie();
                  if (GameObject.FindGameObjectWithTag("WaveSpawner") != null)
                 {
-                    GameObject.FindGameObjectWithTag("WaveSpawner").GetComponent<WaveSpawner>().spawnedEnemies.Remove(gameObject);
+                    WaveSpawner ws = GameObject.FindGameObjectWithTag("WaveSpawner").GetComponent<WaveSpawner>();
+                    ws.spawnedEnemies.Remove(gameObject);
+                    ws.updateEnemiesAliveUI();
                 }
             }
         }

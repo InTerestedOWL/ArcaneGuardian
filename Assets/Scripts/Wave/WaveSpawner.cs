@@ -11,6 +11,7 @@ public class Enemy
 }
 public class WaveSpawner : MonoBehaviour
 {
+    private ResourceUI resourceUI;
     public List<List<Enemy>> enemies = new List<List<Enemy>>();
     public List<Enemy> goblins = new List<Enemy>();
 
@@ -46,9 +47,30 @@ public class WaveSpawner : MonoBehaviour
     private float waveTimer;
     private float spawnInterval;
     private float spawnTimer;
+
+    private bool initialWaveStarted = false;
+
+
+    private float timeToNextWave = 60;
+    private float skipToTime = 5;
  
     public List<GameObject> spawnedEnemies = new List<GameObject>();
+    public float getTimeToNextWave(){
+        return timeToNextWave;
+    }
+    public int getSpawnedEnemiesCount(){
+        return spawnedEnemies.Count;
+    }
 
+    public int getEnemiesToSpawnCount(){
+        return enemiesToSpawn.Count;
+    }
+    public int getCurrentWave(){
+        return currentWave;
+    }
+    public void updateEnemiesAliveUI(){
+        resourceUI.setEnemiesAliveText(spawnedEnemies.Count);
+    }
     void Start()
     {
         enemies.Add(goblins);
@@ -60,9 +82,34 @@ public class WaveSpawner : MonoBehaviour
         skeletonBossWave = startElves-1;
         elvesBossWave = startHumans-1;
         humanBossWave = startAllTogether-1;
-        GenerateWave();
+       
+        resourceUI = GameObject.Find("Resource Container").GetComponent<ResourceUI>();
+        resourceUI.setTimeToNextWaveText("Aufbau");
     }
 
+    public void startWaves(){
+        if(!initialWaveStarted){
+            initialWaveStarted = true;
+            timeToNextWave = skipToTime;
+        }
+    }
+
+    public void skipTimeToNextWave(){
+        if(waveTimer<=0 && spawnedEnemies.Count <=0 && timeToNextWave > skipToTime){
+            timeToNextWave = skipToTime;  
+        }
+    }
+
+   void Update(){
+        if(Input.GetKeyDown(KeyCode.Q)){
+            if(!initialWaveStarted){
+                startWaves();
+            }
+            else{
+                skipTimeToNextWave();
+            }      
+        }
+    }
     void FixedUpdate()
     {
         if(spawnTimer <=0)
@@ -75,6 +122,8 @@ public class WaveSpawner : MonoBehaviour
                 enemy.transform.SetParent(this.transform, true);
                 enemiesToSpawn.RemoveAt(0); // and remove it
                 spawnedEnemies.Add(enemy);
+                resourceUI.setEnemiesAliveText(spawnedEnemies.Count);
+                resourceUI.setEnemiesToSpawnText(enemiesToSpawn.Count);
                 spawnTimer = spawnInterval;
             }
             else
@@ -88,10 +137,20 @@ public class WaveSpawner : MonoBehaviour
             waveTimer -= Time.fixedDeltaTime;
         }
  
-        if(waveTimer<=0 && spawnedEnemies.Count <=0)
+        if(waveTimer<=0 && spawnedEnemies.Count <=0 && initialWaveStarted)
         {
-            currentWave++;
-            GenerateWave();
+            if(timeToNextWave <= 0){                
+                currentWave++;
+                resourceUI.setCurrentWaveText(currentWave);
+                resourceUI.setTimeToNextWaveText("Angriff!");
+                GenerateWave();
+                timeToNextWave = 60;
+            }
+            else{
+                timeToNextWave -= Time.fixedDeltaTime;
+                resourceUI.setTimeToNextWaveText(timeToNextWave);
+            }
+            
         }
     }
  
@@ -101,7 +160,7 @@ public class WaveSpawner : MonoBehaviour
         waveDuration = waveDuration + valuePerWave/2;
         
         GenerateEnemies();
- 
+        resourceUI.setEnemiesToSpawnText(enemiesToSpawn.Count);
         spawnInterval = waveDuration / (float)enemiesToSpawn.Count; // gives a fixed time between each enemies
         waveTimer = waveDuration; // wave duration is read only
 

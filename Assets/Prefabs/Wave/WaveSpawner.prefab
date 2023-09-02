@@ -164,9 +164,9 @@ MonoBehaviour:
     cost: 0
   - enemyPrefab: {fileID: 151382, guid: 858dca86de4c6f240a9bed275406052b, type: 3}
     cost: 0
-  currentWave: 11
+  currentWave: 0
   waveValueStart: 5
-  valuePerWave: 5
+  valuePerWave: 3
   startGoblin: 1
   startSkeletons: 3
   startElves: 5

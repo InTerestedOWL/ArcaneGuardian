@@ -7,7 +7,7 @@ public class PlayerResources : MonoBehaviour
 {
     [SerializeField] private int gold;
     
-    ResourceUI resourceUI;
+    private ResourceUI resourceUI;
 
     private int score = 0;
     // Start is called before the first frame update
