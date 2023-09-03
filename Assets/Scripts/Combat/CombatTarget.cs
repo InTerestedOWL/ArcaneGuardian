@@ -135,13 +135,38 @@ namespace AG.Combat {
 
             if(tag == "Enemy") {
                 GetComponent<EnemyResources>().onDie();
-                 if (GameObject.FindGameObjectWithTag("WaveSpawner") != null)
+                if (GameObject.FindGameObjectWithTag("WaveSpawner") != null)
                 {
                     WaveSpawner ws = GameObject.FindGameObjectWithTag("WaveSpawner").GetComponent<WaveSpawner>();
                     ws.spawnedEnemies.Remove(gameObject);
                     ws.updateEnemiesAliveUI();
                 }
+
+                //Despawn Enemies on Death
+                StartCoroutine(DespawnOnDeath());
             }
+        }
+
+        private IEnumerator DespawnOnDeath() {
+            float sinkSpeed = 0.5f;
+            this.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
+            Animator animator = GetComponent<Animator>();
+
+            //Wait for Death Animation to finish
+            while(!animator.GetCurrentAnimatorStateInfo(0).IsName("Dead")) {
+                yield return new WaitForFixedUpdate();
+            }
+
+            yield return new WaitForSeconds(3f);
+            
+             //Translate Enemy into Ground
+            while (transform.position.y > -1.5f) {
+                transform.Translate(Vector3.down * sinkSpeed *  Time.deltaTime);
+                yield return null;
+            }
+
+            //Despawn Enemies on Death
+            Destroy(gameObject, 5f);
         }
 
         //Blink Animation on Damage taken
