@@ -16,6 +16,7 @@ namespace AG.Control {
         int uiWindowLayerID;
         bool mouseHold = false;
         bool keysPressed = false;
+        bool isLookAtMousePosEnabled = true;
         //IEnumerator mouseMovementCoroutine = null;
         Vector3 curMovement = Vector3.zero;
 
@@ -28,7 +29,9 @@ namespace AG.Control {
         void Update() {
             HandleMovement();
             // TODO Animation
-            LookAtMousePos();
+            if(isLookAtMousePosEnabled){
+                LookAtMousePos();
+            }
         }
 
         // Movement for keyboard input
@@ -152,6 +155,14 @@ namespace AG.Control {
         public static Ray GetMouseRay()
         {
             return Camera.main.ScreenPointToRay(Input.mousePosition);
+        }
+
+        public void EnableLookAtMousePos() {
+            isLookAtMousePosEnabled = true;
+        }
+
+        public void DisableLookAtMousePos() {
+            isLookAtMousePosEnabled = false;
         }
     }
 }
