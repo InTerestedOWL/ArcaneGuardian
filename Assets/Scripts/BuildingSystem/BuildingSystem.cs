@@ -9,68 +9,7 @@ using UnityEngine.Tilemaps;
 using System.Linq;
 using AG.Combat;
 
-public class POIBuilding
-{
-    private bool placed;
-    private Vector3Int size;
-    private Vector3[] vertices;
-    private Vector3Int center3D;
-    private Vector3Int startPosition;
-    private int makeAreaPlacableSize;
-    private List<PlaceableObject> placed_buildings;
 
-    public POIBuilding(){
-        vertices = new Vector3[4];
-        makeAreaPlacableSize = 15;
-        placed_buildings = new List<PlaceableObject>();      
-    }
-    public int getMakeAreaPlacableSize(){
-        return makeAreaPlacableSize;
-    }
-    public bool getPlaced(){
-        return placed;
-    }
-    public void setPlaced(bool p){
-        placed = p;
-    }
-    public Vector3Int getSize(){
-        return size;
-    }
-    public Vector3[] getvertices(){
-        return vertices;
-    }
-    public Vector3Int getCenter3D(){
-        return center3D;
-    }
-    public Vector3Int getStartPosition(){
-        return startPosition;
-    }
-    public void copySize(Vector3Int s){  
-            size = s + Vector3Int.zero;
-    }   
-    public void copyCenter3D(Vector3Int c){
-        center3D = c + Vector3Int.zero;
-    } 
-    public void copyStartPosition(Vector3Int s){
-        startPosition = s + Vector3Int.zero;
-    } 
-    public void copyVertices(Vector3[] v){
-        for(int i = 0;i < vertices.Length;i++){
-            vertices[i]=v[i]+Vector3.zero;         
-        }
-    }    
-    public List<PlaceableObject> getPlacedBuildings(){
-        return placed_buildings;
-    }
-    public void addPlacedBuilding(PlaceableObject po)
-    {
-        placed_buildings.Add(po);
-    }
-    public void clearPlacedBuildings()
-    {
-        placed_buildings.Clear();
-    }
-}
 public class BuildingSystem : MonoBehaviour
 {
     public static BuildingSystem current;
@@ -80,6 +19,10 @@ public class BuildingSystem : MonoBehaviour
     private PlayerResources pr;
 
     private POIController poiController;
+
+    private InformationWindow iWindow;
+
+    private ConfirmationWindow cWindow;
     public POIBuilding poi_building;
     private bool buildingContext = false;
     private bool buildingPOI = false;
@@ -114,6 +57,8 @@ public class BuildingSystem : MonoBehaviour
     void Start()
     {
         pr = GameObject.Find("Player").GetComponent<PlayerResources>();
+        iWindow = GameObject.Find("Information Window").GetComponent<InformationWindow>();
+        cWindow = GameObject.Find("Confirmation Window").GetComponent<ConfirmationWindow>();
         objectChildMaterials = new List<Material[]>();
     }
     
@@ -285,6 +230,20 @@ public class BuildingSystem : MonoBehaviour
     public void placePOI(){
         poiController.stateMachine.ChangeState(AiStateId.POIBuilding);
     }
+    public void followPOIConfirmation(){
+        if(poi_building.getPlacedBuildings().Count > 0){
+            int refundGold = 0;
+            foreach(PlaceableObject po in poi_building.getPlacedBuildings()){           
+            refundGold += (int)(po.getPrice() * refundBuilding);
+            }
+            int countBuildings = poi_building.getPlacedBuildings().Count;
+            string text = "Soll der Quell der Magi dir wirklich folgen? Dabei werden alle deine Gebäude ("+countBuildings+") abgebaut und du erhältst "+refundGold+" Gold zurück.";
+            cWindow.popupConfirmationWindow(text,followPOI,null);
+        }
+        else{
+            followPOI();
+        }
+    }
     public void followPOI(){
         poiController.stateMachine.ChangeState(AiStateId.POIFollowPlayer);
     }
@@ -325,9 +284,17 @@ public class BuildingSystem : MonoBehaviour
         
         setBuildingContext(true);  
         InitializeWithObject(buildingObject);
+        
         setBuildingPOI(buildingObject.tag == "POI_Building");
+        if(buildingObject.tag == "POI_Building"){
+            if(poi_building.getPlaced()){
+                iWindow.popupInformationWindow("Quell der Magi ist bereits platziert!");
+                stopBuilding();
+            }
+        }
         if(pr.getGold() < this.objectToPlace.getPrice()){
             Debug.Log("not enough minerals");
+            iWindow.popupInformationWindow("Nicht genug Gold zum Bauen!");
             stopBuilding();
         }
         pbs = (POIBuildingState)poiController.stateMachine.states.Where(state => state is POIBuildingState).FirstOrDefault();       
@@ -384,8 +351,8 @@ public class BuildingSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.F)){
-                followPOI();
+        if(Input.GetKeyDown(KeyCode.F)){               
+            followPOIConfirmation();
         }
         if(buildingContext){
             
@@ -432,7 +399,18 @@ public class BuildingSystem : MonoBehaviour
                         else{
                             stopBuilding();
                         }
+                    }else{
+                        iWindow.popupInformationWindow("Kann hier nicht platziert werden!");
                     }
+                }
+                else if(!poi_building.getPlaced()){
+                    iWindow.popupInformationWindow("Platziere zuerst den Quell der Magi!");
+                }
+                else if(!BuildingCanBePlaced(objectToPlace)){
+                    iWindow.popupInformationWindow("Kann hier nicht platziert werden!");
+                }
+                else if(!pbs.getArrived()){
+                    iWindow.popupInformationWindow("Quell der Magi noch nicht am Zielort!");
                 }
                 else if(BuildingCanBePlaced(objectToPlace)&& pbs.getArrived()){
                     objectToPlace.Place();
@@ -466,5 +444,68 @@ public class BuildingSystem : MonoBehaviour
         if(!objectToPlace){
             return;
         }  
+    }
+}
+
+public class POIBuilding
+{
+    private bool placed;
+    private Vector3Int size;
+    private Vector3[] vertices;
+    private Vector3Int center3D;
+    private Vector3Int startPosition;
+    private int makeAreaPlacableSize;
+    private List<PlaceableObject> placed_buildings;
+
+    public POIBuilding(){
+        vertices = new Vector3[4];
+        makeAreaPlacableSize = 15;
+        placed_buildings = new List<PlaceableObject>();      
+    }
+    public int getMakeAreaPlacableSize(){
+        return makeAreaPlacableSize;
+    }
+    public bool getPlaced(){
+        return placed;
+    }
+    public void setPlaced(bool p){
+        placed = p;
+    }
+    public Vector3Int getSize(){
+        return size;
+    }
+    public Vector3[] getvertices(){
+        return vertices;
+    }
+    public Vector3Int getCenter3D(){
+        return center3D;
+    }
+    public Vector3Int getStartPosition(){
+        return startPosition;
+    }
+    public void copySize(Vector3Int s){  
+            size = s + Vector3Int.zero;
+    }   
+    public void copyCenter3D(Vector3Int c){
+        center3D = c + Vector3Int.zero;
+    } 
+    public void copyStartPosition(Vector3Int s){
+        startPosition = s + Vector3Int.zero;
+    } 
+    public void copyVertices(Vector3[] v){
+        for(int i = 0;i < vertices.Length;i++){
+            vertices[i]=v[i]+Vector3.zero;         
+        }
+    }    
+    public List<PlaceableObject> getPlacedBuildings(){
+        return placed_buildings;
+    }
+    public void addPlacedBuilding(PlaceableObject po)
+    {
+        placed_buildings.Add(po);
+    }
+    public void clearPlacedBuildings()
+    {
+        placed_buildings.Clear();
     }
 }

@@ -12,6 +12,8 @@ TagManager:
   - POI_Building
   - Projectile
   - WaveSpawner
+  - BuildingGrid
+  - InformationWindow
   layers:
   - Default
   - TransparentFX

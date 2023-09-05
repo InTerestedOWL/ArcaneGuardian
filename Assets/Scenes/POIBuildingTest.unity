@@ -435,6 +435,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1594981958378214579, guid: 12508a110f03cf44d9b5ea0c76ad7284, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594981958378214579, guid: 12508a110f03cf44d9b5ea0c76ad7284, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 2942149518160875986, guid: 12508a110f03cf44d9b5ea0c76ad7284, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -921,7 +929,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8704147587522238755, guid: 1436cd3deb6262f46b393ab56db21701, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: BuildingGrid
       objectReference: {fileID: 0}
     - target: {fileID: 8704147587522238764, guid: 1436cd3deb6262f46b393ab56db21701, type: 3}
       propertyPath: m_Enabled
@@ -1033,7 +1041,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 1cd8a5a822ddce0459acdc789f27a38c, type: 2}
     - target: {fileID: 8704147587522238766, guid: 1436cd3deb6262f46b393ab56db21701, type: 3}
       propertyPath: refundBuilding
-      value: 1
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 8704147587522238766, guid: 1436cd3deb6262f46b393ab56db21701, type: 3}
       propertyPath: tileNotPlacable
