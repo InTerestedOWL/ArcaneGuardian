@@ -57,7 +57,10 @@ namespace AG.Combat {
         }
 
         private void OnTriggerEnter(Collider other) {
-            if ((other.tag == "PlayerWeapon" && tag == "Enemy" || other.tag == "EnemyWeapon" && tag == "Player" || other.tag == "EnemyWeapon" && tag == "POI") 
+            if ((other.tag == "PlayerWeapon" && tag == "Enemy" || 
+                other.tag == "EnemyWeapon" && tag == "Player" || 
+                other.tag == "EnemyWeapon" && tag == "POI" || 
+                other.tag == "EnemyWeapon" && tag == "Turret") 
                 && other.GetComponentInParent<BasicCombat>().IsAttacking()) {
                 HandleHit(other);
             }
@@ -166,7 +169,7 @@ namespace AG.Combat {
             }
 
             //Despawn Enemies on Death
-            Destroy(gameObject, 5f);
+            Destroy(gameObject, 1f);
         }
 
         //Blink Animation on Damage taken

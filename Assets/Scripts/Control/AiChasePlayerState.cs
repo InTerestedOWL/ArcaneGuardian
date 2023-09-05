@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using AG.Combat;
 using AG.MovementCore;
+using System.Linq;
 
 namespace AG.Control
 {
@@ -33,9 +34,12 @@ namespace AG.Control
                 if (timer <= 0.0f)
                 {
                     float closest = float.MaxValue;
-                    GameObject[] targets = GameObject.FindGameObjectsWithTag("Player");
+                    GameObject[] allTargets = GameObject.FindGameObjectsWithTag("Player")
+                        .Concat(GameObject.FindGameObjectsWithTag("POI"))
+                        .Concat(GameObject.FindGameObjectsWithTag("Turret"))
+                        .ToArray();
                     GameObject closestTarget = null;
-                    foreach(GameObject target in targets) {
+                    foreach(GameObject target in allTargets) {
                         float distance = Vector3.Distance(target.transform.position, controller.movement.navMeshAgent.destination);
                         if(distance < closest){
                             closest = distance;
