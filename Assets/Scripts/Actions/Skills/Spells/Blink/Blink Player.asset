@@ -15,7 +15,7 @@ MonoBehaviour:
   displayName: Blink
   description: This is a spell where you can Blink to the direction your mouse is
     pointing
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: d1edc3a43e5d75348862280046433f1c, type: 3}
   cooldown: 2
   targetingStrategy: {fileID: 11400000, guid: 21edfd2074f8d7b4db4abded3b78beed, type: 2}
   filterStrategy: {fileID: 11400000, guid: 9d94cec049fac1046b5d39f60ab4ea82, type: 2}

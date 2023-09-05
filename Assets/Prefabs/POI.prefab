@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5008074986081724776}
   - component: {fileID: 3131979612601715257}
-  - component: {fileID: 6570352864603592698}
   - component: {fileID: 7816128256388701512}
   m_Layer: 0
   m_Name: POI_Mesh
@@ -41,20 +40,6 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1745530674045883687}
-  m_Mesh: {fileID: -1077663603857795934, guid: acb74713593b9fb41bd3f46f1a8108fd, type: 3}
---- !u!64 &6570352864603592698
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1745530674045883687}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
   m_Mesh: {fileID: -1077663603857795934, guid: acb74713593b9fb41bd3f46f1a8108fd, type: 3}
 --- !u!23 &7816128256388701512
 MeshRenderer:
@@ -115,6 +100,7 @@ GameObject:
   - component: {fileID: 5940006721820493711}
   - component: {fileID: 6540740981932493067}
   - component: {fileID: 8551442000222522039}
+  - component: {fileID: 2174732335134354992}
   m_Layer: 0
   m_Name: POI
   m_TagString: POI
@@ -273,6 +259,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!65 &2174732335134354992
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5585800000778561513}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.48, y: 1.12, z: 0.48}
+  m_Center: {x: 0, y: 0.64, z: 0}
 --- !u!1 &6493992907840422249
 GameObject:
   m_ObjectHideFlags: 0
