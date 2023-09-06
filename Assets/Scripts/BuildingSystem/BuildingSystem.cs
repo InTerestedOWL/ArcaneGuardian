@@ -301,11 +301,15 @@ public class BuildingSystem : MonoBehaviour
     }
 
     public void stopBuilding(){
-        if(this.getBuildingContext()){         
+        if(this.getBuildingContext()){
             Destroy(objectToPlace.gameObject);
-            setBuildingContext(false);
-            setBuildingPOI(false);
             clearPending(poi_building.getCenter3D());
+            
+            if(getBuildingPOI()){
+                clearPOIPending(poiLastCenter);
+            }
+            setBuildingPOI(false);
+            setBuildingContext(false);
             objectChildMaterials.Clear();
         }      
     }
@@ -354,10 +358,12 @@ public class BuildingSystem : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.F)){               
             followPOIConfirmation();
         }
+        
         if(buildingContext){
-            
-            if(Input.GetKeyDown(KeyCode.R)){
-                objectToPlace.Rotate(); 
+
+            if(Input.GetKeyDown(KeyCode.Mouse1)||Input.GetKeyDown(KeyCode.B)||Input.GetKeyDown(KeyCode.Escape)){
+                stopBuilding();
+                return;
             }
             if(getBuildingPOI()){
                 clearPOIPending(poiLastCenter);
