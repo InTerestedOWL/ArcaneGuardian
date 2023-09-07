@@ -728,6 +728,10 @@ PrefabInstance:
       propertyPath: skillbookCollectionUIReference
       value: 
       objectReference: {fileID: 554809573}
+    - target: {fileID: 7040880182173658738, guid: 415c6d88014567241bd24edb4f7a459f, type: 3}
+      propertyPath: ignoreLegsWhenAnimating
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7645916049215193126, guid: 415c6d88014567241bd24edb4f7a459f, type: 3}
       propertyPath: m_RootOrder
       value: 0

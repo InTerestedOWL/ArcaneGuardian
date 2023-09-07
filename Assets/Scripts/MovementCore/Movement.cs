@@ -52,7 +52,9 @@ namespace AG.MovementCore {
          */
         public void SuspendRotation() {
             navMeshAgent.angularSpeed = 0;
-            // TODO: Change Slash Animation to ignore legs when attacking
+            if (GetComponent<PlayerController>() != null) {
+                GetComponent<PlayerController>().DisableLookAtMousePos();
+            }
         }
 
         /*
@@ -60,6 +62,9 @@ namespace AG.MovementCore {
          */
         public void ResumeRotation() {
             navMeshAgent.angularSpeed = startAngularSpeed;
+            if (GetComponent<PlayerController>() != null) {
+                GetComponent<PlayerController>().EnableLookAtMousePos();
+            }
         }
 
         public NavMeshAgent getNavMeshAgent(){
