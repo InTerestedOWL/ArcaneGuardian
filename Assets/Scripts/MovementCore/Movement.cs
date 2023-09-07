@@ -31,8 +31,12 @@ namespace AG.MovementCore {
             Vector3 velocity = navMeshAgent.velocity;
             Vector3 localVelocity = transform.InverseTransformDirection(velocity);
             float speed = localVelocity.z;
+            Animator animator = GetComponent<Animator>();
             // Set Animator blend tree value to movement speed
-            GetComponent<Animator>().SetFloat("walkSpeed", speed);
+            animator.SetFloat("walkSpeed", speed);
+            if (!animator.runtimeAnimatorController.name.Equals("POI")) {
+                animator.SetFloat("sideSpeed", localVelocity.x);
+            }
         }
 
         /*
