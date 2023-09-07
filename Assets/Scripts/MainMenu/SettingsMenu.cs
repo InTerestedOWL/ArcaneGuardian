@@ -46,7 +46,12 @@ public class SettingsMenu : MonoBehaviour
         }
     }
 
-    public void SetVolume(float volume)
+    public void SetMasterVolume(float volume)
+    {
+        masterMixer.SetFloat("masterVol", volume);
+    }
+
+    public void SetMusicVolume(float volume)
     {
         masterMixer.SetFloat("musicVol", volume);
     }
