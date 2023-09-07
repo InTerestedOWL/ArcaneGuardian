@@ -10,8 +10,7 @@ public class SettingsMenu : MonoBehaviour
     public bool isBack;
     public GameObject settingsMenu;
     public GameObject mainMenu;
-    public AudioMixer audioVolumeMixer;
-    public AudioMixer audioEffectsMixer;
+    public AudioMixer masterMixer;
     public Dropdown resolutionDropdown;
     private Resolution[] resolutions;
 
@@ -49,12 +48,12 @@ public class SettingsMenu : MonoBehaviour
 
     public void SetVolume(float volume)
     {
-        audioVolumeMixer.SetFloat("volume", volume);
+        masterMixer.SetFloat("musicVol", volume);
     }
 
     public void SetEffectVolume(float volume)
     {
-        audioEffectsMixer.SetFloat("effects", volume);
+        masterMixer.SetFloat("soundsVol", volume);
     }
 
     public void SetFullscreen(bool isFullscreen)
