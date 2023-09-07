@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using AG.MovementCore;
 using AG.Combat;
+using AG.Weapons;
 
 namespace AG.Control
 {
@@ -11,6 +12,8 @@ namespace AG.Control
         public AiStateMachine stateMachine;
         public AiStateId initialState;
         public AiControllerConfig config;
+        public Weapon weapon;
+        public GameObject attackTarget;
 
         [HideInInspector]
         public GameObject player = null;
@@ -32,9 +35,15 @@ namespace AG.Control
         public void HandleCombat(GameObject target) {
             if(Vector3.Distance(this.transform.position, target.transform.position) < config.attackRange) {
                 if(!combat.IsAttacking()){
+                    attackTarget = target;
                     combat.Attack();
                 }
             }
+        }
+
+        //Animation Event für z.B. Bow Animation
+        public void UseWeapon() {
+            weapon.Use(attackTarget);
         }
     }
 }

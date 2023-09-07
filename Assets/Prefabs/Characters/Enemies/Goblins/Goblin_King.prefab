@@ -2859,7 +2859,7 @@ Transform:
   m_GameObject: {fileID: 160766}
   m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 1.0449876, z: 0}
-  m_LocalScale: {x: 0.60225, y: 0.60225, z: 0.60225}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 441590}
@@ -4746,6 +4746,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialState: 0
   config: {fileID: 11400000, guid: b481622a1297d52429234ad5e42423eb, type: 2}
+  weapon: {fileID: 0}
+  attackTarget: {fileID: 0}
   player: {fileID: 0}
   movement: {fileID: 0}
   combat: {fileID: 0}
