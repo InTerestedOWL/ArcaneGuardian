@@ -49,7 +49,7 @@ namespace AG.Combat {
         }
 
         private void FixedUpdate() {
-            if (isKnockbacked && !isBuilding) {
+            if (isKnockbacked && !isBuilding && rb != null) {
                 HandleKnockBack(knockbackForce, knockbackDirection);
             }
 
