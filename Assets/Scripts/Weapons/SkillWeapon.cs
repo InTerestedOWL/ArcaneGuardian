@@ -2,7 +2,7 @@ using AG.Skills;
 using UnityEngine;
 
 namespace AG.Weapons {
-    public class Bow : Weapon {
+    public class SkillWeapon : Weapon {
         [SerializeField]
         AiSkill bowAttackSkill;
 

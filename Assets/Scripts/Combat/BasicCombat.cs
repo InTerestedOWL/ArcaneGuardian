@@ -14,6 +14,8 @@ namespace AG.Combat {
         public void Attack() {
             if (!IsAttacking())
                 UpdateAnimator();
+            if (!IsAttacking())
+                Debug.Log("Attack");
         }
 
         public void IncreaseAttackStateCounter() {

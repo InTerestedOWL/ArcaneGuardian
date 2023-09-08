@@ -12,7 +12,9 @@ namespace AG.Control
         public AiStateMachine stateMachine;
         public AiStateId initialState;
         public AiControllerConfig config;
+        [HideInInspector]
         public Weapon weapon;
+        [HideInInspector]
         public GameObject attackTarget;
 
         [HideInInspector]
@@ -43,6 +45,7 @@ namespace AG.Control
 
         //Animation Event für z.B. Bow Animation
         public void UseWeapon() {
+            Debug.Log("Use Weapon");
             weapon.Use(attackTarget);
         }
     }

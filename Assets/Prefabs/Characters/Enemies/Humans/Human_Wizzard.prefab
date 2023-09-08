@@ -5185,23 +5185,3 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 447242, guid: f1f2570eaa3eaa642b3cb180bdce37e7, type: 3}
   m_PrefabInstance: {fileID: 4660256894926281694}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &4660256894926242924 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 106418, guid: f1f2570eaa3eaa642b3cb180bdce37e7, type: 3}
-  m_PrefabInstance: {fileID: 4660256894926281694}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1960982355637473822
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4660256894926242924}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30a8d4e896b27e143a297117e77027ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentWeaponType: 3
-  attackDamage: 15
-  knockbackForce: 0

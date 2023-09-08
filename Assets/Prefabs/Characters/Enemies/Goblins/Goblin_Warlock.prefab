@@ -5180,26 +5180,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c72a76ad81a1e2441b348ad3622653c2, type: 3}
---- !u!1 &485800774072508833 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 195884, guid: c72a76ad81a1e2441b348ad3622653c2, type: 3}
-  m_PrefabInstance: {fileID: 485800774072360077}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &5501651274944542153
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 485800774072508833}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30a8d4e896b27e143a297117e77027ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentWeaponType: 3
-  attackDamage: 15
-  knockbackForce: 0
 --- !u!4 &485800774072788361 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 440580, guid: c72a76ad81a1e2441b348ad3622653c2, type: 3}
