@@ -34,12 +34,16 @@ namespace AG.Talents {
 
         private Image backgroundImage;
         private Image skillImage; 
+        private Button button;
+        private ColorBlock buttonColors;
 
         public void Start() {
             skillbook = GameObject.Find("Player").GetComponent<Skillbook>();
             backgroundImage = GetComponent<Image>();
             skillImage = this.transform.GetChild(0).GetComponent<Image>();
             skillImage.GetComponent<Image>().material = Instantiate(skillImage.GetComponent<Image>().material);
+            button = GetComponent<Button>();
+            buttonColors = button.colors;
         }
 
         public void UpdateUI() {
@@ -66,23 +70,22 @@ namespace AG.Talents {
                     connectedSkill.SetBuyable(false);
             }
 
-            // TODO: Fix Coloring Bug
-            // Debug.Log(this.transform.gameObject.name + " " + (skillTree.SkillPoints > 0) + " " + buyable);
-            // GetComponent<Image>().color = (SkillLevel >= SkillCap) ? Color.yellow :
-            //     (skillTree.SkillPoints > 0 && buyable) ? Color.green : Color.white;
-
-            
             if(SkillLevel >= SkillCap) {
+                buttonColors.normalColor = Color.yellow;
                 backgroundImage.color = Color.yellow;
             }
             else {
                 if(skillTree.SkillPoints > 0 && buyable) {
+                    buttonColors.normalColor = Color.green;
                     backgroundImage.color = Color.green;
                 }
                 else {
+                    buttonColors.normalColor = Color.white;
                     backgroundImage.color = Color.white;
                 }
             } 
+
+            button.colors = buttonColors;
 
             if(SkillLevel > 0){
                 skillImage.material.SetFloat("_GrayscaleAmount", 0f);
@@ -90,7 +93,6 @@ namespace AG.Talents {
             else {
                 skillImage.material.SetFloat("_GrayscaleAmount", 1f);
             }
-
         }
 
         public void Learn() {
