@@ -616,6 +616,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Menu Container
       objectReference: {fileID: 0}
+    - target: {fileID: 7891661783741025363, guid: 2b2957b1a8d16d74094183e60e32f482, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891661783741025363, guid: 2b2957b1a8d16d74094183e60e32f482, type: 3}
+      propertyPath: m_VerticalFit
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7891661784367405522, guid: 2b2957b1a8d16d74094183e60e32f482, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -635,6 +643,10 @@ PrefabInstance:
     - target: {fileID: 7891661785330212712, guid: 2b2957b1a8d16d74094183e60e32f482, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891661785352005080, guid: 2b2957b1a8d16d74094183e60e32f482, type: 3}
+      propertyPath: m_ScrollSensitivity
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8528898323007255914, guid: 2b2957b1a8d16d74094183e60e32f482, type: 3}
       propertyPath: m_Color.g

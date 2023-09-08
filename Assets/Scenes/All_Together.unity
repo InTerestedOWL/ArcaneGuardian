@@ -717,6 +717,58 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 292002275}
     - target: {fileID: 6825835310185104198, guid: 415c6d88014567241bd24edb4f7a459f, type: 3}
+      propertyPath: learnedSkills.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6825835310185104198, guid: 415c6d88014567241bd24edb4f7a459f, type: 3}
+      propertyPath: learnedSkills.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: af6762eecb05abf42a92e419159c7044, type: 2}
+    - target: {fileID: 6825835310185104198, guid: 415c6d88014567241bd24edb4f7a459f, type: 3}
+      propertyPath: learnedSkills.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: ffb535bee1b584349b3656b355df3f1f, type: 2}
+    - target: {fileID: 6825835310185104198, guid: 415c6d88014567241bd24edb4f7a459f, type: 3}
+      propertyPath: learnedSkills.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: e39d184d83070094a937c2d0ce2075f5, type: 2}
+    - target: {fileID: 6825835310185104198, guid: 415c6d88014567241bd24edb4f7a459f, type: 3}
+      propertyPath: learnedSkills.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: c73d1ad3be3c8794c83a4cc11ba05c4d, type: 2}
+    - target: {fileID: 6825835310185104198, guid: 415c6d88014567241bd24edb4f7a459f, type: 3}
+      propertyPath: learnedSkills.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: b4772452ad5a6dc4a90ccbdc8b3116da, type: 2}
+    - target: {fileID: 6825835310185104198, guid: 415c6d88014567241bd24edb4f7a459f, type: 3}
+      propertyPath: learnedSkills.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0a2e71a3b092da4478e45bd2a03a3997, type: 2}
+    - target: {fileID: 6825835310185104198, guid: 415c6d88014567241bd24edb4f7a459f, type: 3}
+      propertyPath: learnedSkills.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7e4c625606e7cd44eb19ac34efa9d920, type: 2}
+    - target: {fileID: 6825835310185104198, guid: 415c6d88014567241bd24edb4f7a459f, type: 3}
+      propertyPath: learnedSkills.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: 339e3a6810356e84ab553374c3c036e1, type: 2}
+    - target: {fileID: 6825835310185104198, guid: 415c6d88014567241bd24edb4f7a459f, type: 3}
+      propertyPath: learnedSkills.Array.data[8]
+      value: 
+      objectReference: {fileID: 11400000, guid: 33cacbc5f7aa39641bd9ce3aca2d434d, type: 2}
+    - target: {fileID: 6825835310185104198, guid: 415c6d88014567241bd24edb4f7a459f, type: 3}
+      propertyPath: learnedSkills.Array.data[9]
+      value: 
+      objectReference: {fileID: 11400000, guid: db845851cac02a14eab4ae001533711f, type: 2}
+    - target: {fileID: 6825835310185104198, guid: 415c6d88014567241bd24edb4f7a459f, type: 3}
+      propertyPath: learnedSkills.Array.data[10]
+      value: 
+      objectReference: {fileID: 11400000, guid: a4649a8d6a2dc2c408b4b475b41d3eee, type: 2}
+    - target: {fileID: 6825835310185104198, guid: 415c6d88014567241bd24edb4f7a459f, type: 3}
+      propertyPath: learnedSkills.Array.data[11]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f01ec970e38ff54ea12aba46844f4b9, type: 2}
+    - target: {fileID: 6825835310185104198, guid: 415c6d88014567241bd24edb4f7a459f, type: 3}
       propertyPath: skillbookCollectionUIReference
       value: 
       objectReference: {fileID: 554809573}
