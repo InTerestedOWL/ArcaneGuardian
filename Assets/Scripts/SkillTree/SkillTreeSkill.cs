@@ -39,6 +39,7 @@ namespace AG.Talents {
             skillbook = GameObject.Find("Player").GetComponent<Skillbook>();
             backgroundImage = GetComponent<Image>();
             skillImage = this.transform.GetChild(0).GetComponent<Image>();
+            skillImage.GetComponent<Image>().material = Instantiate(skillImage.GetComponent<Image>().material);
         }
 
         public void UpdateUI() {
