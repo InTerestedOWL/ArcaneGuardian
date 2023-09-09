@@ -98,6 +98,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4285d5088e29b584eabe2bcd47d1d025, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Vertices:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  price: 0
 --- !u!208 &-8784569117578348002
 NavMeshObstacle:
   m_ObjectHideFlags: 0

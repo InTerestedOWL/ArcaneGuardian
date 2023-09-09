@@ -216,13 +216,16 @@ public class BuildingSystem : MonoBehaviour
         int minY =  center.y - poi_building.getMakeAreaPlacableSize();
         int maxY =  center.y + poi_building.getMakeAreaPlacableSize() + 1;
         int z = center.z;
-        
+        TileBase tile = tilePlacable;
+        if(!poi_building.getPlaced()){
+            tile = null;
+        }
         for(int i = minX;i < maxX; i++){
             for(int j = minY;j<maxY; j++){
                 Vector3Int pos = new Vector3Int(i,j,z);
                 
                 if(MainTilemap.GetTile(pos) == tilePending){
-                    MainTilemap.SetTile(pos,tilePlacable);
+                    MainTilemap.SetTile(pos,tile);
                 }
             }
         }
