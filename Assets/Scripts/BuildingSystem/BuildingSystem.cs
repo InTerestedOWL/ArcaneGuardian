@@ -365,6 +365,9 @@ public class BuildingSystem : MonoBehaviour
                 stopBuilding();
                 return;
             }
+            if(Input.GetKeyDown(KeyCode.R)){               
+                objectToPlace.Rotate();
+            }
             if(getBuildingPOI()){
                 clearPOIPending(poiLastCenter);
                 poiLastCenter = gridLayout.WorldToCell(objectToPlace.GetCenter3D());
