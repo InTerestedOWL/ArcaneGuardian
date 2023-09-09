@@ -1,5 +1,6 @@
 // Based on https://www.udemy.com/course/unityrpg/
 
+using AG.Weapons;
 using UnityEngine;
 using UnityEngine.VFX;
 
@@ -9,9 +10,12 @@ namespace AG.Combat {
         VisualEffect slashEffect;
         // Counter to check if attack is buffered
         private int attackStateCounter = 0;
+
         public void Attack() {
             if (!IsAttacking())
                 UpdateAnimator();
+            if (!IsAttacking())
+                Debug.Log("Attack");
         }
 
         public void IncreaseAttackStateCounter() {

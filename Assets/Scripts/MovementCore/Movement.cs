@@ -31,8 +31,12 @@ namespace AG.MovementCore {
             Vector3 velocity = navMeshAgent.velocity;
             Vector3 localVelocity = transform.InverseTransformDirection(velocity);
             float speed = localVelocity.z;
+            Animator animator = GetComponent<Animator>();
             // Set Animator blend tree value to movement speed
-            GetComponent<Animator>().SetFloat("walkSpeed", speed);
+            animator.SetFloat("walkSpeed", speed);
+            if (!animator.runtimeAnimatorController.name.Equals("POI")) {
+                animator.SetFloat("sideSpeed", localVelocity.x);
+            }
         }
 
         /*
@@ -48,7 +52,9 @@ namespace AG.MovementCore {
          */
         public void SuspendRotation() {
             navMeshAgent.angularSpeed = 0;
-            // TODO: Change Slash Animation to ignore legs when attacking
+            if (GetComponent<PlayerController>() != null) {
+                GetComponent<PlayerController>().DisableLookAtMousePos();
+            }
         }
 
         /*
@@ -56,6 +62,9 @@ namespace AG.MovementCore {
          */
         public void ResumeRotation() {
             navMeshAgent.angularSpeed = startAngularSpeed;
+            if (GetComponent<PlayerController>() != null) {
+                GetComponent<PlayerController>().EnableLookAtMousePos();
+            }
         }
 
         public NavMeshAgent getNavMeshAgent(){

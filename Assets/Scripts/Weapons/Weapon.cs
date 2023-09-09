@@ -4,7 +4,9 @@ namespace AG.Weapons {
     public class Weapon : MonoBehaviour {
         public enum WeaponType {
             OneHanded,
-            TwoHanded
+            TwoHanded,
+            Bow,
+            Staff
         }
 
         [SerializeField]
@@ -32,13 +34,36 @@ namespace AG.Weapons {
                 case WeaponType.OneHanded:
                     animator.SetBool("isOneHanded", true);
                     animator.SetBool("isTwoHanded", false);
+                    animator.SetBool("isBow", false);
+                    animator.SetBool("isStaff", false);
                     break;
                 case WeaponType.TwoHanded:
                     // TODO: Optional: Add two handed animations
                     animator.SetBool("isTwoHanded", true);
                     animator.SetBool("isOneHanded", false);
+                    animator.SetBool("isBow", false);
+                    animator.SetBool("isStaff", false);
+                    break;
+                case WeaponType.Bow:
+                    animator.SetBool("isBow", true);
+                    animator.SetBool("isTwoHanded", false);
+                    animator.SetBool("isOneHanded", false);
+                    animator.SetBool("isStaff", false);
+                    break;
+                case WeaponType.Staff:
+                    animator.SetBool("isStaff", true);
+                    animator.SetBool("isBow", false);
+                    animator.SetBool("isTwoHanded", false);
+                    animator.SetBool("isOneHanded", false);
                     break;
             }
+        }
+
+        public virtual void Use() {
+        }
+
+        
+        public virtual void Use(GameObject target) {
         }
 
         public int GetAttackDmg() {

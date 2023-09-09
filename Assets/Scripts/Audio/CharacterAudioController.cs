@@ -2,6 +2,7 @@ using System.Collections;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 namespace AG.Audio.Sounds {
     public class CharacterAudioController : MonoBehaviour {
@@ -47,10 +48,26 @@ namespace AG.Audio.Sounds {
         }
 
         public void PlayRandomFootstepSound(FootstepType type) {
-            if (type == FootstepType.Running && (animator.GetFloat("walkSpeed") >= runningThreshold)) {
-                PlaySound(footstepSounds.GetRandomRunningFootstepSound());
-            } else if (type == FootstepType.Walking && (animator.GetFloat("walkSpeed") < runningThreshold)) {
-                PlaySound(footstepSounds.GetRandomWalkingFootstepSound());
+            float walkSpeed = Math.Abs(animator.GetFloat("walkSpeed"));
+            float sideSpeed = Math.Abs(animator.GetFloat("sideSpeed"));
+            if (sideSpeed <= walkSpeed) {
+                if (type == FootstepType.Running && (walkSpeed >= runningThreshold)) {
+                    PlaySound(footstepSounds.GetRandomRunningFootstepSound());
+                } else if (type == FootstepType.Walking && (walkSpeed < runningThreshold)) {
+                    PlaySound(footstepSounds.GetRandomWalkingFootstepSound());
+                }
+            }
+        }
+
+        public void PlayRandomFootstepStrafeSound(FootstepType type) {
+            float walkSpeed = Math.Abs(animator.GetFloat("walkSpeed"));
+            float sideSpeed = Math.Abs(animator.GetFloat("sideSpeed"));
+            if (sideSpeed > walkSpeed) {
+                if (type == FootstepType.Running && (animator.GetFloat("walkSpeed") >= runningThreshold)) {
+                    PlaySound(footstepSounds.GetRandomRunningFootstepSound());
+                } else if (type == FootstepType.Walking && (animator.GetFloat("walkSpeed") < runningThreshold)) {
+                    PlaySound(footstepSounds.GetRandomWalkingFootstepSound());
+                }
             }
         }
 
@@ -79,7 +96,7 @@ namespace AG.Audio.Sounds {
             }
             List<AudioClip> hitSounds = ownHitSounds.Concat(hitSoundsFromCombatTarget).ToList();
             if (hitSounds.Count > 0) {
-                PlaySound(hitSounds[Random.Range(0, hitSounds.Count)]);
+                PlaySound(hitSounds[UnityEngine.Random.Range(0, hitSounds.Count)]);
             }
         }
 

@@ -17,11 +17,11 @@ namespace AG.Skills {
     [CreateAssetMenu(menuName = ("Arcane Guardian/Skill"))]
     public class Skill : ActionItem {
         [SerializeField]
-        TargetingStrategy targetingStrategy = null;
+        protected TargetingStrategy targetingStrategy = null;
         [SerializeField]
-        FilterStrategy filterStrategy = null;
+        protected FilterStrategy filterStrategy = null;
         [SerializeField]
-        EffectStrategy[] effectStrategies = null;
+        protected EffectStrategy[] effectStrategies = null;
 
         public override void Use(GameObject user) {
             if (isOnCooldown) {
@@ -31,7 +31,7 @@ namespace AG.Skills {
             targetingStrategy.DeclareTargets(data, () => ProcessTargets(data));
         }
 
-        private void ProcessTargets(SkillData skillData) {
+        protected void ProcessTargets(SkillData skillData) {
             PlayerController playerController = skillData.GetPlayerController();
             if(playerController != null){
                 playerController.StartCoroutine(StartCooldown());

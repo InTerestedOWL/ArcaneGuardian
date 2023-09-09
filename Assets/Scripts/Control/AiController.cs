@@ -6,6 +6,7 @@ using UnityEngine.AI;
 
 using AG.MovementCore;
 using AG.Combat;
+using AG.Weapons;
 
 namespace AG.Control {
     public class AiController : StateMachineController {
@@ -15,6 +16,9 @@ namespace AG.Control {
             movement =  GetComponent<Movement>();
             combat = GetComponent<BasicCombat>();
             combatTarget = GetComponent<CombatTarget>();
+            weapon = GetComponentInChildren<Weapon>();
+
+            movement.navMeshAgent.stoppingDistance = config.attackRange - 0.1f;
             
             //Ai State Machine
             stateMachine = new AiStateMachine(this);

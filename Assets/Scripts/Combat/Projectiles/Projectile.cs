@@ -2,6 +2,7 @@
 using AG.Skills;
 using UnityEngine.Events;
 using System.Collections.Generic;
+using Palmmedia.ReportGenerator.Core.Parser.Analysis;
 
 
 namespace AG.Combat
@@ -71,6 +72,8 @@ namespace AG.Combat
             return targetCollider.bounds.center;
         }
 
+
+        //TODO: Refactor Enemy/Frineldy instigator check
         protected void OnTriggerEnter(Collider other)
         {
             CombatTarget hitTarget = other.GetComponent<CombatTarget>();
@@ -117,13 +120,18 @@ namespace AG.Combat
             RaycastHit[] hits = Physics.SphereCastAll(targetPos, aoeDiameter/2, Vector3.up, 0f);
             foreach (RaycastHit hit in hits)
             {
-                if(hit.collider.gameObject.tag == "Enemy"){
-                    targets.Add(hit.collider.gameObject);
+                if(instigator.tag == "EnemyWeapon") {
+                    if(hit.collider.gameObject.tag == "Player" || hit.collider.gameObject.tag == "POI" || hit.collider.gameObject.tag == "Turret")
+                        targets.Add(hit.collider.gameObject);
+                }
+                else {
+                    if(hit.collider.gameObject.tag == "Enemy"){
+                        targets.Add(hit.collider.gameObject);
+                }
                 }
             }
             return targets;
         }
-
     }
 
 }
