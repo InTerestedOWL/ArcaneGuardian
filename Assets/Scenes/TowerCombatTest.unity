@@ -1518,7 +1518,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!135 &981341453
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -18894,6 +18894,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7645916049215193126, guid: 415c6d88014567241bd24edb4f7a459f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7645916049215193126, guid: 415c6d88014567241bd24edb4f7a459f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7645916049215193126, guid: 415c6d88014567241bd24edb4f7a459f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7645916049215193126, guid: 415c6d88014567241bd24edb4f7a459f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.15
       objectReference: {fileID: 0}
@@ -19916,6 +19928,75 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iar: {fileID: 4913792155335873735, guid: 02f590a705a0d004abee1378dd449c0e, type: 3}
+--- !u!1001 &2110973959
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 128200, guid: fcd4e52bc3b48c54bb4871dee79a3328, type: 3}
+      propertyPath: m_Name
+      value: Human_Archer
+      objectReference: {fileID: 0}
+    - target: {fileID: 475924, guid: fcd4e52bc3b48c54bb4871dee79a3328, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 475924, guid: fcd4e52bc3b48c54bb4871dee79a3328, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 475924, guid: fcd4e52bc3b48c54bb4871dee79a3328, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 487628, guid: fcd4e52bc3b48c54bb4871dee79a3328, type: 3}
+      propertyPath: m_RootOrder
+      value: 29
+      objectReference: {fileID: 0}
+    - target: {fileID: 487628, guid: fcd4e52bc3b48c54bb4871dee79a3328, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 487628, guid: fcd4e52bc3b48c54bb4871dee79a3328, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 487628, guid: fcd4e52bc3b48c54bb4871dee79a3328, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -23.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 487628, guid: fcd4e52bc3b48c54bb4871dee79a3328, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 487628, guid: fcd4e52bc3b48c54bb4871dee79a3328, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 487628, guid: fcd4e52bc3b48c54bb4871dee79a3328, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 487628, guid: fcd4e52bc3b48c54bb4871dee79a3328, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 487628, guid: fcd4e52bc3b48c54bb4871dee79a3328, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 487628, guid: fcd4e52bc3b48c54bb4871dee79a3328, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 487628, guid: fcd4e52bc3b48c54bb4871dee79a3328, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fcd4e52bc3b48c54bb4871dee79a3328, type: 3}
 --- !u!1 &2128422694 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8651803072382056772, guid: 12508a110f03cf44d9b5ea0c76ad7284, type: 3}

@@ -101,6 +101,8 @@ namespace AG.Control
         //     }
         // }
 
+
+        //TODO: Fix logic
         private GameObject GetClosestAttackableTarget(StateMachineController controller) {
             float closest = float.MaxValue;
             GameObject[] allTargets = GameObject.FindGameObjectsWithTag("Player")

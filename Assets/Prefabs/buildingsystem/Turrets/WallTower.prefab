@@ -192,6 +192,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall Part (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 198840, guid: ffefe23a81f5d9148829b14b9b6a4e98, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 449646, guid: ffefe23a81f5d9148829b14b9b6a4e98, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -267,6 +271,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall Part (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 198840, guid: ffefe23a81f5d9148829b14b9b6a4e98, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 449646, guid: ffefe23a81f5d9148829b14b9b6a4e98, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -341,6 +349,10 @@ PrefabInstance:
     - target: {fileID: 198840, guid: ffefe23a81f5d9148829b14b9b6a4e98, type: 3}
       propertyPath: m_Name
       value: Wall Part (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 198840, guid: ffefe23a81f5d9148829b14b9b6a4e98, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 449646, guid: ffefe23a81f5d9148829b14b9b6a4e98, type: 3}
       propertyPath: m_RootOrder

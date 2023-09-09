@@ -45,7 +45,6 @@ namespace AG.Control
 
         //Animation Event für z.B. Bow Animation
         public void UseWeapon() {
-            Debug.Log("Use Weapon");
             weapon.Use(attackTarget);
         }
     }
