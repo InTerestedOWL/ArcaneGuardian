@@ -37,7 +37,7 @@ namespace AG.Control
 
         public void Update(StateMachineController controller)
         {
-            if(!arrived && controller.movement.navMeshAgent.remainingDistance < 0.01){
+            if(!arrived && controller.movement.navMeshAgent.remainingDistance < 0.5){
                 arrived = true;
             }         
         }

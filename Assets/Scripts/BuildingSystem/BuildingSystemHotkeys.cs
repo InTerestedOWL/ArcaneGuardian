@@ -24,8 +24,10 @@ public class BuildingSystemHotkeys : MonoBehaviour
     }
     private void TriggerHotkey(InputAction.CallbackContext context) {
         GameObject Grid = GameObject.Find("Grid");
-        BuildingSystem bs = Grid.GetComponent<BuildingSystem>();
-        bs.startBuilding(buildingObject);
+        if(buildingObject != null){
+            BuildingSystem bs = Grid.GetComponent<BuildingSystem>();
+            bs.startBuilding(buildingObject);
+        }     
     }
     // Update is called once per frame
     void Update()
