@@ -6,6 +6,7 @@ using AG.Skills.Core;
 using AG.Combat;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Unity.VisualScripting;
 
 
 namespace AG.Skills.Targeting
@@ -13,7 +14,7 @@ namespace AG.Skills.Targeting
     [CreateAssetMenu(fileName = "Point and Click Targeting", menuName = "Arcane Guardian/Targeting Strategy/Point and Click Targeting")]
     public class PointAndClickTargeting : TargetingStrategy
     {
-        [SerializeField] LayerMask layerMask; 
+        [SerializeField] LayerMask layerMask;
 
         public override void DeclareTargets(SkillData data, Action callback)
         {
@@ -31,7 +32,7 @@ namespace AG.Skills.Targeting
             if (Physics.Raycast(ray, out raycastHit, 1000, layerMask))
             {
                 CombatTarget ct = raycastHit.collider.gameObject.GetComponent<CombatTarget>();
-                if(ct){
+                if(ct != null && !ct.IsDead()){
                     if(!ct.IsDead()) {
                         data.SetTargetPosition(raycastHit.point);
                         List<GameObject> targets = new List<GameObject>
@@ -42,6 +43,10 @@ namespace AG.Skills.Targeting
 
                         callback();
                     }
+                }
+                else {
+                    InformationWindow iWindow = GameObject.Find("Information Window").GetComponent<InformationWindow>();
+                    iWindow.popupInformationWindow("I need a target!");
                 }
             }
             yield return null;
