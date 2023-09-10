@@ -824,6 +824,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6874186891737298859, guid: 2b2957b1a8d16d74094183e60e32f482, type: 3}
+      propertyPath: actionBarReference
+      value: 
+      objectReference: {fileID: 5058665125812571966}
     - target: {fileID: 7054355416584039146, guid: 2b2957b1a8d16d74094183e60e32f482, type: 3}
       propertyPath: m_text
       value: '-'
@@ -1285,5 +1289,10 @@ PrefabInstance:
 --- !u!224 &482057060052159245 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7724883663273555764, guid: 2b2957b1a8d16d74094183e60e32f482, type: 3}
+  m_PrefabInstance: {fileID: 7891661785047219257}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5058665125812571966 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3150036722682999559, guid: 2b2957b1a8d16d74094183e60e32f482, type: 3}
   m_PrefabInstance: {fileID: 7891661785047219257}
   m_PrefabAsset: {fileID: 0}
