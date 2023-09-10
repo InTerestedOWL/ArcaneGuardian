@@ -1167,6 +1167,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skill Slot (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2649406926634642554, guid: e8e4a1c08c389314db1c1c9779f56974, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7682494388346097953, guid: e8e4a1c08c389314db1c1c9779f56974, type: 3}
       propertyPath: skill
       value: 
