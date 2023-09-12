@@ -40,7 +40,7 @@ namespace AG.Control {
                 pos.y += 10;
                 RaycastHit hit;
                 bool hasHit = Physics.Raycast(pos, transform.position + curMovement - pos, out hit, Mathf.Infinity, LayerMask.GetMask("Map"));
-                if (hasHit) {
+                if (hasHit && hit.point.y > 0.1f) {
                     GetComponent<Movement>().DoMovement(hit.point);
                 }
             }
