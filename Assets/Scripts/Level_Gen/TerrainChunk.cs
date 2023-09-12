@@ -34,7 +34,6 @@ public class TerrainChunk
     private ObjectDataSettings objectDataSettings;
     private Transform viewer;
     private bool hasSetObjects = false;
-    public NavMeshSurface navMeshSurface;
 
     public TerrainChunk(Vector2 coord, HeightMapSettings heightMapSettings, MeshSettings meshSettings,
         ObjectDataSettings objectDataSettings,
@@ -60,8 +59,6 @@ public class TerrainChunk
         meshRenderer = meshObject.AddComponent<MeshRenderer>();
         meshFilter = meshObject.AddComponent<MeshFilter>();
         meshCollider = meshObject.AddComponent<MeshCollider>();
-        navMeshSurface = meshObject.AddComponent<NavMeshSurface>();
-        // navMeshSurface.layerMask = LayerMask.GetMask("Map");
 
         meshRenderer.material = material;
 
@@ -149,7 +146,7 @@ public class TerrainChunk
             }
 
             if (wasVisible != visible)
-            {
+            {   
                 SetVisible(visible);
                 if (onVisibilityChanged != null)
                 {

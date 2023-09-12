@@ -32,13 +32,13 @@ public class TerrainGenerator : MonoBehaviour
     private Vector2 viewerPosition;
     private Vector2 viewerPositionOld;
     private int chunksVisibleInViewDst;
-    private NavMeshSurface navMeshSurface;
     private int numObjects;
     private int chunkCountDivided;
     private Dictionary<Vector2, TerrainChunk> terrainChunkDictionary = new Dictionary<Vector2, TerrainChunk>();
     private List<TerrainChunk> visibleTerrainChunks = new List<TerrainChunk>();
 
     private bool hasBuildedNavMesh = false;
+    private Coroutine navMeshCR = null;
     
      void Start()
      {
@@ -51,7 +51,7 @@ public class TerrainGenerator : MonoBehaviour
         chunkCountDivided = meshSettings.chunkCount / 2;
         
         UpdateVisibleChunks();
-     }
+    }
 
     void Update()
     {
@@ -124,18 +124,7 @@ public class TerrainGenerator : MonoBehaviour
     {
         if (isVisible)
         {
-            visibleTerrainChunks.Add(chunk);
-            Debug.Log("Counting visibleTerrainChunks " + visibleTerrainChunks.Count);
-            if (visibleTerrainChunks.Count == ((meshSettings.chunkCount * meshSettings.chunkCount)-1))
-            {
-                Debug.Log("Building the NavMesh");
-                chunk.navMeshSurface.BuildNavMesh();
-                navMeshSurface = chunk.navMeshSurface;
-            } else if (visibleTerrainChunks.Count > ((meshSettings.chunkCount * meshSettings.chunkCount) - 1))
-            {
-               navMeshSurface.UpdateNavMesh(navMeshSurface.navMeshData);
-            }
-            
+            visibleTerrainChunks.Add(chunk);            
         }
         else
         {
@@ -148,6 +137,22 @@ public class TerrainGenerator : MonoBehaviour
         UnityEngine.Random.InitState((int)(heightMapSettings.noiseSettings.seed + (long)chunk.coord.x * 100 + chunk.coord.y));//so it doesn't form a (noticable) pattern of similar tiles
         PlaceObject(chunk);
         RandomizeInitState();
+        if (navMeshCR != null) {
+            StopCoroutine(BuildNavMesh());
+        }
+        navMeshCR = StartCoroutine(BuildNavMesh());
+    }
+
+    IEnumerator BuildNavMesh()
+    {
+        yield return new WaitForSeconds(0.3f);
+        if (hasBuildedNavMesh) {
+            GetComponent<NavMeshSurface>().UpdateNavMesh(GetComponent<NavMeshSurface>().navMeshData);
+        } else {
+            GetComponent<NavMeshSurface>().BuildNavMesh();
+            hasBuildedNavMesh = true;
+            navMeshCR = null;
+        }
     }
     
     public void PlaceObject(TerrainChunk chunk)
