@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class TerrainChunk
@@ -51,7 +52,8 @@ public class TerrainChunk
         Vector2 position = coord * meshSettings.meshWorldSize;
         bounds = new Bounds(position, Vector2.one * meshSettings.meshWorldSize);
         meshObject = new GameObject("TerrainChunk");
-        meshObject.tag = "Map";
+        meshObject.tag = "Terrain";
+        meshObject.layer = LayerMask.NameToLayer("Map");
 
         meshRenderer = meshObject.AddComponent<MeshRenderer>();
         meshFilter = meshObject.AddComponent<MeshFilter>();

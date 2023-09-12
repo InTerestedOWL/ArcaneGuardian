@@ -141,12 +141,12 @@ public class MapPreview : MonoBehaviour
             Debug.Log(startPoint);
             bool hasHit = Physics.Raycast(startPoint, Vector3.down, out hit);
             Debug.Log(hasHit);
-            if (hasHit && hit.point.y < 10.0f && hit.collider.CompareTag("Map"))
+            if (hasHit && hit.point.y < 10.0f && hit.collider.CompareTag("Terrain"))
             {
                 Quaternion orientation = Quaternion.Euler(Vector3.up * Random.Range(0f, 360f));
                 RaycastHit boxHit;
                 if (Physics.BoxCast(startPoint, objectDataSettings.placeableObjectSizes[prefabType], Vector3.down,
-                        out boxHit, orientation) && boxHit.collider.CompareTag("Map"))
+                        out boxHit, orientation) && boxHit.collider.CompareTag("Terrain"))
                 {
                     GameObject po = Instantiate(objectDataSettings.placeableObjects[prefabType],
                         new Vector3(startPoint.x, hit.point.y, startPoint.z), orientation, previewMesh.transform);

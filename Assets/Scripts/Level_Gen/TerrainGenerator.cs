@@ -141,10 +141,10 @@ public class TerrainGenerator : MonoBehaviour
 
             RaycastHit hit;
             bool hasHit = Physics.Raycast(startPoint, Vector3.down, out hit);
-            if (hasHit && hit.collider.CompareTag("Map") && hit.point.y > 0.3f && hit.point.y < 16.0f) {
+            if (hasHit && hit.collider.CompareTag("Terrain") && hit.point.y > 0.3f && hit.point.y < 16.0f) {
                 Quaternion orientation = Quaternion.Euler(Vector3.up * UnityEngine.Random.Range(0f, 360f));
                 RaycastHit boxHit;
-                if (Physics.BoxCast(startPoint, objectDataSettings.placeableObjectSizes[prefabType], Vector3.down, out boxHit, orientation) && boxHit.collider.CompareTag("Map")) {
+                if (Physics.BoxCast(startPoint, objectDataSettings.placeableObjectSizes[prefabType], Vector3.down, out boxHit, orientation) && boxHit.collider.CompareTag("Terrain")) {
                     Instantiate(objectDataSettings.placeableObjects[prefabType], new Vector3(startPoint.x, hit.point.y, startPoint.z), orientation, chunk.meshObject.transform);
                 }
                 
