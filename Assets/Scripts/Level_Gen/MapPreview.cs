@@ -131,16 +131,13 @@ public class MapPreview : MonoBehaviour
     {
         numObjects = 10;
         int count = 0;
-        Debug.Log(numObjects);
         for (int i = 0; i < numObjects; count++)
         {
             int prefabType = Random.Range(0, objectDataSettings.placeableObjects.Length);
             Vector3 startPoint = RandomPointAboveTerrain();
 
             RaycastHit hit;
-            Debug.Log(startPoint);
             bool hasHit = Physics.Raycast(startPoint, Vector3.down, out hit);
-            Debug.Log(hasHit);
             if (hasHit && hit.point.y < 10.0f && hit.collider.CompareTag("Terrain"))
             {
                 Quaternion orientation = Quaternion.Euler(Vector3.up * Random.Range(0f, 360f));

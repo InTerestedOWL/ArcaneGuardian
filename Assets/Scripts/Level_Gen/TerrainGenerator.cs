@@ -5,6 +5,7 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.AI;
 using UnityEngine.Rendering.UI;
 using Random = UnityEngine.Random;
 
@@ -31,10 +32,13 @@ public class TerrainGenerator : MonoBehaviour
     private Vector2 viewerPosition;
     private Vector2 viewerPositionOld;
     private int chunksVisibleInViewDst;
+    private NavMeshSurface navMeshSurface;
     private int numObjects;
     private int chunkCountDivided;
     private Dictionary<Vector2, TerrainChunk> terrainChunkDictionary = new Dictionary<Vector2, TerrainChunk>();
     private List<TerrainChunk> visibleTerrainChunks = new List<TerrainChunk>();
+
+    private bool hasBuildedNavMesh = false;
     
      void Start()
      {
@@ -44,8 +48,9 @@ public class TerrainGenerator : MonoBehaviour
         chunksVisibleInViewDst = Mathf.RoundToInt(maxViewDst / meshSettings.meshWorldSize);
         numObjects = Random.Range(objectDataSettings.minObjectsPerTile, objectDataSettings.maxObjectsPerTile + 1);
         fallOffMap = FallOffGenerator.GenerateFalloffMap(meshSettings.chunkCount * meshSettings.numVertsPerLine);
-        UpdateVisibleChunks();
         chunkCountDivided = meshSettings.chunkCount / 2;
+        
+        UpdateVisibleChunks();
      }
 
     void Update()
@@ -79,6 +84,8 @@ public class TerrainGenerator : MonoBehaviour
         
         int currentChunkCoordX = Mathf.RoundToInt(viewerPosition.x / meshSettings.meshWorldSize);
         int currentChunkCoordY = Mathf.RoundToInt(viewerPosition.y / meshSettings.meshWorldSize);
+
+        Vector2 lastViewedChunkCoord = new Vector2(meshSettings.chunkCount, meshSettings.chunkCount);
         
         for (int yOffset = -chunksVisibleInViewDst; yOffset <= chunksVisibleInViewDst; yOffset++)
         {
@@ -88,6 +95,7 @@ public class TerrainGenerator : MonoBehaviour
                 if (viewedChunkCoord.x < chunkCountDivided + 1 && viewedChunkCoord.x > (chunkCountDivided + 1) * -1 && viewedChunkCoord.y < chunkCountDivided + 1 &&
                     viewedChunkCoord.y > (chunkCountDivided + 1) * -1)
                 {
+                    lastViewedChunkCoord = viewedChunkCoord;
                     if (!alreadyUpdatedChunkCoords.Contains(viewedChunkCoord))
                     {
                         if (terrainChunkDictionary.ContainsKey(viewedChunkCoord))
@@ -117,6 +125,17 @@ public class TerrainGenerator : MonoBehaviour
         if (isVisible)
         {
             visibleTerrainChunks.Add(chunk);
+            Debug.Log("Counting visibleTerrainChunks " + visibleTerrainChunks.Count);
+            if (visibleTerrainChunks.Count == ((meshSettings.chunkCount * meshSettings.chunkCount)-1))
+            {
+                Debug.Log("Building the NavMesh");
+                chunk.navMeshSurface.BuildNavMesh();
+                navMeshSurface = chunk.navMeshSurface;
+            } else if (visibleTerrainChunks.Count > ((meshSettings.chunkCount * meshSettings.chunkCount) - 1))
+            {
+               navMeshSurface.UpdateNavMesh(navMeshSurface.navMeshData);
+            }
+            
         }
         else
         {

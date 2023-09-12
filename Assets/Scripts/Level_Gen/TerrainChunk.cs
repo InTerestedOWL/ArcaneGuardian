@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class TerrainChunk
 {
@@ -33,6 +34,7 @@ public class TerrainChunk
     private ObjectDataSettings objectDataSettings;
     private Transform viewer;
     private bool hasSetObjects = false;
+    public NavMeshSurface navMeshSurface;
 
     public TerrainChunk(Vector2 coord, HeightMapSettings heightMapSettings, MeshSettings meshSettings,
         ObjectDataSettings objectDataSettings,
@@ -58,6 +60,8 @@ public class TerrainChunk
         meshRenderer = meshObject.AddComponent<MeshRenderer>();
         meshFilter = meshObject.AddComponent<MeshFilter>();
         meshCollider = meshObject.AddComponent<MeshCollider>();
+        navMeshSurface = meshObject.AddComponent<NavMeshSurface>();
+        // navMeshSurface.layerMask = LayerMask.GetMask("Map");
 
         meshRenderer.material = material;
 
@@ -203,7 +207,6 @@ class LODMesh
     {
         mesh = ((MeshData)meshDataObject).CreateMesh();
         this.hasMesh = true;
-
         updateCallback();
     }
 
