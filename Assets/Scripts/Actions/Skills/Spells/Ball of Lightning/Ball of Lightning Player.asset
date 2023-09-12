@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Ball of Lightning Player
   m_EditorClassIdentifier: 
   displayName: Ball of Lightning
-  description: 
+  description: Electrify your enemies with this  ball of pure power! This mighty
+    spell  bounces between your enemies like no other! Shocking, isn't it?
   icon: {fileID: 21300000, guid: 10e310e2d1635824aaa4dc3f50f89747, type: 3}
   cooldown: 5
   targetingStrategy: {fileID: 11400000, guid: dce0bd562e430a645aabfa9acac64ee2, type: 2}

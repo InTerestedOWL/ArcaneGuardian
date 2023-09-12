@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Blade Spin Player
   m_EditorClassIdentifier: 
   displayName: Blade Spin
-  description: 
+  description: Spin to win! With this spell you spin faster than a whirlwind to damage
+    and knockback your enemies. Don't get dizzy! Also useful to mow your lawn.
   icon: {fileID: 21300000, guid: c9563c9761b901847a0a935b228b7763, type: 3}
-  cooldown: 0
+  cooldown: 3
   targetingStrategy: {fileID: 11400000, guid: 21edfd2074f8d7b4db4abded3b78beed, type: 2}
   filterStrategy: {fileID: 11400000, guid: 9d94cec049fac1046b5d39f60ab4ea82, type: 2}
   effectStrategies:

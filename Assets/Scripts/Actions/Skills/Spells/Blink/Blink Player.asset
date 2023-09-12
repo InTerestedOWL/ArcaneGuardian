@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Blink Player
   m_EditorClassIdentifier: 
   displayName: Blink
-  description: This is a spell where you can Blink to the direction your mouse is
-    pointing
+  description: Ever wanted to go from one place to another without moving your legs?
+    Well now you can in the blink of an eye! Literally.
   icon: {fileID: 21300000, guid: d1edc3a43e5d75348862280046433f1c, type: 3}
   cooldown: 2
   targetingStrategy: {fileID: 11400000, guid: 21edfd2074f8d7b4db4abded3b78beed, type: 2}
