@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Healing Fountain
   m_EditorClassIdentifier: 
   displayName: Healing Fountain
-  description: This Skill can heal every friendly unit.
+  description: '"I need healing!" Why not do it yourself? With this spell you place
+    a magical healing fountain on the ground to regain your precious healthpoints.
+    Remember, green circles are helpful! Do not move out!'
   icon: {fileID: 21300000, guid: 64c954234fb227d499f6d6664d746e03, type: 3}
   cooldown: 0
   targetingStrategy: {fileID: 11400000, guid: 2026960a33c66134dbef2f253a8c698a, type: 2}
