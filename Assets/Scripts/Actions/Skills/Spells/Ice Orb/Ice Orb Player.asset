@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Ice Orb Player
   m_EditorClassIdentifier: 
   displayName: Ice Orb
-  description: I-I-I'm so cold that I'm shivering. This spell hurls an orb of compressed
-    blizzard to your location to bring another ice age to this world! Fridge cold!
+  description: I-I-I'm so c-c-cold that I'm shivering. This spell hurls an orb of
+    compressed blizzard to your location to bring another ice age to this world!
+    Fridge cold!
   icon: {fileID: 21300000, guid: cd2fce37e900c154fb2bd42786649aeb, type: 3}
   cooldown: 10
   targetingStrategy: {fileID: 11400000, guid: 08183364c223b744592ea17fe650750b, type: 2}

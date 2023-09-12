@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class BuildingSystemHotkeys : MonoBehaviour
 {
@@ -10,14 +11,29 @@ public class BuildingSystemHotkeys : MonoBehaviour
     public GameObject buildingObject;
     [SerializeField] private TMP_Text buildingCostText;
     
+    [SerializeField] private TMP_Text infoBoxBuildingName;
+    [SerializeField] private TMP_Text infoBoxBuildingDesc;
+
+    [SerializeField] private TMP_Text infoBoxBuildingCost;
+
+    private bool hasBuilding = false;
     
     // Start is called before the first frame update
     void Start()
     {
         iar.action.started += TriggerHotkey;
         if(buildingObject != null){
-            buildingCostText.text = buildingObject.gameObject.GetComponent<PlaceableObject>().getPrice().ToString();
-        }     
+            PlaceableObject g = buildingObject.gameObject.GetComponent<PlaceableObject>();
+            buildingCostText.text = g.getPrice().ToString();
+            infoBoxBuildingName.text = g.getBuildingName();
+            infoBoxBuildingDesc.text = g.getBuildingDesc();
+            infoBoxBuildingCost.text = g.getPrice().ToString()+" Gold";
+            hasBuilding = true;
+        }else{
+            Debug.Log("ET OFF");
+            EventTrigger et = this.gameObject.GetComponent<EventTrigger>();
+            et.enabled = false;
+        }
     }
     public TMP_Text getBuildingCostTextRef(){
         return buildingCostText;
@@ -26,8 +42,8 @@ public class BuildingSystemHotkeys : MonoBehaviour
         GameObject Grid = GameObject.Find("Grid");
         if(buildingObject != null){
             BuildingSystem bs = Grid.GetComponent<BuildingSystem>();
-            bs.startBuilding(buildingObject);
-        }     
+            bs.startBuilding(buildingObject);   
+        }
     }
     // Update is called once per frame
     void Update()
