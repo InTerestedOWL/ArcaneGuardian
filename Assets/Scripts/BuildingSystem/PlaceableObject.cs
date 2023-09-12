@@ -8,9 +8,19 @@ public class PlaceableObject : MonoBehaviour
     public bool Placed {get; set;}
     public Vector3Int Size {get; set;}
     public Vector3[] Vertices = new Vector3[4];
-    [SerializeField]
-    int price;
 
+    public string buildingName;
+    [TextArea] public string buildingDesc;
+    public int price;
+
+    
+
+    public string getBuildingName(){
+        return buildingName;
+    }
+    public string getBuildingDesc(){
+        return buildingDesc;
+    }
     public int getPrice(){
         return price;
     }

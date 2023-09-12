@@ -120,6 +120,9 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
+  buildingName: Blizzard Tower
+  buildingDesc: This tower is freezing the blood of your enemies and everything else
+    that comes to close. Hurling a frozen orb of death at your enemies.
   price: 1000
 --- !u!208 &-1717174887686929328
 NavMeshObstacle:
