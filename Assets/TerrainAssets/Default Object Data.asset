@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6f7330875e0b9940b913b0cfd7edcca, type: 3}
+  m_Name: Default Object Data
+  m_EditorClassIdentifier: 
+  autoUpdate: 0
+  minObjectsPerTile: 1
+  maxObjectsPerTile: 300
+  placeableObjects:
+  - {fileID: 8114144759705600266, guid: 152ee2387a8834a449d0f3f5b3b0a405, type: 3}
+  - {fileID: 970853719240839121, guid: 5b853623b2d77ef4f881ade6272fe79b, type: 3}
+  - {fileID: 4695641099586099899, guid: ddcb6cfe02ed11248a2bffb815ce3b73, type: 3}
+  - {fileID: 4168722813280304171, guid: 669c6e641f4097a4daf92b8567f2495c, type: 3}
+  - {fileID: 7659082329324040571, guid: c7dbf65e4a286e049b2574ae7b6d05f4, type: 3}
+  placeableObjectSizes:
+  - {x: 2, y: 2, z: 2}
+  - {x: 2, y: 2, z: 2}
+  - {x: 2, y: 2, z: 2}
+  - {x: 2, y: 2, z: 2}
+  - {x: 2, y: 2, z: 2}
