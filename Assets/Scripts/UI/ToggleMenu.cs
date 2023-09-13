@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 namespace AG.UI {
     public class ToggleMenu : MonoBehaviour {
+        private List<System.Action<InputAction.CallbackContext>> toggleMenuActions = new List<System.Action<InputAction.CallbackContext>>();
         public static int menuOpenCounter = 0;
 
         [SerializeField]
@@ -16,9 +17,13 @@ namespace AG.UI {
                     menuEntry.menu.SetActive(false);
                 }
                 foreach (InputActionReference toggleMenuActionPlayer in menuEntry.toggleMenuActionsPlayer) {
-                    toggleMenuActionPlayer.action.performed += ctx => ToggleMenuAction_performed(ctx, menuEntry);
+                    System.Action<InputAction.CallbackContext> action = ctx => ToggleMenuAction_performed(ctx, menuEntry);
+                    toggleMenuActionPlayer.action.performed += action;
+                    toggleMenuActions.Add(action);
                 }
-                menuEntry.toggleMenuActionUI.action.performed += ctx => ToggleMenuAction_performed(ctx, menuEntry);
+                System.Action<InputAction.CallbackContext> uiAction = ctx => ToggleMenuAction_performed(ctx, menuEntry);
+                menuEntry.toggleMenuActionUI.action.performed += uiAction;
+                toggleMenuActions.Add(uiAction);
             }
         }
 
@@ -52,6 +57,17 @@ namespace AG.UI {
             if (ToggleMenu.menuOpenCounter <= 0) {
                 ActionMapHandler actionMapHandler = playerObj.GetComponent<ActionMapHandler>();
                 actionMapHandler.ChangeToActionMap("Player");
+            }
+        }
+
+        void OnDestroy() {
+            foreach (var action in toggleMenuActions) {
+                foreach (MenuEntry menuEntry in menuEntries) {
+                    foreach (InputActionReference toggleMenuActionPlayer in menuEntry.toggleMenuActionsPlayer) {
+                        toggleMenuActionPlayer.action.performed -= action;
+                    }
+                    menuEntry.toggleMenuActionUI.action.performed -= action;
+                }
             }
         }
     }
