@@ -23,7 +23,17 @@ namespace AG.Control
 
         public void Enter(StateMachineController controller)
         {
-            controller.movement.navMeshAgent.stoppingDistance = controller.config.attackRange - 0.1f;
+            // Überprüfe, ob die NavMeshAgent-Komponente vorhanden ist
+            if (controller != null && controller.movement != null && controller.movement.navMeshAgent != null)
+            {
+                // Setze die stoppingDistance
+                controller.movement.navMeshAgent.stoppingDistance = controller.config.attackRange - 0.1f;
+            }
+            else
+            {
+                // Die Komponente ist noch nicht bereit, starte eine Coroutine, um zu warten
+                controller.StartCoroutine(WaitForNavMeshAgent(controller));
+            }
         }
 
         public void Update(StateMachineController controller)
@@ -135,6 +145,18 @@ namespace AG.Control
                 } 
             }
             return closestTarget;
+        }
+
+        private IEnumerator WaitForNavMeshAgent(StateMachineController controller)
+        {
+            while (controller == null || controller.movement == null || controller.movement.navMeshAgent == null)
+            {
+                // Warte einen Frame und überprüfe erneut
+                yield return null;
+            }
+
+            // Setze die stoppingDistance, nachdem die NavMeshAgent-Komponente initialisiert wurde
+            controller.movement.navMeshAgent.stoppingDistance = controller.config.attackRange - 0.1f;
         }
     }
 }
