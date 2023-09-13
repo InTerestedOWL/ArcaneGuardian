@@ -23,6 +23,7 @@ namespace AG.Control
 
         public void Enter(StateMachineController controller)
         {
+            controller.movement.navMeshAgent.stoppingDistance = controller.config.attackRange - 0.1f;
         }
 
         public void Update(StateMachineController controller)
@@ -39,22 +40,6 @@ namespace AG.Control
 
                 if (timer <= 0.0f)
                 {
-                    // float closest = float.MaxValue;
-                    // GameObject[] allTargets = GameObject.FindGameObjectsWithTag("Player")
-                    //     .Concat(GameObject.FindGameObjectsWithTag("POI"))
-                    //     .Concat(GameObject.FindGameObjectsWithTag("Turret"))
-                    //     .ToArray();
-                    // GameObject closestTarget = null;
-                    // foreach (GameObject target in allTargets)
-                    // {
-                    //     float distance = Vector3.Distance(target.transform.position, controller.movement.navMeshAgent.destination);
-                    //     if (distance < closest)
-                    //     {
-                    //         closest = distance;
-                    //         closestTarget = target;
-                    //     }
-                    // }
-
                     GameObject target = GetClosestAttackableTarget(controller);
 
 
@@ -64,18 +49,27 @@ namespace AG.Control
                         return;
                     }
 
-                    if (Vector3.Distance(target.transform.position, controller.transform.position) > controller.movement.navMeshAgent.stoppingDistance)
-                    {
-                        if(!controller.combat.IsAttacking()){
-                            controller.movement.DoMovement(target.transform.position);
+                    //Nächsten Punkt auf dem Collider des Targets finden
+                    Collider targetCollider = target.GetComponent<Collider>();
+                    if (targetCollider != null) {
+                        Bounds targetBounds = targetCollider.bounds;
+
+                        Vector3 closestPoint = targetBounds.ClosestPoint(controller.transform.position);
+                        float distanceToClosestPoint = Vector3.Distance(controller.transform.position, closestPoint);
+
+                        if (distanceToClosestPoint > controller.config.attackRange)
+                        {
+                            if(!controller.combat.IsAttacking()){
+                                controller.movement.DoMovement(closestPoint);
+                            }
                         }
-                    }
-                    else
-                    {
-                        //TODO: Lookat smooth player before attacking
-                        controller.transform.LookAt(target.transform);
-                        // controller.StartCoroutine(RotateToTarget(closestTarget, controller));
-                        controller.HandleCombat(target);
+                        else
+                        {
+                            //TODO: Lookat smooth player before attacking
+                            controller.transform.LookAt(target.transform);
+                            // controller.StartCoroutine(RotateToTarget(closestTarget, controller));
+                            controller.HandleCombat(target);
+                        }
                     }
 
                     timer = controller.config.movementUpdateTime;
@@ -140,7 +134,6 @@ namespace AG.Control
                     }
                 } 
             }
-
             return closestTarget;
         }
     }

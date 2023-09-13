@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 7078159420173399459}
   - component: {fileID: 2113773143149968400}
   - component: {fileID: 7241202675988243456}
-  - component: {fileID: 8735617705511261276}
   - component: {fileID: 3148643638821928254}
+  - component: {fileID: 4858431860103271610}
+  - component: {fileID: 534018881617183499}
   m_Layer: 10
   m_Name: WallTower
   m_TagString: Turret
@@ -31,7 +32,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5933280837897704170}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.8, y: 6.64, z: 14.847239}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.37, y: 0.1, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -119,26 +120,6 @@ MonoBehaviour:
   blinkDuration: 0.05
   blinkIntensity: 5
   blinkColor: {r: 1, g: 1, b: 1, a: 1}
---- !u!95 &8735617705511261276
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5933280837897704170}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
 --- !u!23 &3148643638821928254
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -181,6 +162,41 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4858431860103271610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5933280837897704170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 410844dc7ef76d3498588db0a980769d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 106539812999757488}
+  isFriendly: 1
+  offset: {x: 0, y: 1.2, z: 0}
+--- !u!95 &534018881617183499
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5933280837897704170}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1001 &106539813000159966
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -188,6 +204,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4701988133264159960}
     m_Modifications:
+    - target: {fileID: -5617035925985866795, guid: ffefe23a81f5d9148829b14b9b6a4e98, type: 3}
+      propertyPath: originalScale.x
+      value: 0.37
+      objectReference: {fileID: 0}
+    - target: {fileID: -5617035925985866795, guid: ffefe23a81f5d9148829b14b9b6a4e98, type: 3}
+      propertyPath: originalScale.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5617035925985866795, guid: ffefe23a81f5d9148829b14b9b6a4e98, type: 3}
+      propertyPath: originalScale.z
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 198840, guid: ffefe23a81f5d9148829b14b9b6a4e98, type: 3}
       propertyPath: m_Name
       value: Wall Part (1)
@@ -267,6 +295,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4701988133264159960}
     m_Modifications:
+    - target: {fileID: -5617035925985866795, guid: ffefe23a81f5d9148829b14b9b6a4e98, type: 3}
+      propertyPath: originalScale.x
+      value: 0.37
+      objectReference: {fileID: 0}
+    - target: {fileID: -5617035925985866795, guid: ffefe23a81f5d9148829b14b9b6a4e98, type: 3}
+      propertyPath: originalScale.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5617035925985866795, guid: ffefe23a81f5d9148829b14b9b6a4e98, type: 3}
+      propertyPath: originalScale.z
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 198840, guid: ffefe23a81f5d9148829b14b9b6a4e98, type: 3}
       propertyPath: m_Name
       value: Wall Part (3)
@@ -346,6 +386,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4701988133264159960}
     m_Modifications:
+    - target: {fileID: -5617035925985866795, guid: ffefe23a81f5d9148829b14b9b6a4e98, type: 3}
+      propertyPath: originalScale.x
+      value: 0.37
+      objectReference: {fileID: 0}
+    - target: {fileID: -5617035925985866795, guid: ffefe23a81f5d9148829b14b9b6a4e98, type: 3}
+      propertyPath: originalScale.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5617035925985866795, guid: ffefe23a81f5d9148829b14b9b6a4e98, type: 3}
+      propertyPath: originalScale.z
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 198840, guid: ffefe23a81f5d9148829b14b9b6a4e98, type: 3}
       propertyPath: m_Name
       value: Wall Part (2)

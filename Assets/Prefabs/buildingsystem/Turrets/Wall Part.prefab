@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 449646}
   - component: {fileID: 3330636}
   - component: {fileID: 2342280}
+  - component: {fileID: -5617035925985866795}
   m_Layer: 10
   m_Name: Wall Part
   m_TagString: Turret
@@ -83,3 +84,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-5617035925985866795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52d0966ea50ba124b9332962008db9f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  originalScale: {x: 0, y: 0, z: 0}
+  CutCascades: 3
+  ExplodeForce: 0

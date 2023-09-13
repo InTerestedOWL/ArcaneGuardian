@@ -4,6 +4,7 @@ using AG.Weapons;
 using AG.Audio.Sounds;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.AI;
 
 namespace AG.Combat {
     public class CombatTarget : MonoBehaviour {
@@ -128,7 +129,7 @@ namespace AG.Combat {
 
         private void Die() {
             GetComponent<Animator>().SetTrigger("killed");
-            rb.isKinematic = true;
+            // rb.isKinematic = true;
             healthBar?.gameObject.SetActive(false);
             isDead = true;
 
@@ -147,6 +148,26 @@ namespace AG.Combat {
 
                 //Despawn Enemies on Death
                 StartCoroutine(DespawnOnDeath());
+            }
+
+            if(isBuilding) {
+                GetComponent<NavMeshObstacle>().enabled = false;
+
+                //Originales GameObjekt wird in DestroyMesh zerstört.
+                GetComponent<MeshDestroy>()?.DestroyMesh();
+
+                foreach(MeshDestroy meshDestroy in GetComponentsInChildren<MeshDestroy>()) {
+                    meshDestroy.DestroyMesh();
+                }
+
+                PlaceableObject po = GetComponent<PlaceableObject>();
+                BuildingSystem bs = GameObject.Find("Grid").GetComponent<BuildingSystem>();
+                if(po != null) {
+                    Vector3Int start = bs.gridLayout.WorldToCell(po.GetStartPosition());
+                    bs.tileToPlacable(start, po.Size);
+                    bs.poi_building.removePlacedBuilding(po);
+                }
+                
             }
         }
 

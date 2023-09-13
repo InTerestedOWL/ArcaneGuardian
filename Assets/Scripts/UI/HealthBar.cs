@@ -39,4 +39,8 @@ public class HealthBar : MonoBehaviour
     public HealthBarUI GetHealthBarUI(){
         return this.healthBarUIScript;
     }
+
+    public void OnDestroy(){
+        Destroy(healthBar);
+    }
 }
