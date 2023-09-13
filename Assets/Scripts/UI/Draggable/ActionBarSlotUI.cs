@@ -6,6 +6,7 @@ using GameDevTV.Core.UI.Dragging;
 using UnityEngine.InputSystem;
 using TMPro;
 using AG.Actions;
+using UnityEngine.EventSystems;
 
 namespace AG.UI.Draggable {
     public class ActionBarSlotUI : MonoBehaviour, IDragContainer<ActionItem> {
@@ -14,6 +15,14 @@ namespace AG.UI.Draggable {
         string hotkey = "";
         [SerializeField]
         SkillRef skillRef = null;
+
+        [SerializeField] private TMP_Text infoBoxSpellName;
+
+        [SerializeField] private TMP_Text infoBoxSpellDesc;
+
+        [SerializeField] private TMP_Text infoBoxSpellCooldown;
+
+        private string containerName;
 
         private void Awake() {
             SetHotkeyUIDisplay();
@@ -24,6 +33,12 @@ namespace AG.UI.Draggable {
         }
 
         private void SetHotkeyUIDisplay() {
+            
+            containerName = this.gameObject.transform.parent.gameObject.transform.parent.transform.name;
+            if(containerName == "Action Bar Container"){
+                EventTrigger et = this.gameObject.GetComponent<EventTrigger>();
+                et.enabled = false;
+            }
             if (hotkeyReference != null) {
                 // Takes only the first assigned key.
                 // TODO: Allow multiple keys to be assigned / Check for other keys.
@@ -43,7 +58,14 @@ namespace AG.UI.Draggable {
         }
 
         public void AddItems(ActionItem item, int number) {
-            skillRef.SetItem(item);
+            if(containerName == "Action Bar Container"){
+                skillRef.SetItem(item);
+                infoBoxSpellName.text = item.GetDisplayName();
+                infoBoxSpellDesc.text = item.GetDescription();
+                infoBoxSpellCooldown.text = item.GetMaxCooldown().ToString()+" Sec.";
+                EventTrigger et = this.gameObject.GetComponent<EventTrigger>();
+                et.enabled = true;
+            }      
         }
 
         public ActionItem GetItem() {
@@ -55,7 +77,11 @@ namespace AG.UI.Draggable {
         }
 
         public void RemoveItems(int number) {
-            skillRef.SetItem(null);
+            if(containerName == "Action Bar Container"){
+                skillRef.SetItem(null);
+                EventTrigger et = this.gameObject.GetComponent<EventTrigger>();
+                et.enabled = false;
+            }
         }
 
         private void TriggerHotkey(InputAction.CallbackContext context) {

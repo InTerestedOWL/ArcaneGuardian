@@ -15,8 +15,6 @@ public class BuildingSystemHotkeys : MonoBehaviour
     [SerializeField] private TMP_Text infoBoxBuildingDesc;
 
     [SerializeField] private TMP_Text infoBoxBuildingCost;
-
-    private bool hasBuilding = false;
     
     // Start is called before the first frame update
     void Start()
@@ -28,7 +26,6 @@ public class BuildingSystemHotkeys : MonoBehaviour
             infoBoxBuildingName.text = g.getBuildingName();
             infoBoxBuildingDesc.text = g.getBuildingDesc();
             infoBoxBuildingCost.text = g.getPrice().ToString()+" Gold";
-            hasBuilding = true;
         }else{
             Debug.Log("ET OFF");
             EventTrigger et = this.gameObject.GetComponent<EventTrigger>();

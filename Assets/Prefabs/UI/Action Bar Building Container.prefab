@@ -1165,7 +1165,6 @@ GameObject:
   - component: {fileID: 86481169815863654}
   - component: {fileID: 355169115265859685}
   - component: {fileID: 5812215069720525718}
-  - component: {fileID: 2897752887400389557}
   - component: {fileID: 798610027729828722}
   m_Layer: 6
   m_Name: Skill Icon
@@ -1239,23 +1238,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 541575549392730906}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34377b34368a47f4087729f174371489, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2897752887400389557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 541575549392730906}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c9210db0059da249b2a2c9786809490, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  infoBoxSpellName: {fileID: 0}
+  infoBoxSpellDesc: {fileID: 0}
+  infoBoxSpellCooldown: {fileID: 0}
 --- !u!225 &798610027729828722
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1266,7 +1256,7 @@ CanvasGroup:
   m_Enabled: 1
   m_Alpha: 1
   m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!1 &639696418278997534
 GameObject:
@@ -6647,7 +6637,6 @@ GameObject:
   - component: {fileID: 244739852904101015}
   - component: {fileID: 4467513306152412608}
   - component: {fileID: 5495960002878362184}
-  - component: {fileID: 5395256873804554031}
   - component: {fileID: 415623518875147674}
   m_Layer: 6
   m_Name: Skill Icon
@@ -6721,23 +6710,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2835503811642811772}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34377b34368a47f4087729f174371489, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5395256873804554031
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2835503811642811772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c9210db0059da249b2a2c9786809490, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  infoBoxSpellName: {fileID: 0}
+  infoBoxSpellDesc: {fileID: 0}
+  infoBoxSpellCooldown: {fileID: 0}
 --- !u!225 &415623518875147674
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -6748,7 +6728,7 @@ CanvasGroup:
   m_Enabled: 1
   m_Alpha: 1
   m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!1 &2863361090073642144
 GameObject:
@@ -7907,7 +7887,6 @@ GameObject:
   - component: {fileID: 7559369110386936577}
   - component: {fileID: 6268377499187437851}
   - component: {fileID: 1802222550716233957}
-  - component: {fileID: 4290076990721415427}
   - component: {fileID: 7123243964164553488}
   m_Layer: 6
   m_Name: Skill Icon
@@ -7981,23 +7960,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3487412890754629856}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34377b34368a47f4087729f174371489, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4290076990721415427
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3487412890754629856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c9210db0059da249b2a2c9786809490, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  infoBoxSpellName: {fileID: 0}
+  infoBoxSpellDesc: {fileID: 0}
+  infoBoxSpellCooldown: {fileID: 0}
 --- !u!225 &7123243964164553488
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -8008,7 +7978,7 @@ CanvasGroup:
   m_Enabled: 1
   m_Alpha: 1
   m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!1 &3558170599070898194
 GameObject:
@@ -9485,7 +9455,6 @@ GameObject:
   - component: {fileID: 9130332711086566519}
   - component: {fileID: 5749455401661593993}
   - component: {fileID: 8672765542526277820}
-  - component: {fileID: 7378198609621858148}
   - component: {fileID: 1155892029455007667}
   m_Layer: 6
   m_Name: Skill Icon
@@ -9559,23 +9528,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4510529656775451424}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34377b34368a47f4087729f174371489, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7378198609621858148
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4510529656775451424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c9210db0059da249b2a2c9786809490, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  infoBoxSpellName: {fileID: 0}
+  infoBoxSpellDesc: {fileID: 0}
+  infoBoxSpellCooldown: {fileID: 0}
 --- !u!225 &1155892029455007667
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -9586,7 +9546,7 @@ CanvasGroup:
   m_Enabled: 1
   m_Alpha: 1
   m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!1 &4689236764390477967
 GameObject:
@@ -10025,7 +9985,6 @@ GameObject:
   - component: {fileID: 95453192462289236}
   - component: {fileID: 8903872808273754388}
   - component: {fileID: 1242540183097224631}
-  - component: {fileID: 1937311391258248632}
   - component: {fileID: 3705028766550275420}
   m_Layer: 6
   m_Name: Skill Icon
@@ -10099,23 +10058,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4900019600274165311}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34377b34368a47f4087729f174371489, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1937311391258248632
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4900019600274165311}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c9210db0059da249b2a2c9786809490, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  infoBoxSpellName: {fileID: 0}
+  infoBoxSpellDesc: {fileID: 0}
+  infoBoxSpellCooldown: {fileID: 0}
 --- !u!225 &3705028766550275420
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -10126,7 +10076,7 @@ CanvasGroup:
   m_Enabled: 1
   m_Alpha: 1
   m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!1 &4975795214228288292
 GameObject:
@@ -12383,7 +12333,6 @@ GameObject:
   - component: {fileID: 4514484471510114561}
   - component: {fileID: 7175277222800574816}
   - component: {fileID: 6369545989688913259}
-  - component: {fileID: 1138732796175513018}
   - component: {fileID: 7906484877934873065}
   m_Layer: 6
   m_Name: Skill Icon
@@ -12457,23 +12406,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6525127097299639264}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34377b34368a47f4087729f174371489, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1138732796175513018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6525127097299639264}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c9210db0059da249b2a2c9786809490, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  infoBoxSpellName: {fileID: 0}
+  infoBoxSpellDesc: {fileID: 0}
+  infoBoxSpellCooldown: {fileID: 0}
 --- !u!225 &7906484877934873065
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -12484,7 +12424,7 @@ CanvasGroup:
   m_Enabled: 1
   m_Alpha: 1
   m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!1 &6588321361143366695
 GameObject:
@@ -13092,7 +13032,6 @@ GameObject:
   - component: {fileID: 3605370121578344037}
   - component: {fileID: 2140320736348008739}
   - component: {fileID: 2393616594778657922}
-  - component: {fileID: 1157181473464330043}
   - component: {fileID: 3128481115524724111}
   m_Layer: 6
   m_Name: Skill Icon
@@ -13166,23 +13105,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6770739826208798455}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34377b34368a47f4087729f174371489, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1157181473464330043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6770739826208798455}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c9210db0059da249b2a2c9786809490, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  infoBoxSpellName: {fileID: 0}
+  infoBoxSpellDesc: {fileID: 0}
+  infoBoxSpellCooldown: {fileID: 0}
 --- !u!225 &3128481115524724111
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -13193,7 +13123,7 @@ CanvasGroup:
   m_Enabled: 1
   m_Alpha: 1
   m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!1 &6815602945570159260
 GameObject:
@@ -14114,7 +14044,6 @@ GameObject:
   - component: {fileID: 5116114016460743779}
   - component: {fileID: 7762850101477836745}
   - component: {fileID: 1021493769042103338}
-  - component: {fileID: 8077531360716022503}
   - component: {fileID: 4734301954609653712}
   m_Layer: 6
   m_Name: Skill Icon
@@ -14188,23 +14117,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7258256324734484535}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34377b34368a47f4087729f174371489, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8077531360716022503
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7258256324734484535}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c9210db0059da249b2a2c9786809490, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  infoBoxSpellName: {fileID: 0}
+  infoBoxSpellDesc: {fileID: 0}
+  infoBoxSpellCooldown: {fileID: 0}
 --- !u!225 &4734301954609653712
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -14215,7 +14135,7 @@ CanvasGroup:
   m_Enabled: 1
   m_Alpha: 1
   m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!1 &7299481157598556765
 GameObject:
@@ -15634,7 +15554,6 @@ GameObject:
   - component: {fileID: 7789683403342788790}
   - component: {fileID: 5010566737262923298}
   - component: {fileID: 5125660607913971691}
-  - component: {fileID: 1069787046432796954}
   - component: {fileID: 4495579388838709641}
   m_Layer: 6
   m_Name: Skill Icon
@@ -15708,23 +15627,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8107289129919146789}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34377b34368a47f4087729f174371489, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1069787046432796954
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8107289129919146789}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c9210db0059da249b2a2c9786809490, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  infoBoxSpellName: {fileID: 0}
+  infoBoxSpellDesc: {fileID: 0}
+  infoBoxSpellCooldown: {fileID: 0}
 --- !u!225 &4495579388838709641
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -15735,7 +15645,7 @@ CanvasGroup:
   m_Enabled: 1
   m_Alpha: 1
   m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!1 &8231728460068919192
 GameObject:
@@ -18266,7 +18176,6 @@ GameObject:
   - component: {fileID: 1077892155721630342}
   - component: {fileID: 7913387155191430531}
   - component: {fileID: 604698623736371666}
-  - component: {fileID: 6618051605474656601}
   - component: {fileID: 6716406084848355737}
   m_Layer: 6
   m_Name: Skill Icon
@@ -18340,23 +18249,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9108530362006520596}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34377b34368a47f4087729f174371489, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6618051605474656601
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9108530362006520596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c9210db0059da249b2a2c9786809490, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  infoBoxSpellName: {fileID: 0}
+  infoBoxSpellDesc: {fileID: 0}
+  infoBoxSpellCooldown: {fileID: 0}
 --- !u!225 &6716406084848355737
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -18367,7 +18267,7 @@ CanvasGroup:
   m_Enabled: 1
   m_Alpha: 1
   m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!1001 &2853265717942896623
 PrefabInstance:
