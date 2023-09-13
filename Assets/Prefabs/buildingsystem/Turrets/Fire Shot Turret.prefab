@@ -122,6 +122,9 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
+  buildingName: Fire Tower
+  buildingDesc: FIRE! This is probably what your enemies scream, when they getting
+    bombarded by fiery rocks of death by this tower.
   price: 700
 --- !u!208 &-1717174887686929328
 NavMeshObstacle:

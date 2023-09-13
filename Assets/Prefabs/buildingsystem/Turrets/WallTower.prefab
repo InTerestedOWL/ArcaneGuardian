@@ -72,6 +72,9 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
+  buildingName: Wall of Defense
+  buildingDesc: The Wall of Defense is exactly what it says! Nothing more, nothing
+    less.
   price: 200
 --- !u!208 &7078159420173399459
 NavMeshObstacle:

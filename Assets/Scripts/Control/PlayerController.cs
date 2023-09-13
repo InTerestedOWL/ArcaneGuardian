@@ -28,7 +28,6 @@ namespace AG.Control {
         // Update is called once per frame
         void Update() {
             HandleMovement();
-            // TODO Animation
             if(isLookAtMousePosEnabled){
                 LookAtMousePos();
             }
@@ -37,7 +36,13 @@ namespace AG.Control {
         // Movement for keyboard input
         private void HandleMovement() {
             if (keysPressed) {
-                GetComponent<Movement>().DoMovement(transform.position + curMovement);
+                Vector3 pos = transform.position;
+                pos.y += 10;
+                RaycastHit hit;
+                bool hasHit = Physics.Raycast(pos, transform.position + curMovement - pos, out hit, Mathf.Infinity, LayerMask.GetMask("Map"));
+                if (hasHit && hit.point.y > 0.1f) {
+                    GetComponent<Movement>().DoMovement(hit.point);
+                }
             }
         }
 

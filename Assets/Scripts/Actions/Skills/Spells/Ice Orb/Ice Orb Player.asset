@@ -13,14 +13,9 @@ MonoBehaviour:
   m_Name: Ice Orb Player
   m_EditorClassIdentifier: 
   displayName: Ice Orb
-  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
-    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem
-    ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-    invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero
-    eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
-    sea takimata sanctus est Lorem ipsum dolor sit amet.
+  description: I-I-I'm so c-c-cold that I'm shivering. This spell hurls an orb of
+    compressed blizzard to your location to bring another ice age to this world!
+    Fridge cold!
   icon: {fileID: 21300000, guid: cd2fce37e900c154fb2bd42786649aeb, type: 3}
   cooldown: 10
   targetingStrategy: {fileID: 11400000, guid: 08183364c223b744592ea17fe650750b, type: 2}

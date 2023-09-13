@@ -6,7 +6,7 @@ using System.IO;
 // Used to reverse animations
 public static class ReverseAnimationContext
 {
-
+/*
     [MenuItem("Assets/Create Reversed Clip", false, 14)]
     private static void ReverseClip()
     {
@@ -72,5 +72,5 @@ public static class ReverseAnimationContext
         }
         return null;
     }
-
+*/
 }

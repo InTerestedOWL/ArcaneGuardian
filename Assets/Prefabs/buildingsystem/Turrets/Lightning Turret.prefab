@@ -122,6 +122,9 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
+  buildingName: Lightning Tower
+  buildingDesc: Channeling the power of its surroundings to unleash it true destruction,
+    this tower slings a bouncing ball of electricity at your enemies!
   price: 1000
 --- !u!208 &-1717174887686929328
 NavMeshObstacle:
