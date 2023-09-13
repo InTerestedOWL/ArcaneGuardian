@@ -12,14 +12,16 @@ namespace AG.Files {
             Tutorial
         }
 
-        public void Save(FileType ft, System.Object dataToSave) {
+        public void Save(FileType ft, string jsonString) {
+            Debug.Log("Save");
+
             Enum ftEnum = ft;
 
-            string json = JsonUtility.ToJson(dataToSave, true);
+            Debug.Log(jsonString);
 
             Debug.Log($"Saved to {Application.persistentDataPath}/{ftEnum}.json");
 
-            File.WriteAllText($"{Application.persistentDataPath}/{ftEnum}.json", json);
+            File.WriteAllText($"{Application.persistentDataPath}/{ftEnum}.json", jsonString);
         }
 
         public void Load() {
