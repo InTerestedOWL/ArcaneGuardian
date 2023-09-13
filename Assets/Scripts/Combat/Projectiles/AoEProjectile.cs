@@ -44,10 +44,15 @@ namespace AG.Combat
         new void OnTriggerEnter(Collider other)
         {   
             //Ignore Player and POI if instigator is Friendly unit
-            if(!(instigator.tag == "EnemyWeapon")) {
+            if(instigator.tag == "EnemyWeapon") {
+                if(other.gameObject.tag == "Enemy" || other.gameObject.tag == "EnemyWeapon")
+                    return;
+            }
+            else {
                 if(other.gameObject.tag == "Player" || other.gameObject.tag == "PlayerWeapon" || other.gameObject.tag == "POI" || other.gameObject.tag == "Turret")
                     return;
             }
+
             if(hasHit)
                 return;
             hasHit = true;

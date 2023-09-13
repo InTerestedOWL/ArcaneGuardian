@@ -520,4 +520,9 @@ public class POIBuilding
     {
         placed_buildings.Clear();
     }
+
+    public void removePlacedBuilding(PlaceableObject po)
+    {
+        placed_buildings.Remove(po);
+    }
 }

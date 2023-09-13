@@ -21,8 +21,6 @@ namespace AG.Control {
             // movement.navMeshAgent.stoppingDistance = config.attackRange - 0.1f;
             
             //Ai State Machine
-            Debug.Log("AiController: " + this.gameObject.name);
-            Debug.Log(this);
             stateMachine = new AiStateMachine(this);
             stateMachine.RegisterState(new AiChasePlayerState());
             stateMachine.RegisterState(new AiDeathState()); //TODO: brauchen wir einen DeathState? -> wird in combatTarget umgesetzt
