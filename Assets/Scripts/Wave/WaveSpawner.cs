@@ -92,7 +92,7 @@ public class WaveSpawner : MonoBehaviour
 
         specialDialogs.Add(goblinBossWave,"Goblinking Muruk: 'I GET BLUE LIGHT! YOU DIE!'");
         specialDialogs.Add(skeletonBossWave,"Skeletonking Brathas: 'With this power we can stop our suffering. Now you will suffer!'");
-        specialDialogs.Add(elvesBossWave,"Elvenking Egolass: 'You are already corrupted by it's power. I will end your missery!'");
+        specialDialogs.Add(elvesBossWave,"Elvenking Egolass: 'You are already corrupted by it's power. I will end your misery!'");
         specialDialogs.Add(humanBossWave,"Humanking Farian: 'You had your chance. This will be a bloodbath!'");        
     }
     void Start()
