@@ -291,13 +291,13 @@ public class BuildingSystem : MonoBehaviour
         setBuildingPOI(buildingObject.tag == "POI_Building");
         if(buildingObject.tag == "POI_Building"){
             if(poi_building.getPlaced()){
-                iWindow.popupInformationWindow("Quell der Magi ist bereits platziert!");
+                iWindow.popupInformationWindow("The Source of Magi has yet to be placed!");
                 stopBuilding();
             }
         }
         if(pr.getGold() < this.objectToPlace.getPrice()){
             Debug.Log("not enough minerals");
-            iWindow.popupInformationWindow("Nicht genug Gold zum Bauen!");
+            iWindow.popupInformationWindow("Not enough gold to place that building!");
             stopBuilding();
         }
         pbs = (POIBuildingState)poiController.stateMachine.states.Where(state => state is POIBuildingState).FirstOrDefault();       
@@ -412,17 +412,17 @@ public class BuildingSystem : MonoBehaviour
                             stopBuilding();
                         }
                     }else{
-                        iWindow.popupInformationWindow("Kann hier nicht platziert werden!");
+                        iWindow.popupInformationWindow("This cannot be placed here!");
                     }
                 }
                 else if(!poi_building.getPlaced()){
-                    iWindow.popupInformationWindow("Platziere zuerst den Quell der Magi!");
+                    iWindow.popupInformationWindow("The Source of Magi has yet to be placed!");
                 }
                 else if(!BuildingCanBePlaced(objectToPlace)){
-                    iWindow.popupInformationWindow("Kann hier nicht platziert werden!");
+                    iWindow.popupInformationWindow("This cannot be placed here!");
                 }
                 else if(!pbs.getArrived()){
-                    iWindow.popupInformationWindow("Quell der Magi noch nicht am Zielort!");
+                    iWindow.popupInformationWindow("The Source of Magi has not arrived yet!");
                 }
                 else if(BuildingCanBePlaced(objectToPlace)&& pbs.getArrived()){
                     objectToPlace.Place();

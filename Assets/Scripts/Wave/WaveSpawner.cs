@@ -14,6 +14,10 @@ public class WaveSpawner : MonoBehaviour
 {
     private ResourceUI resourceUI;
 
+    private InformationWindow iWindow;
+
+    Dictionary<int,string> specialDialogs = new Dictionary<int, string>();
+
     private GameObject player;
     private GameObject poi;
 
@@ -57,6 +61,8 @@ public class WaveSpawner : MonoBehaviour
     private bool initialWaveStarted = false;
 
     private bool doOnceDuringPause = true;
+
+    private bool waveIsBossWave = false;
     private float timeToNextWave = 60;
     private float skipToTime = 5;
  
@@ -77,23 +83,36 @@ public class WaveSpawner : MonoBehaviour
     public void updateEnemiesAliveUI(){
         resourceUI.setEnemiesAliveText(spawnedEnemies.Count);
     }
+    private void addSpecialDialogs(){
+        specialDialogs.Add(startGoblin,"Goblins: 'Blue light. It's so shiny. I must have it!'");
+        specialDialogs.Add(startSkeletons,"Skeletons: 'Ah, at last, we've found it. The source of blue magic, the very essence of power we seek.'");
+        specialDialogs.Add(startElves,"Elves: 'The Source of Magi is to powerful, it must be destroyed at all costs!'"); 
+        specialDialogs.Add(startHumans,"Humans: 'With this power our kingdom will rule the entire world! GIVE UP OR DIE!'");
+        specialDialogs.Add(startAllTogether,"Now all enemies join forces!");
+
+        specialDialogs.Add(goblinBossWave,"Goblinking Morguk: 'I GET BLUE LIGHT, YOU DIE!'");
+        specialDialogs.Add(skeletonBossWave,"Skeletonking Brathas: 'With this power we can stop our suffering. Now you will suffer!'");
+        specialDialogs.Add(elvesBossWave,"Elvenking Egolass: 'You are already corrupted by it's power. I will end your missery.");
+        specialDialogs.Add(humanBossWave,"Humanking Farian: 'You had your chance. This will be a bloodbath!'");        
+    }
     void Start()
     {
-        enemies.Add(goblins);
-        enemies.Add(skeletons);
-        enemies.Add(elves);
-        enemies.Add(humans);
+        player = GameObject.FindWithTag("Player");
+        poi = GameObject.FindWithTag("POI");
+        bs = GameObject.FindWithTag("BuildingGrid").GetComponent<BuildingSystem>();
+        iWindow = GameObject.Find("Information Window").GetComponent<InformationWindow>();
+        resourceUI = GameObject.Find("Resource Container").GetComponent<ResourceUI>();
 
         goblinBossWave = startSkeletons-1;
         skeletonBossWave = startElves-1;
         elvesBossWave = startHumans-1;
         humanBossWave = startAllTogether-1;
-       
-        player = GameObject.FindWithTag("Player");
-        poi = GameObject.FindWithTag("POI");
-        bs = GameObject.FindWithTag("BuildingGrid").GetComponent<BuildingSystem>();
-
-        resourceUI = GameObject.Find("Resource Container").GetComponent<ResourceUI>();
+        addSpecialDialogs();
+        enemies.Add(goblins);
+        enemies.Add(skeletons);
+        enemies.Add(elves);
+        enemies.Add(humans);
+         
         resourceUI.setTimeToNextWaveText("Aufbau");
     }
 
@@ -125,6 +144,7 @@ public class WaveSpawner : MonoBehaviour
         if(spawnTimer <=0)
         {
             //spawn an enemy
+
             if(enemiesToSpawn.Count>0)
             {
                 spawnIndex = Random.Range(0, spawnLocation.Length);
@@ -151,15 +171,20 @@ public class WaveSpawner : MonoBehaviour
         {
             if(doOnceDuringPause){
                 healAtWaveEnd();
+                if(waveIsBossWave){
+                    //get abilitypoint
+                }
+                waveIsBossWave = false;
                 doOnceDuringPause = false;
             }
             if(timeToNextWave <= 0){    
-                doOnceDuringPause = true;            
+                timeToNextWave = 60;           
                 currentWave++;
                 resourceUI.setCurrentWaveText(currentWave);
                 resourceUI.setTimeToNextWaveText("Angriff!");
                 GenerateWave();
-                timeToNextWave = 60;
+                waveDialog();
+                doOnceDuringPause = true;
             }
             else{
                 timeToNextWave -= Time.fixedDeltaTime;
@@ -168,7 +193,17 @@ public class WaveSpawner : MonoBehaviour
             
         }
     }
- 
+    public void waveDialog(){
+        Debug.Log("Im in waveDialog!");
+        if(specialDialogs.ContainsKey(currentWave)){
+            Debug.Log("Im in specialsDialog!");
+            iWindow.popupInformationWindow(specialDialogs[currentWave]);
+        }    
+        else if(waveIsBossWave){
+            Debug.Log("Im in bosswaveDialog!");
+            iWindow.popupInformationWindow("Bosswave!");
+        }
+    }
     public void GenerateWave()
     {
         waveValue = waveValueStart + currentWave * valuePerWave;
@@ -205,6 +240,7 @@ public class WaveSpawner : MonoBehaviour
             if(bosswaveValue < 10){
                 int randBossId = Random.Range(0, bosses.Count);
                 generatedEnemies.Add(bosses[randBossId].enemyPrefab);
+                waveIsBossWave = true;
             }
         }
         else if(currentWave >= startHumans){
