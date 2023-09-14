@@ -42,7 +42,7 @@
         },
         {
             "name": "TalentsOpen",
-            "description": "Nice!<br><br>Here you can spend <b>Talent Points</b> to unlock new Skills or upgrade existing ones.<br>Hovering over one with your <b>Mouse</b> shows some helpful information!<br><br>You earn Talent Points to learn new Skills by defeating strong invaders!<br><br>Try unlocking a <b>Skill</b> that is available (has a green border) by clicking it with the <b>Left Mousebutton</b> after <b>closing</b> this tutorial window!",
+            "description": "Nice!<br><br>Here you can spend <b>Talent Points</b> to unlock new Skills or upgrade existing ones.<br>Hovering over one with your <b>Mouse</b> shows some helpful information!<br><br>You earn Talent Points to learn new Skills by defeating strong invaders!<br><br>Try unlocking a <b>Skill</b> that is available (has a green border) by clicking it with the <b>Left Mousebutton</b> after <b>closing</b> this tutorial window!<br><br><i>You can always unlearn a Skill by clicking it with the <b>Right Mousebutton</b>!</i>",
             "completed": false
         },
         {
