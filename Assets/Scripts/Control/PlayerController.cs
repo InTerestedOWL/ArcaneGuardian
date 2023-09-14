@@ -83,6 +83,11 @@ namespace AG.Control {
             if (hasHit) {
                 GetComponent<BasicCombat>().Attack();
             }
+            StartCoroutine(ShowTutorial());
+        }
+
+        private IEnumerator ShowTutorial() {
+            yield return new WaitForSeconds(1f);
             TutorialHandler.AddTutorialToShow("Crystal", "Movement");
         }
 

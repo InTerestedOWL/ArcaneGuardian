@@ -22,6 +22,7 @@ public class TutorialHandler : MonoBehaviour {
     private Queue<TutorialEntry> tutorialQueue;
     private bool processingQueue = false;
     private TutorialEntry currentTutorialEntry;
+    public static bool tutorialActive = false;
 
     void Start() {
         tutorialQueue = new Queue<TutorialEntry>();
@@ -48,6 +49,7 @@ public class TutorialHandler : MonoBehaviour {
     }
 
     public void ResetTutorial() {
+        tutorialQueue.Clear();
         LoadDefaultTutorial();
         InitTutorials();
     }
@@ -117,7 +119,6 @@ public class TutorialHandler : MonoBehaviour {
     }
 
     IEnumerator WaitAndHandleNextEntry() {
-        Debug.Log("Wait for new tutorial entry");
         yield return new WaitForSeconds(1);
         HandleNextEntry();
     }
@@ -126,7 +127,6 @@ public class TutorialHandler : MonoBehaviour {
         if (te != null) {
             te.completed = true;
             string json = ConvertToJson();
-            Debug.Log(json);
             fh.Save(FileHandler.FileType.Tutorial, json);
         } else {
             Debug.LogError("Tutorial entry not found");

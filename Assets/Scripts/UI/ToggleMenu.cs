@@ -35,14 +35,16 @@ namespace AG.UI {
         }
 
         private void ToggleMenuAction_performed(InputAction.CallbackContext context, MenuEntry curMenuEntry) {
-            curMenuEntry.menu.SetActive(!curMenuEntry.menu.activeSelf);
-            GameObject playerObj = GameObject.Find("Player");
-            if (curMenuEntry.menu.activeSelf) {
-                ActionMapHandler actionMapHandler = playerObj.GetComponent<ActionMapHandler>();
-                ToggleMenu.menuOpenCounter++;
-                actionMapHandler.ChangeToActionMap("UI");
-            } else {
-                CloseMenu(curMenuEntry, playerObj, true);
+            if (!TutorialHandler.tutorialActive) {
+                curMenuEntry.menu.SetActive(!curMenuEntry.menu.activeSelf);
+                GameObject playerObj = GameObject.Find("Player");
+                if (curMenuEntry.menu.activeSelf) {
+                    ActionMapHandler actionMapHandler = playerObj.GetComponent<ActionMapHandler>();
+                    ToggleMenu.menuOpenCounter++;
+                    actionMapHandler.ChangeToActionMap("UI");
+                } else {
+                    CloseMenu(curMenuEntry, playerObj, true);
+                }
             }
         }
 
