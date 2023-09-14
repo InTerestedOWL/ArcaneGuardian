@@ -1,0 +1,14 @@
+{
+    "Items": [
+        {
+            "name": "Talents",
+            "description": "This is a Talent",
+            "completed": false
+        },
+        {
+            "name": "Skills",
+            "description": "This is a Skill",
+            "completed": false
+        }
+    ]
+}

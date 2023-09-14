@@ -157,9 +157,11 @@ namespace AG.UI.Draggable
             if (source.MaxAcceptable(removedDestinationItem) < removedDestinationNumber ||
                 destination.MaxAcceptable(removedSourceItem) < removedSourceNumber)
             {
-                destination.AddItems(removedDestinationItem, removedDestinationNumber);
-                source.AddItems(removedSourceItem, removedSourceNumber);
-                return;
+                if (destination.GetType() == typeof(SkillbookSlotUI) && source.GetType() == typeof(SkillbookSlotUI)) {
+                    destination.AddItems(removedDestinationItem, removedDestinationNumber);
+                    source.AddItems(removedSourceItem, removedSourceNumber);
+                    return;
+                }
             }
 
             // Do swaps
