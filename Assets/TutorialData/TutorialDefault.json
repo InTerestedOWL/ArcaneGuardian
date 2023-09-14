@@ -2,12 +2,12 @@
     "Items": [
         {
             "name": "Tutorial",
-            "description": "Welcome to Arcane Guardian!<br>You will see several of the tutorial boxes when you first discover a new mechanic.<br>They can be dismissed by clicking the X in the top right corner.<br><br>You can reset the tutorial in the <b>Settings</b>, if you missed something. (Try pressing <b>ESC</b> after closing this tutorial window to open it!)",
+            "description": "Welcome to Arcane Guardian!<br>You will see several of the tutorial boxes when you first discover a new mechanic.<br>They can be dismissed by clicking the X in the top right corner.<br><br>You can reset the tutorial in the <b>Settings</b> or show the last message again, if you missed something. (Try pressing <b>ESC</b> after closing this tutorial window to open it and continue the tutorial!)",
             "completed": false
         },
         {
             "name": "Pause",
-            "description": "Great!<br>As you can see the game is paused right now. You can pause the game by pressing <b>ESC</b><br><br>Try unpausing the game by pressing <b>ESC</b> again after closing this window!",
+            "description": "Great!<br>As you can see the game is paused right now. You can pause the game by pressing <b>ESC</b>.<br><br>Try unpausing the game by pressing <b>ESC</b> again after closing this window!",
             "completed": false
         },
         {
@@ -17,7 +17,7 @@
         },
         {
             "name": "Movement",
-            "description": "I can run, I can walk! I can dance and swing!<br><br>Use <b>WASD</b> to move around and <b>Right Mousebutton</b> to swing your sword.<br><br>Dismiss this tutorial window by and try swinging your weapon!",
+            "description": "I can run, I can walk! I can dance and swing!<br><br>Use <b>WASD</b> to move around and <b>Right Mousebutton</b> to swing your sword.<br><br>Dismiss this tutorial window try swinging your weapon!",
             "completed": false
         },
         {
@@ -32,27 +32,27 @@
         },
         {
             "name": "MoreBuildingInfo",
-            "description": "Well done!<br><br>Just as you placed the Source, you can place other buildings. They will help you protect the Source.<br><br>You can also rotate buildings by pressing <b>R</b> and calling the Source back to follow you with <b>F</b>.<br><b>BUT BEWARE!</b><br>Every building will be destroyed and you will only get a part of the Gold back!<br><br>Try changing back to the <b>Normal Mode</b> by pressing <b>B</b> after <b>closing</b> this tutorial window!",
+            "description": "Well done!<br><br>Just like you placed the Source, you can place other buildings. They will help you protect the Source.<br><br>You can also rotate buildings by pressing <b>R</b> and calling the Source back to follow you with <b>F</b>.<br><b>BUT BEWARE!</b><br>Every building will be destroyed and you will only get a part of the Gold back!<br><br>Try changing back to the <b>Normal Mode</b> by pressing <b>B</b> after <b>closing</b> this tutorial window!",
             "completed": false
         },
         {
             "name": "Talents",
-            "description": "As an <b>Arcane Guardian</b> you have powerful Skills to help you defend the Source.<br><br>Try opening the <b>Talent Menu</b> by pressing <b>N</b> after <b>closing</b> this tutorial window!",
+            "description": "As an <b>Arcane Guardian</b> you have powerful Skills to help you defend the Source.<br><br>Try opening the <b>Talent Menu</b> by pressing <b>L</b> after <b>closing</b> this tutorial window!",
             "completed": false
         },
         {
             "name": "TalentsOpen",
-            "description": "Nice!<br><br>Here you can spend <b>Talent Points</b> to unlock new Skills or upgrade existing ones.<br>Hovering over one with the <b>Mouse</b> shows some helpful information!<br><br>You earn Talent Points to learn new Skills by defeating strong invaders!<br><br>Try unlocking a <b>Skill</b> by clicking it with the <b>Left Mousebutton<b/> after <b>closing</b> this tutorial window!",
+            "description": "Nice!<br><br>Here you can spend <b>Talent Points</b> to unlock new Skills or upgrade existing ones.<br>Hovering over one with your <b>Mouse</b> shows some helpful information!<br><br>You earn Talent Points to learn new Skills by defeating strong invaders!<br><br>Try unlocking a <b>Skill</b> that is available (has a green border) by clicking it with the <b>Left Mousebutton</b> after <b>closing</b> this tutorial window!",
             "completed": false
         },
         {
             "name": "TalentLearned",
-            "description": "Great!<br>br>You now have learned a new <b>Skill</b>!<br>As you learn new Skills, more powerful <b>Skills</b> will become available for you to learn!<br><br>\"But how do I use such a Skill?\" you say?<br><br>Try pressing <b>K</b> after <b>closing</b> this tutorial window!",
+            "description": "Great!<br><br>You now have learned a new <b>Skill</b>!<br>As you learn new Skills, more powerful <b>Skills</b> will become available for you to learn!<br><br>\"But how do I use such a Skill?\" you may ask?<br><br>Try pressing <b>K</b> after <b>closing</b> this tutorial window!",
             "completed": false
         },
         {
             "name": "Skillbook",
-            "description": "Here you can see your learned <b>Skills</b>.<br><br>Try dragging one with your <b>Mouse while holding it with the Left Mousbutton</b> to the <b>Actionbar</b> at the bottom of the screen!<br><br><i>Keep in mind that you can only assign Skills in <b>Normal Mode<b/>. If you are still in <b>Building Mode</b>, press <b>B</b>!<br><br>Now close this tutorial window, your <b>Skillbook (K or clicking on X)</b> and your <b>Talent Menu (L or clicking on X)</b> and try using your new Skill by pressing the <b>matching keyboard key</b> of the Action in the <b>Actionbar</b>! <i>(Bottom right of the Action!)</i>",
+            "description": "Here you can see your learned <b>Skills</b>.<br><br>Try dragging one with your <b>Mouse while holding it with the Left Mousbutton</b> to the <b>Actionbar</b> at the bottom of the screen!<br><br><i>Keep in mind that you can only assign Skills in <b>Normal Mode</b>. If you are still in <b>Building Mode</b>, press <b>B</b>!<br><br>Now close this tutorial window, your <b>Skillbook (<b>K</b> or clicking on X)</b> and your <b>Talent Menu (<b>L</b> or clicking on X)</b> and try using your new Skill by pressing the <b>matching keyboard key</b> of the Action in the <b>Actionbar</b>! <i>(Bottom right of the Action!)</i>",
             "completed": false
         },
         {
@@ -63,6 +63,11 @@
         {
             "name": "TalentEarned",
             "description": "You have earned a new <b>Talent Point</b>!<br><br>They will drop from Bosses like the one you just defeated. Great job!",
+            "completed": false
+        },
+        {
+            "name": "LastTutorial",
+            "description": "Tutorial",
             "completed": false
         }
     ]

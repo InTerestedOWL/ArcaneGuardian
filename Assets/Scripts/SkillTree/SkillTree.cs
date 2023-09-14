@@ -30,6 +30,7 @@ namespace AG.UI
         private void OnEnable()
         {
             UpdateAllSkillUI();
+            TutorialHandler.AddTutorialToShow("TalentsOpen", "Talents");
         }
 
         public void UpdateAllSkillUI()

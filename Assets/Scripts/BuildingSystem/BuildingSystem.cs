@@ -231,6 +231,7 @@ public class BuildingSystem : MonoBehaviour
         }
     }
     public void placePOI(){
+        TutorialHandler.AddTutorialToShow("MoreBuildingInfo", "BuildingMode");
         poiController.stateMachine.ChangeState(AiStateId.POIBuilding);
     }
     public void followPOIConfirmation(){

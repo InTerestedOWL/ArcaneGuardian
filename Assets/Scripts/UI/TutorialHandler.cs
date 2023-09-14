@@ -16,6 +16,7 @@ public class TutorialHandler : MonoBehaviour {
     GameObject tutorialUI;
     [SerializeField]
     TMP_Text tutorialText;
+    public static TutorialHandler instance;
     private FileHandler fh;
     private TutorialEntry[] tutorialEntries;
     private Queue<TutorialEntry> tutorialQueue;
@@ -25,6 +26,7 @@ public class TutorialHandler : MonoBehaviour {
     void Start() {
         tutorialQueue = new Queue<TutorialEntry>();
         fh = ScriptableObject.CreateInstance<FileHandler>();
+        instance = this;
         string loadedFileData = fh.Load(FileHandler.FileType.Tutorial);
         if (loadedFileData != null) {
             tutorialEntries = JsonHelper.FromJson<TutorialEntry>(loadedFileData);
@@ -37,10 +39,6 @@ public class TutorialHandler : MonoBehaviour {
 
     private void InitTutorials() {
         AddTutorialToShow("Tutorial");
-        AddTutorialToShow("Movement");
-        AddTutorialToShow("Goal");
-        AddTutorialToShow("Crystal");
-        AddTutorialToShow("BuildingMode");
     }
 
     private void LoadDefaultTutorial() {
@@ -60,12 +58,20 @@ public class TutorialHandler : MonoBehaviour {
         return json;
     }
 
-    public void AddTutorialToShow(string key) {
-        TutorialEntry te = GetTutorialEntry(key);
+    public static void AddTutorialToShow(string key, string requirementKey = null) {
+        if (requirementKey != null) {
+            TutorialEntry requirement = instance.GetTutorialEntry(requirementKey);
+            if (requirement != null) {
+                if (!requirement.completed) {
+                    return;
+                }
+            }
+        }
+        TutorialEntry te = instance.GetTutorialEntry(key);
         if (te != null) {
             if (!te.completed) {
-                tutorialQueue.Enqueue(te);
-                ShowTutorials();
+                instance.tutorialQueue.Enqueue(te);
+                instance.ShowTutorials();
             }
         } else {
             Debug.LogError("Tutorial entry not found");
@@ -83,6 +89,10 @@ public class TutorialHandler : MonoBehaviour {
 
     private void HandleNextEntry() {
         currentTutorialEntry = tutorialQueue.Dequeue();
+        TutorialEntry lastEntry = GetTutorialEntry("LastTutorial");
+        if (lastEntry != null) {
+            lastEntry.description = currentTutorialEntry.name;
+        }
         DisplayTutorial(currentTutorialEntry);
     }
 
@@ -100,6 +110,10 @@ public class TutorialHandler : MonoBehaviour {
         } else {
             processingQueue = false;
         }
+    }
+
+    public void ShowLastMessageAgain() {
+        DisplayTutorial(GetTutorialEntry(GetTutorialEntry("LastTutorial").description));
     }
 
     IEnumerator WaitAndHandleNextEntry() {

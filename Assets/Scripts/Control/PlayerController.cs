@@ -85,6 +85,7 @@ namespace AG.Control {
             if (hasHit) {
                 GetComponent<BasicCombat>().Attack();
             }
+            TutorialHandler.AddTutorialToShow("Crystal", "Movement");
         }
 
         private void LookAtMousePos() {

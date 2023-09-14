@@ -105,6 +105,7 @@ namespace AG.UI {
             }  
 
             if(SkillLevel == 0) {
+                TutorialHandler.AddTutorialToShow("TalentLearned", "TalentsOpen");
                 skillbook.AddSkill(skill);
             }
 
