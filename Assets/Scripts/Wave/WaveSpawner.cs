@@ -85,14 +85,14 @@ public class WaveSpawner : MonoBehaviour
     }
     private void addSpecialDialogs(){
         specialDialogs.Add(startGoblin,"Goblins: 'Blue light. It's so shiny. I must have it!'");
-        specialDialogs.Add(startSkeletons,"Skeletons: 'Ah, at last, we've found it. The source of blue magic, the very essence of power we seek.'");
-        specialDialogs.Add(startElves,"Elves: 'The Source of Magi is to powerful, it must be destroyed at all costs!'"); 
+        specialDialogs.Add(startSkeletons,"Skeletons: 'Ah, at last, we've found it. The Source of Magi, the very essence of power we seek.'");
+        specialDialogs.Add(startElves,"Elves: 'The Source of Magi is to powerful! It must be destroyed at all costs!'"); 
         specialDialogs.Add(startHumans,"Humans: 'With this power our kingdom will rule the entire world! GIVE UP OR DIE!'");
         specialDialogs.Add(startAllTogether,"Now all enemies join forces!");
 
-        specialDialogs.Add(goblinBossWave,"Goblinking Morguk: 'I GET BLUE LIGHT, YOU DIE!'");
+        specialDialogs.Add(goblinBossWave,"Goblinking Muruk: 'I GET BLUE LIGHT! YOU DIE!'");
         specialDialogs.Add(skeletonBossWave,"Skeletonking Brathas: 'With this power we can stop our suffering. Now you will suffer!'");
-        specialDialogs.Add(elvesBossWave,"Elvenking Egolass: 'You are already corrupted by it's power. I will end your missery.");
+        specialDialogs.Add(elvesBossWave,"Elvenking Egolass: 'You are already corrupted by it's power. I will end your missery!'");
         specialDialogs.Add(humanBossWave,"Humanking Farian: 'You had your chance. This will be a bloodbath!'");        
     }
     void Start()
@@ -113,7 +113,7 @@ public class WaveSpawner : MonoBehaviour
         enemies.Add(elves);
         enemies.Add(humans);
          
-        resourceUI.setTimeToNextWaveText("Aufbau");
+        resourceUI.setTimeToNextWaveText("Building");
     }
 
     public void startWaves(){
@@ -181,7 +181,7 @@ public class WaveSpawner : MonoBehaviour
                 timeToNextWave = 60;           
                 currentWave++;
                 resourceUI.setCurrentWaveText(currentWave);
-                resourceUI.setTimeToNextWaveText("Angriff!");
+                resourceUI.setTimeToNextWaveText("Attack!");
                 GenerateWave();
                 waveDialog();
                 doOnceDuringPause = true;
