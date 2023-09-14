@@ -1173,6 +1173,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "ChangeMode",
+                    "type": "Button",
+                    "id": "a76a5a1c-b97c-42b7-8743-2851f5c27fbf",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "TogglePauseMenu",
                     "type": "Button",
                     "id": "d1d3b44d-b8bf-4214-8385-8be3a26706fd",
@@ -1794,6 +1803,17 @@
                     "processors": "",
                     "groups": "Keyboard & Mouse",
                     "action": "TogglePauseMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8f0812bf-507e-4617-9cb6-73b9c5d8c404",
+                    "path": "<Keyboard>/b",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "ChangeMode",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

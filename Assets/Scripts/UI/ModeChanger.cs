@@ -28,10 +28,10 @@ public class ModeChanger : MonoBehaviour {
             }
             GameObject grid = GameObject.Find("Tilemap");
             if (!actionBarSkills.activeSelf) {
-                actionMapHandler.ChangeToActionMap("Player", false);               
+                actionMapHandler.ChangeToActionMap("Player", false, true);               
                 grid.GetComponent<Renderer>().enabled = false;               
             } else {
-                actionMapHandler.ChangeToActionMap("Player (Building)", false);                
+                actionMapHandler.ChangeToActionMap("Player (Building)", false, true);                
                 grid.GetComponent<Renderer>().enabled = true;  
             }
             actionBarSkills.SetActive(!actionBarSkills.activeSelf);

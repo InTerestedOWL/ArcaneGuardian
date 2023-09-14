@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using AG.Control;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -10,6 +11,12 @@ namespace AG.UI {
 
         [SerializeField]
         List<MenuEntry> menuEntries;
+
+        [SerializeField]
+        GameObject settingsMenu;
+
+        [SerializeField]
+        GameObject pauseMenu;
 
         void Start() {
             foreach (MenuEntry menuEntry in menuEntries) {
@@ -47,6 +54,9 @@ namespace AG.UI {
         }
 
         public void CloseMenu(MenuEntry curMenu, GameObject playerObj = null, bool menuChanged = false) {
+            if (curMenu.menu == pauseMenu) {
+                CloseSettingsMenu();
+            }
             if (playerObj == null) {
                 playerObj = GameObject.Find("Player");
             }
@@ -57,6 +67,29 @@ namespace AG.UI {
             if (ToggleMenu.menuOpenCounter <= 0) {
                 ActionMapHandler actionMapHandler = playerObj.GetComponent<ActionMapHandler>();
                 actionMapHandler.ChangeToActionMap("Player");
+                // Look for GameObjects with name InfoBox and close them, if they are active
+                GameObject[] activeInfoBoxes = GameObject.FindObjectsOfType<GameObject>()
+                    .Where(go => go.activeInHierarchy && go.name == "InfoBox")
+                    .ToArray();
+
+                foreach (GameObject infoBox in activeInfoBoxes) {
+                    infoBox.SetActive(false);
+                }
+            }
+        }
+
+        public void ToggleWithoutInput(GameObject menu) {
+            menu.SetActive(!menu.activeSelf);
+            GameObject playerObj = GameObject.Find("Player");
+            if (menu.activeSelf) {
+                ActionMapHandler actionMapHandler = playerObj.GetComponent<ActionMapHandler>();
+                ToggleMenu.menuOpenCounter++;
+                actionMapHandler.ChangeToActionMap("UI");
+            } else {
+                MenuEntry menuEntry = new MenuEntry {
+                    menu = menu
+                };
+                CloseMenu(menuEntry, playerObj, true);
             }
         }
 
@@ -69,6 +102,15 @@ namespace AG.UI {
                     menuEntry.toggleMenuActionUI.action.performed -= action;
                 }
             }
+            menuOpenCounter = 0;
+        }
+
+        public void OpenSettingsMenu() {
+            settingsMenu.GetComponent<SettingsHandler>().OpenSettings();
+        }
+
+        public void CloseSettingsMenu() {
+            settingsMenu.GetComponent<SettingsHandler>().CloseSettings();
         }
     }
 }
