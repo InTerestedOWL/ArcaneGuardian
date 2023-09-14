@@ -91,7 +91,9 @@ namespace AG.Combat {
 
             blinkTimer = blinkDuration;
         }
-
+        public void SetToMaxHealth(){
+            TakeHeal((int)(maxHealth+1));
+        }
         private void TakeHeal(int heal) {
             if (isDead)
                 return;
