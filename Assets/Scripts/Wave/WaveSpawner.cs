@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using AG.Combat;
 using UnityEngine;
 // Grundlagen von Tutorial https://www.youtube.com/watch?v=7T-MTo8Uaio
 
@@ -12,6 +13,11 @@ public class Enemy
 public class WaveSpawner : MonoBehaviour
 {
     private ResourceUI resourceUI;
+
+    private GameObject player;
+    private GameObject poi;
+
+    private BuildingSystem bs;
     public List<List<Enemy>> enemies = new List<List<Enemy>>();
     public List<Enemy> goblins = new List<Enemy>();
 
@@ -50,7 +56,7 @@ public class WaveSpawner : MonoBehaviour
 
     private bool initialWaveStarted = false;
 
-
+    private bool doOnceDuringPause = true;
     private float timeToNextWave = 60;
     private float skipToTime = 5;
  
@@ -83,6 +89,10 @@ public class WaveSpawner : MonoBehaviour
         elvesBossWave = startHumans-1;
         humanBossWave = startAllTogether-1;
        
+        player = GameObject.FindWithTag("Player");
+        poi = GameObject.FindWithTag("POI");
+        bs = GameObject.FindWithTag("BuildingGrid").GetComponent<BuildingSystem>();
+
         resourceUI = GameObject.Find("Resource Container").GetComponent<ResourceUI>();
         resourceUI.setTimeToNextWaveText("Aufbau");
     }
@@ -139,7 +149,12 @@ public class WaveSpawner : MonoBehaviour
  
         if(waveTimer<=0 && spawnedEnemies.Count <=0 && initialWaveStarted)
         {
-            if(timeToNextWave <= 0){                
+            if(doOnceDuringPause){
+                healAtWaveEnd();
+                doOnceDuringPause = false;
+            }
+            if(timeToNextWave <= 0){    
+                doOnceDuringPause = true;            
                 currentWave++;
                 resourceUI.setCurrentWaveText(currentWave);
                 resourceUI.setTimeToNextWaveText("Angriff!");
@@ -252,7 +267,16 @@ public class WaveSpawner : MonoBehaviour
         enemiesToSpawn.Clear();
         enemiesToSpawn = generatedEnemies;
     }
-  
+    public void healAtWaveEnd(){
+        player.GetComponent<CombatTarget>().SetToMaxHealth();
+        poi.GetComponent<CombatTarget>().SetToMaxHealth();
+        POIBuilding poi_building = bs.poi_building;
+        if(poi_building != null){
+            foreach(PlaceableObject po in poi_building.getPlacedBuildings()){
+                po.GetComponentInParent<CombatTarget>().SetToMaxHealth();
+            }
+        }
+    }
 }
 
 
