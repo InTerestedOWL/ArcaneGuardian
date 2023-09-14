@@ -2,34 +2,44 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using AG.Talents;
 
-public class SkillTree : MonoBehaviour
+namespace AG.UI
 {
-    public List<SkillTreeSkill> SkillList;
-    public GameObject SkillHolder;
+    public class SkillTree : MonoBehaviour
+    {
+        public List<SkillTreeSkill> SkillList;
+        public GameObject SkillHolder;
 
-    [SerializeField]
-    public TMP_Text SkillPointsText;
+        [SerializeField]
+        public TMP_Text SkillPointsText;
 
-    //Number of Skill Points the Players can to spend on his Skills
-    public int SkillPoints;
+        //Number of Skill Points the Players can to spend on his Skills
+        public int SkillPoints;
 
-    private void Start() {
-        SkillPoints = 20;
-        SkillPointsText.text = SkillPoints.ToString();
+        private void Start()
+        {
+            SkillPoints = 20;
+            SkillPointsText.text = SkillPoints.ToString();
 
-        foreach(var skill in SkillHolder.GetComponentsInChildren<SkillTreeSkill>()){
-            SkillList.Add(skill);
+            foreach (var skill in SkillHolder.GetComponentsInChildren<SkillTreeSkill>())
+            {
+                SkillList.Add(skill);
+            }
         }
 
-        UpdateAllSkillUI();
-    }
+        private void OnEnable()
+        {
+            UpdateAllSkillUI();
+        }
 
-    public void UpdateAllSkillUI(){
-        SkillPointsText.text = SkillPoints.ToString();
-        foreach(var skill in SkillList){
-            skill.UpdateUI();
+        public void UpdateAllSkillUI()
+        {
+            SkillPointsText.text = SkillPoints.ToString();
+            foreach (var skill in SkillList)
+            {
+                skill.UpdateUI();
+            }
         }
     }
+
 }
