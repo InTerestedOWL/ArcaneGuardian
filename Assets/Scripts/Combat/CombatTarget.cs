@@ -133,6 +133,7 @@ namespace AG.Combat {
             GetComponent<Animator>().SetTrigger("killed");
             // rb.isKinematic = true;
             healthBar?.gameObject.SetActive(false);
+            transform.Find("MiniMapIcon")?.gameObject.SetActive(false);
             isDead = true;
 
             if (audioController != null) {
