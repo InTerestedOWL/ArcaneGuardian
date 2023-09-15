@@ -69,6 +69,11 @@
             "name": "LastTutorial",
             "description": "Tutorial",
             "completed": false
+        },
+        {
+            "name": "Reset",
+            "description": "You have reset the tutorial!",
+            "completed": false
         }
     ]
 }
