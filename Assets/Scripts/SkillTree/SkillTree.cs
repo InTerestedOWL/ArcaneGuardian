@@ -32,4 +32,9 @@ public class SkillTree : MonoBehaviour
             skill.UpdateUI();
         }
     }
+
+    public void AddSkillPoints(int sp){
+        SkillPoints += sp;
+        SkillPointsText.text = SkillPoints.ToString();
+    }
 }

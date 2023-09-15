@@ -20,8 +20,9 @@ public class WaveSpawner : MonoBehaviour
 
     private GameObject player;
     private GameObject poi;
-
     private BuildingSystem bs;
+
+    private SkillTree st;
     public List<List<Enemy>> enemies = new List<List<Enemy>>();
     public List<Enemy> goblins = new List<Enemy>();
 
@@ -58,11 +59,17 @@ public class WaveSpawner : MonoBehaviour
     private float spawnInterval;
     private float spawnTimer;
 
+    
+
     private bool initialWaveStarted = false;
 
     private bool doOnceDuringPause = true;
 
     private bool waveIsBossWave = false;
+
+
+    public int skillPointsEveryXWave = 3;
+    private int skillPointsToAdd = 0;
     private float timeToNextWave = 60;
     private float skipToTime = 5;
  
@@ -100,6 +107,7 @@ public class WaveSpawner : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         poi = GameObject.FindWithTag("POI");
         bs = GameObject.FindWithTag("BuildingGrid").GetComponent<BuildingSystem>();
+        st = GameObject.Find("Skill Tree Container").GetComponent<SkillTree>();
         iWindow = GameObject.Find("Information Window").GetComponent<InformationWindow>();
         resourceUI = GameObject.Find("Resource Container").GetComponent<ResourceUI>();
 
@@ -171,19 +179,34 @@ public class WaveSpawner : MonoBehaviour
         {
             if(doOnceDuringPause){
                 healAtWaveEnd();
-                if(waveIsBossWave){
-                    //get abilitypoint
+                
+                if(skillPointsToAdd > 0){
+                    st.AddSkillPoints(skillPointsToAdd);
+                    iWindow.popupInformationWindow("You received "+skillPointsToAdd+" Skill Points! Open your  Skill Tree (L) to spend them!");
                 }
+                
+                
+
+                skillPointsToAdd = 0;
                 waveIsBossWave = false;
                 doOnceDuringPause = false;
             }
             if(timeToNextWave <= 0){    
                 timeToNextWave = 60;           
                 currentWave++;
+                
                 resourceUI.setCurrentWaveText(currentWave);
                 resourceUI.setTimeToNextWaveText("Attack!");
                 GenerateWave();
-                waveDialog();
+                checkAndSetWaveIsBossWave();
+                //Increase skillpoints additionfor this wave
+                if(currentWave % skillPointsEveryXWave == 0){
+                    skillPointsToAdd++;
+                }
+                if(waveIsBossWave){
+                    skillPointsToAdd++;
+                }
+                waveDialog();             
                 doOnceDuringPause = true;
             }
             else{
@@ -192,6 +215,9 @@ public class WaveSpawner : MonoBehaviour
             }
             
         }
+    }
+    private void checkAndSetWaveIsBossWave(){
+        waveIsBossWave= (currentWave == goblinBossWave) || (currentWave == skeletonBossWave) || (currentWave == elvesBossWave)||(currentWave == humanBossWave);
     }
     public void waveDialog(){
         Debug.Log("Im in waveDialog!");
