@@ -41,6 +41,11 @@ namespace AG.UI
                 skill.UpdateUI();
             }
         }
+
+        public void AddSkillPoints(int sp){
+            SkillPoints += sp;
+            SkillPointsText.text = SkillPoints.ToString();
+        }
     }
 
 }
