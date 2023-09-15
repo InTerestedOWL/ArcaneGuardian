@@ -29,6 +29,8 @@ namespace AG.Skills.Targeting {
         }
 
         private IEnumerator SelectAoETarget(SkillData data, Action callback) {
+            cancelTargeting = false;
+            activeStrategies.Enqueue(this);
             ActionMapHandler actionMapHandler = GameObject.FindWithTag("Player").GetComponent<ActionMapHandler>();
             InputAction cancelSpellAction = actionMapHandler.GetActionOfCurrentActionMap("CancelSpell");
             InputAction selectTarget = actionMapHandler.GetActionOfCurrentActionMap("SelectTarget");
@@ -63,9 +65,14 @@ namespace AG.Skills.Targeting {
                 if (buttonTriggered && cancelSpellAction.phase == InputActionPhase.Waiting && selectTarget.phase == InputActionPhase.Waiting) {
                     targeting = false;
                     telegraphInstance.gameObject.SetActive(false);
-                    actionMapHandler.ChangeToActionMap("Player");
+                    if (activeStrategies.Contains(this)) {
+                        activeStrategies.Dequeue();
+                    }
+                    if (activeStrategies.Count == 0) {
+                        actionMapHandler.ChangeToActionMap("Player");
+                    }
                     yield break;
-                } else if (cancelSpellAction.triggered || selectTarget.triggered) {
+                } else if (cancelSpellAction.triggered || selectTarget.triggered || cancelTargeting) {
                     if (selectTarget.triggered) {
                         data.SetTargets(GetTargets(groundHit.point, hasHit, data.GetUser().transform.position));
                         data.SetTargetPosition(groundHit.point);

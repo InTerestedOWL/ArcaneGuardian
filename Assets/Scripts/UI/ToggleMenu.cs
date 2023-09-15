@@ -18,6 +18,9 @@ namespace AG.UI {
         [SerializeField]
         GameObject pauseMenu;
 
+        [SerializeField]
+        public bool preventInput = false;
+
         void Start() {
             foreach (MenuEntry menuEntry in menuEntries) {
                 if (menuEntry.menu) {
@@ -35,7 +38,7 @@ namespace AG.UI {
         }
 
         private void ToggleMenuAction_performed(InputAction.CallbackContext context, MenuEntry curMenuEntry) {
-            if (!TutorialHandler.tutorialActive) {
+            if (!TutorialHandler.tutorialActive && !preventInput) {
                 curMenuEntry.menu.SetActive(!curMenuEntry.menu.activeSelf);
                 GameObject playerObj = GameObject.Find("Player");
                 if (curMenuEntry.menu.activeSelf) {

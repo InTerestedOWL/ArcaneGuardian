@@ -1,0 +1,114 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using AG.Files;
+using AG.UI;
+using TMPro;
+using UnityEngine;
+
+public class ScoreHandler : MonoBehaviour {
+    [SerializeField]
+    private GameObject nameContainer;
+    [SerializeField]
+    private TMP_Text scoreText;
+    [SerializeField]
+    private TMP_Text playerName;
+    [SerializeField]
+    private PlayerResources playerResources;
+    [SerializeField]
+    ToggleMenu toggleMenu;
+    [SerializeField]
+    TextAsset defaultScore;
+    [SerializeField]
+    SceneHandler sceneHandler;
+    private FileHandler fh;
+    private ScoreEntry[] scoreEntries;
+    private ScoreEntry playerScore;
+
+    void Start()
+    {
+        fh = ScriptableObject.CreateInstance<FileHandler>();
+        string loadedFileData = fh.Load(FileHandler.FileType.Score);
+        if (loadedFileData != null) {
+            scoreEntries = JsonHelper.FromJson<ScoreEntry>(loadedFileData);
+        } else {
+            Debug.Log("No Score file found, using default.");
+            LoadDefaultScore();
+        }
+    }
+
+    private void LoadDefaultScore() {
+        scoreEntries = JsonHelper.FromJson<ScoreEntry>(defaultScore.text);
+        string json = ConvertToJson();
+        fh.Save(FileHandler.FileType.Score, json);
+    }
+
+    // Can't be set in FileHandler, as it won't work there
+    private string ConvertToJson() {
+        string json = JsonHelper.ToJson(scoreEntries, true);
+        return json;
+    }
+
+    private bool IsScoreInScoreboard(int score) {
+        if (scoreEntries.Length > 0) {
+            if (scoreEntries[scoreEntries.Length - 1].score <= score) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // Sorts the scoreEntries by score
+    private void SortScoreEntries() {
+        Array.Sort(scoreEntries, delegate (ScoreEntry x, ScoreEntry y) {
+            return y.score.CompareTo(x.score);
+        });
+    }
+
+    public void HandleScoreBoard() {
+        if (IsScoreInScoreboard(playerScore.score)) {
+            string name = playerName.text;
+            if (playerName == null || playerName.text == "") {
+                name = "Arcane Guardian";
+            }
+            AddScoreEntry();
+        }
+
+    }
+
+    public void AddScoreEntry() {
+        if (playerScore.name != "" && scoreEntries.Length > 0) {
+            scoreEntries[scoreEntries.Length - 1] = playerScore;
+            SortScoreEntries();
+            string json = ConvertToJson();
+            fh.Save(FileHandler.FileType.Score, json);
+        }
+    }
+
+    private void OnEnable() {
+        Time.timeScale = 0;
+        AudioListener.pause = true;
+        toggleMenu.preventInput = true;
+        playerScore = new ScoreEntry() {
+            name = "Arcane Guardian",
+            score = playerResources.getScore()
+        };
+        scoreText.text = playerScore.score.ToString();
+        if (IsScoreInScoreboard(playerScore.score)) {
+            nameContainer.SetActive(true);
+        }
+        sceneHandler.ChangeScene();
+    }
+
+    private void OnDestroy() {
+        Time.timeScale = 1;
+        AudioListener.pause = false;
+    }
+}
+
+[Serializable]
+public class ScoreEntry
+{
+    public string name;
+    public int score;
+}

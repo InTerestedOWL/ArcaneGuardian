@@ -8,7 +8,6 @@ using UnityEngine.EventSystems;
 using AG.MovementCore;
 using AG.Combat;
 using System.Collections.Generic;
-using UnityEngine.Experimental.Rendering;
 
 namespace AG.Control {
     public class PlayerController : MonoBehaviour {
@@ -19,14 +18,19 @@ namespace AG.Control {
         bool isLookAtMousePosEnabled = true;
         //IEnumerator mouseMovementCoroutine = null;
         Vector3 curMovement = Vector3.zero;
+        CombatTarget ct;
 
         void Start() {
             ignoreRaycastLayer = LayerMask.GetMask("Ignore Raycast");
             uiWindowLayerID = LayerMask.NameToLayer("UI Window");
+            ct = GetComponent<CombatTarget>();
         }
 
         // Update is called once per frame
         void Update() {
+            if (ct && ct.IsDead()) {
+                return;
+            }
             HandleMovement();
             if(isLookAtMousePosEnabled){
                 LookAtMousePos();

@@ -31,6 +31,7 @@ namespace AG.Combat {
         private CharacterAudioController audioController;
 
         private bool isDead = false;
+        private Dictionary<GameObject, bool> isInvincibleAgainst = new Dictionary<GameObject, bool>();
 
         private void Start() {
             currentHealth = maxHealth;
@@ -63,7 +64,22 @@ namespace AG.Combat {
                 other.tag == "EnemyWeapon" && tag == "POI" || 
                 other.tag == "EnemyWeapon" && tag == "Turret") 
                 && other.GetComponentInParent<BasicCombat>().IsAttacking()) {
+                if (isInvincibleAgainst.ContainsKey(other.gameObject)) {
+                    if (isInvincibleAgainst[other.gameObject]) {
+                        return;
+                    }
+                } else {
+                    StartCoroutine(InvincibleTimer(0.5f, other.gameObject));
+                }
                 HandleHit(other);
+            }
+        }
+
+        IEnumerator InvincibleTimer(float time, GameObject sourceObject) {
+            isInvincibleAgainst.Add(sourceObject, true);
+            yield return new WaitForSeconds(time);
+            if (isInvincibleAgainst.ContainsKey(sourceObject)) {
+                isInvincibleAgainst.Remove(sourceObject);
             }
         }
 
@@ -150,6 +166,10 @@ namespace AG.Combat {
 
                 //Despawn Enemies on Death
                 StartCoroutine(DespawnOnDeath());
+            }
+
+            if(tag == "Player") {
+                GetComponent<GameOverHandler>()?.TriggerGameOver();
             }
 
             if(isBuilding) {

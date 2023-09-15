@@ -9,7 +9,8 @@ namespace AG.Files {
     public class FileHandler : ScriptableObject {
         public enum FileType {
             Settings,
-            Tutorial
+            Tutorial,
+            Score
         }
 
         public void Save(FileType ft, string jsonString) {

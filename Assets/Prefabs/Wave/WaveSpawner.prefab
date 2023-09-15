@@ -111,8 +111,6 @@ MonoBehaviour:
   goblins:
   - enemyPrefab: {fileID: 7128717508042274872, guid: 02276566de6f24a45ab7078a35b62f56, type: 3}
     cost: 1
-  - enemyPrefab: {fileID: 8377689959566636788, guid: ef5d0f6e3ba16b740b88cb9a98bcdf3e, type: 3}
-    cost: 1
   - enemyPrefab: {fileID: 4765816137945996716, guid: 96ac7ea4a6ce059478d6c4066d286d8e, type: 3}
     cost: 1
   - enemyPrefab: {fileID: 4199491526737211174, guid: 7f13d2702b0be474e8d72a5395000502, type: 3}
@@ -146,8 +144,6 @@ MonoBehaviour:
     cost: 1
   - enemyPrefab: {fileID: 1435926247388347987, guid: ee5b9ee9f89c49b45b6de63ac79cbd5a, type: 3}
     cost: 1
-  - enemyPrefab: {fileID: 2362197617567772057, guid: 3191a58c8a5ed6743891bb1b139c600e, type: 3}
-    cost: 1
   - enemyPrefab: {fileID: 2731885936117290628, guid: 7c7a27d0137faee439df993bdefd2bcf, type: 3}
     cost: 1
   bosses:
@@ -177,4 +173,5 @@ MonoBehaviour:
   - {fileID: 2793847053774194354}
   - {fileID: 2793847053644718091}
   waveDuration: 30
+  skillPointsEveryXWave: 3
   spawnedEnemies: []
