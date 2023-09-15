@@ -13,19 +13,29 @@ namespace AG.Files {
         }
 
         public void Save(FileType ft, string jsonString) {
-            Debug.Log("Save");
-
-            Enum ftEnum = ft;
-
-            Debug.Log(jsonString);
-
-            Debug.Log($"Saved to {Application.persistentDataPath}/{ftEnum}.json");
-
-            File.WriteAllText($"{Application.persistentDataPath}/{ftEnum}.json", jsonString);
+            try {
+                Enum ftEnum = ft;
+                Debug.Log($"Saved to {Application.persistentDataPath}/{ftEnum}.json");
+                File.WriteAllText($"{Application.persistentDataPath}/{ftEnum}.json", jsonString);
+            } catch (Exception e) {
+                Debug.LogError(e);
+            }
         }
 
-        public void Load() {
-            
+        public string Load(FileType ft) {
+            try {
+                Enum ftEnum = ft;
+                string savedString = File.ReadAllText($"{Application.persistentDataPath}/{ftEnum}.json");
+                if (savedString != null) {
+                    return savedString;
+                } else {
+                    Debug.LogError("No file found");
+                    return null;
+                }
+            } catch (Exception e) {
+                Debug.LogError(e);
+                return null;
+            }
         }
     }
 }

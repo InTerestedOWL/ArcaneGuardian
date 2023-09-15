@@ -60,8 +60,6 @@ namespace AG.Control {
             // Moving in the direction of the camera
             curMovement = Camera.main.transform.TransformDirection(curMovement);
             curMovement.y = 0;
-
-            GetComponent<Movement>().DoMovement(transform.position + curMovement);
         }
 
         // Handle movement for mouse input - Deactivated
@@ -85,6 +83,12 @@ namespace AG.Control {
             if (hasHit) {
                 GetComponent<BasicCombat>().Attack();
             }
+            StartCoroutine(ShowTutorial());
+        }
+
+        private IEnumerator ShowTutorial() {
+            yield return new WaitForSeconds(1f);
+            TutorialHandler.AddTutorialToShow("Crystal", "Movement");
         }
 
         private void LookAtMousePos() {

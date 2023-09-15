@@ -1,9 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class SettingsHandler : MonoBehaviour {
@@ -11,6 +6,10 @@ public class SettingsHandler : MonoBehaviour {
     private GameObject tabsParent;
     [SerializeField]
     private GameObject tabContentArea;
+    [SerializeField]
+    private ScreenResolutionSelector screenResSel;
+    [SerializeField]
+    private SoundSettings soundSettings;
 
     // Start is called before the first frame update
     void Start() {
@@ -21,11 +20,6 @@ public class SettingsHandler : MonoBehaviour {
                 //toggle.Select();
             }
         }
-    }
-
-    // Update is called once per frame
-    void Update() {
-        
     }
 
     public void ChangeTab(Toggle toggle) {
@@ -57,5 +51,15 @@ public class SettingsHandler : MonoBehaviour {
                 selectedIndicator.SetActive(false);
             }
         }
+    }
+
+    public void CloseSettings() {
+        screenResSel.Revert();
+        soundSettings.Revert();
+        gameObject.SetActive(false);
+    }
+
+    public void OpenSettings() {
+        gameObject.SetActive(true);
     }
 }

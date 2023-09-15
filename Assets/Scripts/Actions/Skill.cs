@@ -43,6 +43,7 @@ namespace AG.Skills {
             foreach(EffectStrategy effectStrategy in effectStrategies) {
                 effectStrategy.ApplyEffect(skillData);
             }
+            playerController.StartCoroutine(ShowTutorial());
         }
         
         public override IEnumerator StartCooldown() {
@@ -56,6 +57,11 @@ namespace AG.Skills {
                 yield return new WaitForFixedUpdate();
             }
             isOnCooldown = false;
+        }
+
+        public IEnumerator ShowTutorial() {
+            yield return new WaitForSeconds(0.5f);
+            TutorialHandler.AddTutorialToShow("SkillUsed", "Skillbook");
         }
 
         public EffectStrategy[] GetEffectStrategies() {

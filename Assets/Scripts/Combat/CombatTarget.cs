@@ -175,7 +175,6 @@ namespace AG.Combat {
 
         private IEnumerator DespawnOnDeath() {
             float sinkSpeed = 0.5f;
-            this.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
             Animator animator = GetComponent<Animator>();
 
             //Wait for Death Animation to finish
@@ -184,11 +183,13 @@ namespace AG.Combat {
             }
 
             yield return new WaitForSeconds(3f);
+            this.GetComponent<NavMeshAgent>().enabled = false;
+            this.GetComponent<Rigidbody>().isKinematic = true;
             
-             //Translate Enemy into Ground
+            //Translate Enemy into Ground
             while (transform.position.y > -1.5f) {
                 transform.Translate(Vector3.down * sinkSpeed *  Time.deltaTime);
-                yield return null;
+                yield return new WaitForFixedUpdate();
             }
 
             //Despawn Enemies on Death

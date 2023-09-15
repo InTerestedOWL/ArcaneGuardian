@@ -7,7 +7,7 @@ using TMPro;
 using AG.Skills;
 using UnityEngine.EventSystems;
 
-namespace AG.Talents {
+namespace AG.UI {
     // TODO: Combine SkillTree Skill and SkillBook Skill?
     public class SkillTreeSkill : MonoBehaviour
     {
@@ -44,6 +44,8 @@ namespace AG.Talents {
             skillImage.GetComponent<Image>().material = Instantiate(skillImage.GetComponent<Image>().material);
             button = GetComponent<Button>();
             buttonColors = button.colors;
+
+            UpdateUI();
         }
 
         public void UpdateUI() {
@@ -70,6 +72,8 @@ namespace AG.Talents {
                     connectedSkill.SetBuyable(false);
             }
 
+            Debug.Log(buttonColors);
+            Debug.Log(backgroundImage);
             if(SkillLevel >= SkillCap) {
                 buttonColors.normalColor = Color.yellow;
                 backgroundImage.color = Color.yellow;
@@ -101,6 +105,7 @@ namespace AG.Talents {
             }  
 
             if(SkillLevel == 0) {
+                TutorialHandler.AddTutorialToShow("TalentLearned", "TalentsOpen");
                 skillbook.AddSkill(skill);
             }
 
