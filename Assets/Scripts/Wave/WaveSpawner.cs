@@ -53,7 +53,7 @@ public class WaveSpawner : MonoBehaviour
     private int waveValue;
     public List<GameObject> enemiesToSpawn = new List<GameObject>();
     // Start is called before the first frame update
-     public Transform[] spawnLocation;
+    public Transform[] spawnLocation;
     private int spawnIndex;
     public float waveDuration;
     private float waveTimer;
@@ -87,6 +87,10 @@ public class WaveSpawner : MonoBehaviour
     }
     public int getCurrentWave(){
         return currentWave;
+    }
+
+    public void setSpawnLocations(Transform[] sls){
+        spawnLocation = sls;
     }
     public void updateEnemiesAliveUI(){
         resourceUI.setEnemiesAliveText(spawnedEnemies.Count);
