@@ -43,7 +43,9 @@ namespace AG.Skills {
             foreach(EffectStrategy effectStrategy in effectStrategies) {
                 effectStrategy.ApplyEffect(skillData);
             }
-            playerController.StartCoroutine(ShowTutorial());
+            if(playerController != null) {
+                playerController.StartCoroutine(ShowTutorial());
+            }
         }
         
         public override IEnumerator StartCooldown() {

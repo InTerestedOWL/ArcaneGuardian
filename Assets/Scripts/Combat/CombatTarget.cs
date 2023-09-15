@@ -29,7 +29,7 @@ namespace AG.Combat {
         private bool inAoERange = false;
         private Coroutine coroutineAoEDoT = null;
         private CharacterAudioController audioController;
-
+        private Coroutine gameOverCoroutine = null;
         private bool isDead = false;
         private Dictionary<GameObject, bool> isInvincibleAgainst = new Dictionary<GameObject, bool>();
 
@@ -169,8 +169,8 @@ namespace AG.Combat {
                 StartCoroutine(DespawnOnDeath());
             }
 
-            if(tag == "Player") {
-                GetComponent<GameOverHandler>()?.TriggerGameOver();
+            if((CompareTag("Player") || CompareTag("POI")) && gameOverCoroutine == null) {
+                gameOverCoroutine = StartCoroutine(GameOverTimer());
             }
 
             if(isBuilding) {
@@ -192,6 +192,11 @@ namespace AG.Combat {
                 }
                 
             }
+        }
+
+        private IEnumerator GameOverTimer() {
+            yield return new WaitForSeconds(2f);
+            GetComponent<GameOverHandler>()?.TriggerGameOver();
         }
 
         private IEnumerator DespawnOnDeath() {

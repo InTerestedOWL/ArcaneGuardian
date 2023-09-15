@@ -26,7 +26,7 @@ namespace AG.Files {
         public string Load(FileType ft) {
             try {
                 Enum ftEnum = ft;
-                string savedString = File.ReadAllText($"{Application.persistentDataPath}/{ftEnum}.json");
+                string savedString = File.ReadAllText($"{Application.persistentDataPath}/{ftEnum}.json");;
                 if (savedString != null) {
                     return savedString;
                 } else {

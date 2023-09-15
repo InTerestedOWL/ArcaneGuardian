@@ -24,7 +24,7 @@ public class TutorialHandler : MonoBehaviour {
     private TutorialEntry currentTutorialEntry;
     public static bool tutorialActive = false;
 
-    void Start() {
+    void Awake() {
         tutorialQueue = new Queue<TutorialEntry>();
         fh = ScriptableObject.CreateInstance<FileHandler>();
         instance = this;
@@ -67,22 +67,27 @@ public class TutorialHandler : MonoBehaviour {
     }
 
     public static void AddTutorialToShow(string key, string requirementKey = null) {
-        if (requirementKey != null) {
-            TutorialEntry requirement = instance.GetTutorialEntry(requirementKey);
-            if (requirement != null) {
-                if (!requirement.completed) {
-                    return;
+        try
+        {
+            if (requirementKey != null) {
+                TutorialEntry requirement = instance.GetTutorialEntry(requirementKey);
+                if (requirement != null) {
+                    if (!requirement.completed) {
+                        return;
+                    }
                 }
             }
-        }
-        TutorialEntry te = instance.GetTutorialEntry(key);
-        if (te != null) {
-            if (!te.completed) {
-                instance.tutorialQueue.Enqueue(te);
-                instance.ShowTutorials();
+            TutorialEntry te = instance.GetTutorialEntry(key);
+            if (te != null) {
+                if (!te.completed) {
+                    instance.tutorialQueue.Enqueue(te);
+                    instance.ShowTutorials();
+                }
+            } else {
+                Debug.LogError("Tutorial entry not found");
             }
-        } else {
-            Debug.LogError("Tutorial entry not found");
+        } catch (Exception) {
+            // Ignore
         }
     }
 

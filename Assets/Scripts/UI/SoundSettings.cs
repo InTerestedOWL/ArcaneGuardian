@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -28,7 +29,7 @@ public class SoundSettings : MonoBehaviour {
     private float previousMusic;
     private float previousEffects;
 
-    void Start() {
+    void Awake() {
         previousMaster = masterSlider.value;
         previousMusic = musicSlider.value;
         previousEffects = effectsSlider.value;
@@ -70,6 +71,20 @@ public class SoundSettings : MonoBehaviour {
         }
     }
 
+    public AudioSettingsObject GetAudioSettings() {
+        AudioSettingsObject audioSettings = new AudioSettingsObject {
+            master = masterSlider.value,
+            music = musicSlider.value,
+            effects = effectsSlider.value
+        };
+        return audioSettings;
+    }
+
+    public void SetSoundSettings(AudioSettingsObject audioSettings) {
+        masterSlider.value = previousMaster = audioSettings.master;
+        musicSlider.value = previousMusic = audioSettings.music;
+        effectsSlider.value = previousEffects = audioSettings.effects;
+    }
     public void Apply() {
         previousMaster = masterSlider.value;
         previousMusic = musicSlider.value;
@@ -81,4 +96,11 @@ public class SoundSettings : MonoBehaviour {
         musicSlider.value = previousMusic;
         effectsSlider.value = previousEffects;
     }
+}
+
+[Serializable]
+public class AudioSettingsObject {
+    public float master;
+    public float music;
+    public float effects;
 }

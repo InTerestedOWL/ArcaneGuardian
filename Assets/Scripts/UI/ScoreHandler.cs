@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using AG.Control;
 using AG.Files;
 using AG.UI;
 using TMPro;
@@ -12,7 +13,7 @@ public class ScoreHandler : MonoBehaviour {
     [SerializeField]
     private TMP_Text scoreText;
     [SerializeField]
-    private TMP_Text playerName;
+    private TMP_InputField playerName;
     [SerializeField]
     private PlayerResources playerResources;
     [SerializeField]
@@ -25,8 +26,7 @@ public class ScoreHandler : MonoBehaviour {
     private ScoreEntry[] scoreEntries;
     private ScoreEntry playerScore;
 
-    void Start()
-    {
+    void Awake() {
         fh = ScriptableObject.CreateInstance<FileHandler>();
         string loadedFileData = fh.Load(FileHandler.FileType.Score);
         if (loadedFileData != null) {
@@ -50,8 +50,9 @@ public class ScoreHandler : MonoBehaviour {
     }
 
     private bool IsScoreInScoreboard(int score) {
+        Debug.Log(scoreEntries);
         if (scoreEntries.Length > 0) {
-            if (scoreEntries[scoreEntries.Length - 1].score <= score) {
+            if (scoreEntries[scoreEntries.Length - 1].score < score) {
                 return true;
             }
         }
@@ -67,13 +68,12 @@ public class ScoreHandler : MonoBehaviour {
 
     public void HandleScoreBoard() {
         if (IsScoreInScoreboard(playerScore.score)) {
-            string name = playerName.text;
-            if (playerName == null || playerName.text == "") {
-                name = "Arcane Guardian";
+            if (!(playerName == null || playerName.text == "")) {
+                playerScore.name = playerName.text;
             }
             AddScoreEntry();
         }
-
+        sceneHandler.ChangeScene();
     }
 
     public void AddScoreEntry() {
@@ -88,7 +88,10 @@ public class ScoreHandler : MonoBehaviour {
     private void OnEnable() {
         Time.timeScale = 0;
         AudioListener.pause = true;
-        toggleMenu.preventInput = true;
+        GameObject playerObj = GameObject.Find("Player");
+        ActionMapHandler actionMapHandler = playerObj.GetComponent<ActionMapHandler>();
+        actionMapHandler.ChangeToActionMap("UI");
+        toggleMenu.preventInput = false;
         playerScore = new ScoreEntry() {
             name = "Arcane Guardian",
             score = playerResources.getScore()
@@ -96,13 +99,9 @@ public class ScoreHandler : MonoBehaviour {
         scoreText.text = playerScore.score.ToString();
         if (IsScoreInScoreboard(playerScore.score)) {
             nameContainer.SetActive(true);
+        } else {
+            nameContainer.SetActive(false);
         }
-        sceneHandler.ChangeScene();
-    }
-
-    private void OnDestroy() {
-        Time.timeScale = 1;
-        AudioListener.pause = false;
     }
 }
 
