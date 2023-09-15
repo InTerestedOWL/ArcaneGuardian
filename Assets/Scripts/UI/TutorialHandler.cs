@@ -35,7 +35,9 @@ public class TutorialHandler : MonoBehaviour {
             Debug.Log("No tutorial file found, using default.");
             LoadDefaultTutorial();
         }
-        InitTutorials();
+        if (toggleMenu) {
+            InitTutorials();
+        }
     }
 
     private void InitTutorials() {
@@ -51,7 +53,11 @@ public class TutorialHandler : MonoBehaviour {
     public void ResetTutorial() {
         tutorialQueue.Clear();
         LoadDefaultTutorial();
-        InitTutorials();
+        AddTutorialToShow("Reset");
+        if (toggleMenu) {
+            Debug.Log("Toggle menu found");
+            InitTutorials();
+        }
     }
 
     // Can't be set in FileHandler, as it won't work there
@@ -99,12 +105,20 @@ public class TutorialHandler : MonoBehaviour {
     }
 
     private void DisplayTutorial(TutorialEntry te) {
-        toggleMenu.ToggleWithoutInput(tutorialUI);
+        if (toggleMenu) {
+            toggleMenu.ToggleWithoutInput(tutorialUI);
+        } else {
+            tutorialUI.SetActive(true);
+        }
         tutorialText.text = te.description;
     }
 
     public void DismissTutorial() {
-        toggleMenu.ToggleWithoutInput(tutorialUI);
+        if (toggleMenu) {
+            toggleMenu.ToggleWithoutInput(tutorialUI);
+        } else {
+            tutorialUI.SetActive(false);
+        }
         tutorialText.text = "";
         CompleteTutorial(currentTutorialEntry);
         if (tutorialQueue.Count > 0) {
