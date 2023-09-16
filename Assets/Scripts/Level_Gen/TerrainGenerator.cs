@@ -156,17 +156,29 @@ public class TerrainGenerator : MonoBehaviour
     {
         yield return new WaitForSeconds(0.3f);
         if (hasBuildedNavMesh) {
+            if (!RandomPointOnNavMesh.found && RandomPointOnNavMesh.i >= RandomPointOnNavMesh.TIMES) {
+                Vector3 playerPosition  = RandomPointOnNavMesh.GetPoinntForPlayerAndPOIOnNavMesh(meshSettings);
+                player.GetComponent<NavMeshAgent>().enabled = true;
+                poi.GetComponent<NavMeshAgent>().enabled = true;
+                poi.GetComponent<POIController>().enabled = true;
+                player.transform.position = playerPosition;
+                LoadingHandler.AddLoadingPercentage(10);
+            }
             GetComponent<NavMeshSurface>().UpdateNavMesh(GetComponent<NavMeshSurface>().navMeshData);
+                
         } else {
             GetComponent<NavMeshSurface>().BuildNavMesh();
             hasBuildedNavMesh = true;
             navMeshCR = null;
             Vector3 playerPosition  = RandomPointOnNavMesh.GetPoinntForPlayerAndPOIOnNavMesh(meshSettings);
-            player.GetComponent<NavMeshAgent>().enabled = true;
-            poi.GetComponent<NavMeshAgent>().enabled = true;
-            poi.GetComponent<POIController>().enabled = true;
-            player.transform.position = playerPosition;
-            
+            if (RandomPointOnNavMesh.found)
+            {
+                player.GetComponent<NavMeshAgent>().enabled = true;
+                poi.GetComponent<NavMeshAgent>().enabled = true;
+                poi.GetComponent<POIController>().enabled = true;
+                player.transform.position = playerPosition;
+                LoadingHandler.AddLoadingPercentage(10);
+            }
         }
     }
     

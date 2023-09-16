@@ -6,8 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="6aabc18d-6f69-4541-9b79-2d124d9cb7fb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ArcaneGuardian/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ArcaneGuardian/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/All_Together.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/All_Together.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level_Gen/RandomPointOnNavMesh.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level_Gen/RandomPointOnNavMesh.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level_Gen/TerrainGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level_Gen/TerrainGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/LoadingHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/LoadingHandler.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,6 +98,8 @@
       <workItem from="1693030683381" duration="2888000" />
       <workItem from="1694529968362" duration="7071000" />
       <workItem from="1694847258321" duration="8357000" />
+      <workItem from="1694880524703" duration="1195000" />
+      <workItem from="1694881748078" duration="79000" />
     </task>
     <task id="LOCAL-00001" summary="Place Player and POI on navmesh, range is ten">
       <option name="closed" value="true" />
