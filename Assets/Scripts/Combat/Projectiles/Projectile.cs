@@ -15,6 +15,7 @@ namespace AG.Combat
         [SerializeField] protected GameObject[] destroyOnHit = null;
         [SerializeField] protected float lifeAfterImpact = 2;
         [SerializeField] protected UnityEvent onHit;
+        [SerializeField] protected Skill skill = null;
 
         protected CombatTarget target = null;
         protected Vector3 targetPoint;
@@ -78,7 +79,7 @@ namespace AG.Combat
             if (target != null && hitTarget != target) return;
             if (hitTarget == null || hitTarget.IsDead()) return;
             if (other.gameObject == instigator) return;
-            hitTarget.DamageTarget(damage);
+            hitTarget.DamageTarget(damage, skill);
 
             speed = 0;
 

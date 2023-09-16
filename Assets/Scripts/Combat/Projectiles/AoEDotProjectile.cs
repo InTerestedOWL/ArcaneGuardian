@@ -13,7 +13,6 @@ namespace AG.Combat
         [SerializeField] float aoeDotDiameter = 10;
         [SerializeField] float dotDuration = 10;
         [SerializeField] float dotsPerSecond = 1;
-        [SerializeField] Skill skill;
 
         private GameObject hitEffectInstance = null;
         private bool hasHit = false;

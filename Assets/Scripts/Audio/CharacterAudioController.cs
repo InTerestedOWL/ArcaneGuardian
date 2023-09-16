@@ -23,6 +23,8 @@ namespace AG.Audio.Sounds {
         [SerializeField]
         private HitSounds hitSoundsForSelf;
         [SerializeField]
+        private ChargeSounds chargeSounds;
+        [SerializeField]
         private float runningThreshold = 3f;
         // To check for running, we need to know the speed of the character (blend tree value)
         private Animator animator;
@@ -78,6 +80,11 @@ namespace AG.Audio.Sounds {
                     PlaySound(footstepSounds.GetRandomWalkingFootstepSound());
                 }
             }
+        }
+
+        public void PlayRandomChargeSound() {
+            if (chargeSounds != null)
+                PlaySound(chargeSounds.GetRandomChargeSound());
         }
 
         public void PlayRandomWhooshSound() {

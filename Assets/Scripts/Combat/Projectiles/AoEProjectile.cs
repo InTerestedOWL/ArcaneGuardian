@@ -9,7 +9,6 @@ namespace AG.Combat
     public class AoEProjectile : Projectile
     {
         [SerializeField] float aoeDiameter = 2;
-        [SerializeField] Skill skill;
 
         // float prevDistance = 0;
         // float distance = 0;

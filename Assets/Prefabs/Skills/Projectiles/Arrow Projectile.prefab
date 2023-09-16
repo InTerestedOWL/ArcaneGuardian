@@ -86,6 +86,7 @@ MonoBehaviour:
   onHit:
     m_PersistentCalls:
       m_Calls: []
+  skill: {fileID: 11400000, guid: af6762eecb05abf42a92e419159c7044, type: 2}
 --- !u!1001 &469119993813427163
 PrefabInstance:
   m_ObjectHideFlags: 0

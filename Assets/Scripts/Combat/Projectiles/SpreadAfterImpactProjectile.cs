@@ -12,7 +12,6 @@ namespace AG.Combat
     {
         [SerializeField] float spreadRadius = 5;
         [SerializeField] int maxHit = 10;
-        [SerializeField] Skill skill;
 
         private List<CombatTarget> hitTargets = new List<CombatTarget>();
         private GameObject[] potentialTargets;
