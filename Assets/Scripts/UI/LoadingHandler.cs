@@ -21,7 +21,7 @@ public class LoadingHandler : MonoBehaviour {
 
     private void Update() {
         loadingBar.value = loadingBarValue;
-        if (loadingPercentage >= 100) 
+        if (loadingPercentage > 100) 
             gameObject.SetActive(false);
     }
 
