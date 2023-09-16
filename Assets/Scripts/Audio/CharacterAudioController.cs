@@ -6,7 +6,10 @@ using System;
 
 namespace AG.Audio.Sounds {
     public class CharacterAudioController : MonoBehaviour {
+        [SerializeField]
         private AudioSource audioSource;
+        [SerializeField]
+        private AudioSource additionalAudioSource;
         [SerializeField]
         private FootstepSounds footstepSounds;
         [SerializeField]
@@ -31,7 +34,9 @@ namespace AG.Audio.Sounds {
         }
 
         void Awake() {
-            audioSource = GetComponent<AudioSource>();
+            if (audioSource == null) {
+                audioSource = GetComponent<AudioSource>();  
+            }
             animator = GetComponent<Animator>();
         }
 
@@ -43,8 +48,12 @@ namespace AG.Audio.Sounds {
             
         }
 
-        private void PlaySound(AudioClip audioClip) {
+        public void PlaySound(AudioClip audioClip) {
             audioSource.PlayOneShot(audioClip);
+        }
+
+        private void PlayAdditionalSound(AudioClip audioClip) {
+            additionalAudioSource.PlayOneShot(audioClip);
         }
 
         public void PlayRandomFootstepSound(FootstepType type) {
@@ -84,6 +93,11 @@ namespace AG.Audio.Sounds {
         public void PlayRandomDeathSound() {
             if (voiceSounds != null)
                 PlaySound(voiceSounds.GetRandomDeathSound());
+        }
+
+        public void PlayAdditionalHitSound(HitSounds hitSounds) {
+            if (hitSounds != null)
+                PlayAdditionalSound(hitSounds.GetRandomHitSound());
         }
 
         // hitSoundsFromCombatTarget includes weapon impact sounds from the target that hits

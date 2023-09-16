@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2695f6ebbd9e54646b3eb283f98ab228, type: 3}
+  m_Name: IceHitSounds
+  m_EditorClassIdentifier: 
+  hitSounds:
+  - {fileID: 8300000, guid: ff858ccea96143b43ab1ea16829dbfa7, type: 3}
+  - {fileID: 8300000, guid: 5c5952adb54e4ec4a953cf341bc8c2a4, type: 3}
+  - {fileID: 8300000, guid: 2497a2601ba0e5540acd46f267c9a16b, type: 3}
+  - {fileID: 8300000, guid: 4808697e231402144b8d8584b82651f9, type: 3}
+  - {fileID: 8300000, guid: 7f70694c0e37f6441b4f45196b8c459c, type: 3}
+  - {fileID: 8300000, guid: 96fead938e006254aaef67e84146a3cc, type: 3}

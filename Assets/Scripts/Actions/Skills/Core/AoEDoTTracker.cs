@@ -51,6 +51,10 @@ namespace AG.Skills {
             return true;
         }
 
+        public Skill GetSkill() {
+            return skill;
+        }
+
         public IEnumerable<GameObject> GetGameObjectEnumerable(GameObject go) {
             yield return go;
         }

@@ -23,3 +23,4 @@ MonoBehaviour:
   effectStrategies:
   - {fileID: 11400000, guid: b29fd8435c6c42b4086bf67531ae6bd9, type: 2}
   - {fileID: 11400000, guid: 7e2f476f80055b84a95762fe0a907a34, type: 2}
+  hitSounds: {fileID: 11400000, guid: af9e45988bbf0624cb120f296d080f63, type: 2}

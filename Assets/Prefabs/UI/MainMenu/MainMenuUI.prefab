@@ -3870,6 +3870,14 @@ PrefabInstance:
       propertyPath: tutorialText
       value: 
       objectReference: {fileID: 1585528070}
+    - target: {fileID: 2649221442154664110, guid: 72c3e958415d3984f950291f384c4bd2, type: 3}
+      propertyPath: m_MinValue
+      value: -80
+      objectReference: {fileID: 0}
+    - target: {fileID: 2649221443436048879, guid: 72c3e958415d3984f950291f384c4bd2, type: 3}
+      propertyPath: m_MinValue
+      value: -80
+      objectReference: {fileID: 0}
     - target: {fileID: 3536711844126233443, guid: 72c3e958415d3984f950291f384c4bd2, type: 3}
       propertyPath: m_Name
       value: Settings Container
@@ -3957,6 +3965,10 @@ PrefabInstance:
     - target: {fileID: 8480680130036644969, guid: 72c3e958415d3984f950291f384c4bd2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8964895620241130820, guid: 72c3e958415d3984f950291f384c4bd2, type: 3}
+      propertyPath: m_MinValue
+      value: -80
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72c3e958415d3984f950291f384c4bd2, type: 3}

@@ -12,6 +12,7 @@ namespace AG.Combat
     {
         [SerializeField] float spreadRadius = 5;
         [SerializeField] int maxHit = 10;
+        [SerializeField] Skill skill;
 
         private List<CombatTarget> hitTargets = new List<CombatTarget>();
         private GameObject[] potentialTargets;
@@ -22,7 +23,7 @@ namespace AG.Combat
             if (target != null && hitTarget != target) return;
             if (hitTarget == null || hitTarget.IsDead()) return;
             if (other.gameObject == instigator) return;
-            hitTarget.DamageTarget(damage);
+            hitTarget.DamageTarget(damage, skill);
             hitTargets.Add(hitTarget);
 
             onHit.Invoke();

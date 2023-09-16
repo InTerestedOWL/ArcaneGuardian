@@ -13,6 +13,7 @@ namespace AG.Combat
         [SerializeField] float aoeDotDiameter = 10;
         [SerializeField] float dotDuration = 10;
         [SerializeField] float dotsPerSecond = 1;
+        [SerializeField] Skill skill;
 
         private GameObject hitEffectInstance = null;
         private bool hasHit = false;
@@ -53,7 +54,7 @@ namespace AG.Combat
                     CombatTarget ct = target.GetComponent<CombatTarget>();
                     if (ct != null)
                     {
-                        ct.DamageTarget(damage);
+                        ct.DamageTarget(damage, skill);
                     }
                 }
                 yield return new WaitForSeconds(1/dotsPerSecond);

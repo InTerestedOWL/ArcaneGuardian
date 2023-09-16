@@ -9,6 +9,7 @@ namespace AG.Combat
     public class AoEProjectile : Projectile
     {
         [SerializeField] float aoeDiameter = 2;
+        [SerializeField] Skill skill;
 
         // float prevDistance = 0;
         // float distance = 0;
@@ -63,7 +64,7 @@ namespace AG.Combat
                 CombatTarget ct = target.GetComponent<CombatTarget>();
                 if (ct != null)
                 {
-                    ct.DamageTarget(damage);
+                    ct.DamageTarget(damage, skill);
                 }
             }
 

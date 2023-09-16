@@ -6,6 +6,8 @@ using AG.Control;
 using AG.MovementCore;
 using UnityEngine;
 using System.Collections;
+using AG.Audio.Sounds;
+using UnityEngine.TextCore.Text;
 
 namespace AG.Skills.Effects
 {
@@ -15,6 +17,7 @@ namespace AG.Skills.Effects
         [SerializeField] int spinCount = 3;
         //Drehungen pro Sekunde
         [SerializeField] float spinsPerSecond = 3;
+        [SerializeField] ChargeSounds chargeSounds;
 
         public override void ApplyEffect(SkillData data)
         {
@@ -34,6 +37,13 @@ namespace AG.Skills.Effects
 
             Animator animator = user.GetComponent<Animator>();
             animator.SetTrigger("bladeSpin");
+
+            if (chargeSounds != null) {
+                CharacterAudioController cac = user.GetComponent<CharacterAudioController>();
+                if (cac != null) {
+                    cac.PlaySound(chargeSounds.GetRandomChargeSound());
+                }
+            }
 
             float totalRotation = spinCount * 360f; // Gesamte Drehung in Grad
             float currentRotation = 0f;

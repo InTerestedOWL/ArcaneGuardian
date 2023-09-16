@@ -5,6 +5,7 @@ using AG.Audio.Sounds;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.AI;
+using AG.Skills;
 
 namespace AG.Combat {
     public class CombatTarget : MonoBehaviour {
@@ -93,7 +94,11 @@ namespace AG.Combat {
             }
         }
 
-        private void TakeDamage(int damage, GameObject sourceObject = null) {
+        private void TakeDamage(int damage, Skill skill) {
+            TakeDamage(damage, null, skill);
+        }
+
+        private void TakeDamage(int damage, GameObject sourceObject = null, Skill skill = null) {
             if (isDead)
                 return;
             PlayHitSound(sourceObject);
@@ -104,15 +109,30 @@ namespace AG.Combat {
             } else if (audioController != null) {
                 audioController.PlayRandomPainSound();
             }
+            
+            if (skill) {
+                HitSounds hitSounds = skill.GetHitSounds();
+                if (hitSounds != null) {
+                    audioController.PlayAdditionalHitSound(hitSounds);
+                }
+            }
 
             blinkTimer = blinkDuration;
         }
+
         public void SetToMaxHealth(){
-            TakeHeal((int)(maxHealth+1));
+            TakeHeal((int)(maxHealth+1), null);
         }
-        private void TakeHeal(int heal) {
+        private void TakeHeal(int heal, Skill skill = null) {
             if (isDead)
                 return;
+
+            if (skill) {
+                HitSounds hitSounds = skill.GetHitSounds();
+                if (hitSounds != null) {
+                    audioController.PlayAdditionalHitSound(hitSounds);
+                }
+            }
 
             if(currentHealth + heal <= maxHealth) {
                 currentHealth += heal;
@@ -237,17 +257,21 @@ namespace AG.Combat {
         }
 
         public void DamageTarget(int damage) {
-            TakeDamage(damage);
+            TakeDamage(damage, null);
         }
 
-        public void HealTarget(int heal) {
+        public void DamageTarget(int damage, Skill skill) {
+            TakeDamage(damage, skill);
+        }
+
+        public void HealTarget(int heal, Skill skill) {
             //TODO: Add Heal Animation/Effect
-            TakeHeal(heal);
+            TakeHeal(heal, skill);
         }
 
-        public void DamageTargetDoTInAoE(int damagePerTick, float numberOfTicksInDuration, float duration) {
+        public void DamageTargetDoTInAoE(int damagePerTick, float numberOfTicksInDuration, float duration, Skill skill) {
             if (coroutineAoEDoT == null) {
-                coroutineAoEDoT = StartCoroutine(DealDamageOverTimeInAoE(damagePerTick, numberOfTicksInDuration, duration));
+                coroutineAoEDoT = StartCoroutine(DealDamageOverTimeInAoE(damagePerTick, numberOfTicksInDuration, duration, skill));
             }
         }
 
@@ -255,11 +279,11 @@ namespace AG.Combat {
             coroutineAoEDoT = StartCoroutine(DealHealingOverTimeInAoE(healingPerTick, numberOfTicksInDuration, duration));
         }
 
-        private IEnumerator DealDamageOverTimeInAoE(int damagePerTick, float numberOfTicksInDuration, float duration) {
+        private IEnumerator DealDamageOverTimeInAoE(int damagePerTick, float numberOfTicksInDuration, float duration, Skill skill) {
             inAoERange = true;
             for (int i = 0; i < numberOfTicksInDuration; i++) {
                 if (inAoERange) {
-                    TakeDamage(damagePerTick);
+                    TakeDamage(damagePerTick, skill);
                 }
                 yield return new WaitForSeconds(duration / numberOfTicksInDuration);
             }
