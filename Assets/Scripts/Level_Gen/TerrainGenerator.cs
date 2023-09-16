@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using AG.Control;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEditor;
@@ -40,6 +41,7 @@ public class TerrainGenerator : MonoBehaviour
     private int chunkCountDivided;
     private Dictionary<Vector2, TerrainChunk> terrainChunkDictionary = new Dictionary<Vector2, TerrainChunk>();
     private List<TerrainChunk> visibleTerrainChunks = new List<TerrainChunk>();
+    private int loadedChunks;
 
     private bool hasBuildedNavMesh = false;
     private Coroutine navMeshCR = null;
@@ -144,6 +146,9 @@ public class TerrainGenerator : MonoBehaviour
         if (navMeshCR != null) {
             StopCoroutine(BuildNavMesh());
         }
+        
+        loadedChunks++;
+        LoadingHandler.SetLoadingPercentage((loadedChunks * 100) / (meshSettings.chunkCount * meshSettings.chunkCount));
         navMeshCR = StartCoroutine(BuildNavMesh());
     }
 
@@ -158,8 +163,10 @@ public class TerrainGenerator : MonoBehaviour
             navMeshCR = null;
             Vector3 playerPosition  = RandomPointOnNavMesh.GetPoinntForPlayerAndPOIOnNavMesh(meshSettings);
             player.GetComponent<NavMeshAgent>().enabled = true;
-            poi.SetActive(true);
+            poi.GetComponent<NavMeshAgent>().enabled = true;
+            poi.GetComponent<POIController>().enabled = true;
             player.transform.position = playerPosition;
+            
         }
     }
     
