@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6aabc18d-6f69-4541-9b79-2d124d9cb7fb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ArcaneGuardian/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ArcaneGuardian/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/MiniMap/MiniMap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MiniMap/MiniMap.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -94,7 +93,7 @@
       <workItem from="1692374365239" duration="2484000" />
       <workItem from="1693030683381" duration="2888000" />
       <workItem from="1694529968362" duration="7071000" />
-      <workItem from="1694847258321" duration="1532000" />
+      <workItem from="1694847258321" duration="2191000" />
     </task>
     <servers />
   </component>
