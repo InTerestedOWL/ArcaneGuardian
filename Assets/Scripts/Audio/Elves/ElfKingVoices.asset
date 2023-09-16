@@ -12,5 +12,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f7ac2c3334c6d246b04c897d0286ff9, type: 3}
   m_Name: ElfKingVoices
   m_EditorClassIdentifier: 
-  painSounds: []
-  deathSounds: []
+  painSounds:
+  - {fileID: 8300000, guid: 2d0d6abb6bbbc52499794b58a48ed90c, type: 3}
+  - {fileID: 8300000, guid: 5cea8eaa8bc86214fbd854582eceac6c, type: 3}
+  - {fileID: 8300000, guid: 97321d26a5b69e04e9594b4ba6df4817, type: 3}
+  - {fileID: 8300000, guid: 43be76549eb183a47933b934cba821d5, type: 3}
+  - {fileID: 8300000, guid: 49580218a16823c4996cda398806c6ad, type: 3}
+  - {fileID: 8300000, guid: 5ac5bd9dc5f9989478ee71b3b6aa97bb, type: 3}
+  - {fileID: 8300000, guid: 61daf107e28af2b4c8bc701f77831570, type: 3}
+  - {fileID: 8300000, guid: ed222bca567382940afc3ae7d8f8727d, type: 3}
+  - {fileID: 8300000, guid: 074649110c37a654db9c30ba283d11b1, type: 3}
+  - {fileID: 8300000, guid: 27e1cf20d247be54e84c44431bf8c358, type: 3}
+  - {fileID: 8300000, guid: c7428bb3a7e295646993b8e06c4e93c5, type: 3}
+  - {fileID: 8300000, guid: fd136d3c990ab854aac18a76efd12afa, type: 3}
+  - {fileID: 8300000, guid: 5b453b433637adf4ba211928ec9e8d70, type: 3}
+  - {fileID: 8300000, guid: 25d31050d693d5d4fa2c474d66722bda, type: 3}
+  - {fileID: 8300000, guid: ec681741065bda54d9145fbea2f7d091, type: 3}
+  - {fileID: 8300000, guid: 8e52a6a2da199384db8d5a2b2db95544, type: 3}
+  - {fileID: 8300000, guid: 3443647777ff5c747aee9250bda5271b, type: 3}
+  - {fileID: 8300000, guid: d9031a44a9d1f914184eea9e1fbe2c23, type: 3}
+  - {fileID: 8300000, guid: 83a78676fa34c8147ba932ad4fc4ec67, type: 3}
+  - {fileID: 8300000, guid: f6097e4be9e66534b9d695e826c6f287, type: 3}
+  - {fileID: 8300000, guid: c6d1f2a2a4d2de249a7a2e04bcc591ca, type: 3}
+  deathSounds:
+  - {fileID: 8300000, guid: 15d7423fb4c7b304ca78b775a221c98a, type: 3}
+  - {fileID: 8300000, guid: 8dbd4e8b75208fa43abfe001f09aa9a0, type: 3}
+  - {fileID: 8300000, guid: 546b5bec95d89604693ea5fc1a8c2efd, type: 3}
+  - {fileID: 8300000, guid: 6dbd25548d8a75b4eb65e0aadee81be6, type: 3}
+  - {fileID: 8300000, guid: 5bcab3d5d4a6b4e4f9631751ba4fd9de, type: 3}

@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2695f6ebbd9e54646b3eb283f98ab228, type: 3}
   m_Name: HeavySwordHits
   m_EditorClassIdentifier: 
-  hitSounds: []
+  hitSounds:
+  - {fileID: 8300000, guid: d8f5859225ecee54ca0734a69353d476, type: 3}
+  - {fileID: 8300000, guid: e4467054bcb70294dad1106ca89f4fa8, type: 3}
+  - {fileID: 8300000, guid: e2146a67a318a7f4d9c2f867bb4b243f, type: 3}
+  - {fileID: 8300000, guid: 8bc782837a9f59d40aa58d8de64bff33, type: 3}
+  - {fileID: 8300000, guid: 19b302cea4f462448bd975a740345435, type: 3}

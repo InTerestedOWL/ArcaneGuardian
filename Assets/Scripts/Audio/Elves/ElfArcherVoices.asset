@@ -27,4 +27,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9a5c5dd3b54b0ca46b5d9855d906a66c, type: 3}
   - {fileID: 8300000, guid: 5538835a9f819874c9093d7f58ea5ae1, type: 3}
   - {fileID: 8300000, guid: fa0bcbb0bf59a64459e361d0a9c272bd, type: 3}
-  deathSounds: []
+  deathSounds:
+  - {fileID: 8300000, guid: 9c977607cc06f6a488bae60201f0aa08, type: 3}
+  - {fileID: 8300000, guid: 82bf0f80e4161a7429b322bae9a2e4a9, type: 3}
+  - {fileID: 8300000, guid: 15eeef9c066ad41419776feb114d1ee0, type: 3}
