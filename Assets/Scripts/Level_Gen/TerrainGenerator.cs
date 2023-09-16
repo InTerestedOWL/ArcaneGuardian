@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEditor;
 using UnityEngine.AI;
 using UnityEngine.Rendering.UI;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class TerrainGenerator : MonoBehaviour
@@ -24,8 +25,8 @@ public class TerrainGenerator : MonoBehaviour
     public HeightMapSettings heightMapSettings;
     public ObjectDataSettings objectDataSettings;
 
-    public GameObject Player;
-    public GameObject POI;
+    public GameObject player;
+    public GameObject poi;
     
     public TextureData textureSettings;
 
@@ -156,9 +157,9 @@ public class TerrainGenerator : MonoBehaviour
             hasBuildedNavMesh = true;
             navMeshCR = null;
             Vector3 playerPosition  = RandomPointOnNavMesh.GetPoinntForPlayerAndPOIOnNavMesh(meshSettings);
-            Player.SetActive(true);
-            POI.SetActive(true);
-            Player.transform.position = playerPosition;
+            player.GetComponent<NavMeshAgent>().enabled = true;
+            poi.SetActive(true);
+            player.transform.position = playerPosition;
         }
     }
     
