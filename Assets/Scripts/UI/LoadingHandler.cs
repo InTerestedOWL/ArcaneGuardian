@@ -1,28 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LoadingHandler : MonoBehaviour {
     [SerializeField]
-    public GameObject loadingBar;
+    public Slider loadingBar;
     private static int loadingPercentage = 0;
-
-    // Start is called before the first frame update
-    void Start() {
-        
-    }
-
-    // Update is called once per frame
-    void Update() {
-        
-    }
+    private static float loadingBarValue = 0;
 
     public static void SetLoadingPercentage(int percentage) {
         loadingPercentage = percentage;
+        loadingBarValue = loadingPercentage / 100f;
     }
 
     public static void AddLoadingPercentage(int percentage) {
         loadingPercentage += percentage;
+        loadingBarValue = loadingPercentage / 100f;
+    }
+
+    private void Update() {
+        loadingBar.value = loadingBarValue;
+        if (loadingPercentage >= 100) 
+            gameObject.SetActive(false);
     }
 
     private void OnEnable() {
