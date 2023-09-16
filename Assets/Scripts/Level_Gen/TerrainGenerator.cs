@@ -23,6 +23,9 @@ public class TerrainGenerator : MonoBehaviour
     public MeshSettings meshSettings;
     public HeightMapSettings heightMapSettings;
     public ObjectDataSettings objectDataSettings;
+
+    public GameObject Player;
+    public GameObject POI;
     
     public TextureData textureSettings;
 
@@ -152,6 +155,10 @@ public class TerrainGenerator : MonoBehaviour
             GetComponent<NavMeshSurface>().BuildNavMesh();
             hasBuildedNavMesh = true;
             navMeshCR = null;
+            Vector3 playerPosition  = RandomPointOnNavMesh.GetPoinntForPlayerAndPOIOnNavMesh(meshSettings);
+            Player.SetActive(true);
+            POI.SetActive(true);
+            Player.transform.position = playerPosition;
         }
     }
     
@@ -184,16 +191,6 @@ public class TerrainGenerator : MonoBehaviour
     }
     
     private Vector3 RandomPointAboveTerrain(TerrainChunk chunk) {
-        /*if (chunk.coord.x == 0.0f && chunk.coord.y == 0.0f)
-        {
-            Debug.Log(chunk.coord);
-            Debug.Log(meshSettings.numVertsPerLine);
-            Debug.Log(((chunk.coord.x * (meshSettings.numVertsPerLine - 3)) - (meshSettings.numVertsPerLine - 3) / 2));
-            Debug.Log(((chunk.coord.x * (meshSettings.numVertsPerLine - 3)) + (meshSettings.numVertsPerLine - 3) / 2));
-            Debug.Log((chunk.coord.y * (meshSettings.numVertsPerLine - 3)) - (meshSettings.numVertsPerLine - 3) / 2);
-            Debug.Log((chunk.coord.y * (meshSettings.numVertsPerLine - 3)) + (meshSettings.numVertsPerLine - 3) / 2);
-        }*/
-
         return new Vector3(
             UnityEngine.Random.Range((chunk.coord.x * meshSettings.numVertsPerLine) - meshSettings.numVertsPerLine / 2, (chunk.coord.x * meshSettings.numVertsPerLine) + meshSettings.numVertsPerLine / 2),
             transform.position.y + heightMapSettings.maxHeight * 2,
