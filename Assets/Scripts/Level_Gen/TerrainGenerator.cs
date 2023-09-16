@@ -2,11 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using AG.Control;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEditor;
 using UnityEngine.AI;
 using UnityEngine.Rendering.UI;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class TerrainGenerator : MonoBehaviour
@@ -24,8 +26,8 @@ public class TerrainGenerator : MonoBehaviour
     public HeightMapSettings heightMapSettings;
     public ObjectDataSettings objectDataSettings;
 
-    public GameObject Player;
-    public GameObject POI;
+    public GameObject player;
+    public GameObject poi;
     
     public TextureData textureSettings;
 
@@ -39,6 +41,7 @@ public class TerrainGenerator : MonoBehaviour
     private int chunkCountDivided;
     private Dictionary<Vector2, TerrainChunk> terrainChunkDictionary = new Dictionary<Vector2, TerrainChunk>();
     private List<TerrainChunk> visibleTerrainChunks = new List<TerrainChunk>();
+    private int loadedChunks;
 
     private bool hasBuildedNavMesh = false;
     private Coroutine navMeshCR = null;
@@ -143,6 +146,9 @@ public class TerrainGenerator : MonoBehaviour
         if (navMeshCR != null) {
             StopCoroutine(BuildNavMesh());
         }
+        
+        loadedChunks++;
+        LoadingHandler.SetLoadingPercentage((loadedChunks * 100) / (meshSettings.chunkCount * meshSettings.chunkCount));
         navMeshCR = StartCoroutine(BuildNavMesh());
     }
 
@@ -156,9 +162,11 @@ public class TerrainGenerator : MonoBehaviour
             hasBuildedNavMesh = true;
             navMeshCR = null;
             Vector3 playerPosition  = RandomPointOnNavMesh.GetPoinntForPlayerAndPOIOnNavMesh(meshSettings);
-            Player.SetActive(true);
-            POI.SetActive(true);
-            Player.transform.position = playerPosition;
+            player.GetComponent<NavMeshAgent>().enabled = true;
+            poi.GetComponent<NavMeshAgent>().enabled = true;
+            poi.GetComponent<POIController>().enabled = true;
+            player.transform.position = playerPosition;
+            
         }
     }
     
