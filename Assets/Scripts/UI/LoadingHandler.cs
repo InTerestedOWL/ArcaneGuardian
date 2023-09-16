@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LoadingHandler : MonoBehaviour {
+    [SerializeField]
+    public GameObject loadingBar;
     private static int loadingPercentage = 0;
 
     // Start is called before the first frame update
@@ -16,7 +18,7 @@ public class LoadingHandler : MonoBehaviour {
     }
 
     public static void SetLoadingPercentage(int percentage) {
-        Debug.Log("Loading percentage: " + percentage);
+        loadingPercentage = percentage;
     }
 
     public static void AddLoadingPercentage(int percentage) {
@@ -24,6 +26,11 @@ public class LoadingHandler : MonoBehaviour {
     }
 
     private void OnEnable() {
+        AudioListener.pause = true;
         SetLoadingPercentage(0);
+    }
+
+    private void OnDisable() {
+        AudioListener.pause = false;
     }
 }
