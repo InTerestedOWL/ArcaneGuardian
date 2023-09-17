@@ -16,6 +16,10 @@ public class MainMenuChanger : MonoBehaviour {
         scoreboard.SetActive(false);
     }
 
+    public void AfterLoadingActive() {
+        LoadingHandler.SetLoadingPercentage(110);
+    }
+
     public void ShowOptionsMenu() {
         mainMenu.SetActive(false);
         optionsMenu.SetActive(true);
@@ -26,5 +30,9 @@ public class MainMenuChanger : MonoBehaviour {
         mainMenu.SetActive(false);
         optionsMenu.SetActive(false);
         scoreboard.SetActive(true);
+    }
+
+    private void OnEnable() {
+        LoadingHandler.SetLoadingPercentage(110);
     }
 }

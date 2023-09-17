@@ -38,6 +38,8 @@ public class GlobalAudioSystem : MonoBehaviour {
     private AudioClip uiMessageSound;
     [SerializeField]
     private AudioClip uiDeclineSound;
+    [SerializeField]
+    private AudioClip gameoverSound;
 
     private void Awake() {
         audioSourceUI.ignoreListenerPause = true;
@@ -47,38 +49,44 @@ public class GlobalAudioSystem : MonoBehaviour {
     }
 
     public void PlayUIHoverSound() {
-        if (uiHoverSound != null) {
+        if (uiHoverSound != null && audioSourceUI != null) {
             audioSourceUI.PlayOneShot(uiHoverSound);
         }
     }
 
     public void PlayUIClickSound() {
-        if (uiClickSound != null) {
+        if (uiClickSound != null && audioSourceUI != null) {
             audioSourceUI.PlayOneShot(uiClickSound);
         }
     }
 
     public void PlayUIPopupOpenSound() {
-        if (uiPopupOpenSound != null) {
+        if (uiPopupOpenSound != null && audioSourceUI != null) {
             audioSourceUI.PlayOneShot(uiPopupOpenSound);
         }
     }
 
     public void PlayUIPopupCloseSound() {
-        if (uiPopupCloseSound != null) {
+        if (uiPopupCloseSound != null && audioSourceUI != null) {
             audioSourceUI.PlayOneShot(uiPopupCloseSound);
         }
     }
 
     public void PlayUIMessageSound() {
-        if (uiMessageSound != null) {
+        if (uiMessageSound != null && audioSourceUI != null) {
             audioSourceUI.PlayOneShot(uiMessageSound);
         }
     }
 
     public void PlayUIDeclineSound() {
-        if (uiDeclineSound != null) {
+        if (uiDeclineSound != null && audioSourceUI != null) {
             audioSourceUI.PlayOneShot(uiDeclineSound);
+        }
+    }
+
+    public void PlayGameOverSound() {
+        if (gameoverSound != null && audioSourceUI != null) {
+            audioSourceUI.PlayOneShot(gameoverSound);
         }
     }
 

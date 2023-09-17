@@ -46,24 +46,24 @@ public class SoundSettings : MonoBehaviour {
     }
     
     public void SetMasterVolume(float volume) {
-        masterMixer.SetFloat("masterVol", volume);
+        masterMixer.SetFloat("masterVol", Mathf.Log10(volume) * 20);
         AdjustPercentage(masterPercentageText, masterSlider, volume);
     }
 
     public void SetMusicVolume(float volume) {
-        masterMixer.SetFloat("musicVol", volume);
+        masterMixer.SetFloat("musicVol", Mathf.Log10(volume) * 20);
         AdjustPercentage(musicPercentageText, musicSlider, volume);
     }
 
     public void SetEffectVolume(float volume) {
-        masterMixer.SetFloat("soundsVol", volume);
+        masterMixer.SetFloat("soundsVol", Mathf.Log10(volume) * 20);
         AdjustPercentage(effectsPercentageText, effectsSlider, volume);
     }
 
     public void AdjustPercentage(TMP_Text text, Slider slider, float volume) {
         try {
-            int range = (int)Mathf.Floor(Mathf.Abs(slider.maxValue - slider.minValue));
-            text.text = 100 - Mathf.Floor(Mathf.Abs(volume) / range * 100) + "%";
+            float range = slider.maxValue - slider.minValue;
+            text.text = Mathf.Floor(volume / range * 100) + "%";
         }
         catch (System.Exception e)
         {
