@@ -15,10 +15,11 @@ MonoBehaviour:
   displayName: Fire Breath
   description: Learned from the dragon of the east, this hidden technique of fiery
     breath heats up every conversation. Not advertised to use indoors.
-  icon: {fileID: 21300000, guid: ddc61fb71785aa140b460ffadcc5b893, type: 3}
+  icon: {fileID: 21300000, guid: 3fdea2576d2dfc6428750f8278dd7f5c, type: 3}
   cooldown: 4
   targetingStrategy: {fileID: 11400000, guid: 1169f18482ca28945bb81903fb590678, type: 2}
   filterStrategy: {fileID: 11400000, guid: 9d94cec049fac1046b5d39f60ab4ea82, type: 2}
   effectStrategies:
   - {fileID: 11400000, guid: 2a07540c60b8e9c439c411960d987910, type: 2}
   - {fileID: 11400000, guid: 76b6837eba8771a4cb861b2b7c30d57a, type: 2}
+  hitSounds: {fileID: 0}

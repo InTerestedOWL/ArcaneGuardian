@@ -10,6 +10,8 @@ public class LoadingHandler : MonoBehaviour {
     private static float loadingBarValue = 0;
     [SerializeField]
     private TutorialHandler tutorialHandler;
+    [SerializeField]
+    private MainMenuChanger mainMenuChanger;
     public static bool loading = true;
 
     public static void SetLoadingPercentage(int percentage) {
@@ -26,7 +28,9 @@ public class LoadingHandler : MonoBehaviour {
         loadingBar.value = loadingBarValue;
         if (loadingPercentage > 100) {
             loading = false;
-            tutorialHandler.ShowTutorials();
+            if (tutorialHandler != null) {
+                tutorialHandler.ShowTutorials();
+            }
             gameObject.SetActive(false);
         }
     }
@@ -35,9 +39,13 @@ public class LoadingHandler : MonoBehaviour {
         loading = true;
         AudioListener.pause = true;
         SetLoadingPercentage(0);
+        if (mainMenuChanger != null) {
+            mainMenuChanger.AfterLoadingActive();
+        }
     }
 
     private void OnDisable() {
         AudioListener.pause = false;
+        loading = false;
     }
 }

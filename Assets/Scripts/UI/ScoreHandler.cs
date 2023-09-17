@@ -25,8 +25,10 @@ public class ScoreHandler : MonoBehaviour {
     private FileHandler fh;
     private ScoreEntry[] scoreEntries;
     private ScoreEntry playerScore;
+    private GlobalAudioSystem globalAudioSystem;
 
     void Awake() {
+        globalAudioSystem = GameObject.Find("Main Camera").GetComponent<GlobalAudioSystem>();
         fh = ScriptableObject.CreateInstance<FileHandler>();
         string loadedFileData = fh.Load(FileHandler.FileType.Score);
         if (loadedFileData != null) {
@@ -88,6 +90,9 @@ public class ScoreHandler : MonoBehaviour {
     private void OnEnable() {
         Time.timeScale = 0;
         AudioListener.pause = true;
+        if (globalAudioSystem != null) {
+            globalAudioSystem.PlayGameOverSound();
+        }
         GameObject playerObj = GameObject.Find("Player");
         ActionMapHandler actionMapHandler = playerObj.GetComponent<ActionMapHandler>();
         actionMapHandler.ChangeToActionMap("UI");
