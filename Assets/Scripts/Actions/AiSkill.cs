@@ -20,7 +20,7 @@ namespace AG.Skills {
             if (isOnCooldown) {
                 return;
             }
-            SkillData data = new SkillData(user);
+            SkillData data = new SkillData(user, damage);
             data.SetTargets(new GameObject[] { target });
 
             ProcessTargets(data);

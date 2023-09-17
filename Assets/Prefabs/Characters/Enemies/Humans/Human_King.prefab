@@ -100,6 +100,7 @@ MonoBehaviour:
   movement: {fileID: 0}
   combat: {fileID: 0}
   combatTarget: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!114 &6328657927846770674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -560,6 +561,18 @@ PrefabInstance:
     - target: {fileID: 413102, guid: b12a5481ef675e84bb9a8a47e38358c7, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 413102, guid: b12a5481ef675e84bb9a8a47e38358c7, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 413102, guid: b12a5481ef675e84bb9a8a47e38358c7, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 413102, guid: b12a5481ef675e84bb9a8a47e38358c7, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 413102, guid: b12a5481ef675e84bb9a8a47e38358c7, type: 3}
       propertyPath: m_LocalPosition.x

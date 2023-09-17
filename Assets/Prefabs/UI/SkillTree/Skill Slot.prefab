@@ -234,6 +234,8 @@ MonoBehaviour:
   SkillNameText: {fileID: 3520834502563076532}
   SkillDescriptionText: {fileID: 8850377704102725732}
   SkillLevelText: {fileID: 4628657384087401352}
+  SkillDamageText: {fileID: 1080464124857955345}
+  SkillCooldownText: {fileID: 3490067442876072031}
   SkillIcon: {fileID: 8939454861634326011}
   ConnectedSkills: []
   skill: {fileID: 0}
@@ -495,7 +497,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 250, y: -100.00001}
+  m_AnchoredPosition: {x: 250, y: -100}
   m_SizeDelta: {x: 500, y: 96.29}
   m_Pivot: {x: 0.5, y: 0.99999994}
 --- !u!222 &9027439042569504612

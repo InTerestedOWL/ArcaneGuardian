@@ -18,6 +18,10 @@ namespace AG.Skills {
     // TODO: Combine SkillTree Skill and SkillBook Skill?
     [CreateAssetMenu(menuName = ("Arcane Guardian/Skill"))]
     public class Skill : ActionItem {
+        [SerializeField] 
+        protected int damage = 0;
+        [SerializeField]
+        protected int skillCap = 0;
         [SerializeField]
         protected TargetingStrategy targetingStrategy = null;
         [SerializeField]
@@ -31,7 +35,7 @@ namespace AG.Skills {
             if (isOnCooldown) {
                 return;
             }
-            SkillData data = new SkillData(user);
+            SkillData data = new SkillData(user, damage);
             targetingStrategy.DeclareTargets(data, () => ProcessTargets(data));
         }
 
@@ -81,6 +85,14 @@ namespace AG.Skills {
 
         public HitSounds GetHitSounds() {
             return hitSounds;
+        }
+
+        public int GetDamage() {
+            return damage;
+        }
+
+        public int GetSkillCap() {
+            return skillCap;
         }
     }
 }

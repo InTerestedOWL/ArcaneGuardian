@@ -10,42 +10,40 @@ namespace AG.Skills.Effects
     public class SpawnProjectileEffect : EffectStrategy
     {
         [SerializeField] Projectile projectileToSpawn;
-        [SerializeField] int damage;
-        // [SerializeField] bool isRightHand = true;
         [SerializeField] bool useTargetPoint = true;
 
-        public override void ApplyEffect(SkillData data)
+        public override void ApplyEffect(SkillData skillData)
         {
-            GameObject user = data.GetUser();
+            GameObject user = skillData.GetUser();
             // Vector3 spawnPosition = combatTarget.GetHandTransform(isRightHand).position;
             Vector3 spawnPosition = user.transform.position;
             if (useTargetPoint)
             {
-                SpawnProjectileForTargetPoint(data, spawnPosition);
+                SpawnProjectileForTargetPoint(skillData, spawnPosition);
             }
             else
             {
-                SpawnProjectilesForTargets(data, spawnPosition);
+                SpawnProjectilesForTargets(skillData, spawnPosition);
             }
         }
 
-        private void SpawnProjectileForTargetPoint(SkillData data, Vector3 spawnPosition)
+        private void SpawnProjectileForTargetPoint(SkillData skillData, Vector3 spawnPosition)
         {
             Projectile projectile = Instantiate(projectileToSpawn);
             projectile.transform.position = spawnPosition;
-            projectile.SetTarget(data.GetTargetPosition(), data.GetUser(), damage);
+            projectile.SetTarget(skillData.GetTargetPosition(), skillData.GetUser(), skillData.GetDamage());
         }
 
-        private void SpawnProjectilesForTargets(SkillData data, Vector3 spawnPosition)
+        private void SpawnProjectilesForTargets(SkillData skillData, Vector3 spawnPosition)
         {
-            foreach (var target in data.GetTargets())
+            foreach (var target in skillData.GetTargets())
             {
                 CombatTarget combatTarget = target.GetComponent<CombatTarget>();
                 if (combatTarget)
                 {
                     Projectile projectile = Instantiate(projectileToSpawn);
                     projectile.transform.position = spawnPosition;
-                    projectile.SetTarget(combatTarget, data.GetUser(), damage);
+                    projectile.SetTarget(combatTarget, skillData.GetUser(), skillData.GetDamage());
                 }
             }
         }

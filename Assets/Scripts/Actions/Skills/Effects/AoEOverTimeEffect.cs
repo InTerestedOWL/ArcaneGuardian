@@ -10,8 +10,6 @@ namespace AG.Skills.Effects {
     public class AoEOverTimeEffect : EffectStrategy {
         //Wenn die Zahl negativ ist, wird das Target geheilt, wenn positiv, wird es geschädigt
         [SerializeField]
-        int damagePerTick = 0;
-        [SerializeField]
         float duration = 0;
         [SerializeField]
         int ticksPerSecond = 0;
@@ -20,7 +18,7 @@ namespace AG.Skills.Effects {
         private bool isDamageOverTime = true;
 
         public override void ApplyEffect(SkillData skillData) {
-            if(damagePerTick > 0) {
+            if(skillData.GetDamage() > 0) {
                 isDamageOverTime = true;
             } else {
                 isDamageOverTime = false;
@@ -39,9 +37,9 @@ namespace AG.Skills.Effects {
                     if (ct != null)
                     {
                         if(isDamageOverTime) {
-                            ct.DamageTarget(damagePerTick, skillData.GetSkill());
+                            ct.DamageTarget(skillData.GetDamage(), skillData.GetSkill());
                         } else {
-                            ct.HealTarget(-damagePerTick, skillData.GetSkill());
+                            ct.HealTarget(-skillData.GetDamage(), skillData.GetSkill());
                         }
                     }
                 }

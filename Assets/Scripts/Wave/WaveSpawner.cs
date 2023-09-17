@@ -123,8 +123,8 @@ public class WaveSpawner : MonoBehaviour
     }
     private void addSpecialDialogs(){
         specialDialogs.Add(startGoblin,"Goblins: 'Blue light. It's so shiny. I must have it!'");
-        specialDialogs.Add(startSkeletons,"Skeletons: 'Ah, at last, we've found it. The Source of Magi, the very essence of power we seek.'");
-        specialDialogs.Add(startElves,"Elves: 'The Source of Magi is too powerful! It must be destroyed at all costs!'"); 
+        specialDialogs.Add(startSkeletons,"Skeletons: 'Ah, at last, we've found it. The Source of Magic, the very essence of power we seek.'");
+        specialDialogs.Add(startElves,"Elves: 'The Source of Magic is too powerful! It must be destroyed at all costs!'"); 
         specialDialogs.Add(startHumans,"Humans: 'With this power our kingdom will rule the entire world! GIVE UP OR DIE!'");
         specialDialogs.Add(startAllTogether,"Now all enemies join forces!");
 

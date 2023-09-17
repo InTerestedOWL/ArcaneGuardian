@@ -13,8 +13,6 @@ namespace AG.Skills.Effects
     public class ProjectileDamageEffect : EffectStrategy
     {
         [SerializeField]
-        int damage = 0;
-        [SerializeField]
         float aoeRadius = 2;
         [SerializeField]
         bool displayTargeting = false;
@@ -85,7 +83,7 @@ namespace AG.Skills.Effects
                 CombatTarget ct = target.GetComponent<CombatTarget>();
                 if (ct != null)
                 {
-                    ct.DamageTarget(damage);
+                    ct.DamageTarget(skillData.GetDamage());
                 }
             }
 
