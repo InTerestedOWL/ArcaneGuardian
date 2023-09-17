@@ -18,6 +18,11 @@ namespace AG.Audio.Sounds
         {
             return chargeSounds;
         }
+
+        public bool HasChargeSounds()
+        {
+            return chargeSounds.Count > 0;
+        }
     }
 
 }

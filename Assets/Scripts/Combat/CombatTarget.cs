@@ -70,9 +70,9 @@ namespace AG.Combat {
                         return;
                     }
                 } else {
-                    StartCoroutine(InvincibleTimer(0.5f, other.gameObject));
+                    StartCoroutine(InvincibleTimer(1f, other.gameObject));
+                    HandleHit(other);
                 }
-                HandleHit(other);
             }
         }
 

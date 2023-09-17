@@ -19,6 +19,11 @@ namespace AG.Audio.Sounds
         {
             return hitSounds;
         }
+
+        public bool HasHitSounds()
+        {
+            return hitSounds.Count > 0;
+        }
     }
 
 }

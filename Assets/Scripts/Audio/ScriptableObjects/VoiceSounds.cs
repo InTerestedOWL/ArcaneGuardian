@@ -18,6 +18,14 @@ namespace AG.Audio.Sounds {
         public AudioClip GetRandomDeathSound() {
             return deathSounds[Random.Range(0, deathSounds.Count)];
         }
+
+        public bool HasPainSounds() {
+            return painSounds.Count > 0;
+        }
+
+        public bool HasDeathSounds() {
+            return deathSounds.Count > 0;
+        }
     }
 
 }

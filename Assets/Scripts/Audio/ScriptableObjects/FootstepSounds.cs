@@ -18,6 +18,14 @@ namespace AG.Audio.Sounds {
         public AudioClip GetRandomWalkingFootstepSound() {
             return walkingFootstepSounds[Random.Range(0, walkingFootstepSounds.Count)];
         }
+
+        public bool HasRunningFootstepSounds() {
+            return runningFootstepSounds.Count > 0;
+        }
+
+        public bool HasWalkingFootstepSounds() {
+            return walkingFootstepSounds.Count > 0;
+        }
     }
 
 }

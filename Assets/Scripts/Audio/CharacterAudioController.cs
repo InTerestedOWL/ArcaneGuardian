@@ -42,14 +42,6 @@ namespace AG.Audio.Sounds {
             animator = GetComponent<Animator>();
         }
 
-        void Start() {
-            
-        }
-
-        void Update() {
-            
-        }
-
         public void PlaySound(AudioClip audioClip) {
             audioSource.PlayOneShot(audioClip);
         }
@@ -61,10 +53,10 @@ namespace AG.Audio.Sounds {
         public void PlayRandomFootstepSound(FootstepType type) {
             float walkSpeed = Math.Abs(animator.GetFloat("walkSpeed"));
             float sideSpeed = Math.Abs(animator.GetFloat("sideSpeed"));
-            if (sideSpeed <= walkSpeed) {
-                if (type == FootstepType.Running && (walkSpeed >= runningThreshold)) {
+            if (footstepSounds && sideSpeed <= walkSpeed) {
+                if (type == FootstepType.Running && (walkSpeed >= runningThreshold) && footstepSounds.HasRunningFootstepSounds()) {
                     PlaySound(footstepSounds.GetRandomRunningFootstepSound());
-                } else if (type == FootstepType.Walking && (walkSpeed < runningThreshold)) {
+                } else if (type == FootstepType.Walking && (walkSpeed < runningThreshold) && footstepSounds.HasWalkingFootstepSounds()) {
                     PlaySound(footstepSounds.GetRandomWalkingFootstepSound());
                 }
             }
@@ -73,37 +65,37 @@ namespace AG.Audio.Sounds {
         public void PlayRandomFootstepStrafeSound(FootstepType type) {
             float walkSpeed = Math.Abs(animator.GetFloat("walkSpeed"));
             float sideSpeed = Math.Abs(animator.GetFloat("sideSpeed"));
-            if (sideSpeed > walkSpeed) {
-                if (type == FootstepType.Running && (animator.GetFloat("walkSpeed") >= runningThreshold)) {
+            if (footstepSounds && sideSpeed > walkSpeed) {
+                if (type == FootstepType.Running && (animator.GetFloat("walkSpeed") >= runningThreshold) && footstepSounds.HasRunningFootstepSounds()) {
                     PlaySound(footstepSounds.GetRandomRunningFootstepSound());
-                } else if (type == FootstepType.Walking && (animator.GetFloat("walkSpeed") < runningThreshold)) {
+                } else if (type == FootstepType.Walking && (animator.GetFloat("walkSpeed") < runningThreshold) && footstepSounds.HasWalkingFootstepSounds()) {
                     PlaySound(footstepSounds.GetRandomWalkingFootstepSound());
                 }
             }
         }
 
         public void PlayRandomChargeSound() {
-            if (chargeSounds != null)
+            if (chargeSounds != null && chargeSounds.HasChargeSounds())
                 PlaySound(chargeSounds.GetRandomChargeSound());
         }
 
         public void PlayRandomWhooshSound() {
-            if (whooshSounds != null)
+            if (whooshSounds != null && whooshSounds.HasWhooshSounds())
                 PlaySound(whooshSounds.GetRandomWhooshSound());
         }
 
         public void PlayRandomPainSound() {
-            if (voiceSounds != null)
+            if (voiceSounds != null && voiceSounds.HasPainSounds())
                 PlaySound(voiceSounds.GetRandomPainSound());
         }
 
         public void PlayRandomDeathSound() {
-            if (voiceSounds != null)
+            if (voiceSounds != null && voiceSounds.HasDeathSounds())
                 PlaySound(voiceSounds.GetRandomDeathSound());
         }
 
         public void PlayAdditionalHitSound(HitSounds hitSounds) {
-            if (hitSounds != null)
+            if (hitSounds != null && hitSounds.HasHitSounds())
                 PlayAdditionalSound(hitSounds.GetRandomHitSound());
         }
 
