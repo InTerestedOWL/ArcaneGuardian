@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class PauseMenuHandler : MonoBehaviour {
     public static bool gameIsPaused = false;
+    [SerializeField]
+    private GlobalAudioSystem globalAudioSystem;
+
     void OnEnable() {
+        globalAudioSystem.PlayUIPopupOpenSound();
         TutorialHandler.AddTutorialToShow("Pause", "Tutorial");
         Time.timeScale = 0;
         AudioListener.pause = true;
@@ -12,6 +16,7 @@ public class PauseMenuHandler : MonoBehaviour {
     }
 
     void OnDisable() {
+        globalAudioSystem.PlayUIPopupCloseSound();
         TutorialHandler.AddTutorialToShow("Goal", "Pause");
         TutorialHandler.AddTutorialToShow("Movement", "Pause");
         if (!TutorialHandler.tutorialActive) {

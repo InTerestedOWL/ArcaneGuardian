@@ -36,6 +36,7 @@ namespace AG.UI {
         private Image skillImage; 
         private Button button;
         private ColorBlock buttonColors;
+        private GlobalAudioSystem globalAudioSystem;
 
         public void Start() {
             skillbook = GameObject.Find("Player").GetComponent<Skillbook>();
@@ -44,6 +45,7 @@ namespace AG.UI {
             skillImage.GetComponent<Image>().material = Instantiate(skillImage.GetComponent<Image>().material);
             button = GetComponent<Button>();
             buttonColors = button.colors;
+            globalAudioSystem = GameObject.Find("Main Camera").GetComponent<GlobalAudioSystem>();
 
             UpdateUI();
         }
@@ -102,9 +104,13 @@ namespace AG.UI {
         public void Learn() {
             if(skillTree.SkillPoints < 1 || SkillLevel >= SkillCap) {
                 return;
-            }  
+            }
 
-            if(SkillLevel == 0) {
+            if (globalAudioSystem) {
+                globalAudioSystem.PlayUIClickSound();
+            }
+
+            if (SkillLevel == 0) {
                 TutorialHandler.AddTutorialToShow("TalentLearned", "TalentsOpen");
                 skillbook.AddSkill(skill);
             }
@@ -119,8 +125,12 @@ namespace AG.UI {
             if(SkillLevel == 0) {
                 return;
             }
-                
-            foreach(SkillTreeSkill connectedSkill in ConnectedSkills){
+
+            if (globalAudioSystem) {
+                globalAudioSystem.PlayUIDeclineSound();
+            }
+
+            foreach (SkillTreeSkill connectedSkill in ConnectedSkills){
                 while(connectedSkill.SkillLevel > 0) {
                     connectedSkill.Unlearn();
                 }

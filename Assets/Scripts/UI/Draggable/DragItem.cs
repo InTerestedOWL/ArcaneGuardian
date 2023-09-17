@@ -35,17 +35,24 @@ namespace AG.UI.Draggable
 
         // CACHED REFERENCES
         Canvas parentCanvas;
+        GlobalAudioSystem globalAudioSystem;
 
         // LIFECYCLE METHODS
         protected virtual void Awake()  // CUSTOMIZED (protected virtual)
         {
             parentCanvas = GetComponentInParent<Canvas>();
             source = GetComponentInParent<IDragSource<T>>();
+            // CUSTOMIZED
+            globalAudioSystem = GameObject.Find("Main Camera").GetComponent<GlobalAudioSystem>();
         }
 
         // PRIVATE
         void IBeginDragHandler.OnBeginDrag(PointerEventData eventData)
         {
+            // CUSTOMIZED
+            if (globalAudioSystem != null) {
+                globalAudioSystem.PlayUIPopupOpenSound();
+            }
             startPosition = transform.position;
             originalParent = transform.parent;
             // Else won't get the drop event.
@@ -60,6 +67,9 @@ namespace AG.UI.Draggable
 
         void IEndDragHandler.OnEndDrag(PointerEventData eventData)
         {
+            if (globalAudioSystem != null) {
+                globalAudioSystem.PlayUIPopupCloseSound();
+            }
             transform.position = startPosition;
             GetComponent<CanvasGroup>().blocksRaycasts = true;
             transform.SetParent(originalParent, true);
@@ -157,6 +167,7 @@ namespace AG.UI.Draggable
             if (source.MaxAcceptable(removedDestinationItem) < removedDestinationNumber ||
                 destination.MaxAcceptable(removedSourceItem) < removedSourceNumber)
             {
+                // CUSTOMIZED
                 if (destination.GetType() == typeof(SkillbookSlotUI) && source.GetType() == typeof(SkillbookSlotUI)) {
                     destination.AddItems(removedDestinationItem, removedDestinationNumber);
                     source.AddItems(removedSourceItem, removedSourceNumber);
