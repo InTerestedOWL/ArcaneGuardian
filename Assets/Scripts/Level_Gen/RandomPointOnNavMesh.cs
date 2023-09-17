@@ -33,7 +33,7 @@ public static class RandomPointOnNavMesh
             NavMeshHit hit;
             if (NavMesh.SamplePosition(randomPoint, out hit, 1.0f, NavMesh.AllAreas))
             {
-                result = hit.position;
+                result = new Vector3(hit.position.x,hit.position.y+0.1f,hit.position.z);
                 return true;
             }
         }

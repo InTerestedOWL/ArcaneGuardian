@@ -13,11 +13,13 @@ namespace AG.Skills.Core {
         private TurretController turretController;
         private Vector3 targetPosition;
         private float radius = 0;
+        private int damage = 0;
         private FilterStrategy filterStrategy = null;
         private Skill skill = null;
 
-        public SkillData(GameObject user) {
+        public SkillData(GameObject user, int damage) {
             this.user = user;
+            this.damage = damage;
         }
 
         public void SetTargets(IEnumerable<GameObject> targets) {
@@ -76,6 +78,10 @@ namespace AG.Skills.Core {
 
         public FilterStrategy GetFilterStrategy() {
             return this.filterStrategy;
+        }
+
+        public int GetDamage() {
+            return damage;
         }
     }
 }

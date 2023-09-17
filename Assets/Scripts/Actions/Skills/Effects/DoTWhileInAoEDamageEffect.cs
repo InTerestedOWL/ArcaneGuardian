@@ -6,14 +6,16 @@ namespace AG.Skills.Effects {
     [CreateAssetMenu(fileName = "DoT Damage while in AoE Effect", menuName = ("Arcane Guardian/Effect Strategy/DoT while in AoE Damage Effect"))]
     public class DoTWhileInAoEDamageEffect : EffectStrategy {
         [SerializeField]
-        int damagePerTick = 0;
-        [SerializeField]
         float duration = 0;
         [SerializeField]
         int numberOfTicksInDuration = 0;
 
+        private int damagePerTick = 0;
+
         // TODO: When target leaves aoe, stop dot
         public override void ApplyEffect(SkillData skillData) {
+            damagePerTick = skillData.GetDamage();
+
             foreach (GameObject target in skillData.GetTargets()) {
                 CombatTarget ct = target.GetComponent<CombatTarget>();
                 if (ct != null) {

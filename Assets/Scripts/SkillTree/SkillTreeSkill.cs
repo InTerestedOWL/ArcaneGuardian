@@ -22,6 +22,10 @@ namespace AG.UI {
         [SerializeField]
         public TMP_Text SkillLevelText;
         [SerializeField]
+        public TMP_Text SkillDamageText;
+        [SerializeField]
+        public TMP_Text SkillCooldownText;
+        [SerializeField]
         public Image SkillIcon;
         [SerializeField]
         public SkillTreeSkill[] ConnectedSkills;
@@ -53,9 +57,9 @@ namespace AG.UI {
         public void UpdateUI() {
             SkillNameText.text = skill.GetDisplayName();
             SkillDescriptionText.text = skill.GetDescription();
-            //TODO: Repalce if SkillCap is implemented in Skill.cs
-            SkillLevelText.text = $"Rang {SkillLevel}/{SkillCap}";
-            // SkillLevelText.text = $"{SkillLevel}/{skill.GetSkillCap()}";
+            SkillLevelText.text = $"Level {SkillLevel}/{skill.GetSkillCap()}";
+            SkillDamageText.text = $"DMG: {skill.GetDamage()}";
+            SkillCooldownText.text = $"CD: {skill.GetMaxCooldown()}s"; 
             SkillIcon.sprite = skill.GetIcon();
 
             if(!buyable){

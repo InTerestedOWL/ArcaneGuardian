@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using AG.Combat;
 using AG.UI;
 using UnityEngine;
+using UnityEngine.AI;
 // Grundlagen von Tutorial https://www.youtube.com/watch?v=7T-MTo8Uaio
 
 [System.Serializable]
@@ -124,8 +125,8 @@ public class WaveSpawner : MonoBehaviour
     }
     private void addSpecialDialogs(){
         specialDialogs.Add(startGoblin,"Goblins: 'Blue light. It's so shiny. I must have it!'");
-        specialDialogs.Add(startSkeletons,"Skeletons: 'Ah, at last, we've found it. The Source of Magi, the very essence of power we seek.'");
-        specialDialogs.Add(startElves,"Elves: 'The Source of Magi is too powerful! It must be destroyed at all costs!'"); 
+        specialDialogs.Add(startSkeletons,"Skeletons: 'Ah, at last, we've found it. The Source of Magic, the very essence of power we seek.'");
+        specialDialogs.Add(startElves,"Elves: 'The Source of Magic is too powerful! It must be destroyed at all costs!'"); 
         specialDialogs.Add(startHumans,"Humans: 'With this power our kingdom will rule the entire world! GIVE UP OR DIE!'");
         specialDialogs.Add(startAllTogether,"Now all enemies join forces!");
 
@@ -192,7 +193,17 @@ public class WaveSpawner : MonoBehaviour
         if(signZ>0){
             z= -z;
         }
-        return new Vector3(poiPos.x+x,5,poiPos.z+z);
+        poiPos = new Vector3(poiPos.x+x,0,poiPos.z+z);
+        Vector3 randomPoint = poiPos + Random.insideUnitSphere * 10.0f;
+        NavMeshHit hit;
+        for(int i=0; i<100;i++){
+            if (NavMesh.SamplePosition(randomPoint, out hit, 1.0f, NavMesh.AllAreas))
+            {
+                return new Vector3(hit.position.x,hit.position.y+0.1f,hit.position.z);            
+            }
+        }
+        
+        return new Vector3(poiPos.x+x,poiPos.y+5,poiPos.z+z);
     }
     void FixedUpdate()
     {
