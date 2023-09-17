@@ -19,7 +19,7 @@ public class TutorialHandler : MonoBehaviour {
     public static TutorialHandler instance;
     private FileHandler fh;
     private TutorialEntry[] tutorialEntries;
-    private Queue<TutorialEntry> tutorialQueue;
+    private Queue<TutorialEntry> tutorialQueue = new Queue<TutorialEntry>();
     private bool processingQueue = false;
     private TutorialEntry currentTutorialEntry;
     public static bool tutorialActive = false;
@@ -27,7 +27,6 @@ public class TutorialHandler : MonoBehaviour {
     private GlobalAudioSystem globalAudioSystem;
 
     void Awake() {
-        tutorialQueue = new Queue<TutorialEntry>();
         fh = ScriptableObject.CreateInstance<FileHandler>();
         instance = this;
         string loadedFileData = fh.Load(FileHandler.FileType.Tutorial);
@@ -57,7 +56,6 @@ public class TutorialHandler : MonoBehaviour {
         LoadDefaultTutorial();
         AddTutorialToShow("Reset");
         if (toggleMenu) {
-            Debug.Log("Toggle menu found");
             InitTutorials();
         }
     }
@@ -98,6 +96,8 @@ public class TutorialHandler : MonoBehaviour {
             processingQueue = true;
             if (tutorialQueue.Count > 0) {
                 HandleNextEntry();
+            } else {
+                processingQueue = false;
             }
         }
     }
