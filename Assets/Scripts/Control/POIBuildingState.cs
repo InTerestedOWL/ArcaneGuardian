@@ -28,8 +28,6 @@ namespace AG.Control
             controller.movement.navMeshAgent.stoppingDistance = 0;
             controller.movement.DoMovement(tar_pos);
 
-            //IDEE: POI Grid erzeugen lassen, damit nur beim POI gebaut werden kann?
-            //Beim aufheben kann dann einfach das grid mit allen gebauten objekten disabled werden
             GameObject Grid = GameObject.Find("Grid");
             BuildingSystem bs = Grid.GetComponent<BuildingSystem>();
             
@@ -39,12 +37,16 @@ namespace AG.Control
         {
             if(!arrived && controller.movement.navMeshAgent.remainingDistance < 0.1){
                 arrived = true;
+                Debug.Log("set to true!");
+                controller.animator.SetBool("POIBuilt",true);
             }         
         }
 
         public void Exit(StateMachineController controller)
         {
             arrived = false;
+            Debug.Log("set to false!");
+            controller.animator.SetBool("POIBuilt",false);
             controller.movement.navMeshAgent.stoppingDistance = 1.5f;
             BuildingSystem bs = GameObject.Find("Grid").GetComponent<BuildingSystem>();
             bs.tileToPlacable(bs.poi_building.getStartPosition(),bs.poi_building.getSize());

@@ -30,6 +30,8 @@ namespace AG.Control
         [HideInInspector]
         public CombatTarget combatTarget = null;
 
+        public Animator animator = null;
+
         // Update is called once per frame
         void Update() {
             stateMachine.Update();
