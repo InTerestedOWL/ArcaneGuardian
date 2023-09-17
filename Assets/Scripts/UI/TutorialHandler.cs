@@ -23,6 +23,8 @@ public class TutorialHandler : MonoBehaviour {
     private bool processingQueue = false;
     private TutorialEntry currentTutorialEntry;
     public static bool tutorialActive = false;
+    [SerializeField]
+    private GlobalAudioSystem globalAudioSystem;
 
     void Awake() {
         tutorialQueue = new Queue<TutorialEntry>();
@@ -91,7 +93,7 @@ public class TutorialHandler : MonoBehaviour {
         }
     }
 
-    private void ShowTutorials() {
+    public void ShowTutorials() {
         if (!processingQueue) {
             processingQueue = true;
             if (tutorialQueue.Count > 0) {
@@ -110,15 +112,22 @@ public class TutorialHandler : MonoBehaviour {
     }
 
     private void DisplayTutorial(TutorialEntry te) {
-        if (toggleMenu) {
-            toggleMenu.ToggleWithoutInput(tutorialUI);
+        if (!LoadingHandler.loading) {
+            globalAudioSystem.PlayUIMessageSound();
+            if (toggleMenu) {
+                toggleMenu.ToggleWithoutInput(tutorialUI);
+            } else {
+                tutorialUI.SetActive(true);
+            }
+            tutorialText.text = te.description;
         } else {
-            tutorialUI.SetActive(true);
+            tutorialQueue.Enqueue(te);
+            processingQueue = false;
         }
-        tutorialText.text = te.description;
     }
 
     public void DismissTutorial() {
+        globalAudioSystem.PlayUIPopupCloseSound();
         if (toggleMenu) {
             toggleMenu.ToggleWithoutInput(tutorialUI);
         } else {

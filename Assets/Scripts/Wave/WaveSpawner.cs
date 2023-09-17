@@ -94,6 +94,11 @@ public class WaveSpawner : MonoBehaviour
     private AudioClip goblinBossVoice;
     [SerializeField]
     private AudioClip announcerVoice;
+    [SerializeField]
+    private AudioClip waveStart;
+    [SerializeField]
+    private AudioClip alarm;
+    private bool countdownPlaying = false;
 
     public List<GameObject> spawnedEnemies = new List<GameObject>();
     public float getTimeToNextWave(){
@@ -216,8 +221,13 @@ public class WaveSpawner : MonoBehaviour
             spawnTimer -= Time.fixedDeltaTime;
             waveTimer -= Time.fixedDeltaTime;
         }
- 
-        if(waveTimer<=0 && spawnedEnemies.Count <=0 && initialWaveStarted)
+
+        if (timeToNextWave <= 3 && timeToNextWave > 0 && !countdownPlaying) {
+            countdownPlaying = true;
+            StartCoroutine(PlayCountdown());
+        }
+
+        if (waveTimer<=0 && spawnedEnemies.Count <=0 && initialWaveStarted)
         {
             if(doOnceDuringPause){
                 healAtWaveEnd();
@@ -232,8 +242,13 @@ public class WaveSpawner : MonoBehaviour
                 skillPointsToAdd = 0;
                 waveIsBossWave = false;
                 doOnceDuringPause = false;
+                if (currentWave > 0) {
+                    globalAudioSystem.PlayMusic(GamePhase.RestPhase);
+                }
             }
-            if(timeToNextWave <= 0){    
+
+            if(timeToNextWave <= 0){
+                globalAudioSystem.PlayVoice(waveStart);  
                 timeToNextWave = 60;           
                 currentWave++;
                 
@@ -258,6 +273,14 @@ public class WaveSpawner : MonoBehaviour
             
         }
     }
+    private IEnumerator PlayCountdown(){
+        for(int i = 3; i > 0; i--){
+            globalAudioSystem.PlayVoice(alarm);
+            yield return new WaitForSeconds(1);
+        }
+        countdownPlaying = false;
+    }
+
     private void checkAndSetWaveIsBossWave(){
         waveIsBossWave= (currentWave == goblinBossWave) || (currentWave == skeletonBossWave) || (currentWave == elvesBossWave)||(currentWave == humanBossWave);
     }

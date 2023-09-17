@@ -8,6 +8,9 @@ public class LoadingHandler : MonoBehaviour {
     public Slider loadingBar;
     private static int loadingPercentage = 0;
     private static float loadingBarValue = 0;
+    [SerializeField]
+    private TutorialHandler tutorialHandler;
+    public static bool loading = true;
 
     public static void SetLoadingPercentage(int percentage) {
         loadingPercentage = percentage;
@@ -21,11 +24,15 @@ public class LoadingHandler : MonoBehaviour {
 
     private void Update() {
         loadingBar.value = loadingBarValue;
-        if (loadingPercentage > 100) 
+        if (loadingPercentage > 100) {
+            loading = false;
+            tutorialHandler.ShowTutorials();
             gameObject.SetActive(false);
+        }
     }
 
     private void OnEnable() {
+        loading = true;
         AudioListener.pause = true;
         SetLoadingPercentage(0);
     }

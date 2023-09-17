@@ -74,9 +74,9 @@ MonoBehaviour:
   onHit:
     m_PersistentCalls:
       m_Calls: []
+  skill: {fileID: 11400000, guid: ffb535bee1b584349b3656b355df3f1f, type: 2}
   spreadRadius: 10
   maxHit: 10
-  skill: {fileID: 11400000, guid: ffb535bee1b584349b3656b355df3f1f, type: 2}
 --- !u!54 &2047915415905426309
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -114,9 +114,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 40
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -149,7 +149,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -210,9 +210,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 40
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -245,7 +245,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -301,7 +301,9 @@ MonoBehaviour:
   audioSourceOneShot: {fileID: 5833542734323016529}
   loopingSound: {fileID: 8300000, guid: 379567e54d182d64bb1bc2fb65d07123, type: 3}
   groundHitSounds: {fileID: 0}
+  chargeSound: {fileID: 0}
   timer: 30
+  loopGroundHits: 0
 --- !u!1 &4289147367992750261
 GameObject:
   m_ObjectHideFlags: 0

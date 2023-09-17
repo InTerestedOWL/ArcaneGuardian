@@ -196,7 +196,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5585800000778561513}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 038526e5d41661743870e6668be2c503, type: 3}
   m_Name: 
@@ -231,7 +231,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5585800000778561513}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.35
   m_Speed: 5
@@ -320,7 +320,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -420166396881927610, guid: cc0f9951524a9cc4ba6148de6cba6cb8, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.8
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -416,7 +416,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -420166396881927610, guid: cc0f9951524a9cc4ba6148de6cba6cb8, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.8
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -519,6 +519,7 @@ MonoBehaviour:
   voiceSounds: {fileID: 11400000, guid: 5e44feaca094de8438a8a5ca7cd1d619, type: 2}
   hitSoundsForTarget: {fileID: 0}
   hitSoundsForSelf: {fileID: 0}
+  chargeSounds: {fileID: 0}
   runningThreshold: 3
 --- !u!1 &6493992907840422249
 GameObject:

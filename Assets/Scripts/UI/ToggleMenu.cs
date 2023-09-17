@@ -20,8 +20,10 @@ namespace AG.UI {
 
         [SerializeField]
         public bool preventInput = false;
+        private GlobalAudioSystem globalAudioSystem;
 
         void Start() {
+            globalAudioSystem = GameObject.Find("Main Camera").GetComponent<GlobalAudioSystem>();
             foreach (MenuEntry menuEntry in menuEntries) {
                 if (menuEntry.menu) {
                     menuEntry.menu.SetActive(false);
@@ -42,6 +44,8 @@ namespace AG.UI {
                 curMenuEntry.menu.SetActive(!curMenuEntry.menu.activeSelf);
                 GameObject playerObj = GameObject.Find("Player");
                 if (curMenuEntry.menu.activeSelf) {
+                    if (globalAudioSystem) 
+                        globalAudioSystem.PlayUIPopupOpenSound();
                     ActionMapHandler actionMapHandler = playerObj.GetComponent<ActionMapHandler>();
                     ToggleMenu.menuOpenCounter++;
                     actionMapHandler.ChangeToActionMap("UI");
@@ -59,6 +63,8 @@ namespace AG.UI {
         }
 
         public void CloseMenu(MenuEntry curMenu, GameObject playerObj = null, bool menuChanged = false) {
+            if (globalAudioSystem)
+                globalAudioSystem.PlayUIPopupCloseSound();
             if (curMenu.menu == pauseMenu) {
                 CloseSettingsMenu();
             }
