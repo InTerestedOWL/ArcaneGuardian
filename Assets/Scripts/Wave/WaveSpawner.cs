@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using AG.Combat;
 using AG.UI;
 using UnityEngine;
+using UnityEngine.AI;
 // Grundlagen von Tutorial https://www.youtube.com/watch?v=7T-MTo8Uaio
 
 [System.Serializable]
@@ -191,7 +192,17 @@ public class WaveSpawner : MonoBehaviour
         if(signZ>0){
             z= -z;
         }
-        return new Vector3(poiPos.x+x,5,poiPos.z+z);
+        poiPos = new Vector3(poiPos.x+x,0,poiPos.z+z);
+        Vector3 randomPoint = poiPos + Random.insideUnitSphere * 10.0f;
+        NavMeshHit hit;
+        for(int i=0; i<100;i++){
+            if (NavMesh.SamplePosition(randomPoint, out hit, 1.0f, NavMesh.AllAreas))
+            {
+                return new Vector3(hit.position.x,hit.position.y+0.1f,hit.position.z);            
+            }
+        }
+        
+        return new Vector3(poiPos.x+x,poiPos.y+5,poiPos.z+z);
     }
     void FixedUpdate()
     {
