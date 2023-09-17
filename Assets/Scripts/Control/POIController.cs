@@ -15,6 +15,7 @@ namespace AG.Control {
             movement =  GetComponent<Movement>();
             combat = GetComponent<BasicCombat>();
             combatTarget = GetComponent<CombatTarget>();
+            animator = GetComponent<Animator>();
             
             //Ai State Machine
             stateMachine = new AiStateMachine(this);
