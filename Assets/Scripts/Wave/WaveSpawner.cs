@@ -178,6 +178,21 @@ public class WaveSpawner : MonoBehaviour
             }      
         }
     }
+    private Vector3 GenerateEnemyPosition(){
+        Vector3 poiPos = poi.transform.position;
+        float x = (float)Random.Range(25f,50f);
+        float z = (float)Random.Range(25f,50f);
+
+        int signX = Random.Range(0,2);
+        int signZ = Random.Range(0,2);
+        if(signX>0){
+            x= -x;
+        }
+        if(signZ>0){
+            z= -z;
+        }
+        return new Vector3(poiPos.x+x,5,poiPos.z+z);
+    }
     void FixedUpdate()
     {
         if(spawnTimer <=0)
@@ -186,8 +201,9 @@ public class WaveSpawner : MonoBehaviour
 
             if(enemiesToSpawn.Count>0)
             {
+                Vector3 pos = GenerateEnemyPosition();
                 spawnIndex = Random.Range(0, spawnLocation.Length);
-                GameObject enemy = (GameObject)Instantiate(enemiesToSpawn[0], spawnLocation[spawnIndex].position,Quaternion.identity); // spawn first enemy in our list
+                GameObject enemy = (GameObject)Instantiate(enemiesToSpawn[0], pos,Quaternion.identity); // spawn first enemy in our list
                 enemy.transform.SetParent(this.transform, true);
                 enemiesToSpawn.RemoveAt(0); // and remove it
                 spawnedEnemies.Add(enemy);
