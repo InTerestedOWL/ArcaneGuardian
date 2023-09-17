@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f7ac2c3334c6d246b04c897d0286ff9, type: 3}
+  m_Name: CrystalVoices
+  m_EditorClassIdentifier: 
+  painSounds:
+  - {fileID: 8300000, guid: 1f0293ca6cdae1e458f5d04981ca4142, type: 3}
+  - {fileID: 8300000, guid: a1ccf4a78ab48af46a741184265bbd3a, type: 3}
+  - {fileID: 8300000, guid: 2966c6c258cf3964cb8e5b348541887a, type: 3}
+  - {fileID: 8300000, guid: b2ad15d6e4efb7348be38bb786aa6561, type: 3}
+  - {fileID: 8300000, guid: a366718f0a109b140b00b27fd1f89c07, type: 3}
+  - {fileID: 8300000, guid: 823b175ed4d7df842ae805ae40d327cb, type: 3}
+  - {fileID: 8300000, guid: 4ab8f5e3421e6b048b1ff9bd44df6ecf, type: 3}
+  deathSounds:
+  - {fileID: 8300000, guid: adbafe6591d016d429a9b9261d7548f4, type: 3}
+  - {fileID: 8300000, guid: 2c5ddf4cbac8cf74abecd14983926775, type: 3}
+  - {fileID: 8300000, guid: 4fb9337c3bde6d144a8c3af5aa23aa0f, type: 3}
+  - {fileID: 8300000, guid: c8366275699c6064689e01b77724e411, type: 3}
+  - {fileID: 8300000, guid: 996c0bed13403c3479407822484bb31d, type: 3}
+  - {fileID: 8300000, guid: 625099919ca52ca4fb74fdda856cc855, type: 3}
+  - {fileID: 8300000, guid: f9abec249c1a3344e9dcf6bf15304a63, type: 3}

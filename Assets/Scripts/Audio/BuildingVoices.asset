@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f7ac2c3334c6d246b04c897d0286ff9, type: 3}
+  m_Name: BuildingVoices
+  m_EditorClassIdentifier: 
+  painSounds:
+  - {fileID: 8300000, guid: 241af32a86aecb5469dbdcda2668be4f, type: 3}
+  - {fileID: 8300000, guid: 485e781a25a317a44bae77046534b89b, type: 3}
+  - {fileID: 8300000, guid: e87e512dcdb660841979c33c5c4bfb02, type: 3}
+  - {fileID: 8300000, guid: 5afd0ee096fd0b94c829a4a1e42734fc, type: 3}
+  - {fileID: 8300000, guid: 7d052b6491318e1458f5b9bac44edfcc, type: 3}
+  - {fileID: 8300000, guid: 62eaddb2839f50c43b9f312eba222933, type: 3}
+  deathSounds:
+  - {fileID: 8300000, guid: 2a6dc797eaca8fa40bd0f5d699015455, type: 3}
+  - {fileID: 8300000, guid: e5e861dd4a72f214fa62cceb8c2f1ef4, type: 3}
+  - {fileID: 8300000, guid: 67cf8b74614fbfd4797a7aa27df74dbc, type: 3}
+  - {fileID: 8300000, guid: f63f8cedcf7252940aa2f3ac6413bf5c, type: 3}

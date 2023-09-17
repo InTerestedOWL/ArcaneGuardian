@@ -63,7 +63,7 @@ namespace AG.Combat
                 CombatTarget ct = target.GetComponent<CombatTarget>();
                 if (ct != null)
                 {
-                    ct.DamageTarget(damage);
+                    ct.DamageTarget(damage, skill);
                 }
             }
 

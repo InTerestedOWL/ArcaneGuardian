@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f7ac2c3334c6d246b04c897d0286ff9, type: 3}
+  m_Name: HumanArcherVoices
+  m_EditorClassIdentifier: 
+  painSounds:
+  - {fileID: 8300000, guid: dd6eb90347bd59446b5bfa7a0f7cf112, type: 3}
+  - {fileID: 8300000, guid: 0eeb35efeb8c9314caf2ea1429db5f60, type: 3}
+  - {fileID: 8300000, guid: a89f246b6eb10d84bbce278ec5062072, type: 3}
+  - {fileID: 8300000, guid: 517d16fa60a4a7647b2c8465a4b4600a, type: 3}
+  - {fileID: 8300000, guid: 1f5ff718969576248a2843f888078742, type: 3}
+  - {fileID: 8300000, guid: 1105f064086396640a724cb3b138235a, type: 3}
+  - {fileID: 8300000, guid: 525023251f55ab24c8210a4d965e2308, type: 3}
+  - {fileID: 8300000, guid: af4f0ff4be44c8d4ca3853b74144bf40, type: 3}
+  - {fileID: 8300000, guid: 3bd2ca4ee01c295439741207a211b48a, type: 3}
+  deathSounds:
+  - {fileID: 8300000, guid: b3cc9470ba5cea948b1b0e07ba7acb6b, type: 3}
+  - {fileID: 8300000, guid: 4212212666b45cc4ab591e217d940396, type: 3}
+  - {fileID: 8300000, guid: 6257143c27d95f747b76f9977cc8f359, type: 3}
+  - {fileID: 8300000, guid: 2fed18c9f2d20e048aa654239b59e14d, type: 3}
+  - {fileID: 8300000, guid: 4fc04d51a1dfb214db58e4a23392be0c, type: 3}

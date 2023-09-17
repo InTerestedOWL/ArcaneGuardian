@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2695f6ebbd9e54646b3eb283f98ab228, type: 3}
+  m_Name: KnifeHitSounds
+  m_EditorClassIdentifier: 
+  hitSounds:
+  - {fileID: 8300000, guid: 5eec21d7ae91f4b47b5db3104a15124b, type: 3}
+  - {fileID: 8300000, guid: ac44e7fa7d6758c4799b4ad8ac2252f8, type: 3}
+  - {fileID: 8300000, guid: da85325098afc724880d942fb9c4c41b, type: 3}
+  - {fileID: 8300000, guid: 88e4848d39e6a694ab90791b50e9a304, type: 3}
+  - {fileID: 8300000, guid: abd7ce9e6afe18b4dba976ec334003f5, type: 3}
+  - {fileID: 8300000, guid: 622660117a89f9345ba80748950782b5, type: 3}
+  - {fileID: 8300000, guid: eda6c9a0df94ce24493142bbe64e0529, type: 3}
+  - {fileID: 8300000, guid: f655f236c19f0704a8892be91b3724d2, type: 3}
+  - {fileID: 8300000, guid: 46b7122c419c41f489eaf013cb9b0fe2, type: 3}
+  - {fileID: 8300000, guid: caffa24fdcc3773418384a2d82ccc335, type: 3}

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,23 +19,28 @@ public class ScreenResolutionSelector : MonoBehaviour {
     private Button applyButton;
     [SerializeField]
     private Button revertButton;
+    private bool preselectSet = false;
 
-    // Start is called before the first frame update
-    void Start() {
+    void Awake() {
         try {
             Resolution[] resolutions = Screen.resolutions;
             foreach (var res in resolutions) {
                 string key = res.width + " x " + res.height;
                 resolutionsDict.Add(key, res);
                 if (res.width == Screen.currentResolution.width && res.height == Screen.currentResolution.height) {
-                    previousResolutionKey = key;
+                    if (previousResolutionKey == null) {
+                        previousResolutionKey = key;
+                    }
                 }
             }
             dropdownResolution.AddOptions(resolutionsDict.Keys.ToList());
+
+            if (!preselectSet) {
+                previousFullscreen = Screen.fullScreen;
+            } 
             // Preselect dropdown
             dropdownResolution.value = dropdownResolution.options.FindIndex(option => option.text == previousResolutionKey);
 
-            previousFullscreen = Screen.fullScreen;
             dropdownDisplayMode.value = dropdownDisplayMode.options.FindIndex(option => option.text.ToLower().Contains(previousFullscreen ? "fullscreen" : "window"));
 
             // Start in Fullscreen
@@ -72,4 +78,29 @@ public class ScreenResolutionSelector : MonoBehaviour {
 
         Screen.SetResolution(res.width, res.height, isFullscreen);
     }
+
+    public void SetDisplaySettings(ResolutionObject resolutionObject) {
+        preselectSet = true;
+        string keyRes = previousResolutionKey = resolutionObject.width + " x " + resolutionObject.height;
+        bool isFullscreen = previousFullscreen = resolutionObject.fullscreen;
+        dropdownResolution.value = dropdownResolution.options.FindIndex(option => option.text == keyRes);
+        dropdownDisplayMode.value = dropdownDisplayMode.options.FindIndex(option => option.text.ToLower().Contains(isFullscreen ? "fullscreen" : "window"));
+    }
+
+    public ResolutionObject GetVideoSettings() {
+        Resolution res = resolutionsDict[previousResolutionKey];
+        ResolutionObject videoSettings = new ResolutionObject {
+            width = res.width,
+            height = res.height,
+            fullscreen = previousFullscreen
+        };
+        return videoSettings;
+    }
+}
+
+[Serializable]
+public class ResolutionObject {
+    public int width;
+    public int height;
+    public bool fullscreen;
 }

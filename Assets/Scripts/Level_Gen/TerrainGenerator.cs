@@ -2,11 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using AG.Control;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEditor;
 using UnityEngine.AI;
 using UnityEngine.Rendering.UI;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class TerrainGenerator : MonoBehaviour
@@ -23,6 +25,9 @@ public class TerrainGenerator : MonoBehaviour
     public MeshSettings meshSettings;
     public HeightMapSettings heightMapSettings;
     public ObjectDataSettings objectDataSettings;
+
+    public GameObject player;
+    public GameObject poi;
     
     public TextureData textureSettings;
 
@@ -36,6 +41,7 @@ public class TerrainGenerator : MonoBehaviour
     private int chunkCountDivided;
     private Dictionary<Vector2, TerrainChunk> terrainChunkDictionary = new Dictionary<Vector2, TerrainChunk>();
     private List<TerrainChunk> visibleTerrainChunks = new List<TerrainChunk>();
+    private int loadedChunks;
 
     private bool hasBuildedNavMesh = false;
     private Coroutine navMeshCR = null;
@@ -140,6 +146,9 @@ public class TerrainGenerator : MonoBehaviour
         if (navMeshCR != null) {
             StopCoroutine(BuildNavMesh());
         }
+        
+        loadedChunks++;
+        LoadingHandler.SetLoadingPercentage((loadedChunks * 100) / (meshSettings.chunkCount * meshSettings.chunkCount));
         navMeshCR = StartCoroutine(BuildNavMesh());
     }
 
@@ -147,11 +156,29 @@ public class TerrainGenerator : MonoBehaviour
     {
         yield return new WaitForSeconds(0.3f);
         if (hasBuildedNavMesh) {
+            if (!RandomPointOnNavMesh.found && RandomPointOnNavMesh.i >= RandomPointOnNavMesh.TIMES) {
+                Vector3 playerPosition  = RandomPointOnNavMesh.GetPoinntForPlayerAndPOIOnNavMesh(meshSettings);
+                player.GetComponent<NavMeshAgent>().enabled = true;
+                poi.GetComponent<NavMeshAgent>().enabled = true;
+                poi.GetComponent<POIController>().enabled = true;
+                player.transform.position = playerPosition;
+                LoadingHandler.AddLoadingPercentage(10);
+            }
             GetComponent<NavMeshSurface>().UpdateNavMesh(GetComponent<NavMeshSurface>().navMeshData);
+                
         } else {
             GetComponent<NavMeshSurface>().BuildNavMesh();
             hasBuildedNavMesh = true;
             navMeshCR = null;
+            Vector3 playerPosition  = RandomPointOnNavMesh.GetPoinntForPlayerAndPOIOnNavMesh(meshSettings);
+            if (RandomPointOnNavMesh.found)
+            {
+                player.GetComponent<NavMeshAgent>().enabled = true;
+                poi.GetComponent<NavMeshAgent>().enabled = true;
+                poi.GetComponent<POIController>().enabled = true;
+                player.transform.position = playerPosition;
+                LoadingHandler.AddLoadingPercentage(10);
+            }
         }
     }
     
@@ -184,16 +211,6 @@ public class TerrainGenerator : MonoBehaviour
     }
     
     private Vector3 RandomPointAboveTerrain(TerrainChunk chunk) {
-        /*if (chunk.coord.x == 0.0f && chunk.coord.y == 0.0f)
-        {
-            Debug.Log(chunk.coord);
-            Debug.Log(meshSettings.numVertsPerLine);
-            Debug.Log(((chunk.coord.x * (meshSettings.numVertsPerLine - 3)) - (meshSettings.numVertsPerLine - 3) / 2));
-            Debug.Log(((chunk.coord.x * (meshSettings.numVertsPerLine - 3)) + (meshSettings.numVertsPerLine - 3) / 2));
-            Debug.Log((chunk.coord.y * (meshSettings.numVertsPerLine - 3)) - (meshSettings.numVertsPerLine - 3) / 2);
-            Debug.Log((chunk.coord.y * (meshSettings.numVertsPerLine - 3)) + (meshSettings.numVertsPerLine - 3) / 2);
-        }*/
-
         return new Vector3(
             UnityEngine.Random.Range((chunk.coord.x * meshSettings.numVertsPerLine) - meshSettings.numVertsPerLine / 2, (chunk.coord.x * meshSettings.numVertsPerLine) + meshSettings.numVertsPerLine / 2),
             transform.position.y + heightMapSettings.maxHeight * 2,

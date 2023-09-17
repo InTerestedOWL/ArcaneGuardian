@@ -1,0 +1,35 @@
+https://elevenlabs.io/terms
+
+License and your Intellectual Property
+License
+
+Your Content is yours and you retain the Intellectual Property Rights that you have in Your Content. This includes both the Files you Upload to our Services and the Files you Generate using our Services. We need your permission if your Intellectual Property Rights restrict our use of Your Content. You provide us with this permission through this license:
+
+What's covered
+This license covers Your Contributions and the Content you Upload to and Generate using our Services if that Content is protected by Intellectual Property Rights.
+
+What's not covered
+This license doesn't affect your data protection rights — it's only about your Intellectual Property Rights. This license doesn't cover publicly available factual information that you provide, such as corrections to the address of a local business or content that is in the public domain.
+
+Scope
+This license is:
+worldwide, which means it’s valid anywhere in the world
+non-exclusive, which means you can license Your Content to others
+royalty-free, which means there are no monetary fees for this license
+
+Rights
+This license allows us to use, host, store, display, reformat, archive, cache Your Content — for example, to perform our Services, to save Your Content on our systems and make it accessible from anywhere you go.
+
+Purpose
+This license is for the limited purpose of:
+operating and improving the Services, which means allowing the Services to work as designed and creating new features and functionalities. This includes using automated systems and algorithms to analyze Your Content:
+for spam, malware, and illegal content
+to research and development such as e.g. recognize patterns in data for improving the quality of our Service, such as delivering ever higher quality voices
+This analysis occurs as the content is sent, received, and when it is stored.
+sharing your content on the Voice Library if you choose to do so. By making your Content available on the Voice Library, other ElevenLabs users will be allowed to access and reuse your Content according to our Terms of Service.
+developing and making available new technologies or services for ElevenLabs consistent with these terms
+
+Duration
+This license lasts for as long as Your Content is protected by Intellectual Property Rights.
+
+If you remove from our Services any content that’s covered by this license we will cease to use it to the extent that is technically feasible.

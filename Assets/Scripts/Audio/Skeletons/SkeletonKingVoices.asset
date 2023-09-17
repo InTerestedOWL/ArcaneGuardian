@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f7ac2c3334c6d246b04c897d0286ff9, type: 3}
+  m_Name: SkeletonKingVoices
+  m_EditorClassIdentifier: 
+  painSounds:
+  - {fileID: 8300000, guid: 2e18fd7848c99164db878331ce1e9d28, type: 3}
+  - {fileID: 8300000, guid: 37f34521c97048e428e18eed572014a1, type: 3}
+  - {fileID: 8300000, guid: dec589751fe709b45a2c93ee6ce28de3, type: 3}
+  - {fileID: 8300000, guid: ae86573bc0492cd4a99e3e4536035bfd, type: 3}
+  - {fileID: 8300000, guid: a59b5218ab6a51b4eb01b778d9440c93, type: 3}
+  - {fileID: 8300000, guid: fc23b7c8666609e4fa3f6d7128d972e5, type: 3}
+  - {fileID: 8300000, guid: 3fe793cf33990f54d96ada9c64f1852b, type: 3}
+  deathSounds:
+  - {fileID: 8300000, guid: aca40ef2336f5a54e801bdd080a22207, type: 3}
+  - {fileID: 8300000, guid: c94fd133f3797ff40afb470628ba15a0, type: 3}
+  - {fileID: 8300000, guid: 3fff86e554f77034ea8ad5012f74a291, type: 3}
+  - {fileID: 8300000, guid: 590ef445f7771ca4580f19020d38369a, type: 3}
+  - {fileID: 8300000, guid: 9579d770c49b6d84cb52a427b449e094, type: 3}

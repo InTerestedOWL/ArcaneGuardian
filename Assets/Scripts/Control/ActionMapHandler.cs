@@ -77,5 +77,12 @@ namespace AG.Control {
             InputAction action = playerInput.actions.FindAction(actionName);
             return action;
         }
+
+        public InputAction GetActionOfActionMap(string actionMapName, string actionName) {
+            PlayerInput playerInput = GetComponent<PlayerInput>();
+            InputActionMap actionMap = playerInput.actions.FindActionMap(actionMapName);
+            InputAction action = actionMap.FindAction(actionName);
+            return action;
+        }
     }
 }

@@ -17,7 +17,7 @@ namespace AG.Skills.Effects {
             foreach (GameObject target in skillData.GetTargets()) {
                 CombatTarget ct = target.GetComponent<CombatTarget>();
                 if (ct != null) {
-                    ct.DamageTargetDoTInAoE(damagePerTick, numberOfTicksInDuration, duration);
+                    ct.DamageTargetDoTInAoE(damagePerTick, numberOfTicksInDuration, duration, skillData.GetSkill());
                 }
             }
         }

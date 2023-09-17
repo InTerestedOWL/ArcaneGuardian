@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2695f6ebbd9e54646b3eb283f98ab228, type: 3}
+  m_Name: HealingHitSounds
+  m_EditorClassIdentifier: 
+  hitSounds:
+  - {fileID: 8300000, guid: 53173af8c6df6e74098fdc4bc1d1a5af, type: 3}
+  - {fileID: 8300000, guid: b9f0ca630c430184c8052efda0fd240e, type: 3}
+  - {fileID: 8300000, guid: e4ca79cc751b3d1408067bfa4e5f44bf, type: 3}
+  - {fileID: 8300000, guid: 9a7e8cef2a25d264da6f99b01794964a, type: 3}
+  - {fileID: 8300000, guid: f70aa277a57a38241864356714edc422, type: 3}

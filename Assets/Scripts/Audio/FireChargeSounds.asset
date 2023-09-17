@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a64757eb8105a04ba3e28381d8b237d, type: 3}
+  m_Name: FireChargeSounds
+  m_EditorClassIdentifier: 
+  chargeSounds:
+  - {fileID: 8300000, guid: fac03d5e0f4c6ad4f911f18d19abc0ca, type: 3}
+  - {fileID: 8300000, guid: f1824c2bd664ffc4f890ffc6af312cf6, type: 3}
+  - {fileID: 8300000, guid: e190ab5cca9d486449d2d51c92a88a0b, type: 3}
+  - {fileID: 8300000, guid: 09443b25889a6174f899e5545c696616, type: 3}
+  - {fileID: 8300000, guid: efb88af4e61fb5945b2953d06d22bd5b, type: 3}
+  - {fileID: 8300000, guid: 5898e9df58f23d44d8da8ed54ca299ed, type: 3}

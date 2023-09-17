@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spinCount: 3
   spinsPerSecond: 3
+  chargeSounds: {fileID: 11400000, guid: 896793a297f9b75478aaa08eac60cf63, type: 2}

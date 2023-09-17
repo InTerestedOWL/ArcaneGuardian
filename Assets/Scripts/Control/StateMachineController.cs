@@ -57,7 +57,6 @@ namespace AG.Control
                     if (!combat.IsAttacking()) {
                         attackTarget = target;
                         combat.Attack();
-                        Debug.Log("Attacking: " + target.name);
                     }
                 }
             }

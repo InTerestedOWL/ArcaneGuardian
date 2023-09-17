@@ -6,6 +6,8 @@ using AG.Skills.Effects;
 using AG.Skills.Core;
 using System.Collections;
 using AG.Control;
+using AG.Audio.Sounds;
+using AG.Combat;
 
 namespace AG.Skills {
     /*
@@ -22,6 +24,8 @@ namespace AG.Skills {
         protected FilterStrategy filterStrategy = null;
         [SerializeField]
         protected EffectStrategy[] effectStrategies = null;
+        [SerializeField]
+        protected HitSounds hitSounds = null;
 
         public override void Use(GameObject user) {
             if (isOnCooldown) {
@@ -32,6 +36,7 @@ namespace AG.Skills {
         }
 
         protected void ProcessTargets(SkillData skillData) {
+            skillData.SetSkill(this);
             PlayerController playerController = skillData.GetPlayerController();
             if(playerController != null){
                 playerController.StartCoroutine(StartCooldown());
@@ -39,11 +44,13 @@ namespace AG.Skills {
 
             skillData.SetFilterStrategy(filterStrategy);
             filterStrategy.FilterTargets(skillData);
-            
+
             foreach(EffectStrategy effectStrategy in effectStrategies) {
                 effectStrategy.ApplyEffect(skillData);
             }
-            playerController.StartCoroutine(ShowTutorial());
+            if(playerController != null) {
+                playerController.StartCoroutine(ShowTutorial());
+            }
         }
         
         public override IEnumerator StartCooldown() {
@@ -70,6 +77,10 @@ namespace AG.Skills {
 
         public FilterStrategy GetFilterStrategy() {
             return filterStrategy;
+        }
+
+        public HitSounds GetHitSounds() {
+            return hitSounds;
         }
     }
 }

@@ -14,6 +14,7 @@ namespace AG.Skills.Core {
         private Vector3 targetPosition;
         private float radius = 0;
         private FilterStrategy filterStrategy = null;
+        private Skill skill = null;
 
         public SkillData(GameObject user) {
             this.user = user;
@@ -59,6 +60,14 @@ namespace AG.Skills.Core {
 
         public float GetRadius() {
             return radius;
+        }
+
+        public void SetSkill(Skill skill) {
+            this.skill = skill;
+        }
+
+        public Skill GetSkill() {
+            return skill;
         }
 
         public void SetFilterStrategy(FilterStrategy filterStrategy) {

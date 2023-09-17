@@ -241,7 +241,7 @@ public class BuildingSystem : MonoBehaviour
             refundGold += (int)(po.getPrice() * refundBuilding);
             }
             int countBuildings = poi_building.getPlacedBuildings().Count;
-            string text = "Soll der Quell der Magi dir wirklich folgen? Dabei werden alle deine Gebäude ("+countBuildings+") abgebaut und du erhältst "+refundGold+" Gold zurück.";
+            string text = "Do you really want the source of the magic to follow you? By doing so, all your buildings ("+countBuildings+") will be removed and you will get "+refundGold+" gold refunded.";
             cWindow.popupConfirmationWindow(text,followPOI,null);
         }
         else{
@@ -292,7 +292,7 @@ public class BuildingSystem : MonoBehaviour
         setBuildingPOI(buildingObject.tag == "POI_Building");
         if(buildingObject.tag == "POI_Building"){
             if(poi_building.getPlaced()){
-                iWindow.popupInformationWindow("The Source of Magi has yet to be placed!");
+                iWindow.popupInformationWindow("The Source of Magic has yet to be placed!");
                 stopBuilding();
             }
         }
@@ -417,13 +417,13 @@ public class BuildingSystem : MonoBehaviour
                     }
                 }
                 else if(!poi_building.getPlaced()){
-                    iWindow.popupInformationWindow("The Source of Magi has yet to be placed!");
+                    iWindow.popupInformationWindow("The Source of Magic has yet to be placed!");
                 }
                 else if(!BuildingCanBePlaced(objectToPlace)){
                     iWindow.popupInformationWindow("This cannot be placed here!");
                 }
                 else if(!pbs.getArrived()){
-                    iWindow.popupInformationWindow("The Source of Magi has not arrived yet!");
+                    iWindow.popupInformationWindow("The Source of Magic has not arrived yet!");
                 }
                 else if(BuildingCanBePlaced(objectToPlace)&& pbs.getArrived()){
                     objectToPlace.Place();

@@ -6,7 +6,10 @@ using System;
 
 namespace AG.Audio.Sounds {
     public class CharacterAudioController : MonoBehaviour {
+        [SerializeField]
         private AudioSource audioSource;
+        [SerializeField]
+        private AudioSource additionalAudioSource;
         [SerializeField]
         private FootstepSounds footstepSounds;
         [SerializeField]
@@ -20,6 +23,8 @@ namespace AG.Audio.Sounds {
         [SerializeField]
         private HitSounds hitSoundsForSelf;
         [SerializeField]
+        private ChargeSounds chargeSounds;
+        [SerializeField]
         private float runningThreshold = 3f;
         // To check for running, we need to know the speed of the character (blend tree value)
         private Animator animator;
@@ -31,29 +36,27 @@ namespace AG.Audio.Sounds {
         }
 
         void Awake() {
-            audioSource = GetComponent<AudioSource>();
+            if (audioSource == null) {
+                audioSource = GetComponent<AudioSource>();  
+            }
             animator = GetComponent<Animator>();
         }
 
-        void Start() {
-            
-        }
-
-        void Update() {
-            
-        }
-
-        private void PlaySound(AudioClip audioClip) {
+        public void PlaySound(AudioClip audioClip) {
             audioSource.PlayOneShot(audioClip);
+        }
+
+        private void PlayAdditionalSound(AudioClip audioClip) {
+            additionalAudioSource.PlayOneShot(audioClip);
         }
 
         public void PlayRandomFootstepSound(FootstepType type) {
             float walkSpeed = Math.Abs(animator.GetFloat("walkSpeed"));
             float sideSpeed = Math.Abs(animator.GetFloat("sideSpeed"));
-            if (sideSpeed <= walkSpeed) {
-                if (type == FootstepType.Running && (walkSpeed >= runningThreshold)) {
+            if (footstepSounds && sideSpeed <= walkSpeed) {
+                if (type == FootstepType.Running && (walkSpeed >= runningThreshold) && footstepSounds.HasRunningFootstepSounds()) {
                     PlaySound(footstepSounds.GetRandomRunningFootstepSound());
-                } else if (type == FootstepType.Walking && (walkSpeed < runningThreshold)) {
+                } else if (type == FootstepType.Walking && (walkSpeed < runningThreshold) && footstepSounds.HasWalkingFootstepSounds()) {
                     PlaySound(footstepSounds.GetRandomWalkingFootstepSound());
                 }
             }
@@ -62,28 +65,38 @@ namespace AG.Audio.Sounds {
         public void PlayRandomFootstepStrafeSound(FootstepType type) {
             float walkSpeed = Math.Abs(animator.GetFloat("walkSpeed"));
             float sideSpeed = Math.Abs(animator.GetFloat("sideSpeed"));
-            if (sideSpeed > walkSpeed) {
-                if (type == FootstepType.Running && (animator.GetFloat("walkSpeed") >= runningThreshold)) {
+            if (footstepSounds && sideSpeed > walkSpeed) {
+                if (type == FootstepType.Running && (animator.GetFloat("walkSpeed") >= runningThreshold) && footstepSounds.HasRunningFootstepSounds()) {
                     PlaySound(footstepSounds.GetRandomRunningFootstepSound());
-                } else if (type == FootstepType.Walking && (animator.GetFloat("walkSpeed") < runningThreshold)) {
+                } else if (type == FootstepType.Walking && (animator.GetFloat("walkSpeed") < runningThreshold) && footstepSounds.HasWalkingFootstepSounds()) {
                     PlaySound(footstepSounds.GetRandomWalkingFootstepSound());
                 }
             }
         }
 
+        public void PlayRandomChargeSound() {
+            if (chargeSounds != null && chargeSounds.HasChargeSounds())
+                PlaySound(chargeSounds.GetRandomChargeSound());
+        }
+
         public void PlayRandomWhooshSound() {
-            if (whooshSounds != null)
+            if (whooshSounds != null && whooshSounds.HasWhooshSounds())
                 PlaySound(whooshSounds.GetRandomWhooshSound());
         }
 
         public void PlayRandomPainSound() {
-            if (voiceSounds != null)
+            if (voiceSounds != null && voiceSounds.HasPainSounds())
                 PlaySound(voiceSounds.GetRandomPainSound());
         }
 
         public void PlayRandomDeathSound() {
-            if (voiceSounds != null)
+            if (voiceSounds != null && voiceSounds.HasDeathSounds())
                 PlaySound(voiceSounds.GetRandomDeathSound());
+        }
+
+        public void PlayAdditionalHitSound(HitSounds hitSounds) {
+            if (hitSounds != null && hitSounds.HasHitSounds())
+                PlayAdditionalSound(hitSounds.GetRandomHitSound());
         }
 
         // hitSoundsFromCombatTarget includes weapon impact sounds from the target that hits

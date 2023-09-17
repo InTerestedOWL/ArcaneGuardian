@@ -5,6 +5,7 @@ using AG.Audio.Sounds;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.AI;
+using AG.Skills;
 
 namespace AG.Combat {
     public class CombatTarget : MonoBehaviour {
@@ -29,8 +30,9 @@ namespace AG.Combat {
         private bool inAoERange = false;
         private Coroutine coroutineAoEDoT = null;
         private CharacterAudioController audioController;
-
+        private Coroutine gameOverCoroutine = null;
         private bool isDead = false;
+        private Dictionary<GameObject, bool> isInvincibleAgainst = new Dictionary<GameObject, bool>();
 
         private void Start() {
             currentHealth = maxHealth;
@@ -63,7 +65,22 @@ namespace AG.Combat {
                 other.tag == "EnemyWeapon" && tag == "POI" || 
                 other.tag == "EnemyWeapon" && tag == "Turret") 
                 && other.GetComponentInParent<BasicCombat>().IsAttacking()) {
-                HandleHit(other);
+                if (isInvincibleAgainst.ContainsKey(other.gameObject)) {
+                    if (isInvincibleAgainst[other.gameObject]) {
+                        return;
+                    }
+                } else {
+                    StartCoroutine(InvincibleTimer(1f, other.gameObject));
+                    HandleHit(other);
+                }
+            }
+        }
+
+        IEnumerator InvincibleTimer(float time, GameObject sourceObject) {
+            isInvincibleAgainst.Add(sourceObject, true);
+            yield return new WaitForSeconds(time);
+            if (isInvincibleAgainst.ContainsKey(sourceObject)) {
+                isInvincibleAgainst.Remove(sourceObject);
             }
         }
 
@@ -77,7 +94,11 @@ namespace AG.Combat {
             }
         }
 
-        private void TakeDamage(int damage, GameObject sourceObject = null) {
+        private void TakeDamage(int damage, Skill skill) {
+            TakeDamage(damage, null, skill);
+        }
+
+        private void TakeDamage(int damage, GameObject sourceObject = null, Skill skill = null) {
             if (isDead)
                 return;
             PlayHitSound(sourceObject);
@@ -86,17 +107,35 @@ namespace AG.Combat {
             if (currentHealth <= 0) {
                 Die();
             } else if (audioController != null) {
-                audioController.PlayRandomPainSound();
+                bool isEnemyTag = CompareTag("Enemy");
+                if (!isEnemyTag || (isEnemyTag && Random.value <= 0.2f)) {
+                    audioController.PlayRandomPainSound();
+                }
+            }
+            
+            if (skill && audioController != null) {
+                HitSounds hitSounds = skill.GetHitSounds();
+                if (hitSounds != null) {
+                    audioController.PlayAdditionalHitSound(hitSounds);
+                }
             }
 
             blinkTimer = blinkDuration;
         }
+
         public void SetToMaxHealth(){
-            TakeHeal((int)(maxHealth+1));
+            TakeHeal((int)(maxHealth+1), null);
         }
-        private void TakeHeal(int heal) {
+        private void TakeHeal(int heal, Skill skill = null) {
             if (isDead)
                 return;
+
+            if (skill) {
+                HitSounds hitSounds = skill.GetHitSounds();
+                if (hitSounds != null) {
+                    audioController.PlayAdditionalHitSound(hitSounds);
+                }
+            }
 
             if(currentHealth + heal <= maxHealth) {
                 currentHealth += heal;
@@ -133,9 +172,10 @@ namespace AG.Combat {
             GetComponent<Animator>().SetTrigger("killed");
             // rb.isKinematic = true;
             healthBar?.gameObject.SetActive(false);
+            transform.Find("MiniMapIcon")?.gameObject.SetActive(false);
             isDead = true;
 
-            if (audioController != null) {
+            if (audioController != null && (CompareTag("POI") || !isBuilding)) {
                 audioController.PlayRandomDeathSound();
             }
 
@@ -152,7 +192,14 @@ namespace AG.Combat {
                 StartCoroutine(DespawnOnDeath());
             }
 
+            if((CompareTag("Player") || CompareTag("POI")) && gameOverCoroutine == null) {
+                gameOverCoroutine = StartCoroutine(GameOverTimer());
+            }
+
             if(isBuilding) {
+                if (audioController != null && !CompareTag("POI")) {
+                    audioController.PlayRandomDeathSound();
+                }
                 GetComponent<NavMeshObstacle>().enabled = false;
 
                 //Originales GameObjekt wird in DestroyMesh zerstört.
@@ -171,6 +218,11 @@ namespace AG.Combat {
                 }
                 
             }
+        }
+
+        private IEnumerator GameOverTimer() {
+            yield return new WaitForSeconds(2f);
+            GetComponent<GameOverHandler>()?.TriggerGameOver();
         }
 
         private IEnumerator DespawnOnDeath() {
@@ -211,17 +263,21 @@ namespace AG.Combat {
         }
 
         public void DamageTarget(int damage) {
-            TakeDamage(damage);
+            TakeDamage(damage, null);
         }
 
-        public void HealTarget(int heal) {
+        public void DamageTarget(int damage, Skill skill) {
+            TakeDamage(damage, skill);
+        }
+
+        public void HealTarget(int heal, Skill skill) {
             //TODO: Add Heal Animation/Effect
-            TakeHeal(heal);
+            TakeHeal(heal, skill);
         }
 
-        public void DamageTargetDoTInAoE(int damagePerTick, float numberOfTicksInDuration, float duration) {
+        public void DamageTargetDoTInAoE(int damagePerTick, float numberOfTicksInDuration, float duration, Skill skill) {
             if (coroutineAoEDoT == null) {
-                coroutineAoEDoT = StartCoroutine(DealDamageOverTimeInAoE(damagePerTick, numberOfTicksInDuration, duration));
+                coroutineAoEDoT = StartCoroutine(DealDamageOverTimeInAoE(damagePerTick, numberOfTicksInDuration, duration, skill));
             }
         }
 
@@ -229,11 +285,11 @@ namespace AG.Combat {
             coroutineAoEDoT = StartCoroutine(DealHealingOverTimeInAoE(healingPerTick, numberOfTicksInDuration, duration));
         }
 
-        private IEnumerator DealDamageOverTimeInAoE(int damagePerTick, float numberOfTicksInDuration, float duration) {
+        private IEnumerator DealDamageOverTimeInAoE(int damagePerTick, float numberOfTicksInDuration, float duration, Skill skill) {
             inAoERange = true;
             for (int i = 0; i < numberOfTicksInDuration; i++) {
                 if (inAoERange) {
-                    TakeDamage(damagePerTick);
+                    TakeDamage(damagePerTick, skill);
                 }
                 yield return new WaitForSeconds(duration / numberOfTicksInDuration);
             }

@@ -7,11 +7,15 @@ using UnityEngine.InputSystem;
 using TMPro;
 using AG.Actions;
 using UnityEngine.EventSystems;
+using AG.Control;
+using AG.Skills.Targeting;
 
 namespace AG.UI.Draggable {
     public class ActionBarSlotUI : MonoBehaviour, IDragContainer<ActionItem> {
         [SerializeField] 
         InputActionReference hotkeyReference = null;
+        [SerializeField]
+        InputActionReference castingReference = null;
         string hotkey = "";
         [SerializeField]
         SkillRef skillRef = null;
@@ -30,6 +34,9 @@ namespace AG.UI.Draggable {
 
         private void Start() {
             hotkeyReference.action.started += TriggerHotkey;
+            if (castingReference != null) {
+                castingReference.action.started += TriggerHotkey;
+            }
         }
 
         private void SetHotkeyUIDisplay() {
@@ -85,6 +92,10 @@ namespace AG.UI.Draggable {
         }
 
         private void TriggerHotkey(InputAction.CallbackContext context) {
+            if (TargetingStrategy.activeStrategies.Count > 0) {
+                TargetingStrategy currentTargeting = TargetingStrategy.activeStrategies.Dequeue();
+                currentTargeting.cancelTargeting = true;
+            }
             skillRef.UseCurrentItem();
         }
     }

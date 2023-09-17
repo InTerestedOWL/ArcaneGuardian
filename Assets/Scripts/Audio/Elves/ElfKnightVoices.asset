@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f7ac2c3334c6d246b04c897d0286ff9, type: 3}
+  m_Name: ElfKnightVoices
+  m_EditorClassIdentifier: 
+  painSounds:
+  - {fileID: 8300000, guid: 1a334aad3c01aa946b54fd5e1920b83d, type: 3}
+  - {fileID: 8300000, guid: 26abff294bf4d5c4584a2bdd37c1619e, type: 3}
+  - {fileID: 8300000, guid: 23f9e3c89637d22488012d97da461a12, type: 3}
+  - {fileID: 8300000, guid: 445b57487a7f60e4a9e544bde97d842d, type: 3}
+  - {fileID: 8300000, guid: a1292ed36841107428fa561c3e893c99, type: 3}
+  deathSounds:
+  - {fileID: 8300000, guid: 17ee9f416421682499bfdcefd09e0fee, type: 3}
+  - {fileID: 8300000, guid: 5bc6d655455ff1548a0d6451bf0ac335, type: 3}
+  - {fileID: 8300000, guid: 80bfd467ad195c841baf06409352976c, type: 3}
+  - {fileID: 8300000, guid: ad63fc720c64d374d927658445ab82b1, type: 3}
+  - {fileID: 8300000, guid: 8b5dcccb858f4c74786522fc1f6d4a09, type: 3}

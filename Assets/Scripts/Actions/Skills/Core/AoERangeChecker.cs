@@ -18,7 +18,7 @@ namespace AG.Skills {
                 combatTarget.SetInAoERange(true);
                 // Filter out targets according to filter strategy
                 if (aoeDoTTracker.TargetValid(combatTarget.gameObject)) {
-                    combatTarget.DamageTargetDoTInAoE(values.damagePerTick, values.numberOfTicksInDuration, values.duration);
+                    combatTarget.DamageTargetDoTInAoE(values.damagePerTick, values.numberOfTicksInDuration, values.duration, aoeDoTTracker.GetSkill());
                 }
             }
         }

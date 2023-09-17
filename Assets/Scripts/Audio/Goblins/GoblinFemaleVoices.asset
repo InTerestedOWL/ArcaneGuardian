@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f7ac2c3334c6d246b04c897d0286ff9, type: 3}
+  m_Name: GoblinFemaleVoices
+  m_EditorClassIdentifier: 
+  painSounds:
+  - {fileID: 8300000, guid: bcce87aad66d47b4fa6cfd57ffac424e, type: 3}
+  - {fileID: 8300000, guid: 92faf8651c0b4ed4791a6209997318ac, type: 3}
+  - {fileID: 8300000, guid: 9fc999241cc77e04180fc6ec1e069d34, type: 3}
+  - {fileID: 8300000, guid: c89259a46b8f8e744bb5010401e75c62, type: 3}
+  - {fileID: 8300000, guid: 3cde94dcc530ff04fba2138209eaebbb, type: 3}
+  - {fileID: 8300000, guid: 171e8962fecf7ec46b4b14256f1aab2a, type: 3}
+  - {fileID: 8300000, guid: 1f841dea7ce78e0408f4e4d55938586f, type: 3}
+  - {fileID: 8300000, guid: a3b13dba7c410ee488616db5021e4ca7, type: 3}
+  - {fileID: 8300000, guid: da5e611fa1825084d9e4041cfd5e29d0, type: 3}
+  - {fileID: 8300000, guid: d72de8e1fd57c3649a5e2d83c69ee90e, type: 3}
+  - {fileID: 8300000, guid: bac9a3be7cf85984ea7101261796bfc6, type: 3}
+  - {fileID: 8300000, guid: 684558913c2442a4188e2770b3fb520c, type: 3}
+  deathSounds:
+  - {fileID: 8300000, guid: ac35b83f5a09c7f40acb4ef571e68393, type: 3}
+  - {fileID: 8300000, guid: ea5b0169b049339439d66c3b8ad648a8, type: 3}
+  - {fileID: 8300000, guid: 4cb8c371a118c474595bfc576c6381d1, type: 3}
+  - {fileID: 8300000, guid: 2c02dd7a589647a4bbd3701449c635ae, type: 3}
+  - {fileID: 8300000, guid: 4b951894a62a31c4f808180a40c61f22, type: 3}
+  - {fileID: 8300000, guid: fe7c61a6fbd2129489ae28686b257a14, type: 3}
+  - {fileID: 8300000, guid: 3f1e7376818fb4f47b4f006d12d4c270, type: 3}
+  - {fileID: 8300000, guid: 5a2cdbec05c887d428b70a11e3dfc8dc, type: 3}
+  - {fileID: 8300000, guid: 3206a6a4df0ba2948b12b071cda85eeb, type: 3}
+  - {fileID: 8300000, guid: 9fa66e6239456ce46bbabde7acbc2cd4, type: 3}

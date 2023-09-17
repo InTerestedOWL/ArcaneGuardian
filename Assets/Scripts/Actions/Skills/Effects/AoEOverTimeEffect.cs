@@ -39,9 +39,9 @@ namespace AG.Skills.Effects {
                     if (ct != null)
                     {
                         if(isDamageOverTime) {
-                            ct.DamageTarget(damagePerTick);
+                            ct.DamageTarget(damagePerTick, skillData.GetSkill());
                         } else {
-                            ct.HealTarget(-damagePerTick);
+                            ct.HealTarget(-damagePerTick, skillData.GetSkill());
                         }
                     }
                 }

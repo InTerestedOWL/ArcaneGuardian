@@ -11,6 +11,10 @@ namespace AG.Audio.Sounds {
         public AudioClip GetRandomWhooshSound() {
             return whooshSounds[Random.Range(0, whooshSounds.Count)];
         }
+
+        public bool HasWhooshSounds() {
+            return whooshSounds.Count > 0;
+        }
     }
 
 }

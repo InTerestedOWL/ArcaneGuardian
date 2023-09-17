@@ -26,6 +26,8 @@ public class SceneHandler : MonoBehaviour {
 
     public void ChangeScene() {
         changeSceneTriggered = true;
+        Time.timeScale = 1;
+        AudioListener.pause = false;
     }
 
     public void CloseGame() {

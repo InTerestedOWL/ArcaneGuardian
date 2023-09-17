@@ -1,3 +1,6 @@
+using System;
+using System.Collections;
+using AG.Files;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,16 +13,25 @@ public class SettingsHandler : MonoBehaviour {
     private ScreenResolutionSelector screenResSel;
     [SerializeField]
     private SoundSettings soundSettings;
+    private SettingsOptions settingsOptions;
 
-    // Start is called before the first frame update
-    void Start() {
-        // Preselect toggle, as simply setting it "isOn" won't highlight it
-        Toggle[] toggles = tabsParent.GetComponentsInChildren<Toggle>();
-        foreach (Toggle toggle in toggles) {
-            if (toggle.isOn) {
-                //toggle.Select();
-            }
+    private FileHandler fh;
+
+    void Awake() {
+        fh = ScriptableObject.CreateInstance<FileHandler>();
+        string loadedFileData = fh.Load(FileHandler.FileType.Settings);
+        if (loadedFileData != null) {
+            settingsOptions = JsonUtility.FromJson<SettingsOptions>(loadedFileData);
+            soundSettings.SetSoundSettings(settingsOptions.audio);
+            screenResSel.SetDisplaySettings(settingsOptions.video);
+        } else {
+            Debug.Log("No settings file found, using default.");
+            settingsOptions = new SettingsOptions() {
+                audio = soundSettings.GetAudioSettings(),
+                video = screenResSel.GetVideoSettings()
+            };
         }
+        ConvertToJson();
     }
 
     public void ChangeTab(Toggle toggle) {
@@ -53,6 +65,25 @@ public class SettingsHandler : MonoBehaviour {
         }
     }
 
+    // Can't be set in FileHandler, as it won't work there
+    private string ConvertToJson() {
+        string json = JsonUtility.ToJson(settingsOptions, true);
+        return json;
+    }
+
+    private IEnumerator SaveCoroutine() {
+        yield return new WaitForSecondsRealtime(0.5f);
+        settingsOptions = new SettingsOptions() {
+            audio = soundSettings.GetAudioSettings(),
+            video = screenResSel.GetVideoSettings()
+        };
+        fh.Save(FileHandler.FileType.Settings, ConvertToJson());
+    }
+
+    public void SaveSettingsToFile() {
+        StartCoroutine(SaveCoroutine());
+    }
+
     public void CloseSettings() {
         screenResSel.Revert();
         soundSettings.Revert();
@@ -62,4 +93,10 @@ public class SettingsHandler : MonoBehaviour {
     public void OpenSettings() {
         gameObject.SetActive(true);
     }
+}
+
+[Serializable]
+public class SettingsOptions {
+    public AudioSettingsObject audio;
+    public ResolutionObject video;
 }
