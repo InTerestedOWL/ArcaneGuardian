@@ -19,8 +19,14 @@ namespace AG.Combat
 
         private new void OnTriggerEnter(Collider other){
             //Ignore Player and POI
-            if(other.gameObject.tag == "Player" || other.gameObject.tag == "PlayerWeapon" || other.gameObject.tag == "POI")
-                return;
+            if(instigator.tag == "EnemyWeapon") {
+                if(other.gameObject.tag == "Enemy" || other.gameObject.tag == "EnemyWeapon")
+                    return;
+            }
+            else {
+                if(other.gameObject.tag == "Player" || other.gameObject.tag == "PlayerWeapon" || other.gameObject.tag == "POI" || other.gameObject.tag == "Turret")
+                    return;
+            }
 
             if(hasHit)
                 return;

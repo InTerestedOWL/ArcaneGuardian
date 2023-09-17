@@ -16,12 +16,6 @@ public class MeshDestroy : MonoBehaviour
     public int CutCascades = 1;
     public float ExplodeForce = 0;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        if(originalScale == Vector3.zero)
-            originalScale = transform.localScale;
-    }
 
     // Update is called once per frame
     // void Update()
@@ -34,6 +28,9 @@ public class MeshDestroy : MonoBehaviour
 
     public void DestroyMesh()
     {
+        if(originalScale == Vector3.zero)
+            originalScale = transform.localScale;
+
         var originalMesh = GetComponent<MeshFilter>().mesh;
         originalMesh.RecalculateBounds();
         var parts = new List<PartMesh>();

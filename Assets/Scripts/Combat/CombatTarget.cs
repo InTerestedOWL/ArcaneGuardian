@@ -194,6 +194,12 @@ namespace AG.Combat {
 
             if((CompareTag("Player") || CompareTag("POI")) && gameOverCoroutine == null) {
                 gameOverCoroutine = StartCoroutine(GameOverTimer());
+
+                GetComponent<MeshDestroy>()?.DestroyMesh();
+
+                foreach(MeshDestroy meshDestroy in GetComponentsInChildren<MeshDestroy>()) {
+                    meshDestroy.DestroyMesh();
+                }
             }
 
             if(isBuilding) {
