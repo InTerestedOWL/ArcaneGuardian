@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using AG.Audio.Sounds;
 
 public class PlaceableObject : MonoBehaviour
 {
@@ -12,8 +13,9 @@ public class PlaceableObject : MonoBehaviour
     public string buildingName;
     [TextArea] public string buildingDesc;
     public int price;
-
-    
+    [SerializeField] private HitSounds buildingSounds;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private CharacterAudioController audioController;    
 
     public string getBuildingName(){
         return buildingName;
@@ -60,6 +62,9 @@ public class PlaceableObject : MonoBehaviour
     public virtual void Place(){
         ObjectDrag drag = gameObject.GetComponent<ObjectDrag>();
         Destroy(drag);
+        if (buildingSounds && audioSource && audioController && buildingSounds.HasHitSounds()) {
+            audioController.PlaySound(buildingSounds.GetRandomHitSound());
+        }
         Placed = true;
     }
 

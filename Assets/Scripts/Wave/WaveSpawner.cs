@@ -73,7 +73,28 @@ public class WaveSpawner : MonoBehaviour
     private int skillPointsToAdd = 0;
     private float timeToNextWave = 60;
     private float skipToTime = 5;
- 
+
+    [SerializeField]
+    private GlobalAudioSystem globalAudioSystem;
+    [SerializeField]
+    private AudioClip undeadVoice;
+    [SerializeField]
+    private AudioClip undeadBossVoice;
+    [SerializeField]
+    private AudioClip humanVoice;
+    [SerializeField]
+    private AudioClip humanBossVoice;
+    [SerializeField]
+    private AudioClip elfVoice;
+    [SerializeField]
+    private AudioClip elfBossVoice;
+    [SerializeField]
+    private AudioClip goblinVoice;
+    [SerializeField]
+    private AudioClip goblinBossVoice;
+    [SerializeField]
+    private AudioClip announcerVoice;
+
     public List<GameObject> spawnedEnemies = new List<GameObject>();
     public float getTimeToNextWave(){
         return timeToNextWave;
@@ -97,8 +118,8 @@ public class WaveSpawner : MonoBehaviour
     }
     private void addSpecialDialogs(){
         specialDialogs.Add(startGoblin,"Goblins: 'Blue light. It's so shiny. I must have it!'");
-        specialDialogs.Add(startSkeletons,"Skeletons: 'Ah, at last, we've found it. The Source of Magic, the very essence of power we seek.'");
-        specialDialogs.Add(startElves,"Elves: 'The Source of Magic is too powerful! It must be destroyed at all costs!'"); 
+        specialDialogs.Add(startSkeletons,"Skeletons: 'Ah, at last, we've found it. The Source of Magi, the very essence of power we seek.'");
+        specialDialogs.Add(startElves,"Elves: 'The Source of Magi is too powerful! It must be destroyed at all costs!'"); 
         specialDialogs.Add(startHumans,"Humans: 'With this power our kingdom will rule the entire world! GIVE UP OR DIE!'");
         specialDialogs.Add(startAllTogether,"Now all enemies join forces!");
 
@@ -246,7 +267,7 @@ public class WaveSpawner : MonoBehaviour
         waveTimer = waveDuration; // wave duration is read only
 
     }
- 
+
     public void GenerateEnemies()
     {
         // Create a temporary list of enemies to generate
@@ -262,6 +283,29 @@ public class WaveSpawner : MonoBehaviour
         List<GameObject> generatedEnemies = new List<GameObject>();
         int randEnemyListStart = 0;
         int randEnemyListEnd = enemies.Count;
+
+        // Play voices
+        if (currentWave > startAllTogether) {
+            // Skip
+        } else if (currentWave == startAllTogether) {
+            globalAudioSystem.PlayVoice(announcerVoice);
+        } else if (currentWave == startHumans) {
+            globalAudioSystem.PlayVoice(humanVoice);
+        } else if (currentWave == startElves) {
+            globalAudioSystem.PlayVoice(elfVoice);
+        } else if (currentWave == startSkeletons) {
+            globalAudioSystem.PlayVoice(undeadVoice);
+        } else if (currentWave == startGoblin) {
+            globalAudioSystem.PlayVoice(goblinVoice);
+        } else if (currentWave == goblinBossWave) {
+            globalAudioSystem.PlayVoice(goblinBossVoice);
+        } else if (currentWave == skeletonBossWave) {
+            globalAudioSystem.PlayVoice(undeadBossVoice);
+        } else if (currentWave == elvesBossWave) {
+            globalAudioSystem.PlayVoice(elfBossVoice);
+        } else if (currentWave == humanBossWave) {
+            globalAudioSystem.PlayVoice(humanBossVoice);
+        }
         
         if(currentWave >= startAllTogether){
             randEnemyListStart = 0;
@@ -271,35 +315,50 @@ public class WaveSpawner : MonoBehaviour
             if(bosswaveValue < 10){
                 int randBossId = Random.Range(0, bosses.Count);
                 generatedEnemies.Add(bosses[randBossId].enemyPrefab);
+                globalAudioSystem.PlayMusic(GamePhase.BossWave);
                 waveIsBossWave = true;
+            } else {
+                globalAudioSystem.PlayMusic(GamePhase.NormalWave);
             }
         }
         else if(currentWave >= startHumans){
             randEnemyListStart = 3;
             randEnemyListEnd = 4;
             if(currentWave == humanBossWave){
+                globalAudioSystem.PlayMusic(GamePhase.HumanWave);
                 generatedEnemies.Add(bosses[3].enemyPrefab);
+            } else {
+                globalAudioSystem.PlayMusic(GamePhase.NormalWave);
             }
         }
         else if(currentWave >= startElves){
             randEnemyListStart = 2;
             randEnemyListEnd = 3;
             if(currentWave == elvesBossWave){
+                globalAudioSystem.PlayMusic(GamePhase.ElfWave);
                 generatedEnemies.Add(bosses[2].enemyPrefab);
+            } else {
+                globalAudioSystem.PlayMusic(GamePhase.NormalWave);
             }
         }
         else if(currentWave >= startSkeletons){
             randEnemyListStart = 1;
             randEnemyListEnd = 2;
             if(currentWave == skeletonBossWave){
+                globalAudioSystem.PlayMusic(GamePhase.SkeletonWave);
                 generatedEnemies.Add(bosses[1].enemyPrefab);
+            } else {
+                globalAudioSystem.PlayMusic(GamePhase.NormalWave);
             }
         }
         else if(currentWave >= startGoblin){
             randEnemyListStart = 0;
             randEnemyListEnd = 1;
             if(currentWave == goblinBossWave){
+                globalAudioSystem.PlayMusic(GamePhase.GoblinWave);
                 generatedEnemies.Add(bosses[0].enemyPrefab);
+            } else {
+                globalAudioSystem.PlayMusic(GamePhase.NormalWave);
             }
         }            
               

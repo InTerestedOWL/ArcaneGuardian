@@ -256,6 +256,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaveSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 2793847054540226695, guid: 53965cd7db95e8048ad51d851efd5b7d, type: 3}
+      propertyPath: globalAudioSystem
+      value: 
+      objectReference: {fileID: 1568949659}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53965cd7db95e8048ad51d851efd5b7d, type: 3}
 --- !u!1 &410087039
@@ -883,6 +887,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14dc4327c95c60a499408882c7acec01, type: 3}
+--- !u!114 &1568949659 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4837290076451575576, guid: 5662234034f5df3428a8777e272a5e1a, type: 3}
+  m_PrefabInstance: {fileID: 5987901915763032325}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02d2ef772916c7d428d8f94b7bc59f4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1609464033
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -107,12 +107,13 @@ namespace AG.Combat {
             if (currentHealth <= 0) {
                 Die();
             } else if (audioController != null) {
-                if (CompareTag("Player") || CompareTag("POI") || (CompareTag("Enemy") && Random.value <= 0.2f)) {
+                bool isEnemyTag = CompareTag("Enemy");
+                if (!isEnemyTag || (isEnemyTag && Random.value <= 0.2f)) {
                     audioController.PlayRandomPainSound();
                 }
             }
             
-            if (skill) {
+            if (skill && audioController != null) {
                 HitSounds hitSounds = skill.GetHitSounds();
                 if (hitSounds != null) {
                     audioController.PlayAdditionalHitSound(hitSounds);
@@ -174,7 +175,7 @@ namespace AG.Combat {
             transform.Find("MiniMapIcon")?.gameObject.SetActive(false);
             isDead = true;
 
-            if (audioController != null) {
+            if (audioController != null && (CompareTag("POI") || !isBuilding)) {
                 audioController.PlayRandomDeathSound();
             }
 
@@ -196,6 +197,9 @@ namespace AG.Combat {
             }
 
             if(isBuilding) {
+                if (audioController != null && !CompareTag("POI")) {
+                    audioController.PlayRandomDeathSound();
+                }
                 GetComponent<NavMeshObstacle>().enabled = false;
 
                 //Originales GameObjekt wird in DestroyMesh zerstört.

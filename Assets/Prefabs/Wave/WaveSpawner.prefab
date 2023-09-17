@@ -174,4 +174,14 @@ MonoBehaviour:
   - {fileID: 2793847053644718091}
   waveDuration: 30
   skillPointsEveryXWave: 3
+  globalAudioSystem: {fileID: 0}
+  undeadVoice: {fileID: 8300000, guid: 0353edc45651a6e42a97dacd081cb5ed, type: 3}
+  undeadBossVoice: {fileID: 8300000, guid: 13da3b0b841275f4bb3db7ffd755cc19, type: 3}
+  humanVoice: {fileID: 8300000, guid: e5026e126a207e745bec4c82667c2155, type: 3}
+  humanBossVoice: {fileID: 8300000, guid: 84459fddf14ec744ba017a93810098d2, type: 3}
+  elfVoice: {fileID: 8300000, guid: 6e7c47006611a724c8307681aeace3f8, type: 3}
+  elfBossVoice: {fileID: 8300000, guid: 8e892726942ea054194a609813952c35, type: 3}
+  goblinVoice: {fileID: 8300000, guid: 57f3c5876beabaf43b4b19e38401dd84, type: 3}
+  goblinBossVoice: {fileID: 8300000, guid: 37fd53f84944743419876e1ddc9ec7ea, type: 3}
+  announcerVoice: {fileID: 8300000, guid: 20c4397e97e70cf40969aa3896baca26, type: 3}
   spawnedEnemies: []

@@ -20,12 +20,14 @@ public class GlobalAudioSystem : MonoBehaviour {
     public List<AudioClip> goblinWaveMusic;
     public List<AudioClip> skeletonWaveMusic;
     public List<AudioClip> bossWaveMusic;
-    private AudioSource audioSource;
+    [SerializeField]
+    private AudioSource audioSourceMusic;
+    [SerializeField]
+    private AudioSource audioSourceVoices;
 
     private void Awake() {
-        audioSource = GetComponent<AudioSource>();
-        if (audioSource != null) {
-            audioSource.loop = true;
+        if (audioSourceMusic != null) {
+            audioSourceMusic.loop = true;
         }
     }
 
@@ -35,18 +37,22 @@ public class GlobalAudioSystem : MonoBehaviour {
 
     public void PlayMusic(GamePhase phase) {
         List<AudioClip> clipsToPlay = GetClipsForPhase(phase);
-        if (clipsToPlay != null && clipsToPlay.Count > 0 && audioSource != null) {
-            int randomIndex = Random.Range(0, clipsToPlay.Count);
-            audioSource.clip = clipsToPlay[randomIndex];
-            audioSource.Play();
+        if (clipsToPlay != null && clipsToPlay.Count > 0 && audioSourceMusic != null) {
+            GetRandomMusicClip(clipsToPlay);
+        }
+    }
+
+    public void PlayVoice(AudioClip clip) {
+        if (clip != null && audioSourceVoices != null) {
+            audioSourceVoices.PlayOneShot(clip);
         }
     }
 
     private void GetRandomMusicClip(List<AudioClip> clips) {
         if (clips.Count > 0) {
             int randomIndex = Random.Range(0, clips.Count);
-            audioSource.clip = clips[randomIndex];
-            audioSource.Play();
+            audioSourceMusic.clip = clips[randomIndex];
+            audioSourceMusic.Play();
         }
     }
 
