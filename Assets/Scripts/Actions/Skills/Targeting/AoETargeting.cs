@@ -93,7 +93,7 @@ namespace AG.Skills.Targeting {
                         yield return hit.collider.gameObject;
                     }
                 } else if (shapeSelection == ShapeSelection.Cone) {
-                    playerPos.y = 0;
+                    playerPos.y = groundHit.y;
                     RaycastHit[] hits = Physics.SphereCastAll(playerPos, aoeRadius * 2, Vector3.up, 0f);
                     float maxAngle = 45f;
                     foreach (RaycastHit hit in hits) {

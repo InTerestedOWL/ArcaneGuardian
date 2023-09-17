@@ -15,5 +15,5 @@ MonoBehaviour:
   particlePrefab: {fileID: 6797891821428072585, guid: cdee83875419afd4b92373364ed6c9b8, type: 3}
   duration: 1.5
   useRadius: 0
-  attachToPlayer: 0
+  attachToPlayer: 1
   rotateToTarget: 1

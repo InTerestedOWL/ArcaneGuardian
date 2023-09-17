@@ -118,8 +118,9 @@ public class WaveSpawner : MonoBehaviour
     public void setSpawnLocations(Transform[] sls){
         spawnLocation = sls;
     }
-    public void updateEnemiesAliveUI(){
-        resourceUI.setEnemiesAliveText(spawnedEnemies.Count);
+    public void updateEnemiesAliveUI() {
+        if (resourceUI != null)
+            resourceUI.setEnemiesAliveText(spawnedEnemies.Count);
     }
     private void addSpecialDialogs(){
         specialDialogs.Add(startGoblin,"Goblins: 'Blue light. It's so shiny. I must have it!'");

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dcd13674b93e9f41a841d430fb2c462, type: 3}
   m_Name: Fire Breath Targeting
   m_EditorClassIdentifier: 
+  cancelTargeting: 0
   shapeSelection: 1
   layerMask:
     serializedVersion: 2
