@@ -107,7 +107,9 @@ namespace AG.Combat {
             if (currentHealth <= 0) {
                 Die();
             } else if (audioController != null) {
-                audioController.PlayRandomPainSound();
+                if (CompareTag("Player") || CompareTag("POI") || (CompareTag("Enemy") && Random.value <= 0.2f)) {
+                    audioController.PlayRandomPainSound();
+                }
             }
             
             if (skill) {
