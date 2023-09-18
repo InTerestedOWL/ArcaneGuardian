@@ -8,6 +8,7 @@ using UnityEngine.AI;
 using UnityEngine.Tilemaps;
 using System.Linq;
 using AG.Combat;
+using UnityEngine.Rendering.Universal;
 
 
 public class BuildingSystem : MonoBehaviour
@@ -45,21 +46,36 @@ public class BuildingSystem : MonoBehaviour
     private List<Material[]> objectChildMaterials;
     
     private PlaceableObject objectToPlace;
-    
+    private Texture2D gridTexture;
+    //private int textureWidth = 512; // Breite der Textur
+    //private int textureHeight = 512; // Höhe der Textur
+    [SerializeField]
+    private DecalProjector decalProjector;
+
     private void Awake(){
         current = this;
         poi_building = new POIBuilding();
         
         grid = gridLayout.gameObject.GetComponent<Grid>();
         poiController = GameObject.Find("POI").GetComponent<POIController>();
-        
+
+        //gridTexture = new Texture2D(textureWidth, textureHeight);
+        //decalProjector.material.SetTexture("Base_Map", gridTexture);
     }
+
+    int tilemapWidth, tilemapHeight;
     void Start()
     {
         pr = GameObject.Find("Player").GetComponent<PlayerResources>();
         iWindow = GameObject.Find("Information Window").GetComponent<InformationWindow>();
         cWindow = GameObject.Find("Confirmation Window").GetComponent<ConfirmationWindow>();
         objectChildMaterials = new List<Material[]>();
+
+        // For Projector
+        tilemapWidth = MainTilemap.size.x;
+        tilemapHeight = MainTilemap.size.y;
+
+        gridTexture = new Texture2D(tilemapWidth, tilemapHeight);
     }
     
     
@@ -356,15 +372,16 @@ public class BuildingSystem : MonoBehaviour
             cmr.material = isNotPlacableMat;
         }
     }
+
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.F)){               
+        DrawGrid();
+        if (Input.GetKeyDown(KeyCode.F)){               
             followPOIConfirmation();
         }
         
         if(buildingContext){
-
             if(Input.GetKeyDown(KeyCode.Mouse1)||Input.GetKeyDown(KeyCode.B)||Input.GetKeyDown(KeyCode.Escape)){
                 stopBuilding();
                 return;
@@ -457,6 +474,64 @@ public class BuildingSystem : MonoBehaviour
         if(!objectToPlace){
             return;
         }  
+    }
+
+    void DrawGrid()
+    {
+        if (decalProjector == null)
+            return;
+        /*    // Setze die gesamte Textur auf transparent
+            for (int x = 0; x < textureWidth; x++)
+            {
+                for (int y = 0; y < textureHeight; y++)
+                {
+                    gridTexture.SetPixel(x, y, Color.clear);
+                }
+            }
+
+            // Zeichne horizontale Linien
+            for (int y = 0; y < textureHeight; y += poi_building.getMakeAreaPlacableSize()) // Hier kannst du den Abstand zwischen den Linien anpassen
+            {
+                for (int x = 0; x < textureWidth; x++)
+                {
+                    gridTexture.SetPixel(x, y, Color.red);
+                }
+            }
+
+            // Zeichne vertikale Linien
+            for (int x = 0; x < textureWidth; x += poi_building.getMakeAreaPlacableSize()) // Hier kannst du den Abstand zwischen den Linien anpassen
+            {
+                for (int y = 0; y < textureHeight; y++)
+                {
+                    gridTexture.SetPixel(x, y, Color.red);
+                }
+            }
+
+            // Wende die Änderungen auf die Textur an
+            gridTexture.Apply();*/
+
+        for (int x = 0; x < tilemapWidth; x++)
+        {
+            for (int y = 0; y < tilemapHeight; y++)
+            {
+                // Hole das Tile an den Gitterkoordinaten (x, y) in der Tilemap
+                TileBase tile = MainTilemap.GetTile(new Vector3Int(x, y, 0));
+
+                // Setze die Farbe des entsprechenden Pixels in der Textur
+                Color pixelColor = Color.red; // Standardfarbe
+                if (tile != null)
+                {
+                    // Hier kannst du die Farben basierend auf deinen Tile-Daten ändern
+                    // Zum Beispiel, wenn deine Tiles Farbinformationen haben:
+                    // pixelColor = tile.GetColor();
+                }
+
+                gridTexture.SetPixel(x, y, pixelColor);
+            }
+        }
+        gridTexture.Apply();
+
+        decalProjector.material.SetTexture("Base_Map", gridTexture);
     }
 }
 
