@@ -18,6 +18,8 @@ MonoBehaviour:
     Fridge cold!
   icon: {fileID: 21300000, guid: cd2fce37e900c154fb2bd42786649aeb, type: 3}
   cooldown: 10
+  damage: 5
+  skillCap: 1
   targetingStrategy: {fileID: 11400000, guid: 08183364c223b744592ea17fe650750b, type: 2}
   filterStrategy: {fileID: 11400000, guid: 9d94cec049fac1046b5d39f60ab4ea82, type: 2}
   effectStrategies:

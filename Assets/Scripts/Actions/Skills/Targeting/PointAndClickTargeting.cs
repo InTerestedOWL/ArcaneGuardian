@@ -29,10 +29,11 @@ namespace AG.Skills.Targeting
         {
             RaycastHit raycastHit;
             Ray ray = PlayerController.GetMouseRay();
-            if (Physics.Raycast(ray, out raycastHit, 1000, layerMask))
+            if (Physics.SphereCast(ray, 0.2f, out raycastHit, 1000, layerMask))
             {
                 CombatTarget ct = raycastHit.collider.gameObject.GetComponent<CombatTarget>();
-                if(ct != null && !ct.IsDead()){
+                //TODO: Refactor tag check
+                if(ct != null && !ct.IsDead() && ct.gameObject.tag != "Player" && ct.gameObject.tag != "POI" && ct.gameObject.tag != "Turret"){
                     if(!ct.IsDead()) {
                         data.SetTargetPosition(raycastHit.point);
                         List<GameObject> targets = new List<GameObject>

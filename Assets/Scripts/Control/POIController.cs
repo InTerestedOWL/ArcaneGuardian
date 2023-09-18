@@ -10,12 +10,8 @@ using AG.Combat;
 namespace AG.Control {
     public class POIController : StateMachineController {
 
-        void Start() {
-            player = GameObject.Find("Player");
-            movement =  GetComponent<Movement>();
-            combat = GetComponent<BasicCombat>();
-            combatTarget = GetComponent<CombatTarget>();
-            animator = GetComponent<Animator>();
+        protected new void Start() {
+            base.Start();
             
             //Ai State Machine
             stateMachine = new AiStateMachine(this);

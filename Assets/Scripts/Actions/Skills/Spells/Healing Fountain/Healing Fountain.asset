@@ -18,6 +18,8 @@ MonoBehaviour:
     Remember, green circles are helpful! Do not move out!'
   icon: {fileID: 21300000, guid: 64c954234fb227d499f6d6664d746e03, type: 3}
   cooldown: 0
+  damage: -10
+  skillCap: 1
   targetingStrategy: {fileID: 11400000, guid: 2026960a33c66134dbef2f253a8c698a, type: 2}
   filterStrategy: {fileID: 11400000, guid: 86ae4ec3085f4f34d8d45d6da24bcf2b, type: 2}
   effectStrategies:

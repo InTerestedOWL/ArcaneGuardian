@@ -29,8 +29,20 @@ namespace AG.Control
 
         [HideInInspector]
         public CombatTarget combatTarget = null;
-
+        [HideInInspector]
         public Animator animator = null;
+        [HideInInspector]
+        public Rigidbody rigidbody = null;
+
+        protected void Start() {
+            player = GameObject.Find("Player");
+            movement =  GetComponent<Movement>();
+            combat = GetComponent<BasicCombat>();
+            combatTarget = GetComponent<CombatTarget>();
+            weapon = GetComponentInChildren<Weapon>();
+            rigidbody = GetComponent<Rigidbody>();
+        }
+
 
         // Update is called once per frame
         void Update() {
@@ -57,6 +69,11 @@ namespace AG.Control
                     if (!combat.IsAttacking()) {
                         attackTarget = target;
                         combat.Attack();
+                        Debug.Log(rigidbody.velocity);
+                        if(rigidbody.velocity.magnitude != 0)
+{                            Vector3 dampeningDirection = rigidbody.velocity.normalized * -1.0f;
+                            rigidbody.AddForce(dampeningDirection * 1);
+                        }
                     }
                 }
             }

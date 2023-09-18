@@ -17,6 +17,8 @@ MonoBehaviour:
     bounces between your enemies like no other! Shocking, isn't it?
   icon: {fileID: 21300000, guid: 10e310e2d1635824aaa4dc3f50f89747, type: 3}
   cooldown: 5
+  damage: 20
+  skillCap: 1
   targetingStrategy: {fileID: 11400000, guid: dce0bd562e430a645aabfa9acac64ee2, type: 2}
   filterStrategy: {fileID: 11400000, guid: 9d94cec049fac1046b5d39f60ab4ea82, type: 2}
   effectStrategies:

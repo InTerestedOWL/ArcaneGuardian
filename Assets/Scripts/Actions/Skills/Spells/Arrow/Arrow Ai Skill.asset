@@ -16,6 +16,8 @@ MonoBehaviour:
   description: 
   icon: {fileID: 0}
   cooldown: 0
+  damage: 5
+  skillCap: 0
   targetingStrategy: {fileID: 0}
   filterStrategy: {fileID: 11400000, guid: 86ae4ec3085f4f34d8d45d6da24bcf2b, type: 2}
   effectStrategies:

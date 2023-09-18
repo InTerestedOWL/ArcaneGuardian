@@ -17,6 +17,8 @@ MonoBehaviour:
     breath heats up every conversation. Not advertised to use indoors.
   icon: {fileID: 21300000, guid: 3fdea2576d2dfc6428750f8278dd7f5c, type: 3}
   cooldown: 4
+  damage: 50
+  skillCap: 1
   targetingStrategy: {fileID: 11400000, guid: 1169f18482ca28945bb81903fb590678, type: 2}
   filterStrategy: {fileID: 11400000, guid: 9d94cec049fac1046b5d39f60ab4ea82, type: 2}
   effectStrategies:

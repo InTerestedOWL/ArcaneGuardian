@@ -11,15 +11,9 @@ using AG.Weapons;
 namespace AG.Control {
     public class AiController : StateMachineController {
 
-        void Start() {
-            player = GameObject.Find("Player");
-            movement =  GetComponent<Movement>();
-            combat = GetComponent<BasicCombat>();
-            combatTarget = GetComponent<CombatTarget>();
-            weapon = GetComponentInChildren<Weapon>();
-
-            // movement.navMeshAgent.stoppingDistance = config.attackRange - 0.1f;
-            
+        protected new void Start() {
+            base.Start();
+                        
             //Ai State Machine
             stateMachine = new AiStateMachine(this);
             stateMachine.RegisterState(new AiChasePlayerState());
