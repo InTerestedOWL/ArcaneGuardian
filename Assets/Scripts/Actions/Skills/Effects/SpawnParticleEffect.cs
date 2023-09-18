@@ -42,10 +42,11 @@ namespace AG.Skills.Effects {
             if (rotateToTarget) {
                 Vector3 mousePos = skillData.GetTargetPosition();
                 mousePos.y = particle.transform.position.y;
+                particle.transform.position = skillData.GetUser().transform.position;
                 particle.transform.LookAt(mousePos);
             }
             if (useRadius)
-                particle.transform.localScale *=  (skillData.GetRadius() * 2);
+                particle.transform.localScale *=  skillData.GetRadius() * 2;
             if (duration > 0)  {
                 yield return new WaitForSeconds(duration);
                 Destroy(particle);

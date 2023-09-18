@@ -119,8 +119,9 @@ public class WaveSpawner : MonoBehaviour
     public void setSpawnLocations(Transform[] sls){
         spawnLocation = sls;
     }
-    public void updateEnemiesAliveUI(){
-        resourceUI.setEnemiesAliveText(spawnedEnemies.Count);
+    public void updateEnemiesAliveUI() {
+        if (resourceUI != null)
+            resourceUI.setEnemiesAliveText(spawnedEnemies.Count);
     }
     private void addSpecialDialogs(){
         specialDialogs.Add(startGoblin,"Goblins: 'Blue light. It's so shiny. I must have it!'");
@@ -184,14 +185,30 @@ public class WaveSpawner : MonoBehaviour
         float x = (float)Random.Range(25f,50f);
         float z = (float)Random.Range(25f,50f);
 
-        int signX = Random.Range(0,2);
-        int signZ = Random.Range(0,2);
-        if(signX>0){
-            x= -x;
+        float minMap = -590.0f;
+        float maxMap = 590.0f;      
+
+        if(x+poiPos.x > maxMap || poiPos.x-x <minMap){
+            if(x+poiPos.x > maxMap){
+                x = -x;
+            }
+        }else{
+            int signX = Random.Range(0,2);
+            if(signX>0){
+                x= -x;
+            }
         }
-        if(signZ>0){
-            z= -z;
+        if(z+poiPos.z > maxMap || poiPos.z-z <minMap){
+            if(z+poiPos.z > maxMap){
+                z = -z;
+            }
+        }else{
+            int signZ = Random.Range(0,2);
+            if(signZ>0){
+                z= -z;
+            }
         }
+
         poiPos = new Vector3(poiPos.x+x,0,poiPos.z+z);
         Vector3 randomPoint = poiPos + Random.insideUnitSphere * 10.0f;
         NavMeshHit hit;

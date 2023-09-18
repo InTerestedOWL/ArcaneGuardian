@@ -98,7 +98,7 @@ namespace AG.Control {
         private void LookAtMousePos() {
             RaycastHit hit;
             bool hasHit;
-            CalcPointerHit(out hit, out hasHit);
+            CalcPointerHit(out hit, out hasHit, LayerMask.GetMask("Map"));
             if (hasHit) {
                 Vector3 lookAtPos = hit.point;
                 lookAtPos.y = transform.position.y;
