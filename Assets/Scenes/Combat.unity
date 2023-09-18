@@ -799,7 +799,7 @@ MonoBehaviour:
   m_UVBias: {x: 0, y: 0}
   m_ScaleMode: 0
   m_Offset: {x: 0, y: 0, z: 100}
-  m_Size: {x: 255, y: 255, z: 200}
+  m_Size: {x: 50, y: 50, z: 200}
   m_FadeFactor: 1
 --- !u!1001 &1397512900
 PrefabInstance:
