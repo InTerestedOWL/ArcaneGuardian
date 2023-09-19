@@ -15,7 +15,7 @@ MonoBehaviour:
   displayName: 
   description: 
   icon: {fileID: 0}
-  cooldown: 0
+  cooldown: 3
   damage: 10
   skillCap: 0
   targetingStrategy: {fileID: 11400000, guid: c90cafc1b908cb14ea7415f9e5c7184e, type: 2}

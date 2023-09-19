@@ -173,6 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a353050e4ce8b5042b59f71f26e2bb03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healingEffect: {fileID: 9017484664307500583, guid: b0e6e56be29a0a5469228c763ed452be, type: 3}
   isBuilding: 1
   maxHealth: 100
   currentHealth: 100
@@ -507,7 +508,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: a4649a8d6a2dc2c408b4b475b41d3eee, type: 2}
     - target: {fileID: 5982849979067755789, guid: 3a738b04a070483498d9f72ab6f34c95, type: 3}
       propertyPath: chargingTime
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a738b04a070483498d9f72ab6f34c95, type: 3}
