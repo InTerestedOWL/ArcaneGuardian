@@ -17,12 +17,12 @@ public class PauseMenuHandler : MonoBehaviour {
 
     void OnDisable() {
         globalAudioSystem.PlayUIPopupCloseSound();
-        TutorialHandler.AddTutorialToShow("Goal", "Pause");
-        TutorialHandler.AddTutorialToShow("Movement", "Pause");
         if (!TutorialHandler.tutorialActive) {
             Time.timeScale = 1;
         }
         AudioListener.pause = false;
         gameIsPaused = false;
+        TutorialHandler.AddTutorialToShow("Goal", "Pause");
+        TutorialHandler.AddTutorialToShow("Movement", "Pause");
     }
 }
