@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using AG.Audio.Sounds;
 using AG.Combat;
 using AG.UI;
 using UnityEngine;
@@ -99,6 +100,9 @@ public class WaveSpawner : MonoBehaviour
     private AudioClip waveStart;
     [SerializeField]
     private AudioClip alarm;
+    [SerializeField]
+    private HitSounds roundHeal;
+
     private bool countdownPlaying = false;
 
     public List<GameObject> spawnedEnemies = new List<GameObject>();
@@ -466,6 +470,9 @@ public class WaveSpawner : MonoBehaviour
             foreach(PlaceableObject po in poi_building.getPlacedBuildings()){
                 po.GetComponentInParent<CombatTarget>().SetToMaxHealth();
             }
+        }
+        if (globalAudioSystem != null && roundHeal != null && roundHeal.HasHitSounds()) {
+            globalAudioSystem.PlayRandomGlobalSound(roundHeal.GetRandomHitSound());
         }
     }
 }
