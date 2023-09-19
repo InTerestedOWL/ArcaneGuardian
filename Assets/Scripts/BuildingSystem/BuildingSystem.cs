@@ -510,7 +510,7 @@ public class BuildingSystem : MonoBehaviour
 
     public void DrawGrid()
     {
-        if (decalProjector == null)
+        if (decalProjector == null || !decalProjector.isActiveAndEnabled)
             return;
         /*    // Setze die gesamte Textur auf transparent
             for (int x = 0; x < textureWidth; x++)
