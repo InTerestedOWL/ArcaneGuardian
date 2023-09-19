@@ -41,6 +41,7 @@ namespace AG.Control
             combatTarget = GetComponent<CombatTarget>();
             weapon = GetComponentInChildren<Weapon>();
             rigidbody = GetComponent<Rigidbody>();
+            animator = GetComponent<Animator>();
         }
 
 
