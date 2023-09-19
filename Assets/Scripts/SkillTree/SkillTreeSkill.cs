@@ -153,5 +153,12 @@ namespace AG.UI {
         public void SetBuyable(bool buyable) {
             this.buyable = buyable;
         }
+
+        private void OnDisable() {
+            Transform infoBox = transform.Find("InfoBox");
+            if (infoBox != null) {
+                infoBox.gameObject.SetActive(false);
+            }
+        }
     }
 }
