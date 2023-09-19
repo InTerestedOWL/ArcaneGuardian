@@ -13,6 +13,8 @@ namespace AG.Skills.Targeting {
     [CreateAssetMenu(fileName = "Turret Closest Targeting", menuName = ("Arcane Guardian/Targeting Strategy/Turret Closest Targeting"))]
     public class TurretClosestTargeting : TargetingStrategy {
 
+        public float attackRange = 30.0f; 
+
         public override void DeclareTargets(SkillData data, Action callback) {
             GameObject user = data.GetUser();
             if (user) {
@@ -30,7 +32,7 @@ namespace AG.Skills.Targeting {
             float closest = float.MaxValue;
             foreach(GameObject target in targets) {
                 float distance = Vector3.Distance(target.transform.position, user.transform.position);
-                if(distance < closest){
+                if(distance < closest && distance <= attackRange){
                     closest = distance;
                     closestTarget = target;
                 }

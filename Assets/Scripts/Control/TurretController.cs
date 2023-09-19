@@ -7,15 +7,15 @@ using TMPro;
 public class TurretController : MonoBehaviour
 {
     public Skill skill;
-    public float chargingTime = 3.0f;
 
-    private bool chargingFinished = false;
     private bool chargingStarted = false;
     private float chargeTimer = 0;
+    private float chargingTime = 0;
 
     // Start is called before the first frame update
     void Start()
     {
+        chargingTime = skill.GetMaxCooldown();
         chargeTimer = chargingTime;
     }
 
@@ -26,19 +26,14 @@ public class TurretController : MonoBehaviour
 
         if (chargeTimer <= 0.0f)
         {
-            chargingFinished = true;
+            Attack();
+            chargingStarted = false;
+            chargeTimer = chargingTime;
         }
 
         if(!chargingStarted) {
             //TODO: Charging animation
             chargingStarted = true;
-        }
-        
-        if(chargingFinished){
-            Attack();
-            chargingFinished = false;
-            chargingStarted = false;
-            chargeTimer = chargingTime;
         }
     }
 

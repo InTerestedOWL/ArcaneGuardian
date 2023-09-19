@@ -10,6 +10,9 @@ using AG.Skills;
 namespace AG.Combat {
     public class CombatTarget : MonoBehaviour {
 
+        [SerializeField]
+        public GameObject healingEffect = null;
+
         public bool isBuilding = false;
         public float maxHealth = 100;
         public float currentHealth;
@@ -134,6 +137,13 @@ namespace AG.Combat {
                 HitSounds hitSounds = skill.GetHitSounds();
                 if (hitSounds != null) {
                     audioController.PlayAdditionalHitSound(hitSounds);
+                }
+            }
+
+            if(healingEffect != null) {
+                if(currentHealth < maxHealth){
+                    GameObject effect = Instantiate(healingEffect, this.transform);
+                    Destroy(effect, 1.5f);
                 }
             }
 
