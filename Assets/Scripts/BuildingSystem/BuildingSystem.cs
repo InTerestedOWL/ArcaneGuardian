@@ -200,7 +200,7 @@ public class BuildingSystem : MonoBehaviour
         }
     }
     public void MakeAreaPlacable(Vector3Int center){
-        Debug.Log("MakeArea: "+center);
+
         int minX =  center.x - poi_building.getMakeAreaPlacableSize();
         int maxX =  center.x + poi_building.getMakeAreaPlacableSize() + 1;
         int minY =  center.y - poi_building.getMakeAreaPlacableSize();
@@ -218,7 +218,7 @@ public class BuildingSystem : MonoBehaviour
         }
     }
     public void MakePOIAreaPending(Vector3Int center){
-        Debug.Log("MakeArea: "+center);
+
         int minX =  center.x - poi_building.getMakeAreaPlacableSize();
         int maxX =  center.x + poi_building.getMakeAreaPlacableSize() + 1;
         int minY =  center.y - poi_building.getMakeAreaPlacableSize();

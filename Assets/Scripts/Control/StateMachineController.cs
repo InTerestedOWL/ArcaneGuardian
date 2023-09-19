@@ -70,7 +70,7 @@ namespace AG.Control
                     if (!combat.IsAttacking()) {
                         attackTarget = target;
                         combat.Attack();
-                        Debug.Log(rigidbody.velocity);
+
                         if(rigidbody.velocity.magnitude != 0)
 {                            Vector3 dampeningDirection = rigidbody.velocity.normalized * -1.0f;
                             rigidbody.AddForce(dampeningDirection * 1);
