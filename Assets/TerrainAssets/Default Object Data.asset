@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   autoUpdate: 0
   minObjectsPerTile: 1
-  maxObjectsPerTile: 2
+  maxObjectsPerTile: 80
   placeableObjects:
   - {fileID: 8114144759705600266, guid: 152ee2387a8834a449d0f3f5b3b0a405, type: 3}
   - {fileID: 970853719240839121, guid: 5b853623b2d77ef4f881ade6272fe79b, type: 3}
