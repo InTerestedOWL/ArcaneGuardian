@@ -1091,8 +1091,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8cd6bba285331f49a63e2ea7744399b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotkeyReference: {fileID: 7120239038459870880, guid: 02f590a705a0d004abee1378dd449c0e, type: 3}
-  castingReference: {fileID: 0}
+  hotkeyReference: {fileID: 3168406798590088094, guid: 02f590a705a0d004abee1378dd449c0e, type: 3}
+  castingReference: {fileID: -328229188728640631, guid: 02f590a705a0d004abee1378dd449c0e, type: 3}
   skillRef: {fileID: 3332246359036905780}
   infoBoxSpellName: {fileID: 5603824457809168833}
   infoBoxSpellDesc: {fileID: 4750081959814514285}
@@ -2337,8 +2337,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8cd6bba285331f49a63e2ea7744399b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotkeyReference: {fileID: -3571353886570221209, guid: 02f590a705a0d004abee1378dd449c0e, type: 3}
-  castingReference: {fileID: 0}
+  hotkeyReference: {fileID: 8355408025008895748, guid: 02f590a705a0d004abee1378dd449c0e, type: 3}
+  castingReference: {fileID: 1031047353341608978, guid: 02f590a705a0d004abee1378dd449c0e, type: 3}
   skillRef: {fileID: 7565757883771023064}
   infoBoxSpellName: {fileID: 1096206759171476949}
   infoBoxSpellDesc: {fileID: 8065086009319342163}
@@ -3863,7 +3863,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 250, y: -100.00001}
+  m_AnchoredPosition: {x: 250, y: -100}
   m_SizeDelta: {x: 500, y: 96.29}
   m_Pivot: {x: 0.5, y: 0.99999994}
 --- !u!222 &3950959188939466139
@@ -5747,7 +5747,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0949707, y: 9.064003}
+  m_AnchoredPosition: {x: 0.0949707, y: 9.064026}
   m_SizeDelta: {x: 36.598, y: 18.130005}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3124518014235258168
@@ -5907,8 +5907,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8cd6bba285331f49a63e2ea7744399b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotkeyReference: {fileID: 2773700635200336899, guid: 02f590a705a0d004abee1378dd449c0e, type: 3}
-  castingReference: {fileID: 0}
+  hotkeyReference: {fileID: -8998592051755840102, guid: 02f590a705a0d004abee1378dd449c0e, type: 3}
+  castingReference: {fileID: -3062304904246546006, guid: 02f590a705a0d004abee1378dd449c0e, type: 3}
   skillRef: {fileID: 3124518014141438000}
   infoBoxSpellName: {fileID: 4688982414669618768}
   infoBoxSpellDesc: {fileID: 2703350443988148006}
@@ -6780,8 +6780,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8cd6bba285331f49a63e2ea7744399b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotkeyReference: {fileID: 6437841026869893866, guid: 02f590a705a0d004abee1378dd449c0e, type: 3}
-  castingReference: {fileID: 0}
+  hotkeyReference: {fileID: -2868515990754728046, guid: 02f590a705a0d004abee1378dd449c0e, type: 3}
+  castingReference: {fileID: -5671564147777425163, guid: 02f590a705a0d004abee1378dd449c0e, type: 3}
   skillRef: {fileID: 4121259852960229834}
   infoBoxSpellName: {fileID: 4690000942109163617}
   infoBoxSpellDesc: {fileID: 3341634603807647095}
@@ -7000,8 +7000,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8cd6bba285331f49a63e2ea7744399b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotkeyReference: {fileID: 6746570376455832124, guid: 02f590a705a0d004abee1378dd449c0e, type: 3}
-  castingReference: {fileID: 0}
+  hotkeyReference: {fileID: -6630245141214857028, guid: 02f590a705a0d004abee1378dd449c0e, type: 3}
+  castingReference: {fileID: 7849233493218777980, guid: 02f590a705a0d004abee1378dd449c0e, type: 3}
   skillRef: {fileID: 4445509658837270068}
   infoBoxSpellName: {fileID: 4332897188166587325}
   infoBoxSpellDesc: {fileID: 3804005266648438748}
@@ -10566,8 +10566,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8cd6bba285331f49a63e2ea7744399b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotkeyReference: {fileID: -2555880878427488029, guid: 02f590a705a0d004abee1378dd449c0e, type: 3}
-  castingReference: {fileID: 0}
+  hotkeyReference: {fileID: -1824610948578338477, guid: 02f590a705a0d004abee1378dd449c0e, type: 3}
+  castingReference: {fileID: 5671739138148954373, guid: 02f590a705a0d004abee1378dd449c0e, type: 3}
   skillRef: {fileID: 2461797857880303307}
   infoBoxSpellName: {fileID: 8039709870360305154}
   infoBoxSpellDesc: {fileID: 7753117212282585214}
@@ -10860,8 +10860,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8cd6bba285331f49a63e2ea7744399b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotkeyReference: {fileID: -5476584162226412641, guid: 02f590a705a0d004abee1378dd449c0e, type: 3}
-  castingReference: {fileID: 0}
+  hotkeyReference: {fileID: -589006690809894298, guid: 02f590a705a0d004abee1378dd449c0e, type: 3}
+  castingReference: {fileID: -7044606310132773584, guid: 02f590a705a0d004abee1378dd449c0e, type: 3}
   skillRef: {fileID: 7870790706445449750}
   infoBoxSpellName: {fileID: 9119560428918390880}
   infoBoxSpellDesc: {fileID: 6338089366844179520}
@@ -11185,7 +11185,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 600}
-  m_SizeDelta: {x: 500, y: 300}
+  m_SizeDelta: {x: 500, y: 196.29001}
   m_Pivot: {x: 0.49999997, y: 1}
 --- !u!222 &2417937388629684740
 CanvasRenderer:
@@ -13252,8 +13252,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8cd6bba285331f49a63e2ea7744399b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotkeyReference: {fileID: 3256967245929396144, guid: 02f590a705a0d004abee1378dd449c0e, type: 3}
-  castingReference: {fileID: 0}
+  hotkeyReference: {fileID: -5803539334126079890, guid: 02f590a705a0d004abee1378dd449c0e, type: 3}
+  castingReference: {fileID: -4322807812263129413, guid: 02f590a705a0d004abee1378dd449c0e, type: 3}
   skillRef: {fileID: 166886428044139942}
   infoBoxSpellName: {fileID: 3900538639933503096}
   infoBoxSpellDesc: {fileID: 2438089775795417366}
@@ -13352,8 +13352,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8cd6bba285331f49a63e2ea7744399b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotkeyReference: {fileID: -6554744816310771433, guid: 02f590a705a0d004abee1378dd449c0e, type: 3}
-  castingReference: {fileID: 0}
+  hotkeyReference: {fileID: 2321822185073565626, guid: 02f590a705a0d004abee1378dd449c0e, type: 3}
+  castingReference: {fileID: -7064161729132019533, guid: 02f590a705a0d004abee1378dd449c0e, type: 3}
   skillRef: {fileID: 9033962282677429397}
   infoBoxSpellName: {fileID: 7180716748539670158}
   infoBoxSpellDesc: {fileID: 7813738162461251191}
@@ -14931,8 +14931,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8cd6bba285331f49a63e2ea7744399b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotkeyReference: {fileID: 1027342084285680697, guid: 02f590a705a0d004abee1378dd449c0e, type: 3}
-  castingReference: {fileID: 0}
+  hotkeyReference: {fileID: 738155270014825492, guid: 02f590a705a0d004abee1378dd449c0e, type: 3}
+  castingReference: {fileID: 8961923870303330159, guid: 02f590a705a0d004abee1378dd449c0e, type: 3}
   skillRef: {fileID: 304578568919117271}
   infoBoxSpellName: {fileID: 9198962014714461476}
   infoBoxSpellDesc: {fileID: 8368876922032869998}
@@ -15712,7 +15712,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 76042771459497007, guid: 34b3d7c541ae0b94384be6c5b1e2b324, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -679.99994
+      value: -674
       objectReference: {fileID: 0}
     - target: {fileID: 76042771459497007, guid: 34b3d7c541ae0b94384be6c5b1e2b324, type: 3}
       propertyPath: m_AnchoredPosition.y
