@@ -39,6 +39,7 @@ public class PlaceableObject : MonoBehaviour
         // print("V1 "+Vertices[1]);
         // print("V2 "+Vertices[2]);
         // print("V3 "+Vertices[3]);
+        b.enabled = false;
     }
 
     private void CalculateSizeInCells()
@@ -66,6 +67,8 @@ public class PlaceableObject : MonoBehaviour
             audioController.PlaySound(buildingSounds.GetRandomHitSound());
         }
         Placed = true;
+        gameObject.GetComponent<BoxCollider>().enabled= true;
+        
     }
 
     public void Rotate()

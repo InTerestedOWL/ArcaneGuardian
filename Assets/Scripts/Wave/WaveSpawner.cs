@@ -220,7 +220,11 @@ public class WaveSpawner : MonoBehaviour
             randomPoint = poiPos + Random.insideUnitSphere * 10.0f;   
             if (NavMesh.SamplePosition(randomPoint, out hit, 30.0f, NavMesh.AllAreas))
             {
-                return new Vector3(hit.position.x,hit.position.y+1.0f,hit.position.z);            
+                Debug.Log(hit.mask);
+                /*if (hit.mask == LayerMask.NameToLayer("Map"))
+                {*/
+                    return new Vector3(hit.position.x, hit.position.y + 1.0f, hit.position.z);
+                // }
             }     
         }       
         Debug.Log("FALLING INC LUL");
