@@ -6,9 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="6aabc18d-6f69-4541-9b79-2d124d9cb7fb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ArcaneGuardian/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ArcaneGuardian/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level_Gen/RandomPointOnNavMesh.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level_Gen/RandomPointOnNavMesh.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level_Gen/TerrainGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level_Gen/TerrainGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/LoadingHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/LoadingHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BuildingSystem/PlaceableObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BuildingSystem/PlaceableObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Wave/WaveSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Wave/WaveSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shaders/Terrain.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shaders/Terrain.shadergraph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TerrainAssets/Default Object Data.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TerrainAssets/Default Object Data.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,7 +17,10 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0296ec0bafdb4c588e3e6e12f8890053dc18/36/ac6fc52a/NavMeshHit.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MainMenu/MainMenu.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@12.1.9/Shaders/PostProcessing/Bloom.shader" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Tests/Runtime/TextEditor/TextEditorTests.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Arcane_Guardian_2/Assets/Scripts/BuildingSystem/BuildingSystem.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
@@ -99,7 +103,8 @@
       <workItem from="1694529968362" duration="7071000" />
       <workItem from="1694847258321" duration="8357000" />
       <workItem from="1694880524703" duration="1195000" />
-      <workItem from="1694881748078" duration="79000" />
+      <workItem from="1694881748078" duration="673000" />
+      <workItem from="1695220302604" duration="3061000" />
     </task>
     <task id="LOCAL-00001" summary="Place Player and POI on navmesh, range is ten">
       <option name="closed" value="true" />
