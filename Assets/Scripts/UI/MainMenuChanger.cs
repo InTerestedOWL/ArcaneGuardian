@@ -13,8 +13,12 @@ public class MainMenuChanger : MonoBehaviour {
     GameObject scoreboard;
     [SerializeField]
     GameObject credits;
+    [SerializeField]
+    Texture2D cursorTexture;
+    CursorMode cursorMode = CursorMode.Auto;
 
     void Start() {
+        Cursor.SetCursor(cursorTexture, Vector2.zero, cursorMode);
         if (settingsHandler != null) {
             settingsHandler.InitSettings();
         }

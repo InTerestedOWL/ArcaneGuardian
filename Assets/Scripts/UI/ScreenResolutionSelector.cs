@@ -88,7 +88,12 @@ public class ScreenResolutionSelector : MonoBehaviour {
     }
 
     public ResolutionObject GetVideoSettings() {
-        Resolution res = resolutionsDict[previousResolutionKey];
+        Resolution res;
+        if (previousResolutionKey != null) {
+            res = resolutionsDict[previousResolutionKey];
+        } else {
+            res = Screen.currentResolution;
+        }
         ResolutionObject videoSettings = new ResolutionObject {
             width = res.width,
             height = res.height,

@@ -42,6 +42,7 @@ public class SettingsHandler : MonoBehaviour {
                 audio = soundSettings.GetAudioSettings(),
                 video = screenResSel.GetVideoSettings()
             };
+            soundSettings.SetSoundSettings(settingsOptions.audio);
         }
         ConvertToJson();
         isInit = true;
