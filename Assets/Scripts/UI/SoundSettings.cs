@@ -84,6 +84,9 @@ public class SoundSettings : MonoBehaviour {
         masterSlider.value = previousMaster = audioSettings.master;
         musicSlider.value = previousMusic = audioSettings.music;
         effectsSlider.value = previousEffects = audioSettings.effects;
+        SetMasterVolume(audioSettings.master);
+        SetMusicVolume(audioSettings.music);
+        SetEffectVolume(audioSettings.effects);
     }
     public void Apply() {
         previousMaster = masterSlider.value;
