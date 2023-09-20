@@ -25,7 +25,8 @@ namespace AG.Skills.Effects
             Blink(data);
         }
 
-        private void Blink(SkillData data) {
+        private void Blink(SkillData data)
+        {
             GameObject user = data.GetUser();
             PlayerController pc = data.GetPlayerController();
 
@@ -36,13 +37,15 @@ namespace AG.Skills.Effects
 
             //Kollision mit Objekten prüfen
             RaycastHit hit;
-            if(Physics.Raycast(ray, out hit, distance, layerMask)) {
+            if (Physics.Raycast(ray, out hit, distance, layerMask))
+            {
                 float collisionDistance = Mathf.Max(hit.distance - stoppingDistance, 0f);
 
                 // Setze die Zielposition kurz vor der Kollision
                 destination = ray.origin + ray.direction * collisionDistance;
             }
-            else {
+            else
+            {
                 destination = user.transform.position + ray.direction * distance;
             }
 
@@ -51,16 +54,66 @@ namespace AG.Skills.Effects
             pc.StartCoroutine(BlinkToTargetPosition(user));
         }
 
-        private IEnumerator BlinkToTargetPosition(GameObject user) {
-            var dist = Vector3.Distance(user.transform.position, destination);
+        //TODO: fix
+        // private IEnumerator BlinkToTargetPosition(GameObject user) {
+        //     var dist = Vector3.Distance(user.transform.position, destination);
+        //     Movement movement = user.GetComponent<Movement>();
+
+        //     while(dist > 0.5f) {
+        //         Vector3 curMovement = Vector3.MoveTowards(user.transform.position, destination, Time.deltaTime * speed);
+
+        //         Vector3 pos = user.transform.position;
+        //         pos.y += 10;
+        //         RaycastHit hit;
+        //         bool hasHit = Physics.Raycast(pos, user.transform.position + curMovement - pos, out hit, 100, LayerMask.GetMask("Map"));
+        //         Debug.DrawRay(pos, user.transform.position + curMovement - pos, Color.red, 1f);
+        //         if (hasHit && hit.point.y > 0.1f) {
+        //             movement.DoMovement(hit.point);
+        //             user.transform.position = curMovement;
+        //             dist = Vector3.Distance(user.transform.position, destination);
+        //         }
+        //         else {
+        //             dist = 0;
+        //         }
+
+
+        //         yield return new WaitForFixedUpdate();
+
+        //     }
+        //     yield return null;
+        // }
+
+        private IEnumerator BlinkToTargetPosition(GameObject user)
+        {
             Movement movement = user.GetComponent<Movement>();
 
-            while(dist > 0.5f) {
-                user.transform.position = Vector3.MoveTowards(user.transform.position, destination, Time.deltaTime * speed);
-                movement.DoMovement(user.transform.position);
-                dist = Vector3.Distance(user.transform.position, destination);
+            while (Vector2.Distance(new Vector2(user.transform.position.x, user.transform.position.z), new Vector2(destination.x, destination.z)) > 0.5f)
+            {
+                // Berechnen die nächste Position
+                Vector3 curMovement = Vector3.MoveTowards(user.transform.position, destination, Time.deltaTime * speed);
+
+                // Führen Raycast von der nächsten Position aus
+                RaycastHit hit;
+                bool hasHit = Physics.Raycast(curMovement + Vector3.up * 10, Vector3.down, out hit, 100, LayerMask.GetMask("Map"));
+
+                // Debug.DrawRay(curMovement + Vector3.up * 10, Vector3.down * 100, Color.red, 1f);
+                //Nur bewegen, wenn kein Wasser getroffen wurde.
+                if (hasHit && hit.point.y > 0.1f)
+                {
+                    user.transform.position = curMovement;
+                    movement.DoMovement(user.transform.position);
+                    Debug.Log("Blinking" + curMovement);
+                }
+                //Abbrechen, wenn hit.point.y <= 0.1f (Wasser beginnt bei 0, wir können auf Wasser nicht laufen)
+                else
+                {
+                    break;
+                }
+
                 yield return new WaitForFixedUpdate();
             }
+
+            // Coroutine beenden
             yield return null;
         }
     }

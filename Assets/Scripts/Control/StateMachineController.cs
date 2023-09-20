@@ -32,7 +32,7 @@ namespace AG.Control
         [HideInInspector]
         public Animator animator = null;
         [HideInInspector]
-        public Rigidbody rigidbody = null;
+        public new Rigidbody rigidbody = null;
 
         protected void Start() {
             player = GameObject.Find("Player");
@@ -51,14 +51,7 @@ namespace AG.Control
         }
 
         public void HandleCombat(GameObject target) {
-            // if(Vector3.Distance(this.transform.position, target.transform.position) < config.attackRange) {
-            //     if(!combat.IsAttacking()){
-            //         attackTarget = target;
-            //         combat.Attack();
-            //         Debug.Log("Attacking: " + target.name);
-            //     }
-            // }
-
+            //Nächsten Punkt des Coliders des Targets finden und angreifen
             Collider targetCollider = target.GetComponent<Collider>();
             if (targetCollider != null) {
                 Bounds targetBounds = targetCollider.bounds;
@@ -70,11 +63,6 @@ namespace AG.Control
                     if (!combat.IsAttacking()) {
                         attackTarget = target;
                         combat.Attack();
-                        Debug.Log(rigidbody.velocity);
-                        if(rigidbody.velocity.magnitude != 0)
-{                            Vector3 dampeningDirection = rigidbody.velocity.normalized * -1.0f;
-                            rigidbody.AddForce(dampeningDirection * 1);
-                        }
                     }
                 }
             }

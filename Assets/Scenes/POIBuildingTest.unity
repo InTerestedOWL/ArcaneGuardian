@@ -168,6 +168,67 @@ MonoBehaviour:
   originalScale: {x: 0, y: 0, z: 0}
   CutCascades: 1
   ExplodeForce: 0
+--- !u!1001 &238175752
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2025109569303427199, guid: 293b47c114de6e145abf3a5fc5699bf4, type: 3}
+      propertyPath: m_Name
+      value: Elven_Archer
+      objectReference: {fileID: 0}
+    - target: {fileID: 2025109569303427199, guid: 293b47c114de6e145abf3a5fc5699bf4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8083603660569776078, guid: 293b47c114de6e145abf3a5fc5699bf4, type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8083603660569776078, guid: 293b47c114de6e145abf3a5fc5699bf4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8083603660569776078, guid: 293b47c114de6e145abf3a5fc5699bf4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8083603660569776078, guid: 293b47c114de6e145abf3a5fc5699bf4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8083603660569776078, guid: 293b47c114de6e145abf3a5fc5699bf4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8083603660569776078, guid: 293b47c114de6e145abf3a5fc5699bf4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8083603660569776078, guid: 293b47c114de6e145abf3a5fc5699bf4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8083603660569776078, guid: 293b47c114de6e145abf3a5fc5699bf4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8083603660569776078, guid: 293b47c114de6e145abf3a5fc5699bf4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8083603660569776078, guid: 293b47c114de6e145abf3a5fc5699bf4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8083603660569776078, guid: 293b47c114de6e145abf3a5fc5699bf4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 293b47c114de6e145abf3a5fc5699bf4, type: 3}
 --- !u!1 &292002274
 GameObject:
   m_ObjectHideFlags: 0
@@ -19288,6 +19349,67 @@ MonoBehaviour:
   originalScale: {x: 0.37, y: 0.1, z: 0.25}
   CutCascades: 3
   ExplodeForce: 0
+--- !u!1001 &1638642214
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1818538780786566697, guid: 8164cb5b5f717ee4f97ba3f9230e4c8a, type: 3}
+      propertyPath: m_Name
+      value: Elven_Sorceress
+      objectReference: {fileID: 0}
+    - target: {fileID: 1818538780786566697, guid: 8164cb5b5f717ee4f97ba3f9230e4c8a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7395493365448837085, guid: 8164cb5b5f717ee4f97ba3f9230e4c8a, type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 7395493365448837085, guid: 8164cb5b5f717ee4f97ba3f9230e4c8a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7395493365448837085, guid: 8164cb5b5f717ee4f97ba3f9230e4c8a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7395493365448837085, guid: 8164cb5b5f717ee4f97ba3f9230e4c8a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7395493365448837085, guid: 8164cb5b5f717ee4f97ba3f9230e4c8a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7395493365448837085, guid: 8164cb5b5f717ee4f97ba3f9230e4c8a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7395493365448837085, guid: 8164cb5b5f717ee4f97ba3f9230e4c8a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7395493365448837085, guid: 8164cb5b5f717ee4f97ba3f9230e4c8a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7395493365448837085, guid: 8164cb5b5f717ee4f97ba3f9230e4c8a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7395493365448837085, guid: 8164cb5b5f717ee4f97ba3f9230e4c8a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7395493365448837085, guid: 8164cb5b5f717ee4f97ba3f9230e4c8a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8164cb5b5f717ee4f97ba3f9230e4c8a, type: 3}
 --- !u!114 &1648469917 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3322046903195854726, guid: 12508a110f03cf44d9b5ea0c76ad7284, type: 3}

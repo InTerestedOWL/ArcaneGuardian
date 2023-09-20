@@ -74,6 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a353050e4ce8b5042b59f71f26e2bb03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healingEffect: {fileID: 0}
   isBuilding: 0
   maxHealth: 600
   currentHealth: 600
@@ -101,6 +102,7 @@ MonoBehaviour:
   combat: {fileID: 0}
   combatTarget: {fileID: 0}
   animator: {fileID: 0}
+  rigidbody: {fileID: 0}
 --- !u!114 &6256664494356567847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,8 +206,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.6701232, y: 1.78, z: 1}
-  m_Center: {x: 0, y: 0.92, z: 0}
+  m_Size: {x: 0.6701232, y: 2.84, z: 1}
+  m_Center: {x: 0, y: 1.42, z: 0}
 --- !u!195 &7454804380318319457
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -224,7 +226,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 1.78
+  m_Height: 2.84
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
@@ -515,6 +517,10 @@ PrefabInstance:
     - target: {fileID: 446996, guid: 5b07fc13928a0ba49b37e5e16e2a5591, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6955742899421955709, guid: 5b07fc13928a0ba49b37e5e16e2a5591, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b07fc13928a0ba49b37e5e16e2a5591, type: 3}

@@ -43,7 +43,7 @@ namespace AG.Control {
                 Vector3 pos = transform.position;
                 pos.y += 10;
                 RaycastHit hit;
-                bool hasHit = Physics.Raycast(pos, transform.position + curMovement - pos, out hit, Mathf.Infinity, LayerMask.GetMask("Map"));
+                bool hasHit = Physics.Raycast(pos, transform.position + curMovement - pos, out hit, 100, LayerMask.GetMask("Map"));
                 if (hasHit && hit.point.y > 0.1f) {
                     GetComponent<Movement>().DoMovement(hit.point);
                 }

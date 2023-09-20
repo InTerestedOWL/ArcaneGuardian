@@ -18,7 +18,6 @@ namespace AG.UI
             // Überprüfen, ob die rechte Seite der Infobox die rechte Seite des Elternobjekts überschreitet
             float infoBoxRightX = rectTransform.anchoredPosition.x + rectTransform.rect.width/2 + infoBoxRect.anchoredPosition.x + infoBoxRect.rect.width/2;
             float parentRightX = parentRect.rect.width;
-            Debug.Log(infoBoxRightX + " " + parentRightX);
             if (infoBoxRightX > parentRightX)
             {
                 // Verschieben Sie die Infobox zur linken Seite des Elternobjekts

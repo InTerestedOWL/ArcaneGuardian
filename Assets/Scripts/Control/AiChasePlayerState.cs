@@ -16,6 +16,8 @@ namespace AG.Control
     {
         float timer = 0.0f;
 
+        Coroutine rotationCoroutine = null;
+
         public AiStateId GetId()
         {
             return AiStateId.AiChasePlayer;
@@ -52,16 +54,17 @@ namespace AG.Control
                 {
                     GameObject target = GetClosestAttackableTarget(controller);
 
-
                     //Wenn kein Target gefunden wurde, dann Idle
-                    if(target == null){
+                    if (target == null)
+                    {
                         // controller.stateMachine.ChangeState(AiStateId.AiIdle);
                         return;
                     }
 
                     //Nächsten Punkt auf dem Collider des Targets finden
                     Collider targetCollider = target.GetComponent<Collider>();
-                    if (targetCollider != null) {
+                    if (targetCollider != null)
+                    {
                         Bounds targetBounds = targetCollider.bounds;
 
                         Vector3 closestPoint = targetBounds.ClosestPoint(controller.transform.position);
@@ -69,19 +72,27 @@ namespace AG.Control
 
                         if (distanceToClosestPoint > controller.config.attackRange)
                         {
-                            if(!controller.combat.IsAttacking()){
+                            if (!controller.combat.IsAttacking())
+                            {
                                 controller.movement.DoMovement(closestPoint);
+
+                                if(rotationCoroutine != null){
+                                    controller.StopCoroutine(rotationCoroutine);
+                                    rotationCoroutine = null;
+                                }
                             }
                         }
                         else
                         {
                             //TODO: Lookat smooth player before attacking
-                            controller.transform.LookAt(target.transform);
-                            // controller.StartCoroutine(RotateToTarget(closestTarget, controller));
+                            // controller.transform.LookAt(target.transform);
+                            if (rotationCoroutine == null)
+                            {
+                                rotationCoroutine = controller.StartCoroutine(RotateToTarget(target, controller));
+                            }
                             controller.HandleCombat(target);
                         }
                     }
-
                     timer = controller.config.movementUpdateTime;
                 }
             }
@@ -89,25 +100,33 @@ namespace AG.Control
 
         public void Exit(StateMachineController controller)
         {
+            if(rotationCoroutine != null) {
+                controller.StopCoroutine(rotationCoroutine);
+                rotationCoroutine = null;
+            }
         }
 
-        // private IEnumerator RotateToTarget(GameObject target, StateMachineController controller)
-        // {
-        //     Vector3 direction = (target.transform.position - controller.transform.position).normalized;
-        //     Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+        private IEnumerator RotateToTarget(GameObject target, StateMachineController controller)
+        {
+            float rotationSpeed = 10.0f;
+            Vector3 direction = (target.transform.position - controller.transform.position).normalized;
+            Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, controller.transform.position.y, direction.z));
 
-        //     float rotationThreshold = 0.1f; // Eine Schwelle für die Rotation
+            float rotationThreshold = 5f; // Schwelle für Rotation in Grad
 
-        //     while (Quaternion.Angle(target.transform.rotation, lookRotation) > rotationThreshold)
-        //     {
-        //         target.transform.rotation = Quaternion.Slerp(target.transform.rotation, lookRotation, Time.deltaTime * 10f);
-        //         yield return null;
-        //     }
-        // }
+            while (Quaternion.Angle(controller.transform.rotation, lookRotation) > rotationThreshold)
+            {
+                controller.transform.rotation = Quaternion.Slerp(controller.transform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
+                direction = (target.transform.position - controller.transform.position).normalized;
+                lookRotation = Quaternion.LookRotation(new Vector3(direction.x, controller.transform.position.y, direction.z));
+                yield return null;
+            }
+        }
 
 
         //TODO: Fix logic
-        private GameObject GetClosestAttackableTarget(StateMachineController controller) {
+        private GameObject GetClosestAttackableTarget(StateMachineController controller)
+        {
             float closest = float.MaxValue;
             GameObject[] allTargets = GameObject.FindGameObjectsWithTag("Player")
                 .Concat(GameObject.FindGameObjectsWithTag("POI"))
@@ -119,22 +138,36 @@ namespace AG.Control
                 .ToArray();
 
             GameObject closestTarget = null;
+            GameObject closestPlayer = null;
+
+            //Nächsten Player oder POI finden
             foreach (GameObject target in allTargets)
             {
-                float distance = Vector3.Distance(target.transform.position, controller.movement.navMeshAgent.destination);
+                float distance = Vector3.Distance(target.transform.position, controller.transform.position);
                 if (distance < closest)
                 {
-                    NavMeshPath path = new NavMeshPath();
-                    controller.movement.navMeshAgent.CalculatePath(target.transform.position, path);
-                    if(path.status == NavMeshPathStatus.PathComplete){
-                        closest = distance;
-                        closestTarget = target;
+                    closest = distance;
+                    closestTarget = target;
+
+                    // Player Priorisieren, wenn er sich in der Nähe befindet
+                    if (target.CompareTag("Player") && distance < controller.config.maxSightDistance)
+                    {
+                        closestPlayer = target;
                     }
                 }
             }
 
-            if(closestTarget == null) {
-               foreach (GameObject target in allTurrets)
+            if(closestPlayer != null)
+                closestTarget = closestPlayer;
+
+            //Prüfe ob Player oder POI erreichbar sind
+            NavMeshPath path = new NavMeshPath();
+            controller.movement.navMeshAgent.CalculatePath(closestTarget.transform.position, path);
+
+            //Wenn Player oder POI nicht erreichtbar, dann Buildings angreifen
+            if (path.status != NavMeshPathStatus.PathComplete)
+            {
+                foreach (GameObject target in allTurrets)
                 {
                     float distance = Vector3.Distance(target.transform.position, controller.movement.navMeshAgent.destination);
                     if (distance < closest)
@@ -142,7 +175,7 @@ namespace AG.Control
                         closest = distance;
                         closestTarget = target;
                     }
-                } 
+                }
             }
             return closestTarget;
         }

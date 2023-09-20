@@ -76,9 +76,19 @@ namespace AG.Combat
         protected void OnTriggerEnter(Collider other)
         {
             CombatTarget hitTarget = other.GetComponent<CombatTarget>();
-            if (target != null && hitTarget != target) return;
+            // if (target != null && hitTarget != target) return;
             if (hitTarget == null || hitTarget.IsDead()) return;
-            if (other.gameObject == instigator) return;
+            // if (other.gameObject == instigator) return;
+
+            if(instigator.tag == "EnemyWeapon") {
+                if(other.gameObject.tag == "Enemy" || other.gameObject.tag == "EnemyWeapon")
+                    return;
+            }
+            else {
+                if(other.gameObject.tag == "Player" || other.gameObject.tag == "PlayerWeapon" || other.gameObject.tag == "POI" || other.gameObject.tag == "Turret")
+                    return;
+            }
+
             hitTarget.DamageTarget(damage, skill);
 
             speed = 0;
