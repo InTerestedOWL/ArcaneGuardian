@@ -8,6 +8,7 @@ using System.Collections;
 using AG.Control;
 using AG.Audio.Sounds;
 using AG.Combat;
+using System.Collections.Generic;
 
 namespace AG.Skills {
     /*
@@ -30,13 +31,28 @@ namespace AG.Skills {
         protected EffectStrategy[] effectStrategies = null;
         [SerializeField]
         protected HitSounds hitSounds = null;
+        private static int active = 0;
+        private static Queue<SkillQueueEntry> activeSkills = new Queue<SkillQueueEntry>();
 
         public override void Use(GameObject user) {
-            if (isOnCooldown) {
-                return;
+            if (targetingStrategy is not AoETargeting) {
+                if (isOnCooldown) {
+                    return;
+                }
+                SkillData data = new SkillData(user, damage);
+                targetingStrategy.DeclareTargets(data, () => ProcessTargets(data));
+            } else {
+                if (active == 0) {
+                    if (isOnCooldown) {
+                        return;
+                    }
+                    active++;
+                    SkillData data = new SkillData(user, damage);
+                    targetingStrategy.DeclareTargets(data, () => ProcessTargets(data));
+                } else {
+                    activeSkills.Enqueue(new SkillQueueEntry { skill = this, user = user });
+                }
             }
-            SkillData data = new SkillData(user, damage);
-            targetingStrategy.DeclareTargets(data, () => ProcessTargets(data));
         }
 
         protected void ProcessTargets(SkillData skillData) {
@@ -54,6 +70,14 @@ namespace AG.Skills {
             }
             if(playerController != null) {
                 playerController.StartCoroutine(ShowTutorial());
+            }
+        }
+
+        public static void FinishSkill() {
+            active--;
+            if (activeSkills.Count > 0) {
+                SkillQueueEntry skillQueueEntry = activeSkills.Dequeue();
+                skillQueueEntry.skill.Use(skillQueueEntry.user);
             }
         }
         
@@ -94,5 +118,10 @@ namespace AG.Skills {
         public int GetSkillCap() {
             return skillCap;
         }
+    }
+
+    public class SkillQueueEntry {
+        public Skill skill;
+        public GameObject user;
     }
 }

@@ -24,13 +24,13 @@ namespace AG.Skills.Targeting {
         public override void DeclareTargets(SkillData data, Action callback) {
             GameObject user = data.GetUser();
             if (user) {
+                activeStrategies.Enqueue(this);
                 data.GetPlayerController().StartCoroutine(SelectAoETarget(data, callback));
             }
         }
 
         private IEnumerator SelectAoETarget(SkillData data, Action callback) {
             cancelTargeting = false;
-            activeStrategies.Enqueue(this);
             ActionMapHandler actionMapHandler = GameObject.FindWithTag("Player").GetComponent<ActionMapHandler>();
             InputAction cancelSpellAction = actionMapHandler.GetActionOfCurrentActionMap("CancelSpell");
             InputAction selectTarget = actionMapHandler.GetActionOfCurrentActionMap("SelectTarget");
@@ -67,12 +67,12 @@ namespace AG.Skills.Targeting {
                     targeting = false;
                     telegraphInstance.gameObject.SetActive(false);
                     if (activeStrategies.Contains(this)) {
-                        Debug.Log("Dequeue");
                         activeStrategies.Dequeue();
                     }
                     if (activeStrategies.Count == 0) {
                         actionMapHandler.ChangeToActionMap("Player");
                     }
+                    Skill.FinishSkill();
                     yield break;
                 } else if (cancelSpellAction.triggered || selectTarget.triggered || cancelTargeting) {
                     if (selectTarget.triggered) {
