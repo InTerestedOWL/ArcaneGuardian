@@ -62,7 +62,6 @@ public class WaveSpawner : MonoBehaviour
     private float spawnInterval;
     private float spawnTimer;
 
-    
 
     private bool initialWaveStarted = false;
 
@@ -76,6 +75,8 @@ public class WaveSpawner : MonoBehaviour
     private float timeToNextWave = 60;
     private float skipToTime = 5;
 
+    [SerializeField]
+    private SkillTree skillTree;
     [SerializeField]
     private GlobalAudioSystem globalAudioSystem;
     [SerializeField]
@@ -266,7 +267,7 @@ public class WaveSpawner : MonoBehaviour
                 healAtWaveEnd();
                 
                 if(skillPointsToAdd > 0){                    
-                    GameObject.Find("Skill Tree Container").GetComponent<SkillTree>().AddSkillPoints(skillPointsToAdd);
+                    skillTree.AddSkillPoints(skillPointsToAdd);
                     iWindow.popupInformationWindow("You received "+skillPointsToAdd+" Skill Points! Open your  Skill Tree (L) to spend them!");
                 }
 
