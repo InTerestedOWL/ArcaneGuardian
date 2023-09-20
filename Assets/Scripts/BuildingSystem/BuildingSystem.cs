@@ -58,7 +58,7 @@ public class BuildingSystem : MonoBehaviour
 
     private int pixelPerTile;
     [SerializeField]
-    private DecalProjector decalProjector;
+    public DecalProjector decalProjector;
 
     private void Awake(){
         current = this;
@@ -80,11 +80,10 @@ public class BuildingSystem : MonoBehaviour
             whites[i] = Color.white;
             clears[i] = clearColor;
         }
-
-
         gridTexture = new Texture2D(textureTileMapWidth, textureTileMapHeight);
         DrawGrid();
-        decalProjector.enabled = false;
+        decalProjector.gameObject.SetActive(false);
+        
         //gridTexture = new Texture2D(textureWidth, textureHeight);
         //decalProjector.material.SetTexture("Base_Map", gridTexture);
     }
@@ -96,8 +95,7 @@ public class BuildingSystem : MonoBehaviour
         objectChildMaterials = new List<Material[]>();
 
         // For Projector
-        
-        
+        DrawGrid();      
     }
     
     
@@ -404,14 +402,12 @@ public class BuildingSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.B)){
-            decalProjector.enabled = !decalProjector.isActiveAndEnabled;
-        }
+        
         if (Input.GetKeyDown(KeyCode.F)){               
             followPOIConfirmation();
         }
         
-        if(buildingContext){            
+        if(buildingContext){        
             if(Input.GetKeyDown(KeyCode.Mouse1)||Input.GetKeyDown(KeyCode.B)||Input.GetKeyDown(KeyCode.Escape)){
                 stopBuilding();
                 return;
@@ -510,7 +506,7 @@ public class BuildingSystem : MonoBehaviour
 
     public void DrawGrid()
     {
-        if (decalProjector == null || !decalProjector.isActiveAndEnabled)
+        if (decalProjector == null)
             return;
         /*    // Setze die gesamte Textur auf transparent
             for (int x = 0; x < textureWidth; x++)

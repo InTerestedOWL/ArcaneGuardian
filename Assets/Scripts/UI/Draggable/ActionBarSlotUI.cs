@@ -26,6 +26,8 @@ namespace AG.UI.Draggable {
 
         [SerializeField] private TMP_Text infoBoxSpellCooldown;
 
+        [SerializeField] private GameObject infoBox;
+
         private string containerName;
 
         private void Awake() {
@@ -34,18 +36,24 @@ namespace AG.UI.Draggable {
 
         private void Start() {
             hotkeyReference.action.started += TriggerHotkey;
+            if(infoBox != null){
+                infoBox.SetActive(false);
+            }
             if (castingReference != null) {
                 castingReference.action.started += TriggerHotkey;
             }
         }
-
+        public void showInfoBox(bool b){
+            if(infoBox != null && infoBoxSpellName.text != ""){
+                infoBox.SetActive(b);
+            }else if(infoBox != null){
+                infoBox.SetActive(false);
+            }
+        }
         private void SetHotkeyUIDisplay() {
             
             containerName = this.gameObject.transform.parent.gameObject.transform.parent.transform.name;
-            if(containerName == "Action Bar Container"){
-                EventTrigger et = this.gameObject.GetComponent<EventTrigger>();
-                et.enabled = false;
-            }
+            
             if (hotkeyReference != null) {
                 // Takes only the first assigned key.
                 // TODO: Allow multiple keys to be assigned / Check for other keys.
@@ -69,9 +77,7 @@ namespace AG.UI.Draggable {
                 skillRef.SetItem(item);
                 infoBoxSpellName.text = item.GetDisplayName();
                 infoBoxSpellDesc.text = item.GetDescription();
-                infoBoxSpellCooldown.text = item.GetMaxCooldown().ToString()+" Sec.";
-                EventTrigger et = this.gameObject.GetComponent<EventTrigger>();
-                et.enabled = true;
+                infoBoxSpellCooldown.text = item.GetMaxCooldown().ToString()+" Sec.";               
             }      
         }
 
@@ -86,8 +92,9 @@ namespace AG.UI.Draggable {
         public void RemoveItems(int number) {
             if(containerName == "Action Bar Container"){
                 skillRef.SetItem(null);
-                EventTrigger et = this.gameObject.GetComponent<EventTrigger>();
-                et.enabled = false;
+                infoBoxSpellName.text = "";
+                infoBoxSpellDesc.text = "";
+                infoBoxSpellCooldown.text = "";
             }
         }
 

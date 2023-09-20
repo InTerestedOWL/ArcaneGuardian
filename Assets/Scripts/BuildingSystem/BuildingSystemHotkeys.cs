@@ -26,10 +26,6 @@ public class BuildingSystemHotkeys : MonoBehaviour
             infoBoxBuildingName.text = g.getBuildingName();
             infoBoxBuildingDesc.text = g.getBuildingDesc();
             infoBoxBuildingCost.text = g.getPrice().ToString()+" Gold";
-        }else{
-            Debug.Log("ET OFF");
-            EventTrigger et = this.gameObject.GetComponent<EventTrigger>();
-            et.enabled = false;
         }
     }
     public TMP_Text getBuildingCostTextRef(){

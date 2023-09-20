@@ -70,7 +70,7 @@ public class WaveSpawner : MonoBehaviour
     private bool waveIsBossWave = false;
 
 
-    public int skillPointsEveryXWave = 3;
+    public int skillPointsEveryXWave = 2;
     private int skillPointsToAdd = 0;
     private float timeToNextWave = 60;
     private float skipToTime = 5;
@@ -154,7 +154,7 @@ public class WaveSpawner : MonoBehaviour
         enemies.Add(elves);
         enemies.Add(humans);
          
-        resourceUI.setTimeToNextWaveText("Building");
+        resourceUI.setTimeToNextWaveText("Prepare");
     }
 
     public void startWaves(){
