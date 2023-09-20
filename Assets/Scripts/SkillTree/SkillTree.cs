@@ -18,7 +18,6 @@ namespace AG.UI
 
         private void Start()
         {
-            SkillPoints = 20;
             SkillPointsText.text = SkillPoints.ToString();
 
             foreach (var skill in SkillHolder.GetComponentsInChildren<SkillTreeSkill>())

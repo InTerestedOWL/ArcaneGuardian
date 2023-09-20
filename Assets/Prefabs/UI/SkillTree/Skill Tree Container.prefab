@@ -680,7 +680,7 @@ MonoBehaviour:
   SkillList: []
   SkillHolder: {fileID: 1652986622958790442}
   SkillPointsText: {fileID: 4130934573001057041}
-  SkillPoints: 0
+  SkillPoints: 1
 --- !u!1 &7400358081091990567
 GameObject:
   m_ObjectHideFlags: 0
