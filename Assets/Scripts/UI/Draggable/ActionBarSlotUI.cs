@@ -9,6 +9,7 @@ using AG.Actions;
 using UnityEngine.EventSystems;
 using AG.Control;
 using AG.Skills.Targeting;
+using AG.Skills;
 
 namespace AG.UI.Draggable {
     public class ActionBarSlotUI : MonoBehaviour, IDragContainer<ActionItem> {
@@ -25,6 +26,8 @@ namespace AG.UI.Draggable {
         [SerializeField] private TMP_Text infoBoxSpellDesc;
 
         [SerializeField] private TMP_Text infoBoxSpellCooldown;
+
+        [SerializeField] private TMP_Text infoBoxSpellDamage;
 
         [SerializeField] private GameObject infoBox;
 
@@ -77,7 +80,12 @@ namespace AG.UI.Draggable {
                 skillRef.SetItem(item);
                 infoBoxSpellName.text = item.GetDisplayName();
                 infoBoxSpellDesc.text = item.GetDescription();
-                infoBoxSpellCooldown.text = item.GetMaxCooldown().ToString()+" Sec.";               
+                     
+                if(item is Skill){
+                    Skill skill = (Skill)item;
+                    infoBoxSpellCooldown.text = $"CD: {skill.GetMaxCooldown()}s";
+                    infoBoxSpellDamage.text = $"DMG: {skill.GetDamage()}";
+                }          
             }      
         }
 
@@ -95,6 +103,7 @@ namespace AG.UI.Draggable {
                 infoBoxSpellName.text = "";
                 infoBoxSpellDesc.text = "";
                 infoBoxSpellCooldown.text = "";
+                infoBoxSpellDamage.text = "";
             }
         }
 

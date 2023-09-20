@@ -1097,6 +1097,7 @@ MonoBehaviour:
   infoBoxSpellName: {fileID: 5603824457809168833}
   infoBoxSpellDesc: {fileID: 4750081959814514285}
   infoBoxSpellCooldown: {fileID: 3768971942871592539}
+  infoBoxSpellDamage: {fileID: 7187194106747499782}
   infoBox: {fileID: 2374986017850220857}
 --- !u!1 &539430991541062594
 GameObject:
@@ -2343,6 +2344,7 @@ MonoBehaviour:
   infoBoxSpellName: {fileID: 1096206759171476949}
   infoBoxSpellDesc: {fileID: 8065086009319342163}
   infoBoxSpellCooldown: {fileID: 1298292339697201016}
+  infoBoxSpellDamage: {fileID: 3427090785173820928}
   infoBox: {fileID: 2519053648526387126}
 --- !u!1 &1691686438134384752
 GameObject:
@@ -5913,6 +5915,7 @@ MonoBehaviour:
   infoBoxSpellName: {fileID: 4688982414669618768}
   infoBoxSpellDesc: {fileID: 2703350443988148006}
   infoBoxSpellCooldown: {fileID: 2775375343161043804}
+  infoBoxSpellDamage: {fileID: 5744300167810312920}
   infoBox: {fileID: 6996581066290308613}
 --- !u!1 &3130723729683506860
 GameObject:
@@ -6786,6 +6789,7 @@ MonoBehaviour:
   infoBoxSpellName: {fileID: 4690000942109163617}
   infoBoxSpellDesc: {fileID: 3341634603807647095}
   infoBoxSpellCooldown: {fileID: 7960841253133155034}
+  infoBoxSpellDamage: {fileID: 1963139413471785458}
   infoBox: {fileID: 2477276303918920914}
 --- !u!1 &3920993372122516089
 GameObject:
@@ -7006,6 +7010,7 @@ MonoBehaviour:
   infoBoxSpellName: {fileID: 4332897188166587325}
   infoBoxSpellDesc: {fileID: 3804005266648438748}
   infoBoxSpellCooldown: {fileID: 588283111706177615}
+  infoBoxSpellDamage: {fileID: 18322705173895383}
   infoBox: {fileID: 9094738500844194249}
 --- !u!1 &3956558233539425890
 GameObject:
@@ -10572,6 +10577,7 @@ MonoBehaviour:
   infoBoxSpellName: {fileID: 8039709870360305154}
   infoBoxSpellDesc: {fileID: 7753117212282585214}
   infoBoxSpellCooldown: {fileID: 8936188285150691599}
+  infoBoxSpellDamage: {fileID: 1422631120421027026}
   infoBox: {fileID: 179982842236995599}
 --- !u!1 &6699177708811579354
 GameObject:
@@ -10866,6 +10872,7 @@ MonoBehaviour:
   infoBoxSpellName: {fileID: 9119560428918390880}
   infoBoxSpellDesc: {fileID: 6338089366844179520}
   infoBoxSpellCooldown: {fileID: 6049781648541985968}
+  infoBoxSpellDamage: {fileID: 3829957342829188230}
   infoBox: {fileID: 8220884378577768082}
 --- !u!1 &6816347623096274085
 GameObject:
@@ -13258,6 +13265,7 @@ MonoBehaviour:
   infoBoxSpellName: {fileID: 3900538639933503096}
   infoBoxSpellDesc: {fileID: 2438089775795417366}
   infoBoxSpellCooldown: {fileID: 5040637568516491082}
+  infoBoxSpellDamage: {fileID: 7280209363693741080}
   infoBox: {fileID: 6816347623096274085}
 --- !u!1 &7845694287828672085
 GameObject:
@@ -13358,6 +13366,7 @@ MonoBehaviour:
   infoBoxSpellName: {fileID: 7180716748539670158}
   infoBoxSpellDesc: {fileID: 7813738162461251191}
   infoBoxSpellCooldown: {fileID: 1277848823686666623}
+  infoBoxSpellDamage: {fileID: 3094028706970050807}
   infoBox: {fileID: 152138913632174367}
 --- !u!1 &7949954759244744460
 GameObject:
@@ -14937,6 +14946,7 @@ MonoBehaviour:
   infoBoxSpellName: {fileID: 9198962014714461476}
   infoBoxSpellDesc: {fileID: 8368876922032869998}
   infoBoxSpellCooldown: {fileID: 111998489302380778}
+  infoBoxSpellDamage: {fileID: 718396069053704238}
   infoBox: {fileID: 4702124307701899844}
 --- !u!1 &8905058218895577046
 GameObject:
