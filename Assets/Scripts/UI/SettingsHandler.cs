@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using AG.Files;
+using AG.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SettingsHandler : MonoBehaviour {
@@ -14,24 +16,41 @@ public class SettingsHandler : MonoBehaviour {
     [SerializeField]
     private SoundSettings soundSettings;
     private SettingsOptions settingsOptions;
-
     private FileHandler fh;
+    private bool isInit = false;
 
     void Awake() {
+        InitSettings();
+    }
+
+    public void InitSettings() {
+        if (isInit)
+            return;
         fh = ScriptableObject.CreateInstance<FileHandler>();
         string loadedFileData = fh.Load(FileHandler.FileType.Settings);
-        if (loadedFileData != null) {
+        if (loadedFileData != null)
+        {
             settingsOptions = JsonUtility.FromJson<SettingsOptions>(loadedFileData);
             soundSettings.SetSoundSettings(settingsOptions.audio);
             screenResSel.SetDisplaySettings(settingsOptions.video);
-        } else {
+        }
+        else
+        {
             Debug.Log("No settings file found, using default.");
-            settingsOptions = new SettingsOptions() {
+            settingsOptions = new SettingsOptions()
+            {
                 audio = soundSettings.GetAudioSettings(),
                 video = screenResSel.GetVideoSettings()
             };
         }
         ConvertToJson();
+        isInit = true;
+    }
+
+    // Load Settings
+    void Start() {
+        if (SceneManager.GetActiveScene().name != "MainMenu")
+            gameObject.SetActive(false);
     }
 
     public void ChangeTab(Toggle toggle) {

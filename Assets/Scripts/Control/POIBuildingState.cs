@@ -51,6 +51,7 @@ namespace AG.Control
             BuildingSystem bs = GameObject.Find("Grid").GetComponent<BuildingSystem>();
             bs.tileToPlacable(bs.poi_building.getStartPosition(),bs.poi_building.getSize());
             bs.freePOI(bs.poi_building.getCenter3D());
+            bs.DrawGrid();
         }
     }
 }

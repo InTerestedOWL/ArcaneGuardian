@@ -1718,7 +1718,6 @@ GameObject:
   - component: {fileID: 77230361944121918}
   - component: {fileID: 4432619048406703368}
   - component: {fileID: 5680132367482350612}
-  - component: {fileID: 3300260352159287711}
   m_Layer: 6
   m_Name: Action Bar Slot (7)
   m_TagString: Untagged
@@ -1808,6 +1807,7 @@ MonoBehaviour:
   infoBoxSpellName: {fileID: 0}
   infoBoxSpellDesc: {fileID: 0}
   infoBoxSpellCooldown: {fileID: 0}
+  infoBox: {fileID: 0}
 --- !u!114 &5680132367482350612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1826,51 +1826,6 @@ MonoBehaviour:
   infoBoxBuildingName: {fileID: 4218386229432756120}
   infoBoxBuildingDesc: {fileID: 6812301397645643555}
   infoBoxBuildingCost: {fileID: 3975983633230830701}
---- !u!114 &3300260352159287711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 771698458434243152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 4816825751126549708}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-  - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 4816825751126549708}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &797833358994937148
 GameObject:
   m_ObjectHideFlags: 0
@@ -3140,7 +3095,6 @@ GameObject:
   - component: {fileID: 6350887845113079299}
   - component: {fileID: 2176034847209666479}
   - component: {fileID: 7695403883744958968}
-  - component: {fileID: 2349370615300645460}
   m_Layer: 6
   m_Name: Action Bar Slot (5)
   m_TagString: Untagged
@@ -3230,6 +3184,7 @@ MonoBehaviour:
   infoBoxSpellName: {fileID: 0}
   infoBoxSpellDesc: {fileID: 0}
   infoBoxSpellCooldown: {fileID: 0}
+  infoBox: {fileID: 0}
 --- !u!114 &7695403883744958968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3248,51 +3203,6 @@ MonoBehaviour:
   infoBoxBuildingName: {fileID: 5228893068444772997}
   infoBoxBuildingDesc: {fileID: 5711239186867766350}
   infoBoxBuildingCost: {fileID: 9021778732833146539}
---- !u!114 &2349370615300645460
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1247143544789158244}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 3445574431046470697}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-  - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 3445574431046470697}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &1286820529086451742
 GameObject:
   m_ObjectHideFlags: 0
@@ -5568,7 +5478,6 @@ GameObject:
   - component: {fileID: 9076182152239781214}
   - component: {fileID: 5756938962372091504}
   - component: {fileID: 6061878873576491379}
-  - component: {fileID: 4653730028754275097}
   m_Layer: 6
   m_Name: Action Bar Slot (4)
   m_TagString: Untagged
@@ -5655,9 +5564,10 @@ MonoBehaviour:
   hotkeyReference: {fileID: -2108020234740093605, guid: 02f590a705a0d004abee1378dd449c0e, type: 3}
   castingReference: {fileID: 0}
   skillRef: {fileID: 8672765542526277820}
-  infoBoxSpellName: {fileID: 0}
+  infoBoxSpellName: {fileID: 908990359881850348}
   infoBoxSpellDesc: {fileID: 0}
   infoBoxSpellCooldown: {fileID: 0}
+  infoBox: {fileID: 7585444308774737378}
 --- !u!114 &6061878873576491379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5676,51 +5586,6 @@ MonoBehaviour:
   infoBoxBuildingName: {fileID: 908990359881850348}
   infoBoxBuildingDesc: {fileID: 7357433705313210999}
   infoBoxBuildingCost: {fileID: 8792610778098494554}
---- !u!114 &4653730028754275097
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2320116059587917410}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 7585444308774737378}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-  - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 7585444308774737378}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &2355917979158887918
 GameObject:
   m_ObjectHideFlags: 0
@@ -6073,7 +5938,6 @@ GameObject:
   - component: {fileID: 3600431933799308180}
   - component: {fileID: 3124580825231790575}
   - component: {fileID: 4536237858475819699}
-  - component: {fileID: 556560231964303205}
   m_Layer: 6
   m_Name: Action Bar Slot (2)
   m_TagString: Untagged
@@ -6160,9 +6024,10 @@ MonoBehaviour:
   hotkeyReference: {fileID: -7981582305569747726, guid: 02f590a705a0d004abee1378dd449c0e, type: 3}
   castingReference: {fileID: 0}
   skillRef: {fileID: 6369545989688913259}
-  infoBoxSpellName: {fileID: 0}
+  infoBoxSpellName: {fileID: 2020801169106680188}
   infoBoxSpellDesc: {fileID: 0}
   infoBoxSpellCooldown: {fileID: 0}
+  infoBox: {fileID: 2749904884983671023}
 --- !u!114 &4536237858475819699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6181,51 +6046,6 @@ MonoBehaviour:
   infoBoxBuildingName: {fileID: 2020801169106680188}
   infoBoxBuildingDesc: {fileID: 4284595629308759868}
   infoBoxBuildingCost: {fileID: 1461014086014501939}
---- !u!114 &556560231964303205
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2616599957576362803}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 2749904884983671023}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-  - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 2749904884983671023}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &2682471462845992375
 GameObject:
   m_ObjectHideFlags: 0
@@ -7250,7 +7070,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '-'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 7dac5b1cac45a4e418a492d5c77933d0, type: 2}
@@ -11797,7 +11617,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '-'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 7dac5b1cac45a4e418a492d5c77933d0, type: 2}
@@ -12437,7 +12257,6 @@ GameObject:
   - component: {fileID: 3749189703286111493}
   - component: {fileID: 1677927915477104958}
   - component: {fileID: 232134070428622320}
-  - component: {fileID: 6188894973197076588}
   m_Layer: 6
   m_Name: Action Bar Slot (6)
   m_TagString: Untagged
@@ -12527,6 +12346,7 @@ MonoBehaviour:
   infoBoxSpellName: {fileID: 0}
   infoBoxSpellDesc: {fileID: 0}
   infoBoxSpellCooldown: {fileID: 0}
+  infoBox: {fileID: 0}
 --- !u!114 &232134070428622320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12545,51 +12365,6 @@ MonoBehaviour:
   infoBoxBuildingName: {fileID: 733817747464858549}
   infoBoxBuildingDesc: {fileID: 4257153561899282179}
   infoBoxBuildingCost: {fileID: 7473305872239464927}
---- !u!114 &6188894973197076588
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6588321361143366695}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 493753844961414015}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-  - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 493753844961414015}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &6625249934558302747
 GameObject:
   m_ObjectHideFlags: 0
@@ -12656,7 +12431,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '-'
+  m_text: '
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 7dac5b1cac45a4e418a492d5c77933d0, type: 2}
@@ -12873,7 +12650,6 @@ GameObject:
   - component: {fileID: 344698290592265317}
   - component: {fileID: 8838797340774876488}
   - component: {fileID: 5785481415063429567}
-  - component: {fileID: 8996960518048747241}
   m_Layer: 6
   m_Name: Action Bar Slot
   m_TagString: Untagged
@@ -12960,9 +12736,10 @@ MonoBehaviour:
   hotkeyReference: {fileID: -3794553961056858475, guid: 02f590a705a0d004abee1378dd449c0e, type: 3}
   castingReference: {fileID: 0}
   skillRef: {fileID: 1242540183097224631}
-  infoBoxSpellName: {fileID: 0}
+  infoBoxSpellName: {fileID: 2366963169417414867}
   infoBoxSpellDesc: {fileID: 0}
   infoBoxSpellCooldown: {fileID: 0}
+  infoBox: {fileID: 219660801937068321}
 --- !u!114 &5785481415063429567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12981,51 +12758,6 @@ MonoBehaviour:
   infoBoxBuildingName: {fileID: 2366963169417414867}
   infoBoxBuildingDesc: {fileID: 574182594472814587}
   infoBoxBuildingCost: {fileID: 1275541772586259157}
---- !u!114 &8996960518048747241
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6764865321074218256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 219660801937068321}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-  - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 219660801937068321}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &6770739826208798455
 GameObject:
   m_ObjectHideFlags: 0
@@ -13141,7 +12873,6 @@ GameObject:
   - component: {fileID: 3821216982630854803}
   - component: {fileID: 4094804574739709072}
   - component: {fileID: 3114406483876719363}
-  - component: {fileID: 271269612575688859}
   m_Layer: 6
   m_Name: Action Bar Slot (1)
   m_TagString: Untagged
@@ -13228,9 +12959,10 @@ MonoBehaviour:
   hotkeyReference: {fileID: 5825548949947520267, guid: 02f590a705a0d004abee1378dd449c0e, type: 3}
   castingReference: {fileID: 0}
   skillRef: {fileID: 1802222550716233957}
-  infoBoxSpellName: {fileID: 0}
+  infoBoxSpellName: {fileID: 5365187916505136554}
   infoBoxSpellDesc: {fileID: 0}
   infoBoxSpellCooldown: {fileID: 0}
+  infoBox: {fileID: 3800830964590563525}
 --- !u!114 &3114406483876719363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13249,51 +12981,6 @@ MonoBehaviour:
   infoBoxBuildingName: {fileID: 5365187916505136554}
   infoBoxBuildingDesc: {fileID: 757024015288837450}
   infoBoxBuildingCost: {fileID: 2177583641500200889}
---- !u!114 &271269612575688859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6815602945570159260}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 3800830964590563525}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-  - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 3800830964590563525}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &6828603312667383055
 GameObject:
   m_ObjectHideFlags: 0
@@ -15397,7 +15084,6 @@ GameObject:
   - component: {fileID: 7403110179030460167}
   - component: {fileID: 2959932005703118461}
   - component: {fileID: 4409278908129466805}
-  - component: {fileID: 5676902252991654033}
   m_Layer: 6
   m_Name: Action Bar Slot (8)
   m_TagString: Untagged
@@ -15487,6 +15173,7 @@ MonoBehaviour:
   infoBoxSpellName: {fileID: 0}
   infoBoxSpellDesc: {fileID: 0}
   infoBoxSpellCooldown: {fileID: 0}
+  infoBox: {fileID: 0}
 --- !u!114 &4409278908129466805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15505,51 +15192,6 @@ MonoBehaviour:
   infoBoxBuildingName: {fileID: 4006589743011573250}
   infoBoxBuildingDesc: {fileID: 5309711057620255476}
   infoBoxBuildingCost: {fileID: 4125956659602943888}
---- !u!114 &5676902252991654033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8051100838221865819}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 168859906745383217}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-  - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 168859906745383217}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &8107289129919146789
 GameObject:
   m_ObjectHideFlags: 0
@@ -15800,7 +15442,6 @@ GameObject:
   - component: {fileID: 4899620869004623682}
   - component: {fileID: 6754783813727564080}
   - component: {fileID: 6314240200026392845}
-  - component: {fileID: 4132099468730589175}
   m_Layer: 6
   m_Name: Action Bar Slot (3)
   m_TagString: Untagged
@@ -15887,9 +15528,10 @@ MonoBehaviour:
   hotkeyReference: {fileID: -9013834861560034244, guid: 02f590a705a0d004abee1378dd449c0e, type: 3}
   castingReference: {fileID: 0}
   skillRef: {fileID: 2393616594778657922}
-  infoBoxSpellName: {fileID: 0}
+  infoBoxSpellName: {fileID: 344903180344110273}
   infoBoxSpellDesc: {fileID: 0}
   infoBoxSpellCooldown: {fileID: 0}
+  infoBox: {fileID: 375213360692898820}
 --- !u!114 &6314240200026392845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15908,51 +15550,6 @@ MonoBehaviour:
   infoBoxBuildingName: {fileID: 344903180344110273}
   infoBoxBuildingDesc: {fileID: 4075180381509779290}
   infoBoxBuildingCost: {fileID: 875131085560828612}
---- !u!114 &4132099468730589175
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8288912830156079313}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 375213360692898820}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-  - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 375213360692898820}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &8333372079047944172
 GameObject:
   m_ObjectHideFlags: 0
@@ -16604,7 +16201,6 @@ GameObject:
   - component: {fileID: 830939122440654131}
   - component: {fileID: 492429587009889541}
   - component: {fileID: 4446003282008106227}
-  - component: {fileID: 2611967686403517366}
   m_Layer: 6
   m_Name: Action Bar Slot (9)
   m_TagString: Untagged
@@ -16694,6 +16290,7 @@ MonoBehaviour:
   infoBoxSpellName: {fileID: 0}
   infoBoxSpellDesc: {fileID: 0}
   infoBoxSpellCooldown: {fileID: 0}
+  infoBox: {fileID: 0}
 --- !u!114 &4446003282008106227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16712,51 +16309,6 @@ MonoBehaviour:
   infoBoxBuildingName: {fileID: 4115815694014723729}
   infoBoxBuildingDesc: {fileID: 6623525619706606967}
   infoBoxBuildingCost: {fileID: 8808252759116685246}
---- !u!114 &2611967686403517366
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8478393126801201792}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 6410234773341425795}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-  - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 6410234773341425795}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &8484463624481769641
 GameObject:
   m_ObjectHideFlags: 0
@@ -16823,7 +16375,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '-'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 7dac5b1cac45a4e418a492d5c77933d0, type: 2}
@@ -17207,7 +16759,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '-'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 7dac5b1cac45a4e418a492d5c77933d0, type: 2}

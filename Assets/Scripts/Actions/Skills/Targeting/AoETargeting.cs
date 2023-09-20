@@ -62,10 +62,12 @@ namespace AG.Skills.Targeting {
                         telegraphInstance.transform.position = curPos;
                     }
                 }
-                if (buttonTriggered && cancelSpellAction.phase == InputActionPhase.Waiting && selectTarget.phase == InputActionPhase.Waiting) {
+                if (buttonTriggered && cancelSpellAction.phase == InputActionPhase.Waiting && 
+                    (selectTarget.phase == InputActionPhase.Performed || selectTarget.phase == InputActionPhase.Waiting)) {
                     targeting = false;
                     telegraphInstance.gameObject.SetActive(false);
                     if (activeStrategies.Contains(this)) {
+                        Debug.Log("Dequeue");
                         activeStrategies.Dequeue();
                     }
                     if (activeStrategies.Count == 0) {

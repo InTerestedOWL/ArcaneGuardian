@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using AG.Audio.Sounds;
 using AG.Combat;
 using AG.UI;
 using UnityEngine;
@@ -24,7 +25,7 @@ public class WaveSpawner : MonoBehaviour
     private GameObject poi;
     private BuildingSystem bs;
 
-    private SkillTree st;
+    
     public List<List<Enemy>> enemies = new List<List<Enemy>>();
     public List<Enemy> goblins = new List<Enemy>();
 
@@ -70,7 +71,7 @@ public class WaveSpawner : MonoBehaviour
     private bool waveIsBossWave = false;
 
 
-    public int skillPointsEveryXWave = 3;
+    public int skillPointsEveryXWave = 2;
     private int skillPointsToAdd = 0;
     private float timeToNextWave = 60;
     private float skipToTime = 5;
@@ -99,6 +100,9 @@ public class WaveSpawner : MonoBehaviour
     private AudioClip waveStart;
     [SerializeField]
     private AudioClip alarm;
+    [SerializeField]
+    private HitSounds roundHeal;
+
     private bool countdownPlaying = false;
 
     public List<GameObject> spawnedEnemies = new List<GameObject>();
@@ -140,7 +144,7 @@ public class WaveSpawner : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         poi = GameObject.FindWithTag("POI");
         bs = GameObject.FindWithTag("BuildingGrid").GetComponent<BuildingSystem>();
-        st = GameObject.Find("Skill Tree Container").GetComponent<SkillTree>();
+        
         iWindow = GameObject.Find("Information Window").GetComponent<InformationWindow>();
         resourceUI = GameObject.Find("Resource Container").GetComponent<ResourceUI>();
 
@@ -154,7 +158,7 @@ public class WaveSpawner : MonoBehaviour
         enemies.Add(elves);
         enemies.Add(humans);
          
-        resourceUI.setTimeToNextWaveText("Building");
+        resourceUI.setTimeToNextWaveText("Prepare");
     }
 
     public void startWaves(){
@@ -210,15 +214,16 @@ public class WaveSpawner : MonoBehaviour
         }
 
         poiPos = new Vector3(poiPos.x+x,0,poiPos.z+z);
-        Vector3 randomPoint = poiPos + Random.insideUnitSphere * 10.0f;
+        Vector3 randomPoint;
         NavMeshHit hit;
-        for(int i=0; i<100;i++){
-            if (NavMesh.SamplePosition(randomPoint, out hit, 1.0f, NavMesh.AllAreas))
+        for(int i=0; i<100;i++){     
+            randomPoint = poiPos + Random.insideUnitSphere * 10.0f;   
+            if (NavMesh.SamplePosition(randomPoint, out hit, 30.0f, NavMesh.AllAreas))
             {
-                return new Vector3(hit.position.x,hit.position.y+0.1f,hit.position.z);            
-            }
-        }
-        
+                return new Vector3(hit.position.x,hit.position.y+1.0f,hit.position.z);            
+            }     
+        }       
+        Debug.Log("FALLING INC LUL");
         return new Vector3(poiPos.x+x,poiPos.y+5,poiPos.z+z);
     }
     void FixedUpdate()
@@ -260,12 +265,10 @@ public class WaveSpawner : MonoBehaviour
             if(doOnceDuringPause){
                 healAtWaveEnd();
                 
-                if(skillPointsToAdd > 0){
-                    st.AddSkillPoints(skillPointsToAdd);
+                if(skillPointsToAdd > 0){                    
+                    GameObject.Find("Skill Tree Container").GetComponent<SkillTree>().AddSkillPoints(skillPointsToAdd);
                     iWindow.popupInformationWindow("You received "+skillPointsToAdd+" Skill Points! Open your  Skill Tree (L) to spend them!");
                 }
-                
-                
 
                 skillPointsToAdd = 0;
                 waveIsBossWave = false;
@@ -313,13 +316,13 @@ public class WaveSpawner : MonoBehaviour
         waveIsBossWave= (currentWave == goblinBossWave) || (currentWave == skeletonBossWave) || (currentWave == elvesBossWave)||(currentWave == humanBossWave);
     }
     public void waveDialog(){
-        Debug.Log("Im in waveDialog!");
+
         if(specialDialogs.ContainsKey(currentWave)){
-            Debug.Log("Im in specialsDialog!");
+
             iWindow.popupInformationWindow(specialDialogs[currentWave]);
         }    
         else if(waveIsBossWave){
-            Debug.Log("Im in bosswaveDialog!");
+
             iWindow.popupInformationWindow("Bosswave!");
         }
     }
@@ -454,7 +457,6 @@ public class WaveSpawner : MonoBehaviour
                 int randSpecialId = Random.Range(0, specials.Count);
                 int randInsertPosition = Random.Range(0, generatedEnemies.Count);
                 generatedEnemies.Insert(randInsertPosition,specials[randSpecialId].enemyPrefab);
-                Debug.Log("added Specialmob");
             }
         }
         enemiesToSpawn.Clear();
@@ -468,6 +470,9 @@ public class WaveSpawner : MonoBehaviour
             foreach(PlaceableObject po in poi_building.getPlacedBuildings()){
                 po.GetComponentInParent<CombatTarget>().SetToMaxHealth();
             }
+        }
+        if (globalAudioSystem != null && roundHeal != null && roundHeal.HasHitSounds()) {
+            globalAudioSystem.PlayRandomGlobalSound(roundHeal.GetRandomHitSound());
         }
     }
 }

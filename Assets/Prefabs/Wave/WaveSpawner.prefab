@@ -1,67 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2793847053644718090
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2793847053644718091}
-  m_Layer: 0
-  m_Name: TestSpawn2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2793847053644718091
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2793847053644718090}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.92799, y: 25.102995, z: -37.778954}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2793847054540226692}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2793847053774194365
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2793847053774194354}
-  m_Layer: 0
-  m_Name: TestSpawn1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2793847053774194354
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2793847053774194365}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.0720104, y: 25.102995, z: -37.778954}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2793847054540226692}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2793847054540226694
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,9 +28,7 @@ Transform:
   m_LocalPosition: {x: 1.0720104, y: -25.102995, z: 37.778954}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2793847053774194354}
-  - {fileID: 2793847053644718091}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -170,8 +106,8 @@ MonoBehaviour:
   startAllTogether: 9
   enemiesToSpawn: []
   spawnLocation:
-  - {fileID: 2793847053774194354}
-  - {fileID: 2793847053644718091}
+  - {fileID: 0}
+  - {fileID: 0}
   waveDuration: 30
   skillPointsEveryXWave: 3
   globalAudioSystem: {fileID: 0}
@@ -184,4 +120,6 @@ MonoBehaviour:
   goblinVoice: {fileID: 8300000, guid: 57f3c5876beabaf43b4b19e38401dd84, type: 3}
   goblinBossVoice: {fileID: 8300000, guid: 37fd53f84944743419876e1ddc9ec7ea, type: 3}
   announcerVoice: {fileID: 8300000, guid: 20c4397e97e70cf40969aa3896baca26, type: 3}
+  waveStart: {fileID: 0}
+  alarm: {fileID: 0}
   spawnedEnemies: []

@@ -35,7 +35,6 @@ public class BuildingSystem : MonoBehaviour
     [SerializeField] private TileBase tilePlacable;
     [SerializeField] private TileBase tileNotPlacable;
     [SerializeField] private TileBase tilePending;
-
     [SerializeField] private LayerMask gridLayerMask;
     [SerializeField] private Material isPlacableMat;
     [SerializeField] private Material isNotPlacableMat;
@@ -47,10 +46,19 @@ public class BuildingSystem : MonoBehaviour
     
     private PlaceableObject objectToPlace;
     private Texture2D gridTexture;
-    //private int textureWidth = 512; // Breite der Textur
-    //private int textureHeight = 512; // Höhe der Textur
+
+    Color clearColor = new Color(0, 0, 0, 0);
+
+    Color[]greens;
+    Color[]reds;
+    Color[]whites;
+    Color[]clears;
+    private int textureTileMapWidth;
+    private int textureTileMapHeight;
+
+    private int pixelPerTile;
     [SerializeField]
-    private DecalProjector decalProjector;
+    public DecalProjector decalProjector;
 
     private void Awake(){
         current = this;
@@ -58,12 +66,27 @@ public class BuildingSystem : MonoBehaviour
         
         grid = gridLayout.gameObject.GetComponent<Grid>();
         poiController = GameObject.Find("POI").GetComponent<POIController>();
-
+        pixelPerTile = 5;
+        textureTileMapWidth = (poi_building.getMakeAreaPlacableSize()*2+1)*pixelPerTile;
+        textureTileMapHeight = (poi_building.getMakeAreaPlacableSize()*2+1)*pixelPerTile;
+        greens = new Color[pixelPerTile * pixelPerTile];
+        reds = new Color[pixelPerTile * pixelPerTile];
+        whites = new Color[pixelPerTile * pixelPerTile];
+        clears = new Color[pixelPerTile * pixelPerTile];
+        for (int i = 0; i < clears.Length; i++)
+        {
+            greens[i] = Color.green;
+            reds[i] = Color.red;
+            whites[i] = Color.white;
+            clears[i] = clearColor;
+        }
+        gridTexture = new Texture2D(textureTileMapWidth, textureTileMapHeight);
+        DrawGrid();
+        decalProjector.gameObject.SetActive(false);
+        
         //gridTexture = new Texture2D(textureWidth, textureHeight);
         //decalProjector.material.SetTexture("Base_Map", gridTexture);
     }
-
-    int tilemapWidth, tilemapHeight;
     void Start()
     {
         pr = GameObject.Find("Player").GetComponent<PlayerResources>();
@@ -72,10 +95,7 @@ public class BuildingSystem : MonoBehaviour
         objectChildMaterials = new List<Material[]>();
 
         // For Projector
-        tilemapWidth = MainTilemap.size.x;
-        tilemapHeight = MainTilemap.size.y;
-
-        gridTexture = new Texture2D(tilemapWidth, tilemapHeight);
+        DrawGrid();      
     }
     
     
@@ -95,7 +115,11 @@ public class BuildingSystem : MonoBehaviour
 
     public Vector3 SnapCoordinateToGrid(Vector3 position){
         Vector3Int cellPos = gridLayout.WorldToCell(position);
-        position = grid.GetCellCenterWorld(cellPos);
+
+        Vector3 pos = grid.GetCellCenterWorld(cellPos);
+
+        position = new Vector3(pos.x,position.y,pos.z);
+
         return position;
     }
 
@@ -174,7 +198,7 @@ public class BuildingSystem : MonoBehaviour
         }
     }
     public void MakeAreaPlacable(Vector3Int center){
-        Debug.Log("MakeArea: "+center);
+
         int minX =  center.x - poi_building.getMakeAreaPlacableSize();
         int maxX =  center.x + poi_building.getMakeAreaPlacableSize() + 1;
         int minY =  center.y - poi_building.getMakeAreaPlacableSize();
@@ -192,7 +216,7 @@ public class BuildingSystem : MonoBehaviour
         }
     }
     public void MakePOIAreaPending(Vector3Int center){
-        Debug.Log("MakeArea: "+center);
+
         int minX =  center.x - poi_building.getMakeAreaPlacableSize();
         int maxX =  center.x + poi_building.getMakeAreaPlacableSize() + 1;
         int minY =  center.y - poi_building.getMakeAreaPlacableSize();
@@ -301,14 +325,13 @@ public class BuildingSystem : MonoBehaviour
         if(buildingContext){
             stopBuilding();
         }
-        
         setBuildingContext(true);  
         InitializeWithObject(buildingObject);
         
         setBuildingPOI(buildingObject.tag == "POI_Building");
         if(buildingObject.tag == "POI_Building"){
             if(poi_building.getPlaced()){
-                iWindow.popupInformationWindow("The Source of Magic has yet to be placed!");
+                iWindow.popupInformationWindow("The Source of Magic is already placed!");
                 stopBuilding();
             }
         }
@@ -322,12 +345,15 @@ public class BuildingSystem : MonoBehaviour
 
     public void stopBuilding(){
         if(this.getBuildingContext()){
+            
+            
             Destroy(objectToPlace.gameObject);
             clearPending(poi_building.getCenter3D());
             
             if(getBuildingPOI()){
                 clearPOIPending(poiLastCenter);
             }
+            DrawGrid();
             setBuildingPOI(false);
             setBuildingContext(false);
             objectChildMaterials.Clear();
@@ -376,12 +402,12 @@ public class BuildingSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DrawGrid();
+        
         if (Input.GetKeyDown(KeyCode.F)){               
             followPOIConfirmation();
         }
         
-        if(buildingContext){
+        if(buildingContext){        
             if(Input.GetKeyDown(KeyCode.Mouse1)||Input.GetKeyDown(KeyCode.B)||Input.GetKeyDown(KeyCode.Escape)){
                 stopBuilding();
                 return;
@@ -393,6 +419,7 @@ public class BuildingSystem : MonoBehaviour
                 clearPOIPending(poiLastCenter);
                 poiLastCenter = gridLayout.WorldToCell(objectToPlace.GetCenter3D());
                 MakePOIAreaPending(poiLastCenter);
+
                 if(POICanBePlaced(objectToPlace)){
                     materialCanBePlaced();
                 }
@@ -411,7 +438,7 @@ public class BuildingSystem : MonoBehaviour
                     materialCannotBePlaced();
                 }
             }
-
+            
             if(Input.GetKeyDown(KeyCode.Mouse0)){
                 if(getBuildingPOI()){
                     if(POICanBePlaced(objectToPlace)){
@@ -469,14 +496,15 @@ public class BuildingSystem : MonoBehaviour
                     objectMaterials = null;
                     objectChildMaterials.Clear();                   
                 }
-            }
-        }         
+            }     
+            DrawGrid();       
+        }     
         if(!objectToPlace){
             return;
         }  
     }
 
-    void DrawGrid()
+    public void DrawGrid()
     {
         if (decalProjector == null)
             return;
@@ -509,8 +537,77 @@ public class BuildingSystem : MonoBehaviour
 
             // Wende die Änderungen auf die Textur an
             gridTexture.Apply();*/
-
-        for (int x = 0; x < tilemapWidth; x++)
+        decalProjector.pivot = new Vector3(poiLastCenter.x+0.5f,poiLastCenter.y+0.5f,decalProjector.pivot.z);
+        bool doDrawGrid = false;
+        int minX =  poiLastCenter.x - poi_building.getMakeAreaPlacableSize();
+        int maxX =  poiLastCenter.x + poi_building.getMakeAreaPlacableSize() + 1;
+        int minY =  poiLastCenter.y - poi_building.getMakeAreaPlacableSize();
+        int maxY =  poiLastCenter.y + poi_building.getMakeAreaPlacableSize() + 1;
+        int z = poiLastCenter.z;
+        int posX,posY;
+        for(int i = minX;i < maxX; i++){
+            for(int j = minY;j<maxY; j++){
+                Vector3Int pos = new Vector3Int(i,j,z);
+                TileBase t = MainTilemap.GetTile(pos);
+                posX = (i-minX)*pixelPerTile;
+                posY = (j-minY)*pixelPerTile;
+                if(t != null){
+                    doDrawGrid = true;
+                    if(t == tilePlacable){
+                        gridTexture.SetPixels(posX,posY,pixelPerTile,pixelPerTile,greens);
+                        /*for(int x = posX;x<posX+pixelPerTile;x++){
+                            for(int y = posY;y<posY+pixelPerTile;y++){
+                                gridTexture.SetPixel(x, y, Color.green);
+                            }
+                        }*/
+                    }
+                    else if(t == tileNotPlacable){
+                        gridTexture.SetPixels(posX,posY,pixelPerTile,pixelPerTile,reds);
+                        /*for(int x = posX;x<posX+pixelPerTile;x++){
+                            for(int y = posY;y<posY+pixelPerTile;y++){
+                                gridTexture.SetPixel(x, y, Color.red);
+                            }
+                        }*/
+                    }
+                    else if(t == tilePending){
+                        gridTexture.SetPixels(posX,posY,pixelPerTile,pixelPerTile,whites);
+                        /*for(int x = posX;x<posX+pixelPerTile;x++){
+                            for(int y = posY;y<posY+pixelPerTile;y++){
+                                gridTexture.SetPixel(x, y, Color.white);
+                            }
+                        }*/
+                    }
+                }               
+                else{
+                    gridTexture.SetPixels(posX,posY,pixelPerTile,pixelPerTile,clears);
+                    /*for(int x = posX;x<posX+pixelPerTile;x++){
+                        for(int y = posY;y<posY+pixelPerTile;y++){
+                            gridTexture.SetPixel(x, y, clearColor);
+                        }
+                    }*/
+                }
+            }
+        }
+        // Zeichne horizontale Linien
+        if(doDrawGrid){
+            for (int y = pixelPerTile; y < textureTileMapHeight; y += pixelPerTile) // Hier kannst du den Abstand zwischen den Linien anpassen
+            {
+                for (int x = 0; x < textureTileMapWidth; x++)
+                {
+                    gridTexture.SetPixel(x, y, Color.black);
+                }
+            }
+            // Zeichne vertikale Linien
+            for (int x = pixelPerTile; x < textureTileMapWidth; x += pixelPerTile) // Hier kannst du den Abstand zwischen den Linien anpassen
+            {
+                for (int y = 0; y < textureTileMapHeight; y++)
+                {
+                    gridTexture.SetPixel(x, y, Color.black);
+                }
+            }
+        }
+            
+        /*for (int x = 0; x < tilemapWidth; x++)
         {
             for (int y = 0; y < tilemapHeight; y++)
             {
@@ -528,7 +625,7 @@ public class BuildingSystem : MonoBehaviour
 
                 gridTexture.SetPixel(x, y, pixelColor);
             }
-        }
+        }*/
         gridTexture.Apply();
 
         decalProjector.material.SetTexture("Base_Map", gridTexture);

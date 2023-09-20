@@ -23,7 +23,12 @@ namespace AG.MovementCore {
          * Move to target.
          */
         public void DoMovement(Vector3 newDestination) {
-            navMeshAgent.SetDestination(newDestination);
+            try {
+                navMeshAgent.SetDestination(newDestination);
+            } catch (System.Exception e) {
+                // Ignore movement when no NavMeshAgent is present
+            }
+            
         }
 
         private void UpdateAnimator() {

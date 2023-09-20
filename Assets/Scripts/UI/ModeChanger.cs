@@ -26,14 +26,14 @@ public class ModeChanger : MonoBehaviour {
                 GameObject playerObj = GameObject.Find("Player");
                 actionMapHandler = playerObj.GetComponent<ActionMapHandler>();
             }
-            GameObject grid = GameObject.Find("Tilemap");
+            
             if (!actionBarSkills.activeSelf) {
                 actionMapHandler.ChangeToActionMap("Player", false, true);               
-                grid.GetComponent<Renderer>().enabled = false;
+                GameObject.Find("Grid").GetComponent<BuildingSystem>().decalProjector.gameObject.SetActive(false);
                 TutorialHandler.AddTutorialToShow("Talents", "MoreBuildingInfo");
             } else {
                 actionMapHandler.ChangeToActionMap("Player (Building)", false, true);                
-                grid.GetComponent<Renderer>().enabled = true;
+                GameObject.Find("Grid").GetComponent<BuildingSystem>().decalProjector.gameObject.SetActive(true);
                 TutorialHandler.AddTutorialToShow("BuildingMode", "Crystal");
             }
             actionBarSkills.SetActive(!actionBarSkills.activeSelf);
