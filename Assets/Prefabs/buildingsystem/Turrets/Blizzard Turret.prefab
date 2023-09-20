@@ -130,6 +130,7 @@ MonoBehaviour:
     that comes to close. Hurling a frozen orb of death at your enemies.
   price: 1000
   buildingSounds: {fileID: 11400000, guid: 4957c24ec7618484cabe92f59b188891, type: 2}
+  treeSounds: {fileID: 11400000, guid: db625e9f09faae645bf6a945c4972f70, type: 2}
   audioSource: {fileID: -1799498217456497590}
   audioController: {fileID: 7114607067764705496}
 --- !u!208 &-1717174887686929328

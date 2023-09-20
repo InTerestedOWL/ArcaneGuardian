@@ -270,7 +270,9 @@ public class BuildingSystem : MonoBehaviour
             }
         }
     }
-    public void placePOI(){
+    
+    public void placePOI(){       
+        objectToPlace.checkForTrees();
         TutorialHandler.AddTutorialToShow("MoreBuildingInfo", "BuildingMode");
         poiController.stateMachine.ChangeState(AiStateId.POIBuilding);
     }
