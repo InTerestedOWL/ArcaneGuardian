@@ -26,6 +26,7 @@ namespace AG.MovementCore {
             try {
                 navMeshAgent.SetDestination(newDestination);
             } catch (System.Exception e) {
+                Debug.Log(e.Message);
                 // Ignore movement when no NavMeshAgent is present
             }
             

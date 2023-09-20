@@ -79,10 +79,8 @@ public class MouseOverUI : MonoBehaviour
                     n.Contains("TimeToNextWave")||
                     n.Contains("ScoreIcon")||n.Contains("ScoreText")||
                     n.Contains("GoldText")||n.Contains("GoldIcon")){
-                        Debug.Log("found trigger");
                         rt = curRaycastResult.gameObject.transform.GetComponentInParent<ResourceTooltips>();
                         if(rt != null){
-                            Debug.Log("!=null");
                             rt.showResourceTooltip(true);
                         }
                     }
