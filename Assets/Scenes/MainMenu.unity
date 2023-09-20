@@ -643,17 +643,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6000690843981430560, guid: 678ada3bb3d927e46ad2a6b63ab31a2f, type: 3}
   m_PrefabInstance: {fileID: 4538483458294793141}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &255068212 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6000690843981430562, guid: 678ada3bb3d927e46ad2a6b63ab31a2f, type: 3}
-  m_PrefabInstance: {fileID: 4538483458294793141}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 255068211}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f0bd3d58e30b3442a9262943c767d31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &255068217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2058,7 +2047,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadingBar: {fileID: 314310313}
-  tutorialHandler: {fileID: 255068212}
+  tutorialHandler: {fileID: 0}
   mainMenuChanger: {fileID: 1804821365}
 --- !u!114 &822647237
 MonoBehaviour:
@@ -4937,6 +4926,10 @@ PrefabInstance:
       propertyPath: credits
       value: 
       objectReference: {fileID: 542724289}
+    - target: {fileID: 4538483458294793144, guid: 678ada3bb3d927e46ad2a6b63ab31a2f, type: 3}
+      propertyPath: cursorTexture
+      value: 
+      objectReference: {fileID: 2800000, guid: 7c9f40f158647dc43ba4b9b21dd0196c, type: 3}
     - target: {fileID: 4538483458294793144, guid: 678ada3bb3d927e46ad2a6b63ab31a2f, type: 3}
       propertyPath: settingsHandler
       value: 
