@@ -65,7 +65,7 @@ namespace AG.UI {
         public void CloseMenu(MenuEntry curMenu, GameObject playerObj = null, bool menuChanged = false) {
             if (globalAudioSystem)
                 globalAudioSystem.PlayUIPopupCloseSound();
-            if (curMenu.menu == pauseMenu) {
+            if (curMenu.menu == pauseMenu && settingsMenu.activeSelf) {
                 CloseSettingsMenu();
             }
             if (playerObj == null) {

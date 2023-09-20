@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dcd13674b93e9f41a841d430fb2c462, type: 3}
   m_Name: Meteor Targeting
   m_EditorClassIdentifier: 
+  cancelTargeting: 0
   shapeSelection: 0
   layerMask:
     serializedVersion: 2
     m_Bits: 128
-  aoeRadius: 2
+  aoeRadius: 4
   telegraphPrefab: {fileID: 4214765597701735646, guid: 6a439a45bdd157e429baabd406af4e07, type: 3}

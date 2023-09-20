@@ -119,8 +119,14 @@ public class GlobalAudioSystem : MonoBehaviour {
         }
     }
 
+    public void PlayRandomGlobalSound(AudioClip clip) {
+        if (clip != null) {
+            audioSourceVoices.PlayOneShot(clip);
+        }
+    }
+
     private void GetRandomMusicClip(List<AudioClip> clips) {
-        if (clips.Count > 0) {
+        if (clips != null && clips.Count > 0) {
             int randomIndex = Random.Range(0, clips.Count);
             audioSourceMusic.clip = clips[randomIndex];
             audioSourceMusic.Play();
