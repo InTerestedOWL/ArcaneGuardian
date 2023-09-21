@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2695f6ebbd9e54646b3eb283f98ab228, type: 3}
   m_Name: TreeHitSounds
   m_EditorClassIdentifier: 
-  hitSounds: []
+  hitSounds:
+  - {fileID: 8300000, guid: 34aee5f703b34564aa45601271758d41, type: 3}
+  - {fileID: 8300000, guid: 98f32981867f3cf4ab2cae47ddd9653a, type: 3}
+  - {fileID: 8300000, guid: 434e17f35196d1146a7d072293da6f59, type: 3}
