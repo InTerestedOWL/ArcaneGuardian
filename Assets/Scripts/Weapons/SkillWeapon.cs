@@ -4,14 +4,14 @@ using UnityEngine;
 namespace AG.Weapons {
     public class SkillWeapon : Weapon {
         [SerializeField]
-        AiSkill bowAttackSkill;
+        AiSkill weaponAttackSkill;
 
         public override void Use() {
-            bowAttackSkill.Use(this.gameObject);
+            weaponAttackSkill.Use(this.gameObject);
         }
 
         public override void Use(GameObject target) {
-            bowAttackSkill.Use(this.gameObject, target);
+            weaponAttackSkill.Use(this.gameObject, target);
         }
     }
 }

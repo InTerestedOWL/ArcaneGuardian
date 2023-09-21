@@ -8,13 +8,13 @@ public class MiniMap : MonoBehaviour
     [SerializeField]
     GameObject FollowTarget;
 
-    [SerializeField] private int heightOfCamp = 50;
+    [SerializeField] private int heightOfCam = 50;
 
     // Update is called once per frame
     void Update()
     {   
         //Update Position of Camera without Rotating it
         //We want our MiniMap to always be north facing
-        this.transform.position = new Vector3(FollowTarget.transform.position.x, heightOfCamp + FollowTarget.transform.position.y, FollowTarget.transform.position.z);
+        this.transform.position = new Vector3(FollowTarget.transform.position.x, heightOfCam + FollowTarget.transform.position.y, FollowTarget.transform.position.z);
     }
 }

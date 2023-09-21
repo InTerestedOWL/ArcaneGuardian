@@ -13,7 +13,6 @@ namespace AG.Skills {
      * Based on https://www.udemy.com/course/rpg-shops-abilities/
      */
 
-    // TODO: Combine SkillTree Skill and SkillBook Skill?
     [CreateAssetMenu(menuName = ("Arcane Guardian/Ai Skill"))]
     public class AiSkill : Skill {
         public void Use(GameObject user, GameObject target) {

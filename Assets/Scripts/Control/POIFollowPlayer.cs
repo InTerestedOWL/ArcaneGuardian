@@ -17,7 +17,6 @@ namespace AG.Control
 
         public void Enter(StateMachineController controller)
         {
-            //TODO: Add POI to Bulding ActionBar
         }
 
         public void Update(StateMachineController controller)

@@ -67,7 +67,7 @@ namespace AG.Combat
             {
                 return target.transform.position;
             }
-            // return target.transform.position + Vector3.up * targetCollider.bounds.center / 2;
+            
             return targetCollider.bounds.center;
         }
 
@@ -142,5 +142,4 @@ namespace AG.Combat
             return targets;
         }
     }
-
 }

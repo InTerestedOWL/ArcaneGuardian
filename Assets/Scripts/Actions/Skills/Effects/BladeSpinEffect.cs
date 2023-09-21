@@ -59,7 +59,7 @@ namespace AG.Skills.Effects
 
             pc.EnableLookAtMousePos();
             movement.ResumeRotation();
-            animator.ResetTrigger("bladeSpin");
+            // animator.ResetTrigger("bladeSpin");
             bc.DecreaseAttackStateCounter();
         }
     }

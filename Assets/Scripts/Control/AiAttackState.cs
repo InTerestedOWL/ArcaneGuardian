@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace AG.Control {
 
-    public class AttackPlayerState : AiState
+    public class AiAttackState : AiState
     {
         public AiStateId GetId()
         {

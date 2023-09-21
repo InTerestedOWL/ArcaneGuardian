@@ -46,5 +46,4 @@ namespace AG.UI
             SkillPointsText.text = SkillPoints.ToString();
         }
     }
-
 }

@@ -45,7 +45,6 @@ namespace AG.Control
                 return;
             }
 
-            //TODO: Fix knockback
             if (controller.combatTarget.currentHealth > 0)
             {
                 timer -= Time.deltaTime;
@@ -84,8 +83,6 @@ namespace AG.Control
                         }
                         else
                         {
-                            //TODO: Lookat smooth player before attacking
-                            // controller.transform.LookAt(target.transform);
                             if (rotationCoroutine == null)
                             {
                                 rotationCoroutine = controller.StartCoroutine(RotateToTarget(target, controller));
@@ -123,8 +120,6 @@ namespace AG.Control
             }
         }
 
-
-        //TODO: Fix logic
         private GameObject GetClosestAttackableTarget(StateMachineController controller)
         {
             float closest = float.MaxValue;
