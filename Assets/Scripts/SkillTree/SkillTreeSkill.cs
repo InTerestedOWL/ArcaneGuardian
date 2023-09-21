@@ -8,13 +8,12 @@ using AG.Skills;
 using UnityEngine.EventSystems;
 
 namespace AG.UI {
-    // TODO: Combine SkillTree Skill and SkillBook Skill?
     public class SkillTreeSkill : MonoBehaviour
     {
         [SerializeField]
         public SkillTree skillTree;
         [SerializeField]
-        public int SkillCap = 1; //TODO: Remove if SkillCap is implemented in Skill.cs
+        public int SkillCap = 1;
         [SerializeField]
         public TMP_Text SkillNameText;
         [SerializeField]
@@ -50,6 +49,7 @@ namespace AG.UI {
             button = GetComponent<Button>();
             buttonColors = button.colors;
             globalAudioSystem = GameObject.Find("Main Camera").GetComponent<GlobalAudioSystem>();
+            SkillCap = skill.GetSkillCap();
 
             UpdateUI();
         }
@@ -57,7 +57,7 @@ namespace AG.UI {
         public void UpdateUI() {
             SkillNameText.text = skill.GetDisplayName();
             SkillDescriptionText.text = skill.GetDescription();
-            SkillLevelText.text = $"Level {SkillLevel}/{skill.GetSkillCap()}";
+            SkillLevelText.text = $"Level {SkillLevel}/{SkillCap}";
             SkillDamageText.text = $"DMG: {skill.GetDamage()}";
             SkillCooldownText.text = $"CD: {skill.GetMaxCooldown()}s"; 
             SkillIcon.sprite = skill.GetIcon();
@@ -78,8 +78,6 @@ namespace AG.UI {
                     connectedSkill.SetBuyable(false);
             }
 
-            Debug.Log(buttonColors);
-            Debug.Log(backgroundImage);
             if(SkillLevel >= SkillCap) {
                 buttonColors.normalColor = Color.yellow;
                 backgroundImage.color = Color.yellow;

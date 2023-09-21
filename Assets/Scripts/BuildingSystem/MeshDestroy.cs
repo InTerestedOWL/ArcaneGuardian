@@ -16,16 +16,6 @@ public class MeshDestroy : MonoBehaviour
     public int CutCascades = 1;
     public float ExplodeForce = 0;
 
-
-    // Update is called once per frame
-    // void Update()
-    // {
-    //     if (Input.GetMouseButtonDown(0))
-    //     {
-    //         DestroyMesh();
-    //     }
-    // }
-
     public void DestroyMesh()
     {
         if(originalScale == Vector3.zero)
@@ -140,8 +130,6 @@ public class MeshDestroy : MonoBehaviour
                 {
                     partMesh.AddTriangle(i,
                                         original.Vertices[triangles[j + singleIndex]],
-                                        //Vector3.Lerp(originalMesh.vertices[triangles[j + singleIndex]], originalMesh.vertices[triangles[j + ((singleIndex + 1) % 3)]], lerp1),
-                                        //Vector3.Lerp(originalMesh.vertices[triangles[j + singleIndex]], originalMesh.vertices[triangles[j + ((singleIndex + 2) % 3)]], lerp2),
                                         ray1.origin + ray1.direction.normalized * enter1,
                                         ray2.origin + ray2.direction.normalized * enter2,
                                         original.Normals[triangles[j + singleIndex]],

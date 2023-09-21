@@ -54,35 +54,6 @@ namespace AG.Skills.Effects
             pc.StartCoroutine(BlinkToTargetPosition(user));
         }
 
-        //TODO: fix
-        // private IEnumerator BlinkToTargetPosition(GameObject user) {
-        //     var dist = Vector3.Distance(user.transform.position, destination);
-        //     Movement movement = user.GetComponent<Movement>();
-
-        //     while(dist > 0.5f) {
-        //         Vector3 curMovement = Vector3.MoveTowards(user.transform.position, destination, Time.deltaTime * speed);
-
-        //         Vector3 pos = user.transform.position;
-        //         pos.y += 10;
-        //         RaycastHit hit;
-        //         bool hasHit = Physics.Raycast(pos, user.transform.position + curMovement - pos, out hit, 100, LayerMask.GetMask("Map"));
-        //         Debug.DrawRay(pos, user.transform.position + curMovement - pos, Color.red, 1f);
-        //         if (hasHit && hit.point.y > 0.1f) {
-        //             movement.DoMovement(hit.point);
-        //             user.transform.position = curMovement;
-        //             dist = Vector3.Distance(user.transform.position, destination);
-        //         }
-        //         else {
-        //             dist = 0;
-        //         }
-
-
-        //         yield return new WaitForFixedUpdate();
-
-        //     }
-        //     yield return null;
-        // }
-
         private IEnumerator BlinkToTargetPosition(GameObject user)
         {
             Movement movement = user.GetComponent<Movement>();
