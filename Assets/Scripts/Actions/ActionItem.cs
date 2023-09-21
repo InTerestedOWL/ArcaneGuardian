@@ -1,4 +1,5 @@
 ﻿// Based on https://www.udemy.com/course/rpg-shops-abilities/
+// Defines a action that can be used by the player.
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -55,10 +56,12 @@ namespace AG.Actions {
             cooldownUIs.Remove(cooldownUI);
         }
 
+        // Defines the use of the action.
         public virtual void Use(GameObject user) {
             throw new NotImplementedException();
         }
 
+        // Start cooldown coroutine.
         public virtual IEnumerator StartCooldown() {
             yield return new WaitForFixedUpdate();
         }

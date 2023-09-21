@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 namespace AG.Skills {
+    // Tracks remaining duration and number of ticks in duration for AoE damage over time
     public class AoEDoTTracker : MonoBehaviour {
         [SerializeField]
         Skill skill;
@@ -23,13 +24,16 @@ namespace AG.Skills {
             }
 
             if (effect != null) {
+                // Get damage and time tick values from effect
                 values = effect.GetValues();
 
-                StartCoroutine(DealDamageOverTimeInAoE(values.damagePerTick, values.numberOfTicksInDuration, values.duration));
+                // Start coroutine to track damage over time values
+                StartCoroutine(TrackValues(values.damagePerTick, values.numberOfTicksInDuration, values.duration));
             }
         }
 
-        private IEnumerator DealDamageOverTimeInAoE(int damagePerTick, float numberOfTicksInDuration, float duration) {
+        // Track remaining duration and number of ticks in duration
+        private IEnumerator TrackValues(int damagePerTick, float numberOfTicksInDuration, float duration) {
             for (int i = 0; i < numberOfTicksInDuration; i++) {
                 yield return new WaitForSeconds(duration / numberOfTicksInDuration);
                 if (values != null) {
@@ -43,7 +47,7 @@ namespace AG.Skills {
             return values;
         }
 
-        // TODO: Filter out targets according to filter strategy (Look for a better way to do this)
+        // Check if target is valid according to filter strategy
         public bool TargetValid(GameObject target) {
             IEnumerable<GameObject> targetEnum = skill.GetFilterStrategy().FilterTargets(GetGameObjectEnumerable(target));
             List<GameObject> targetList = new List<GameObject>(targetEnum);
