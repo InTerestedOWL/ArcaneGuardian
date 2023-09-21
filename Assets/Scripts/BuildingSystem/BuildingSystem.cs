@@ -510,35 +510,7 @@ public class BuildingSystem : MonoBehaviour
     {
         if (decalProjector == null)
             return;
-        /*    // Setze die gesamte Textur auf transparent
-            for (int x = 0; x < textureWidth; x++)
-            {
-                for (int y = 0; y < textureHeight; y++)
-                {
-                    gridTexture.SetPixel(x, y, Color.clear);
-                }
-            }
-
-            // Zeichne horizontale Linien
-            for (int y = 0; y < textureHeight; y += poi_building.getMakeAreaPlacableSize()) // Hier kannst du den Abstand zwischen den Linien anpassen
-            {
-                for (int x = 0; x < textureWidth; x++)
-                {
-                    gridTexture.SetPixel(x, y, Color.red);
-                }
-            }
-
-            // Zeichne vertikale Linien
-            for (int x = 0; x < textureWidth; x += poi_building.getMakeAreaPlacableSize()) // Hier kannst du den Abstand zwischen den Linien anpassen
-            {
-                for (int y = 0; y < textureHeight; y++)
-                {
-                    gridTexture.SetPixel(x, y, Color.red);
-                }
-            }
-
-            // Wende die Änderungen auf die Textur an
-            gridTexture.Apply();*/
+        
         decalProjector.pivot = new Vector3(poiLastCenter.x+0.5f,poiLastCenter.y+0.5f,decalProjector.pivot.z);
         bool doDrawGrid = false;
         int minX =  poiLastCenter.x - poi_building.getMakeAreaPlacableSize();
@@ -592,7 +564,7 @@ public class BuildingSystem : MonoBehaviour
         }
         // Zeichne horizontale Linien
         if(doDrawGrid){
-            for (int y = pixelPerTile; y < textureTileMapHeight; y += pixelPerTile) // Hier kannst du den Abstand zwischen den Linien anpassen
+            for (int y = pixelPerTile; y < textureTileMapHeight; y += pixelPerTile)
             {
                 for (int x = 0; x < textureTileMapWidth; x++)
                 {
@@ -600,7 +572,7 @@ public class BuildingSystem : MonoBehaviour
                 }
             }
             // Zeichne vertikale Linien
-            for (int x = pixelPerTile; x < textureTileMapWidth; x += pixelPerTile) // Hier kannst du den Abstand zwischen den Linien anpassen
+            for (int x = pixelPerTile; x < textureTileMapWidth; x += pixelPerTile)
             {
                 for (int y = 0; y < textureTileMapHeight; y++)
                 {
@@ -608,26 +580,6 @@ public class BuildingSystem : MonoBehaviour
                 }
             }
         }
-            
-        /*for (int x = 0; x < tilemapWidth; x++)
-        {
-            for (int y = 0; y < tilemapHeight; y++)
-            {
-                // Hole das Tile an den Gitterkoordinaten (x, y) in der Tilemap
-                TileBase tile = MainTilemap.GetTile(new Vector3Int(x, y, 0));
-
-                // Setze die Farbe des entsprechenden Pixels in der Textur
-                Color pixelColor = Color.red; // Standardfarbe
-                if (tile != null)
-                {
-                    // Hier kannst du die Farben basierend auf deinen Tile-Daten ändern
-                    // Zum Beispiel, wenn deine Tiles Farbinformationen haben:
-                    // pixelColor = tile.GetColor();
-                }
-
-                gridTexture.SetPixel(x, y, pixelColor);
-            }
-        }*/
         gridTexture.Apply();
 
         decalProjector.material.SetTexture("Base_Map", gridTexture);
