@@ -12,7 +12,6 @@ namespace AG.Skills.Effects {
 
         private int damagePerTick = 0;
 
-        // TODO: When target leaves aoe, stop dot
         public override void ApplyEffect(SkillData skillData) {
             damagePerTick = skillData.GetDamage();
 
