@@ -26,6 +26,8 @@ public class ScreenResolutionSelector : MonoBehaviour {
             Resolution[] resolutions = Screen.resolutions;
             foreach (var res in resolutions) {
                 string key = res.width + " x " + res.height;
+                if (resolutionsDict.ContainsKey(key))
+                    continue;
                 resolutionsDict.Add(key, res);
                 if (res.width == Screen.currentResolution.width && res.height == Screen.currentResolution.height) {
                     if (previousResolutionKey == null) {
