@@ -100,7 +100,7 @@ MonoBehaviour:
   currentWeaponType: 2
   attackDamage: 10
   knockbackForce: 10
-  bowAttackSkill: {fileID: 11400000, guid: af6762eecb05abf42a92e419159c7044, type: 2}
+  weaponAttackSkill: {fileID: 0}
 --- !u!1 &2275998068675504740
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,4 +148,4 @@ MonoBehaviour:
   currentWeaponType: 2
   attackDamage: 10
   knockbackForce: 10
-  bowAttackSkill: {fileID: 11400000, guid: af6762eecb05abf42a92e419159c7044, type: 2}
+  weaponAttackSkill: {fileID: 11400000, guid: af6762eecb05abf42a92e419159c7044, type: 2}

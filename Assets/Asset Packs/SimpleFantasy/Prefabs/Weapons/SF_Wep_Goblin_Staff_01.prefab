@@ -131,4 +131,4 @@ MonoBehaviour:
   currentWeaponType: 3
   attackDamage: 10
   knockbackForce: 10
-  bowAttackSkill: {fileID: 11400000, guid: cce95b35d865616409a9ba266e45d158, type: 2}
+  weaponAttackSkill: {fileID: 11400000, guid: cce95b35d865616409a9ba266e45d158, type: 2}
