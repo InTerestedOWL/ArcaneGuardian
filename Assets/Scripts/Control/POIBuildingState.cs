@@ -26,6 +26,7 @@ namespace AG.Control
             Vector3 tar_pos = poi_building.transform.position;
             controller.movement.navMeshAgent.stoppingDistance = 0;
             controller.movement.DoMovement(tar_pos);
+            controller.rigidbody.isKinematic = true;
 
             GameObject Grid = GameObject.Find("Grid");
             BuildingSystem bs = Grid.GetComponent<BuildingSystem>();
@@ -48,7 +49,7 @@ namespace AG.Control
             BuildingSystem bs = GameObject.Find("Grid").GetComponent<BuildingSystem>();
             bs.tileToPlacable(bs.poi_building.getStartPosition(),bs.poi_building.getSize());
             bs.freePOI(bs.poi_building.getCenter3D());
-            bs.DrawGrid();
+            controller.rigidbody.isKinematic = false;
         }
     }
 }
