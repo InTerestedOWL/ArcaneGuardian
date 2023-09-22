@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f7ac2c3334c6d246b04c897d0286ff9, type: 3}
+  m_Name: HumanKnightVoices
+  m_EditorClassIdentifier: 
+  painSounds:
+  - {fileID: 8300000, guid: 11871d28dd4ce0243ba6fda2e5b94231, type: 3}
+  - {fileID: 8300000, guid: 3bfe6dcbc5b1f11458741ca36d00f067, type: 3}
+  - {fileID: 8300000, guid: 997b807c2ff6a12459f6dcf0add48e97, type: 3}
+  - {fileID: 8300000, guid: c1cc7383a8e16e84ba4ee6d80b044c58, type: 3}
+  deathSounds:
+  - {fileID: 8300000, guid: 6c6df632515d28d48b08c92493557e38, type: 3}
+  - {fileID: 8300000, guid: c2161623562a7a349a714ae736c9d032, type: 3}
+  - {fileID: 8300000, guid: c9694ab37179d144885bb00175f2d35c, type: 3}
+  - {fileID: 8300000, guid: e246aadacb5a94140b16e09d5836971e, type: 3}
+  - {fileID: 8300000, guid: 26ea739fad0c30a4284c54bfd757d4e4, type: 3}

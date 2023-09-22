@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dae7ab76e0eea404fbd571dda5d37bfc, type: 3}
+  m_Name: FootstepSounds
+  m_EditorClassIdentifier: 
+  runningFootstepSounds:
+  - {fileID: 8300000, guid: adb0fd9565a2c0f4ab36dc30f8b24177, type: 3}
+  - {fileID: 8300000, guid: 7747f99b3e0aaba40910a32ee0d8c9c4, type: 3}
+  - {fileID: 8300000, guid: b45fdf5a70b48c442b8a95d5b9a000c6, type: 3}
+  - {fileID: 8300000, guid: aef9237fe6c065544ac64d33dfe4b21b, type: 3}
+  - {fileID: 8300000, guid: d20e45e68930ba840a5770fd41b1272b, type: 3}
+  - {fileID: 8300000, guid: dd743e107cfcc9a4a80a9d56bce8d25e, type: 3}
+  - {fileID: 8300000, guid: 5491774567ea4844fa574c6f86c0b7b5, type: 3}
+  - {fileID: 8300000, guid: 2c409ee2f14149042a402b37cbb4e167, type: 3}
+  - {fileID: 8300000, guid: 147975e226338b04d92f93956e6cacd0, type: 3}
+  - {fileID: 8300000, guid: 7610ce9e9bd346f41b48f39a7ea0876a, type: 3}
+  walkingFootstepSounds:
+  - {fileID: 8300000, guid: 97787080c85162d44be47fbf1c0db3fd, type: 3}
+  - {fileID: 8300000, guid: 4413dbb1ac8655b4ebbe6949f6acf515, type: 3}
+  - {fileID: 8300000, guid: 864a1ae99b92e95418dcfffa12309dcc, type: 3}
+  - {fileID: 8300000, guid: 2e79fb69bdad2054d8f99cfa25c03a6d, type: 3}
+  - {fileID: 8300000, guid: 78d2e6bc4c9ea3c41b07025f24ecf72e, type: 3}
+  - {fileID: 8300000, guid: 82b105b982487e04d89d9e9af6561182, type: 3}
+  - {fileID: 8300000, guid: 8623fd9c243599a4daae83f3c0a331be, type: 3}
+  - {fileID: 8300000, guid: d548f7829e4573d41bbc55e5693d77f3, type: 3}
+  - {fileID: 8300000, guid: b37677870f7dc224f85fa02e97fc35e7, type: 3}
+  - {fileID: 8300000, guid: 8f5df95ae17e11f48bd7baa4b047f9b7, type: 3}

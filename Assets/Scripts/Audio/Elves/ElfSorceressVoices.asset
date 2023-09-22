@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f7ac2c3334c6d246b04c897d0286ff9, type: 3}
+  m_Name: ElfSorceressVoices
+  m_EditorClassIdentifier: 
+  painSounds:
+  - {fileID: 8300000, guid: 0e7bfb80d7c40af408cab1605eb2ab83, type: 3}
+  - {fileID: 8300000, guid: 2af8284a23530014ba0cc668453dd3df, type: 3}
+  - {fileID: 8300000, guid: e8dfce1dce69fbd4f893e442916a2ab1, type: 3}
+  - {fileID: 8300000, guid: 418a107d7c23aa347952abc1c70f1f2d, type: 3}
+  - {fileID: 8300000, guid: b8d771fd90755074ab892fac7234dbbd, type: 3}
+  - {fileID: 8300000, guid: c0eb814bfd3bf8f458501ea9d1dac706, type: 3}
+  deathSounds:
+  - {fileID: 8300000, guid: 94ddd24a9ee0fc94084adf0bae54d266, type: 3}
+  - {fileID: 8300000, guid: 7a6b32c82a3571a4c98f775ed44728bb, type: 3}
+  - {fileID: 8300000, guid: 3b1abdf026af38c41abba23b6415df79, type: 3}
+  - {fileID: 8300000, guid: e523445a523ad2843b47e2d91b2215ad, type: 3}
+  - {fileID: 8300000, guid: 3306a6933835cc843b8e3bda40ab0a3e, type: 3}

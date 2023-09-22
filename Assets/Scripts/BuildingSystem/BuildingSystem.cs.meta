@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 1380db7ffe6d5b444baa40cbc558c563
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - gridLayout: {instanceID: 0}
+  - MainTilemap: {instanceID: 0}
+  - tilePlacable: {fileID: 11400000, guid: a82c39ba9935ba8489650998e37bf68f, type: 2}
+  - tileNotPlacable: {fileID: 11400000, guid: 06aa4296c2bc0224c942eb7e6b0ff37f, type: 2}
+  - isPlacableMat: {fileID: 2100000, guid: 1cd8a5a822ddce0459acdc789f27a38c, type: 2}
+  - isNotPlacableMat: {fileID: 2100000, guid: a548aa82742b36a4f80a2bf27e659d75, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

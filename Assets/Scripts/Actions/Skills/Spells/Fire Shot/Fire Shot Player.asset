@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce0ce1502cb856244971fe94f9962a3e, type: 3}
+  m_Name: Fire Shot Player
+  m_EditorClassIdentifier: 
+  displayName: Fire Shot
+  description: Whats better than throwing rocks at your enemies? Throwing fiery rocks
+    with the heat of a vulcano at your enemy!
+  icon: {fileID: 21300000, guid: 160ac877cfff59e48a4c47f8a037b29b, type: 3}
+  cooldown: 1
+  damage: 10
+  skillCap: 1
+  targetingStrategy: {fileID: 11400000, guid: 21edfd2074f8d7b4db4abded3b78beed, type: 2}
+  filterStrategy: {fileID: 11400000, guid: 9d94cec049fac1046b5d39f60ab4ea82, type: 2}
+  effectStrategies:
+  - {fileID: 11400000, guid: a42466b13ab9d874c8186da4518ae093, type: 2}
+  hitSounds: {fileID: 11400000, guid: eded223a21d46b74b97ab1122f0de22c, type: 2}

@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f7ac2c3334c6d246b04c897d0286ff9, type: 3}
+  m_Name: GoblinMaleVoices
+  m_EditorClassIdentifier: 
+  painSounds:
+  - {fileID: 8300000, guid: f06cd452337b99a459bd97d67967e2d0, type: 3}
+  - {fileID: 8300000, guid: 6c3d875b13bed9542a32874018e4b20c, type: 3}
+  - {fileID: 8300000, guid: ac9440dec37cbcd4f96eac78da2fbc15, type: 3}
+  - {fileID: 8300000, guid: ab0a728f12b4fd4499ce649e7487ee0d, type: 3}
+  - {fileID: 8300000, guid: 89a9e352cdc68794cbdaf49c63aa85d3, type: 3}
+  - {fileID: 8300000, guid: bd9d0f880132a9a4bad8d01a3f90a1e5, type: 3}
+  - {fileID: 8300000, guid: d1923942f42b1964697c591e3897fde1, type: 3}
+  - {fileID: 8300000, guid: 4281bf31901b91a4680ff0a4223a3a19, type: 3}
+  - {fileID: 8300000, guid: ce39c55796198c5469e6ad7a3aa4e7cc, type: 3}
+  - {fileID: 8300000, guid: a083f376ee471cc4f8f12b7d19faaafc, type: 3}
+  - {fileID: 8300000, guid: 75fdcaf3287e74e479ca350e0d3db299, type: 3}
+  - {fileID: 8300000, guid: 25c4c04373b04e948bc76465b6873cdf, type: 3}
+  - {fileID: 8300000, guid: 800ad831dabe19e4abd92a85527afdcb, type: 3}
+  - {fileID: 8300000, guid: 7616cd33972646944bb0c31fb9caf3cf, type: 3}
+  - {fileID: 8300000, guid: 17ed8ed628e248a40b32a8a8d015d37b, type: 3}
+  - {fileID: 8300000, guid: 63c617d8e8bdbaf41a14a9a822951755, type: 3}
+  - {fileID: 8300000, guid: 8cd82a23c75ae9d4b805c9ff06d9c0fe, type: 3}
+  - {fileID: 8300000, guid: 1800b72b3aa1ce54da06a1d4a8269268, type: 3}
+  - {fileID: 8300000, guid: b4dc4d582e0e1774cb31cea2d694432d, type: 3}
+  - {fileID: 8300000, guid: 7c931acc2479ef54c9a921c2d67aa9bf, type: 3}
+  - {fileID: 8300000, guid: 2c4ad5dfa91fd9b449ecc3b92cc2485f, type: 3}
+  - {fileID: 8300000, guid: 04cb2a7df40551d43b6826c047443ba2, type: 3}
+  - {fileID: 8300000, guid: 8ef60b532f912c84193f3b5ee61e2da0, type: 3}
+  deathSounds:
+  - {fileID: 8300000, guid: 9f90414f0a96a8740887108fafdf18a5, type: 3}
+  - {fileID: 8300000, guid: a2e6bf49dd2c1a44fbb93abe92f10b9c, type: 3}
+  - {fileID: 8300000, guid: 4a9cc7b44429fc944ab52f5ccd27faa4, type: 3}
+  - {fileID: 8300000, guid: 58706206886fc6d4688f5cc13cd8b4a5, type: 3}
+  - {fileID: 8300000, guid: ad04b0a756fb5544b81affc4b297c12b, type: 3}
+  - {fileID: 8300000, guid: 2df3d4bffe89c674b9ebafa64d7ac1ae, type: 3}
+  - {fileID: 8300000, guid: ebc2644a737c1ee449fdc18885c92b41, type: 3}
+  - {fileID: 8300000, guid: fe35ea70d9c9333468eeecb9c83527a4, type: 3}

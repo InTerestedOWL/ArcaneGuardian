@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Enemy
+  - PlayerWeapon
+  - EnemyWeapon
+  - POI
+  - Turret
+  - POI_Building
+  - Projectile
+  - WaveSpawner
+  - BuildingGrid
+  - InformationWindow
+  - Map
+  - Tree
+  - Terrain
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Character
+  - Water
+  - UI
+  - UI Window
+  - Map
+  - MiniMap
+  - Grid
+  - Building
+  - EnvironmentLayer
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0

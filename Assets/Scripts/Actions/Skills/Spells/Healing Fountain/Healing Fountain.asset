@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce0ce1502cb856244971fe94f9962a3e, type: 3}
+  m_Name: Healing Fountain
+  m_EditorClassIdentifier: 
+  displayName: Healing Fountain
+  description: '"I need healing!" Why not do it yourself? With this spell you place
+    a magical healing fountain on the ground to regain your precious healthpoints.
+    Remember, green circles are helpful! Do not move out!'
+  icon: {fileID: 21300000, guid: 64c954234fb227d499f6d6664d746e03, type: 3}
+  cooldown: 8
+  damage: -10
+  skillCap: 1
+  targetingStrategy: {fileID: 11400000, guid: 2026960a33c66134dbef2f253a8c698a, type: 2}
+  filterStrategy: {fileID: 11400000, guid: 86ae4ec3085f4f34d8d45d6da24bcf2b, type: 2}
+  effectStrategies:
+  - {fileID: 11400000, guid: b29fd8435c6c42b4086bf67531ae6bd9, type: 2}
+  - {fileID: 11400000, guid: 7e2f476f80055b84a95762fe0a907a34, type: 2}
+  hitSounds: {fileID: 11400000, guid: af9e45988bbf0624cb120f296d080f63, type: 2}

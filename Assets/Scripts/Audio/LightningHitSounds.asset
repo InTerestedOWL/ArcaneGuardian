@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2695f6ebbd9e54646b3eb283f98ab228, type: 3}
+  m_Name: LightningHitSounds
+  m_EditorClassIdentifier: 
+  hitSounds:
+  - {fileID: 8300000, guid: 728878c408aa12c4ba3afc78ce4bd568, type: 3}
+  - {fileID: 8300000, guid: ba6b399f50bf35a48bfd439752da2c49, type: 3}
+  - {fileID: 8300000, guid: 29b435d92d101a8419186d2c34d55592, type: 3}

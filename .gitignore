@@ -71,5 +71,8 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
+# Samples from Package Manager
+/[Aa]ssets/[Ss]amples
+
 # Allow Asset unitypackages
 !/[Aa]ssets/[Aa]sset_[Ee]xports/*.unitypackage

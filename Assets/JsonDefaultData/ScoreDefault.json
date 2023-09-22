@@ -1,0 +1,44 @@
+{
+    "Items": [
+        {
+            "name": "Amonora",
+            "score": 1000
+        },
+        {
+            "name": "Edelis",
+            "score": 900
+        },
+        {
+            "name": "Uwe",
+            "score": 800
+        },
+        {
+            "name": "Uvoras",
+            "score": 700
+        },
+        {
+            "name": "Anitor",
+            "score": 600
+        },
+        {
+            "name": "Avae",
+            "score": 500
+        },
+        {
+            "name": "Vaharis",
+            "score": 400
+        },
+        {
+            "name": "Valune",
+            "score": 300
+        },
+        {
+            "name": "Rilore",
+            "score": 200
+        },
+        {
+            "name": "Ivius",
+            "score": -100
+        }
+    ]
+}

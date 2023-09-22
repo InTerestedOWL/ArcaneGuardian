@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2695f6ebbd9e54646b3eb283f98ab228, type: 3}
+  m_Name: WoodenShieldHits
+  m_EditorClassIdentifier: 
+  hitSounds:
+  - {fileID: 8300000, guid: fec489a7279d60447a4c53135c0b3029, type: 3}
+  - {fileID: 8300000, guid: 6d8f6c1b76a19024eb1b404f35c18b41, type: 3}
+  - {fileID: 8300000, guid: be886925edfc54d4ab2e9210e1ceae41, type: 3}
+  - {fileID: 8300000, guid: 3ad7f1e9332d0874886de91690e228e4, type: 3}
+  - {fileID: 8300000, guid: 1665d3073aa3b7f429f4301a1e13a367, type: 3}

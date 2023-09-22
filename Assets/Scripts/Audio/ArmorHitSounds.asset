@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2695f6ebbd9e54646b3eb283f98ab228, type: 3}
+  m_Name: ArmorHitSounds
+  m_EditorClassIdentifier: 
+  hitSounds:
+  - {fileID: 8300000, guid: 01d3f0f1215b46f498d22c03c9e26545, type: 3}
+  - {fileID: 8300000, guid: 74c9470bc0c045d4db5db83ecdbcf1ca, type: 3}
+  - {fileID: 8300000, guid: 80c2b73e04681e74082685ed60efece6, type: 3}
+  - {fileID: 8300000, guid: 8edfa888f95fc2944bcdcd62d7d55652, type: 3}
+  - {fileID: 8300000, guid: 7c53a8b642aa3524ea30d14cd9fc852d, type: 3}
+  - {fileID: 8300000, guid: 3216891b164450f41af76cce37ae533e, type: 3}
+  - {fileID: 8300000, guid: 853b6ebf38ae2bb4e89f3f8672ed4e21, type: 3}
+  - {fileID: 8300000, guid: 098a79acad8c5a54eb62adf6e2db24aa, type: 3}
+  - {fileID: 8300000, guid: 9013ef5dd0eb2a34d9f83ef1643979b2, type: 3}
+  - {fileID: 8300000, guid: 95078d998e5c24e4188ffa7b8dbcad50, type: 3}
+  - {fileID: 8300000, guid: b8194441163cf88409570f37ec6fd816, type: 3}
+  - {fileID: 8300000, guid: 7e7a2d7ec36b6394ead1a7b78b7e8813, type: 3}

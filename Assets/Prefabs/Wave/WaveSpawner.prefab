@@ -1,0 +1,196 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1038474119
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1038474124}
+  - component: {fileID: 1038474123}
+  - component: {fileID: 1038474121}
+  - component: {fileID: 1038474120}
+  m_Layer: 0
+  m_Name: WaveSpawnerPlaneOfDeath
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1038474124
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038474119}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -50, z: 0}
+  m_LocalScale: {x: 300, y: 1, z: 300}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2793847054540226692}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &1038474123
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038474119}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!64 &1038474121
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038474119}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1038474120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038474119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48f6b0d3630faa14fb7e631714fe6795, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &2793847054540226694
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2793847054540226692}
+  - component: {fileID: 2793847054540226695}
+  m_Layer: 0
+  m_Name: WaveSpawner
+  m_TagString: WaveSpawner
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2793847054540226692
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2793847054540226694}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.0720104, y: -25.102995, z: 37.778954}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1038474124}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2793847054540226695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2793847054540226694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 187e38efcd387fa499fdf3287242232a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goblins:
+  - enemyPrefab: {fileID: 7128717508042274872, guid: 02276566de6f24a45ab7078a35b62f56, type: 3}
+    cost: 1
+  - enemyPrefab: {fileID: 4765816137945996716, guid: 96ac7ea4a6ce059478d6c4066d286d8e, type: 3}
+    cost: 1
+  - enemyPrefab: {fileID: 4199491526737211174, guid: 7f13d2702b0be474e8d72a5395000502, type: 3}
+    cost: 1
+  - enemyPrefab: {fileID: 6476289248719202484, guid: b60aec17b7588b34ca3dc8455ad1cec2, type: 3}
+    cost: 1
+  skeletons:
+  - enemyPrefab: {fileID: 5828998094833073355, guid: 55f00d5851bddeb4f868b0bb44a90a7e, type: 3}
+    cost: 1
+  - enemyPrefab: {fileID: 7050981619473487349, guid: f06206b2cc9059544be1b7e9a305ad73, type: 3}
+    cost: 1
+  - enemyPrefab: {fileID: 4908944783188611030, guid: 3d6df0f698f0b434695d7264001dabd9, type: 3}
+    cost: 1
+  - enemyPrefab: {fileID: 6309248154647329932, guid: c58d9f5889e757f4ea12f0fc2432f665, type: 3}
+    cost: 1
+  elves:
+  - enemyPrefab: {fileID: 2025109569303427199, guid: 293b47c114de6e145abf3a5fc5699bf4, type: 3}
+    cost: 1
+  - enemyPrefab: {fileID: 678896160363174952, guid: fd3cea9c3b71bbc4d89bc402e0667095, type: 3}
+    cost: 1
+  - enemyPrefab: {fileID: 2330250057498478650, guid: ac391e42866922743bfc38ac9cad78f2, type: 3}
+    cost: 1
+  - enemyPrefab: {fileID: 1818538780786566697, guid: 8164cb5b5f717ee4f97ba3f9230e4c8a, type: 3}
+    cost: 1
+  humans:
+  - enemyPrefab: {fileID: 1167394843599079533, guid: 9239d3bbd5091a64eb2d112af4466c05, type: 3}
+    cost: 1
+  - enemyPrefab: {fileID: 7042249021891992166, guid: a72f9be2d7c094d4dae0e0d2fcc19676, type: 3}
+    cost: 1
+  - enemyPrefab: {fileID: 6913516425384752054, guid: 9431563ca51dc04468533e3b6a13cd6b, type: 3}
+    cost: 1
+  - enemyPrefab: {fileID: 1435926247388347987, guid: ee5b9ee9f89c49b45b6de63ac79cbd5a, type: 3}
+    cost: 1
+  - enemyPrefab: {fileID: 2731885936117290628, guid: 7c7a27d0137faee439df993bdefd2bcf, type: 3}
+    cost: 1
+  bosses:
+  - enemyPrefab: {fileID: 1526124922483944911, guid: c4dc39f58e0b91245a5490d7793bc704, type: 3}
+    cost: 0
+  - enemyPrefab: {fileID: 4676610256778123000, guid: 7c636ae4ac8d75c49b0ce5ad151807cf, type: 3}
+    cost: 0
+  - enemyPrefab: {fileID: 1388853969672183129, guid: 9d391474d5149b04cbd680fcdc350892, type: 3}
+    cost: 0
+  - enemyPrefab: {fileID: 6328657927846770666, guid: 42e02adb95c170744886d039d9436c48, type: 3}
+    cost: 0
+  specials:
+  - enemyPrefab: {fileID: 4952791440815338253, guid: fc895f45c3abb2c42a24d21d7c119c7b, type: 3}
+    cost: 0
+  - enemyPrefab: {fileID: 4915412689365189059, guid: 253ccaba7d3017049aa05adf403d12ef, type: 3}
+    cost: 0
+  currentWave: 0
+  waveValueStart: 4
+  valuePerWave: 1
+  startGoblin: 1
+  startSkeletons: 4
+  startElves: 7
+  startHumans: 10
+  startAllTogether: 13
+  enemiesToSpawn: []
+  spawnLocation:
+  - {fileID: 0}
+  - {fileID: 0}
+  waveDuration: 30
+  skillPointsEveryXWave: 3
+  skillTree: {fileID: 0}
+  globalAudioSystem: {fileID: 0}
+  undeadVoice: {fileID: 8300000, guid: 0353edc45651a6e42a97dacd081cb5ed, type: 3}
+  undeadBossVoice: {fileID: 8300000, guid: 13da3b0b841275f4bb3db7ffd755cc19, type: 3}
+  humanVoice: {fileID: 8300000, guid: e5026e126a207e745bec4c82667c2155, type: 3}
+  humanBossVoice: {fileID: 8300000, guid: 84459fddf14ec744ba017a93810098d2, type: 3}
+  elfVoice: {fileID: 8300000, guid: 6e7c47006611a724c8307681aeace3f8, type: 3}
+  elfBossVoice: {fileID: 8300000, guid: 8e892726942ea054194a609813952c35, type: 3}
+  goblinVoice: {fileID: 8300000, guid: 57f3c5876beabaf43b4b19e38401dd84, type: 3}
+  goblinBossVoice: {fileID: 8300000, guid: 37fd53f84944743419876e1ddc9ec7ea, type: 3}
+  announcerVoice: {fileID: 8300000, guid: 20c4397e97e70cf40969aa3896baca26, type: 3}
+  waveStart: {fileID: 8300000, guid: d5fad9f038eb6e4439448afcb99f213b, type: 3}
+  alarm: {fileID: 8300000, guid: 474becfb19ba2944690ff120c42d560a, type: 3}
+  roundHeal: {fileID: 11400000, guid: af9e45988bbf0624cb120f296d080f63, type: 2}
+  spawnedEnemies: []

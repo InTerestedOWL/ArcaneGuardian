@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2695f6ebbd9e54646b3eb283f98ab228, type: 3}
+  m_Name: PunchSounds
+  m_EditorClassIdentifier: 
+  hitSounds:
+  - {fileID: 8300000, guid: 13347790cbb51b14d849d4e52445eaea, type: 3}
+  - {fileID: 8300000, guid: d1bcb2bcf8b115c4d8895e959323946d, type: 3}
+  - {fileID: 8300000, guid: 4422ab4f9f451694fa735366ec8e708d, type: 3}
+  - {fileID: 8300000, guid: dc4580eb92bb8204cbd9d60679b0879e, type: 3}
+  - {fileID: 8300000, guid: 363209cf2e457ff4d94df1c6341bba47, type: 3}
+  - {fileID: 8300000, guid: 5a6405ed60e3b474e946897f96dd97b4, type: 3}
+  - {fileID: 8300000, guid: e402ac9320628c9408fb91d36454ff6b, type: 3}
+  - {fileID: 8300000, guid: 8599fbb8af17731449983986bb5e2671, type: 3}

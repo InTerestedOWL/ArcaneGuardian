@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce0ce1502cb856244971fe94f9962a3e, type: 3}
+  m_Name: Ball of Lightning Player
+  m_EditorClassIdentifier: 
+  displayName: Ball of Lightning
+  description: Electrify your enemies with this ball of pure power! This mighty spell 
+    bounces between your enemies like no other! Shocking, isn't it?
+  icon: {fileID: 21300000, guid: 10e310e2d1635824aaa4dc3f50f89747, type: 3}
+  cooldown: 5
+  damage: 20
+  skillCap: 1
+  targetingStrategy: {fileID: 11400000, guid: dce0bd562e430a645aabfa9acac64ee2, type: 2}
+  filterStrategy: {fileID: 11400000, guid: 9d94cec049fac1046b5d39f60ab4ea82, type: 2}
+  effectStrategies:
+  - {fileID: 11400000, guid: d61b6eeee6f0b0b48b12199f0e57b1f1, type: 2}
+  hitSounds: {fileID: 11400000, guid: c619e33e03c97cc4ba9011e0a04db8f4, type: 2}

@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f7ac2c3334c6d246b04c897d0286ff9, type: 3}
+  m_Name: HumanWizardVoices
+  m_EditorClassIdentifier: 
+  painSounds:
+  - {fileID: 8300000, guid: 625b745ae9cd84c40990dec286fcfeaf, type: 3}
+  - {fileID: 8300000, guid: ce36c0b1decfc7847a62fe06a206b413, type: 3}
+  - {fileID: 8300000, guid: d353848e78b26354298864dd630ffe72, type: 3}
+  - {fileID: 8300000, guid: 0adff7cc42647774c840fc0d285c724c, type: 3}
+  - {fileID: 8300000, guid: c83a391afa3dc444b9632f88f4670717, type: 3}
+  - {fileID: 8300000, guid: 46860dc39fcaa7a43aec00e1f4e9de2d, type: 3}
+  - {fileID: 8300000, guid: 74aedf049e521cc4f9e2aa861df2999a, type: 3}
+  - {fileID: 8300000, guid: ee101b779e9ee9d47bd2367f3bff20e0, type: 3}
+  - {fileID: 8300000, guid: a65c2dbd2bd56024793bab2bd9da3739, type: 3}
+  deathSounds:
+  - {fileID: 8300000, guid: d7c9dcca15e8ab349992148edd37a560, type: 3}
+  - {fileID: 8300000, guid: e8ed6bbc5e3ca83409000ef6f2b0f9b2, type: 3}
+  - {fileID: 8300000, guid: a770434e1f72a8040991cd903c3ac829, type: 3}
+  - {fileID: 8300000, guid: b04fd2310abae0d4ca8669f98de00033, type: 3}
+  - {fileID: 8300000, guid: 0ab2e398d42ad764b83c816ff2d29083, type: 3}

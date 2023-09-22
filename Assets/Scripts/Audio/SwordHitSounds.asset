@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2695f6ebbd9e54646b3eb283f98ab228, type: 3}
+  m_Name: SwordHitSounds
+  m_EditorClassIdentifier: 
+  hitSounds:
+  - {fileID: 8300000, guid: 9186b36e3eb0367489f5594f5b04e712, type: 3}
+  - {fileID: 8300000, guid: 772c2263b9d5f584ea53b96afab245cb, type: 3}
+  - {fileID: 8300000, guid: a1987b65186e16248b2a3be711ea52d2, type: 3}
+  - {fileID: 8300000, guid: 0c14b9e6f7a96dd4780e89feeccad857, type: 3}
