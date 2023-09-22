@@ -227,12 +227,14 @@ namespace AG.Combat {
 
                 PlaceableObject po = GetComponent<PlaceableObject>();
                 BuildingSystem bs = GameObject.Find("Grid").GetComponent<BuildingSystem>();
+                Collider collider = GetComponent<Collider>();
+                collider.enabled = false;
                 if(po != null) {
                     Vector3Int start = bs.gridLayout.WorldToCell(po.GetStartPosition());
                     bs.tileToPlacable(start, po.Size);
                     bs.poi_building.removePlacedBuilding(po);
                 }
-                
+                GameObject.Destroy(transform.gameObject, 5);
             }
         }
 

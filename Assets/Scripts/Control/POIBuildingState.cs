@@ -21,7 +21,6 @@ namespace AG.Control
         {
             //TODO: Remove POI from building action abr
             //TODO: Play Placing animation
-            Debug.Log("Building state");
             //TODO: Place POI on grid
             GameObject poi_building = GameObject.FindWithTag("POI_Building");
             Vector3 tar_pos = poi_building.transform.position;
@@ -37,7 +36,6 @@ namespace AG.Control
         {
             if(!arrived && controller.movement.navMeshAgent.remainingDistance < 0.1){
                 arrived = true;
-                Debug.Log("set to true!");
                 controller.animator.SetBool("POIBuilt",true);
             }         
         }
@@ -45,7 +43,6 @@ namespace AG.Control
         public void Exit(StateMachineController controller)
         {
             arrived = false;
-            Debug.Log("set to false!");
             controller.animator.SetBool("POIBuilt",false);
             controller.movement.navMeshAgent.stoppingDistance = 1.5f;
             BuildingSystem bs = GameObject.Find("Grid").GetComponent<BuildingSystem>();

@@ -113,9 +113,11 @@ namespace AG.Control
 
             while (Quaternion.Angle(controller.transform.rotation, lookRotation) > rotationThreshold)
             {
-                controller.transform.rotation = Quaternion.Slerp(controller.transform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
-                direction = (target.transform.position - controller.transform.position).normalized;
-                lookRotation = Quaternion.LookRotation(new Vector3(direction.x, controller.transform.position.y, direction.z));
+                if(target != null){
+                    controller.transform.rotation = Quaternion.Slerp(controller.transform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
+                    direction = (target.transform.position - controller.transform.position).normalized;
+                    lookRotation = Quaternion.LookRotation(new Vector3(direction.x, controller.transform.position.y, direction.z));
+                }
                 yield return null;
             }
         }

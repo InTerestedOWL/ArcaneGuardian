@@ -85,6 +85,7 @@ public class PlaceableObject : MonoBehaviour
                     }
                     catch(Exception e){
                         //skip
+                        Debug.Log(e.Message);
                     }
                 }
                 else{
@@ -119,7 +120,6 @@ public class PlaceableObject : MonoBehaviour
         CalculateSizeInCells();
     }
     void OnTriggerEnter(Collider other) {
-        Debug.Log("Entered building");
         GameObject go = other.gameObject;
         removeIfTree(go);
     }
