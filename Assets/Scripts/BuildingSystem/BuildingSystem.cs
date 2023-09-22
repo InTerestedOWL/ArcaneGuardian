@@ -322,6 +322,7 @@ public class BuildingSystem : MonoBehaviour
     }
     public void tileToPlacable(Vector3Int start, Vector3Int size){
         MainTilemap.BoxFill(start, tilePlacable, start.x, start.y, start.x+size.x, start.y+size.y);
+        DrawGrid();
     }
     public void startBuilding(GameObject buildingObject){
         if(buildingContext){
