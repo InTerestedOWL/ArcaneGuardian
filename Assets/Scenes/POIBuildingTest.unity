@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &151254177 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4837290076451575576, guid: 5662234034f5df3428a8777e272a5e1a, type: 3}
+  m_PrefabInstance: {fileID: 921377432}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02d2ef772916c7d428d8f94b7bc59f4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &182651305 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5585800000778561513, guid: dac5a366cbfbda342bc897f3a71501fb, type: 3}
@@ -2395,6 +2406,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1459705905 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2692301275217625406, guid: 12508a110f03cf44d9b5ea0c76ad7284, type: 3}
+  m_PrefabInstance: {fileID: 594501511}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4b51b634a18c3344b6f4ee5eca01f5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1468481983 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 106539812999965286, guid: e53484f455757464398e5c3b9ba5d8c6, type: 3}
@@ -2991,5 +3013,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaveSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 2793847054540226695, guid: 53965cd7db95e8048ad51d851efd5b7d, type: 3}
+      propertyPath: skillTree
+      value: 
+      objectReference: {fileID: 1459705905}
+    - target: {fileID: 2793847054540226695, guid: 53965cd7db95e8048ad51d851efd5b7d, type: 3}
+      propertyPath: globalAudioSystem
+      value: 
+      objectReference: {fileID: 151254177}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53965cd7db95e8048ad51d851efd5b7d, type: 3}
