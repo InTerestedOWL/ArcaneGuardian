@@ -45,6 +45,7 @@ public class TerrainGenerator : MonoBehaviour
 
     private bool hasBuildedNavMesh = false;
     private Coroutine navMeshCR = null;
+    private bool playerOnMesh = false;
     
      void Start()
      {
@@ -76,6 +77,20 @@ public class TerrainGenerator : MonoBehaviour
             viewerPositionOld = viewerPosition;
             UpdateVisibleChunks();
         }
+
+        if (!playerOnMesh) {
+            NavMeshHit hit;
+            NavMesh.SamplePosition(player.transform.position, out hit, 1f, NavMesh.AllAreas);
+            if (hit.hit) {
+                StartCoroutine(FinishLoading());
+                playerOnMesh = true;
+            }
+        }
+    }
+
+    private IEnumerator FinishLoading() {
+        yield return new WaitForSeconds(0.5f);
+        LoadingHandler.AddLoadingPercentage(10);
     }
 
     void UpdateVisibleChunks()
@@ -162,7 +177,7 @@ public class TerrainGenerator : MonoBehaviour
                 poi.GetComponent<NavMeshAgent>().enabled = true;
                 poi.GetComponent<POIController>().enabled = true;
                 player.transform.position = playerPosition;
-                LoadingHandler.AddLoadingPercentage(10);
+                //LoadingHandler.AddLoadingPercentage(10);
             }
             GetComponent<NavMeshSurface>().UpdateNavMesh(GetComponent<NavMeshSurface>().navMeshData);
                 
@@ -177,7 +192,7 @@ public class TerrainGenerator : MonoBehaviour
                 poi.GetComponent<NavMeshAgent>().enabled = true;
                 poi.GetComponent<POIController>().enabled = true;
                 player.transform.position = playerPosition;
-                LoadingHandler.AddLoadingPercentage(10);
+                //LoadingHandler.AddLoadingPercentage(10);
             }
         }
     }
