@@ -72,7 +72,7 @@ public static class Noise
                 if (settings.normalizeMode == NormalizeMode.Global)
                 {
                     //adjust the last divisor to get a better estimation on the mesh
-                    float normalizedHeight = (noiseMap[x, y] + 1) / (maxPossibleHeight / 0.9f); 
+                    float normalizedHeight = (noiseMap[x, y] + 1) / (maxPossibleHeight / 0.9f);
                     noiseMap[x, y] = Mathf.Clamp(normalizedHeight, 0, int.MaxValue);
                 }
             }
