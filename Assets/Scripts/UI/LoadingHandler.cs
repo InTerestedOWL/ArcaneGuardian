@@ -26,7 +26,7 @@ public class LoadingHandler : MonoBehaviour {
 
     private void Update() {
         loadingBar.value = loadingBarValue;
-        if (loadingPercentage > 100) {
+        if (loadingPercentage > 101) {
             loading = false;
             if (tutorialHandler != null) {
                 tutorialHandler.ShowTutorials();
