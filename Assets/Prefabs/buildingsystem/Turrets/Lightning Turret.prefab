@@ -130,6 +130,7 @@ MonoBehaviour:
     this tower slings a bouncing ball of electricity at your enemies!
   price: 1000
   buildingSounds: {fileID: 11400000, guid: 4957c24ec7618484cabe92f59b188891, type: 2}
+  treeSounds: {fileID: 11400000, guid: db625e9f09faae645bf6a945c4972f70, type: 2}
   audioSource: {fileID: -9096933125716345395}
   audioController: {fileID: -4174224004960783113}
 --- !u!208 &-1717174887686929328

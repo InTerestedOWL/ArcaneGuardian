@@ -1,5 +1,3 @@
-// Based on https://www.udemy.com/course/unityrpg/
-
 using AG.Weapons;
 using UnityEngine;
 using UnityEngine.VFX;

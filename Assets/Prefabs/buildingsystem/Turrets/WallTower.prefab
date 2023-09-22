@@ -80,6 +80,7 @@ MonoBehaviour:
     less.
   price: 200
   buildingSounds: {fileID: 11400000, guid: 4957c24ec7618484cabe92f59b188891, type: 2}
+  treeSounds: {fileID: 11400000, guid: db625e9f09faae645bf6a945c4972f70, type: 2}
   audioSource: {fileID: 7912674267335691238}
   audioController: {fileID: -8754973261833661563}
 --- !u!208 &7078159420173399459

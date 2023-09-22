@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using AG.Audio.Sounds;
+using Unity.VisualScripting;
 
 public class PlaceableObject : MonoBehaviour
 {
     public bool Placed {get; set;}
     public Vector3Int Size {get; set;}
     public Vector3[] Vertices = new Vector3[4];
-
     public string buildingName;
     [TextArea] public string buildingDesc;
     public int price;
     [SerializeField] private HitSounds buildingSounds;
+    [SerializeField] private HitSounds treeSounds;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private CharacterAudioController audioController;    
 
@@ -70,7 +71,36 @@ public class PlaceableObject : MonoBehaviour
         gameObject.GetComponent<BoxCollider>().enabled= true;
         
     }
-
+    private void removeIfTree(GameObject go){
+        if(go.tag == "Tree"){
+            Destroy(go);
+            if (treeSounds && audioSource && audioController && treeSounds.HasHitSounds()) {
+                if(gameObject.tag == "POI_Building"){
+                    Debug.Log("IMA POI trying to do da sound");
+                    try{                       
+                        CharacterAudioController poiAudioController = GameObject.Find("POI").GetComponent<CharacterAudioController>();
+                        if(poiAudioController){
+                            poiAudioController.PlaySound(treeSounds.GetRandomHitSound());
+                        }
+                    }
+                    catch(Exception e){
+                        //skip
+                    }
+                }
+                else{
+                    audioController.PlaySound(treeSounds.GetRandomHitSound());
+                }             
+            }
+        }
+    }
+    public void checkForTrees(){
+        Ray ray = new Ray(transform.position, transform.forward);
+        LayerMask layerMask = LayerMask.GetMask("Default");
+        RaycastHit[] hitResults = Physics.SphereCastAll(ray, 1.0f, 1.0f, -1);
+        foreach(RaycastHit rh in hitResults){
+            removeIfTree(rh.collider.gameObject);
+        }
+    }
     public void Rotate()
     {
         transform.Rotate(new Vector3(0,90,0));
@@ -87,5 +117,10 @@ public class PlaceableObject : MonoBehaviour
     {
         GetColliderVertexPositionsLocal();
         CalculateSizeInCells();
+    }
+    void OnTriggerEnter(Collider other) {
+        Debug.Log("Entered building");
+        GameObject go = other.gameObject;
+        removeIfTree(go);
     }
 }

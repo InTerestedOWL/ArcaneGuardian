@@ -69,7 +69,5 @@ namespace AG.Combat
             Destroy(hitEffectInstance);
             yield return null;
         }
-
     }
-
 }

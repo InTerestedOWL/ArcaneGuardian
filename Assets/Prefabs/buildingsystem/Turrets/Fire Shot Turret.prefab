@@ -130,6 +130,7 @@ MonoBehaviour:
     bombarded by fiery rocks of death by this tower.
   price: 700
   buildingSounds: {fileID: 11400000, guid: 4957c24ec7618484cabe92f59b188891, type: 2}
+  treeSounds: {fileID: 11400000, guid: db625e9f09faae645bf6a945c4972f70, type: 2}
   audioSource: {fileID: 2572476389587396662}
   audioController: {fileID: -6942119700482645899}
 --- !u!208 &-1717174887686929328

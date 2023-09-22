@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 4769902969769794404}
   - component: {fileID: 4769902969769794405}
   - component: {fileID: 4769902969769794406}
-  - component: {fileID: 384151172}
+  - component: {fileID: 2240738774613217241}
   m_Layer: 5
   m_Name: Settings
   m_TagString: Untagged
@@ -403,7 +403,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &384151172
+--- !u!114 &2240738774613217241
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -423,6 +423,22 @@ MonoBehaviour:
         - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: GlobalAudioSystem, Assembly-CSharp
           m_MethodName: PlayUIHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: GlobalAudioSystem, Assembly-CSharp
+          m_MethodName: PlayUIClickSound
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -522,7 +538,7 @@ GameObject:
   - component: {fileID: 4769902970075965897}
   - component: {fileID: 4769902970075965898}
   - component: {fileID: 4769902970075965899}
-  - component: {fileID: 1811949825}
+  - component: {fileID: 8679028233616721174}
   m_Layer: 5
   m_Name: Main Menu
   m_TagString: Untagged
@@ -657,7 +673,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1811949825
+--- !u!114 &8679028233616721174
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -677,6 +693,22 @@ MonoBehaviour:
         - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: GlobalAudioSystem, Assembly-CSharp
           m_MethodName: PlayUIHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: GlobalAudioSystem, Assembly-CSharp
+          m_MethodName: PlayUIClickSound
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -789,7 +821,7 @@ GameObject:
   - component: {fileID: 4769902970579163219}
   - component: {fileID: 4769902970579163220}
   - component: {fileID: 4769902970579163221}
-  - component: {fileID: 2043151875}
+  - component: {fileID: 23697847192945834}
   m_Layer: 5
   m_Name: Exit to Desktop
   m_TagString: Untagged
@@ -924,7 +956,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2043151875
+--- !u!114 &23697847192945834
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -944,6 +976,22 @@ MonoBehaviour:
         - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: GlobalAudioSystem, Assembly-CSharp
           m_MethodName: PlayUIHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: GlobalAudioSystem, Assembly-CSharp
+          m_MethodName: PlayUIClickSound
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

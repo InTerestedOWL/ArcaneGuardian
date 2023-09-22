@@ -19,7 +19,7 @@ namespace AG.Control {
             stateMachine.RegisterState(new AiChasePlayerState());
             stateMachine.RegisterState(new AiDeathState()); //TODO: brauchen wir einen DeathState? -> wird in combatTarget umgesetzt
             stateMachine.RegisterState(new AiIdleState());
-            stateMachine.RegisterState(new AttackPlayerState());
+            stateMachine.RegisterState(new AiAttackState());
             stateMachine.ChangeState(initialState);
         }
     }
