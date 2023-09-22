@@ -10,8 +10,7 @@ using AG.Actions;
 
 namespace AG.UI.Draggable {
     /// <summary>
-    /// To be put on the icon representing an inventory item. Allows the slot to
-    /// update the icon and number.
+    /// To be put on the icon representing a skill. Allows the slot to update the icon.
     /// </summary>
     [RequireComponent(typeof(Image))]
     public class SkillRef : MonoBehaviour {

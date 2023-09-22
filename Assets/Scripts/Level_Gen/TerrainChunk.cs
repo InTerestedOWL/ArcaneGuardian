@@ -78,7 +78,8 @@ public class TerrainChunk
     {
         ThreadedDataRequester.RequestData(
             () => HeightMapGenerator.GenerateHeightMap(meshSettings.numVertsPerLine, meshSettings.numVertsPerLine,
-                this.heightMapSettings, sampleCenter,coord, meshSettings.numVertsPerLine, true, fallOffMap, meshSettings.chunkCount / 2), OnHeightMapReceived);
+                this.heightMapSettings, sampleCenter, coord, meshSettings.numVertsPerLine, true, fallOffMap,
+                meshSettings.chunkCount / 2), OnHeightMapReceived);
     }
 
 
@@ -142,7 +143,7 @@ public class TerrainChunk
             }
 
             if (wasVisible != visible)
-            {   
+            {
                 SetVisible(visible);
                 if (onVisibilityChanged != null)
                 {
@@ -151,25 +152,6 @@ public class TerrainChunk
             }
         }
     }
-
-
-    /*public void UpdateCollisionMesh()
-    {
-        if (!hasSetCollider)
-        {
-            if (!lodMeshes[2].hasRequestedMesh)
-            {
-                lodMeshes[2].RequestMesh(heightMap, meshSettings);
-            }
-
-
-            if (lodMeshes[colliderLODIndex].hasMesh)
-            {
-                meshCollider.sharedMesh = lodMeshes[colliderLODIndex].mesh;
-                hasSetCollider = true;
-            }
-        }
-    }*/
 
     public void SetVisible(bool visible)
     {

@@ -14,26 +14,23 @@ public class ThreadedDataRequester : MonoBehaviour
     {
         instance = FindObjectOfType<ThreadedDataRequester>();
     }
-    
+
     public static void RequestData(Func<object> generateData, Action<object> callback)
     {
-        ThreadStart threadStart = delegate
-        {
-            instance.DataThread(generateData, callback);
-        };
+        ThreadStart threadStart = delegate { instance.DataThread(generateData, callback); };
         new Thread(threadStart).Start();
     }
 
     void DataThread(Func<object> generateData, Action<object> callback)
     {
         object data = generateData();
-        
+
         lock (dataQueue)
         {
             dataQueue.Enqueue(new ThreadInfo(callback, data));
         }
     }
-    
+
     void Update()
     {
         if (dataQueue.Count > 0)
@@ -45,8 +42,8 @@ public class ThreadedDataRequester : MonoBehaviour
             }
         }
     }
-    
-    
+
+
     struct ThreadInfo
     {
         public readonly Action<object> callback;

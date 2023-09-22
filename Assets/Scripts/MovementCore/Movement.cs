@@ -1,4 +1,5 @@
 // Based on https://www.udemy.com/course/unityrpg/
+// NavMesh approach taken from the course, but heavily modified to fit our project.
 
 using UnityEngine;
 using UnityEngine.AI;

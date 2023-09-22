@@ -1,4 +1,5 @@
 // Based on https://www.udemy.com/course/unityrpg/
+// As now using WASD for control mostly overhauled and custom.
 
 using System.Collections;
 using UnityEngine;
@@ -59,7 +60,6 @@ namespace AG.Control {
                 keysPressed = false;
             }
 
-            // TODO: Ggf. anpassen an "Stopping Distance" des NavMeshAgent
             curMovement = new Vector3(curDirection.x, 0, curDirection.y);
             // Moving in the direction of the camera
             curMovement = Camera.main.transform.TransformDirection(curMovement);
@@ -110,7 +110,6 @@ namespace AG.Control {
         * Move to mouse position while mouse button hold down.
         */
         IEnumerator ContinuousMouseMovement() {
-            // TODO Stop if menu is opened - currently bugged when menu is opened while moving
             while (mouseHold) {
                 RaycastHit hit;
                 bool hasHit;
@@ -134,7 +133,6 @@ namespace AG.Control {
 
             Vector2 mousePos = Mouse.current.position.ReadValue();
             // Only move when not over UI
-            // TODO: Check if user is not dragging something
             if (!checkIfOverUI(mousePos)) {
                 ray = Camera.main.ScreenPointToRay(mousePos);
 

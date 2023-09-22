@@ -36,7 +36,7 @@ public class Skillbook : MonoBehaviour {
         foreach (ActionBarSlotUI actionBarSlotUI in actionBarSlotUIs) {
             ActionItem actionItem = actionBarSlotUI.GetItem();
             if (actionItem?.GetDisplayName() == skill.GetDisplayName()) {
-                actionBarSlotUI.RemoveItems(0); //Warum muss ich bei der Methode einen int angeben?
+                actionBarSlotUI.RemoveItems(0);
             }
         }
     }

@@ -6,10 +6,20 @@
   <component name="ChangeListManager">
     <list default="true" id="6aabc18d-6f69-4541-9b79-2d124d9cb7fb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ArcaneGuardian/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ArcaneGuardian/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BuildingSystem/PlaceableObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BuildingSystem/PlaceableObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Wave/WaveSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Wave/WaveSpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shaders/Terrain.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shaders/Terrain.shadergraph" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TerrainAssets/Default Object Data.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TerrainAssets/Default Object Data.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/GridMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/GridMaterial.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/All_Together.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/All_Together.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level_Gen/Data/HeightMapSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level_Gen/Data/HeightMapSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level_Gen/Data/MeshSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level_Gen/Data/MeshSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level_Gen/HeightMapGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level_Gen/HeightMapGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level_Gen/MeshGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level_Gen/MeshGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level_Gen/Noise.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level_Gen/Noise.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level_Gen/RandomPointOnNavMesh.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level_Gen/RandomPointOnNavMesh.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level_Gen/TerrainChunk.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level_Gen/TerrainChunk.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level_Gen/TerrainGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level_Gen/TerrainGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level_Gen/TextureGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level_Gen/TextureGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level_Gen/ThreadedDataRequester.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level_Gen/ThreadedDataRequester.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/LoadingHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/LoadingHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TerrainAssets/Default Noise.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TerrainAssets/Default Noise.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +114,9 @@
       <workItem from="1694847258321" duration="8357000" />
       <workItem from="1694880524703" duration="1195000" />
       <workItem from="1694881748078" duration="673000" />
-      <workItem from="1695220302604" duration="3061000" />
+      <workItem from="1695220302604" duration="4645000" />
+      <workItem from="1695317296620" duration="7488000" />
+      <workItem from="1695354309974" duration="4962000" />
     </task>
     <task id="LOCAL-00001" summary="Place Player and POI on navmesh, range is ten">
       <option name="closed" value="true" />
