@@ -17,8 +17,11 @@ MonoBehaviour:
     Well now you can in the blink of an eye! Literally.
   icon: {fileID: 21300000, guid: d1edc3a43e5d75348862280046433f1c, type: 3}
   cooldown: 2
+  damage: 0
+  skillCap: 1
   targetingStrategy: {fileID: 11400000, guid: 21edfd2074f8d7b4db4abded3b78beed, type: 2}
   filterStrategy: {fileID: 11400000, guid: 9d94cec049fac1046b5d39f60ab4ea82, type: 2}
   effectStrategies:
   - {fileID: 11400000, guid: 1fd785c340522664d874ad068338c36c, type: 2}
   - {fileID: 11400000, guid: 51a40e1ff4c373a4e913391157b06124, type: 2}
+  hitSounds: {fileID: 0}
