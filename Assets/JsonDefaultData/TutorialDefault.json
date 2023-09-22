@@ -22,7 +22,7 @@
         },
         {
             "name": "Crystal",
-            "description": "Great job!<br><br>Maybe you noticed something following your character. This is the <b>Source of Magic</b>.<br>It needs power to function, but can only do so if you place it.<br><br>Try changing to the <b>Building Mode</b> by pressing <b>B</b> after <b>closing</b> this tutorial window!",
+            "description": "Great job!<br><br>Maybe you noticed something following your character. This is the <b>Source of Magic</b>.<br>You can use it's power to infuse an area with magic and construct useful buildings.<br><br>Try changing to the <b>Building Mode</b> by pressing <b>B</b> after <b>closing</b> this tutorial window!",
             "completed": false
         },
         {
@@ -42,7 +42,7 @@
         },
         {
             "name": "TalentsOpen",
-            "description": "Nice!<br><br>Here you can spend <b>Talent Points</b> to unlock new Skills or upgrade existing ones.<br>Hovering over one with your <b>Mouse</b> shows some helpful information!<br><br>You earn Talent Points to learn new Skills by defeating strong invaders!<br><br>Try unlocking a <b>Skill</b> that is available (has a green border) by clicking it with the <b>Left Mousebutton</b> after <b>closing</b> this tutorial window!<br><br><i>You can always unlearn a Skill by clicking it with the <b>Right Mousebutton</b>!</i>",
+            "description": "Nice!<br><br>Here you can spend <b>Talent Points</b> to unlock new Skills.<br>Hovering over one with your <b>Mouse</b> shows some helpful information!<br><br>You earn Talent Points to learn new Skills by defeating strong invaders!<br><br>Try unlocking a <b>Skill</b> that is available (has a green border) by clicking it with the <b>Left Mousebutton</b> after <b>closing</b> this tutorial window!<br><br><i>You can always unlearn a Skill by clicking it with the <b>Right Mousebutton</b>!</i>",
             "completed": false
         },
         {
