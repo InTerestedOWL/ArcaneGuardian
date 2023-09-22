@@ -112,5 +112,14 @@ namespace AG.UI.Draggable {
             }
             skillRef.UseCurrentItem();
         }
+
+        private void OnDestroy() {
+            skillRef = null;
+            hotkeyReference.action.started -= TriggerHotkey;
+            if (castingReference != null)
+            {
+                castingReference.action.started -= TriggerHotkey;
+            }
+        }
     }
 }

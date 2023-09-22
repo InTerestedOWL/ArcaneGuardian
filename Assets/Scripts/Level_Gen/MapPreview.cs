@@ -68,7 +68,6 @@ public class MapPreview : MonoBehaviour
 
     private void RemoveAllObjectsWhichAreSpawnedRandomly()
     {
-        Debug.Log("Clean the action");
         GameObject[] trees = GameObject.FindGameObjectsWithTag("Tree");
 
         foreach (GameObject tree in trees)
