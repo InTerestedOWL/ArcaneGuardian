@@ -8,6 +8,7 @@ using UnityEngine;
 using System.Collections;
 using AG.Audio.Sounds;
 using UnityEngine.TextCore.Text;
+using AG.Weapons;
 
 namespace AG.Skills.Effects
 {
@@ -38,6 +39,10 @@ namespace AG.Skills.Effects
             Animator animator = user.GetComponent<Animator>();
             animator.SetTrigger("bladeSpin");
 
+            Weapon weapon = user.GetComponentInChildren<Weapon>();
+            weapon.knockbackForce += 100;
+            weapon.attackDamage += 50;
+
             if (chargeSounds != null) {
                 CharacterAudioController cac = user.GetComponent<CharacterAudioController>();
                 if (cac != null) {
@@ -61,6 +66,8 @@ namespace AG.Skills.Effects
             movement.ResumeRotation();
             // animator.ResetTrigger("bladeSpin");
             bc.DecreaseAttackStateCounter();
+            weapon.knockbackForce -= 100;
+            weapon.attackDamage -= 50;
         }
     }
 }

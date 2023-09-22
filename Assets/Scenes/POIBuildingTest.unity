@@ -183,6 +183,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6842070226348029833, guid: 293b47c114de6e145abf3a5fc5699bf4, type: 3}
+      propertyPath: weaponAttackSkill
+      value: 
+      objectReference: {fileID: 11400000, guid: af6762eecb05abf42a92e419159c7044, type: 2}
     - target: {fileID: 8083603660569776078, guid: 293b47c114de6e145abf3a5fc5699bf4, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -1927,7 +1931,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4648298520117601611, guid: 14dc4327c95c60a499408882c7acec01, type: 3}
       propertyPath: initialState
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5905644568222635296, guid: 14dc4327c95c60a499408882c7acec01, type: 3}
       propertyPath: m_RootOrder
@@ -1935,7 +1939,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5905644568222635296, guid: 14dc4327c95c60a499408882c7acec01, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.570345
+      value: 16.25
       objectReference: {fileID: 0}
     - target: {fileID: 5905644568222635296, guid: 14dc4327c95c60a499408882c7acec01, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1943,7 +1947,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5905644568222635296, guid: 14dc4327c95c60a499408882c7acec01, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.5678053
+      value: 14.79
       objectReference: {fileID: 0}
     - target: {fileID: 5905644568222635296, guid: 14dc4327c95c60a499408882c7acec01, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1979,7 +1983,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5905644568223020398, guid: 14dc4327c95c60a499408882c7acec01, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5905644569420691179, guid: 14dc4327c95c60a499408882c7acec01, type: 3}
+      propertyPath: maxHealth
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5905644569420691179, guid: 14dc4327c95c60a499408882c7acec01, type: 3}
+      propertyPath: currentHealth
+      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14dc4327c95c60a499408882c7acec01, type: 3}

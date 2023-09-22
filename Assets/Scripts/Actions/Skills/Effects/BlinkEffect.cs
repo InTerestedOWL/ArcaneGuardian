@@ -73,7 +73,6 @@ namespace AG.Skills.Effects
                 {
                     user.transform.position = curMovement;
                     movement.DoMovement(user.transform.position);
-                    Debug.Log("Blinking" + curMovement);
                 }
                 //Abbrechen, wenn hit.point.y <= 0.1f (Wasser beginnt bei 0, wir können auf Wasser nicht laufen)
                 else
