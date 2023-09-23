@@ -11,9 +11,9 @@ namespace AG.Control
             return AiStateId.AiDeath;
         }
 
-        //TODO: Problem mit CombatTarget -> CombatTarget handlet wenn eine Einheit stirbt
         public void Enter(StateMachineController controller)
         {
+            controller.gameObject.GetComponent<Collider>().enabled = false;
         }
 
         public void Update(StateMachineController controller)
