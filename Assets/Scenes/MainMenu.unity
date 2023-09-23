@@ -6260,6 +6260,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -63.3
       objectReference: {fileID: 0}
+    - target: {fileID: 8273699317940811315, guid: fb86b903db9243f44b49c7660cfafbd1, type: 3}
+      propertyPath: m_text
+      value: Skilltree
+      objectReference: {fileID: 0}
     - target: {fileID: 8273699318473788842, guid: fb86b903db9243f44b49c7660cfafbd1, type: 3}
       propertyPath: m_HorizontalAlignment
       value: 1

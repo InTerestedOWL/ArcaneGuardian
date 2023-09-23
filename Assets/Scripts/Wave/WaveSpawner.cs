@@ -270,7 +270,7 @@ public class WaveSpawner : MonoBehaviour
                 
                 if(skillPointsToAdd > 0){                    
                     skillTree.AddSkillPoints(skillPointsToAdd);
-                    iWindow.popupInformationWindow("You received "+skillPointsToAdd+" Skill Points! Open your  Skill Tree (L) to spend them!");
+                    iWindow.popupInformationWindow("You received "+skillPointsToAdd+" Skill Points! Open your  Skilltree (L) to spend them!");
                 }
 
                 skillPointsToAdd = 0;

@@ -37,12 +37,12 @@
         },
         {
             "name": "Talents",
-            "description": "As the <b>Arcane Guardian</b> you have powerful Skills to help you defend the Source.<br><br>Try opening the <b>Talent Menu</b> by pressing <b>L</b> after <b>closing</b> this tutorial window!",
+            "description": "As the <b>Arcane Guardian</b> you have powerful Skills to help you defend the Source.<br><br>Try opening the <b>Skilltree</b> by pressing <b>L</b> after <b>closing</b> this tutorial window!",
             "completed": false
         },
         {
             "name": "TalentsOpen",
-            "description": "Nice!<br><br>Here you can spend <b>Talent Points</b> to unlock new Skills.<br>Hovering over one with your <b>Mouse</b> shows some helpful information!<br><br>You earn Talent Points to learn new Skills by defeating strong invaders!<br><br>Try unlocking a <b>Skill</b> that is available (has a green border) by clicking it with the <b>Left Mousebutton</b> after <b>closing</b> this tutorial window!<br><br><i>You can always unlearn a Skill by clicking it with the <b>Right Mousebutton</b>!</i>",
+            "description": "Nice!<br><br>Here you can spend <b>Skill Points</b> to unlock new Skills.<br>Hovering over one with your <b>Mouse</b> shows some helpful information!<br><br>You earn Skill Points to learn new Skills by defeating strong invaders!<br><br>Try unlocking a <b>Skill</b> that is available (has a green border) by clicking it with the <b>Left Mousebutton</b> after <b>closing</b> this tutorial window!<br><br><i>You can always unlearn a Skill by clicking it with the <b>Right Mousebutton</b>!</i>",
             "completed": false
         },
         {
@@ -52,7 +52,7 @@
         },
         {
             "name": "Skillbook",
-            "description": "Here you can see your learned <b>Skills</b>.<br><br>Try dragging one with your <b>Mouse while holding it with the Left Mousbutton</b> to the <b>Actionbar</b> at the bottom of the screen!<br><br><i>Keep in mind that you can only assign Skills in <b>Normal Mode</b>. If you are still in <b>Building Mode</b>, press <b>B</b>!<br><br>Now close this tutorial window, your <b>Skillbook (<b>K</b> or clicking on X)</b> and your <b>Talent Menu (<b>L</b> or clicking on X)</b> and try using your new Skill by pressing the <b>matching keyboard key</b> of the Action in the <b>Actionbar</b>! <i>(Bottom right of the Action!)</i>",
+            "description": "Here you can see your learned <b>Skills</b>.<br><br>Try dragging one with your <b>Mouse while holding it with the Left Mousbutton</b> to the <b>Actionbar</b> at the bottom of the screen!<br><br><i>Keep in mind that you can only assign Skills in <b>Normal Mode</b>. If you are still in <b>Building Mode</b>, press <b>B</b>!<br><br>Now close this tutorial window, your <b>Skillbook</b> (<b>K</b> or clicking on <b>X</b>) and your <b>Skilltree</b> (<b>L</b> or clicking on <b>X</b>) and try using your new Skill by pressing the <b>matching keyboard key</b> of the Action in the <b>Actionbar</b>! <i>(Bottom right of the Action!)</i>",
             "completed": false
         },
         {
@@ -62,7 +62,7 @@
         },
         {
             "name": "TalentEarned",
-            "description": "You have earned a new <b>Talent Point</b>!<br><br>They will drop from Bosses like the one you just defeated. Great job!",
+            "description": "You have earned a new <b>Skill Point</b>!<br><br>They will drop from Bosses like the one you just defeated. Great job!",
             "completed": false
         },
         {
