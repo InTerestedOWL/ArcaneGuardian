@@ -71,14 +71,14 @@ namespace AG.Control
 
                         if (distanceToClosestPoint > controller.config.attackRange)
                         {
+                            if(rotationCoroutine != null){
+                                    controller.StopCoroutine(rotationCoroutine);
+                                    rotationCoroutine = null;
+                            }
+
                             if (!controller.combat.IsAttacking())
                             {
                                 controller.movement.DoMovement(closestPoint);
-
-                                if(rotationCoroutine != null){
-                                    controller.StopCoroutine(rotationCoroutine);
-                                    rotationCoroutine = null;
-                                }
                             }
                         }
                         else
