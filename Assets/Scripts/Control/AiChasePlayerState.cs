@@ -45,7 +45,7 @@ namespace AG.Control
                 return;
             }
 
-            if (controller.combatTarget.currentHealth > 0)
+            if (!controller.combatTarget.IsDead())
             {
                 timer -= Time.deltaTime;
 
@@ -92,6 +92,10 @@ namespace AG.Control
                     }
                     timer = controller.config.movementUpdateTime;
                 }
+            }
+            else 
+            {
+                controller.stateMachine.ChangeState(AiStateId.AiDeath);
             }
         }
 

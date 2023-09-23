@@ -180,7 +180,7 @@ namespace AG.Combat {
 
         private void Die() {
             GetComponent<Animator>().SetTrigger("killed");
-            // rb.isKinematic = true;
+
             healthBar?.gameObject.SetActive(false);
             transform.Find("MiniMapIcon")?.gameObject.SetActive(false);
             isDead = true;
@@ -196,6 +196,12 @@ namespace AG.Combat {
                     WaveSpawner ws = GameObject.FindGameObjectWithTag("WaveSpawner").GetComponent<WaveSpawner>();
                     ws.spawnedEnemies.Remove(gameObject);
                     ws.updateEnemiesAliveUI();
+                }
+
+                NavMeshAgent navMeshAgent = GetComponent<NavMeshAgent>();
+                if (navMeshAgent != null) {
+                    navMeshAgent.SetDestination(transform.position);
+                    // navMeshAgent.enabled = false; //Damit das funktioniert müssen die BoundingBoxes gefixt werden
                 }
 
                 //Despawn Enemies on Death
@@ -258,7 +264,7 @@ namespace AG.Combat {
             
             //Translate Enemy into Ground
             while (transform.position.y > -1.5f) {
-                transform.Translate(Vector3.down * sinkSpeed *  Time.deltaTime);
+                transform.position += Vector3.down * sinkSpeed * Time.deltaTime;
                 yield return new WaitForFixedUpdate();
             }
 
