@@ -24,6 +24,7 @@ namespace AG.UI
             {
                 SkillList.Add(skill);
             }
+            UpdateAllSkillUI();
         }
 
         private void OnEnable()
