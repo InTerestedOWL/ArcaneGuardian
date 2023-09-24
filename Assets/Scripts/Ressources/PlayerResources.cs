@@ -21,8 +21,9 @@ public class PlayerResources : MonoBehaviour
     public void updateBuildingCostUI(){
         int number = 0;
         foreach(TMP_Text t in buildingCostTexts){
-            
+            number = 0;
             bool r = int.TryParse(t.text, out number);
+            //Debug.Log("r:"+r+"number:"+number);
             if(r && number > gold){
                 t.color = colorRed;
             }else{
