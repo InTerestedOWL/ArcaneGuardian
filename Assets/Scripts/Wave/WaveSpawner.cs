@@ -291,7 +291,7 @@ public class WaveSpawner : MonoBehaviour
                 GenerateWave();
                 checkAndSetWaveIsBossWave();
                 //Increase skillpoints additionfor this wave
-                if(currentWave % skillPointsEveryXWave == 0){
+                if((currentWave+1) % skillPointsEveryXWave == 0){
                     skillPointsToAdd++;
                 }
                 if(waveIsBossWave){

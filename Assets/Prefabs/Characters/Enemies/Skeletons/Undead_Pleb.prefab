@@ -74,6 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a353050e4ce8b5042b59f71f26e2bb03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healingEffect: {fileID: 0}
   isBuilding: 0
   maxHealth: 75
   currentHealth: 75
@@ -100,6 +101,8 @@ MonoBehaviour:
   movement: {fileID: 0}
   combat: {fileID: 0}
   combatTarget: {fileID: 0}
+  animator: {fileID: 0}
+  rigidbody: {fileID: 0}
 --- !u!114 &7050981619473487357
 MonoBehaviour:
   m_ObjectHideFlags: 0
